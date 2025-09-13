@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Headphones, ChevronDown, Check, CheckCircle } from 'lucide-react';
+import { Headphones, ChevronDown, Check } from 'lucide-react';
 import { Museum } from '../App';
 import AudioPlayer from './AudioPlayer';
 import ProgressBar from './ProgressBar';
