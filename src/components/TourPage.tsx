@@ -172,7 +172,7 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
                     <div className="relative aspect-[4/3] bg-amber-50">
                       <img
                         src={stop.image}
-                        alt={`${stop.title} by ${stop.artistName}`}
+                        alt={`${stop.title}`}
                         loading="lazy"
                         decoding="async"
                         fetchPriority="low"
@@ -215,7 +215,7 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
                     <div className="flex-shrink-0 relative">
                       <img
                         src={stop.image}
-                        alt={`${stop.title} by ${stop.artistName}`}
+                        alt={`${stop.title}`}
                         loading="lazy"
                         decoding="async"
                         fetchPriority="low"
