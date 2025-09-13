@@ -120,31 +120,31 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
       {/* Tour Introduction */}
       <div className="mb-6 mt-20">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-text mb-2">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
             {museum.theme}
           </h2>
-          <p className="text-muted mb-1">{museum.description}</p>
-          <p className="text-accent font-medium">Duration: {museum.duration}</p>
+          <p className="text-gray-600 mb-1">{museum.description}</p>
+          <p className="text-amber-600 font-medium">Duration: {museum.duration}</p>
         </div>
         
         {/* Museum Introduction Audio */}
         <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 mb-4 border border-amber-100">
           <div className="flex items-center space-x-3 mb-3">
             <Headphones className="w-5 h-5 text-amber-600" />
-            <span className="text-sm font-medium text-text">Museum Introduction</span>
+            <span className="text-sm font-medium text-gray-900">Museum Introduction</span>
           </div>
-          <p className="text-muted text-sm mb-4">
+          <p className="text-gray-600 text-sm mb-4">
             Start your journey with an introduction to {museum.name} and this special tour.
           </p>
           <AudioPlayer audioUrl={museum.introAudio} title={`${museum.name} Introduction`} />
         </div>
       </div>
 
-      {/* Tour Stops Accordion */}
+      {/* Tour Stops Gallery */}
       <div className="space-y-1">
-        <h3 className="text-xl font-semibold text-text mb-3">Tour Stops</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-3">Tour Stops</h3>
         
-        <div className="space-y-1">
+        <div className="space-y-4">
           {museum.stops.map((stop, index) => {
             const isOpen = openStopId === stop.id;
             const isCompleted = isStopCompleted(stop.id);
@@ -153,27 +153,73 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
               <div 
                 key={stop.id}
                 ref={el => stopRefs.current[stop.id] = el}
-                className={`bg-white/80 backdrop-blur-sm border border-amber-200/50 rounded-xl overflow-hidden transition-opacity ${
-                  isCompleted ? 'opacity-70' : ''
-                }`}
+                className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-200 ${
+                  isCompleted ? 'opacity-80' : ''
+                } hover:shadow-xl`}
               >
-                {/* Stop Header */}
+                {/* Gallery Card Header */}
                 <button
                   data-stop-id={stop.id}
                   onClick={() => toggleStop(stop.id)}
                   onKeyDown={(e) => handleKeyDown(e, stop.id, index)}
-                  className="w-full p-4 flex items-center space-x-4 text-left hover:bg-amber-50/50 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-inset"
+                  className="w-full text-left focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-inset relative"
                   aria-expanded={isOpen}
                   aria-controls={`stop-details-${stop.id}`}
                 >
-                  {/* Thumbnail */}
-                  <div className="flex-shrink-0">
-                    <div className="relative">
+                  {/* Mobile Gallery Layout (Default) */}
+                  <div className="md:hidden">
+                    {/* Full-width Image */}
+                    <div className="relative aspect-[4/3] bg-amber-50">
                       <img
                         src={stop.image}
-                        alt={stop.title}
+                        alt={`${stop.title} by ${stop.artistName}`}
                         loading="lazy"
-                        className="w-14 h-14 object-cover rounded-lg"
+                        decoding="async"
+                        fetchPriority="low"
+                        className="w-full h-full object-cover"
+                      />
+                      
+                      
+                      {/* Completion Chip Overlay */}
+                      {isCompleted && (
+                        <div className="absolute bottom-2 left-2 px-2 py-1 bg-green-600/90 backdrop-blur-sm rounded-full flex items-center space-x-1">
+                          <Check className="w-3 h-3 text-white" />
+                          <span className="text-xs font-medium text-white">Seen</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Title and Subtitle */}
+                    <div className="p-4 flex items-start justify-between">
+                      <div className="flex-1 min-w-0 pr-3">
+                        <h4 className="font-semibold text-gray-900 line-clamp-2 mb-1" id={`stop-title-${stop.id}`}>
+                          {stop.title}
+                        </h4>
+                        <p className="text-sm text-gray-600">
+                          {stop.artistName} • {stop.roomNumber}
+                        </p>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <ChevronDown 
+                          className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${
+                            isOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Desktop Compact Layout (md+) */}
+                  <div className="hidden md:flex items-center p-4 space-x-4 hover:bg-amber-50/50 transition-colors">
+                    {/* Small Thumbnail */}
+                    <div className="flex-shrink-0 relative">
+                      <img
+                        src={stop.image}
+                        alt={`${stop.title} by ${stop.artistName}`}
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                        className="w-16 h-16 object-cover rounded-lg"
                       />
                       {isCompleted && (
                         <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
@@ -181,24 +227,24 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
                         </div>
                       )}
                     </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-gray-900 truncate" id={`stop-title-${stop.id}`}>
+                        {stop.title}
+                      </h4>
+                      <p className="text-sm text-gray-600 truncate">
+                        {stop.artistName} • {stop.roomNumber}
+                      </p>
+                    </div>
+                    
+                    {/* Chevron */}
+                    <ChevronDown 
+                      className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                    />
                   </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-text truncate" id={`stop-title-${stop.id}`}>
-                      {stop.title}
-                    </h4>
-                    <p className="text-sm text-muted truncate">
-                      {stop.artistName} • {stop.roomNumber}
-                    </p>
-                  </div>
-                  
-                  {/* Chevron */}
-                  <ChevronDown 
-                    className={`w-5 h-5 text-muted transition-transform ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
-                  />
                 </button>
                 
                 {/* Expandable Details */}
@@ -209,30 +255,9 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
                   className={`accordion-content ${isOpen ? 'accordion-open' : ''}`}
                 >
                   <div className="p-4 pt-2 border-t border-amber-100">
-                    <p className="text-gray-500 mb-4 text-sm leading-relaxed">
+                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                       {stop.description}
                     </p>
-                    
-                    {/* Completion Control */}
-                    <div className="mb-4 flex justify-center">
-                      <button
-                        onClick={() => handleManualComplete(stop.id)}
-                        className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 min-w-[140px] ${
-                          isCompleted
-                            ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200'
-                            : 'bg-white text-gray-700 border border-amber-300 hover:border-amber-400 hover:text-amber-600'
-                        }`}
-                      >
-                        {isCompleted ? (
-                          <span className="flex items-center justify-center space-x-2">
-                            <span>✅</span>
-                            <span>Seen</span>
-                          </span>
-                        ) : (
-                          <span>Mark as seen</span>
-                        )}
-                      </button>
-                    </div>
                     
                     {/* Audio Players with Visual Grouping */}
                     <div className="bg-amber-50/50 rounded-xl p-3 space-y-3 border border-amber-100">
@@ -265,13 +290,26 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
                       </div>
                     </div>
                     
-                    {/* Room Info Badge */}
-                    <div className="mt-3 flex justify-center">
-                      <span className="inline-flex items-center space-x-1 px-3 py-1 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 text-xs font-medium rounded-full border border-amber-200">
-                        <span>📍</span>
-                        <span>{stop.roomNumber}</span>
-                      </span>
-                    </div>
+                    {/* Completion Control */}
+                    <div className="mt-4 mb-4 flex justify-center">
+                      <button
+                        onClick={() => handleManualComplete(stop.id)}
+                        className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 min-w-[140px] ${
+                          isCompleted
+                            ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200'
+                            : 'bg-white text-gray-700 border border-amber-300 hover:border-amber-400 hover:text-amber-600'
+                        }`}
+                      >
+                        {isCompleted ? (
+                          <span className="flex items-center justify-center space-x-2">
+                            <span>✅</span>
+                            <span>Seen</span>
+                          </span>
+                        ) : (
+                          <span>Mark as seen</span>
+                        )}
+                      </button>
+                    </div>                    
                   </div>
                 </div>
               </div>
@@ -293,16 +331,16 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
 
       {/* Feedback Section */}
       <div id="feedback-section" className="mt-8 mb-6">
-        <h3 className="text-xl font-semibold text-text mb-4 text-center">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
           Give us feedback
         </h3>
         <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-amber-100">
-          <p className="text-muted text-center mb-4">
+          <p className="text-gray-600 text-center mb-4">
             Help us improve your museum experience by sharing your thoughts
           </p>
           <div className="aspect-video bg-white/50 rounded-xl border border-amber-200 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-muted mb-2">Google Form Placeholder</p>
+              <p className="text-gray-600 mb-2">Google Form Placeholder</p>
               <a 
                 href="https://forms.google.com/feedback-form-placeholder"
                 target="_blank"
