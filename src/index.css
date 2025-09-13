@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom audio player slider */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #F59E0B, #EA580C);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #F59E0B, #EA580C);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth hover transitions */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+/* Ensure mobile-first responsive behavior */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+/* Custom scrollbar for better mobile experience */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Accordion animations */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease-out;
+}
+
+.accordion-open {
+  max-height: 500px;
+  transition: max-height 300ms ease-in;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .accordion-content {
+    transition: none;
+  }
+  
+  .accordion-open {
+    transition: none;
+  }
+  
+  .hover\:scale-102:hover {
+    transform: none;
+  }
+}
