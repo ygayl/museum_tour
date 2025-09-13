@@ -106,7 +106,7 @@ const museums: Museum[] = [
     image: '/images/museums/prado.jpg',
     description: 'Discover the greatest masterpieces of Spanish art from Velázquez, Goya, and other masters.',
     duration: '60 minutes',
-    introAudio: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+    introAudio: '/audio/museums/prado_intro.mp3',
     stops: [
       {
         id: '1',
