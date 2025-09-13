@@ -39,7 +39,7 @@ const museums: Museum[] = [
     stops: [
       {
         id: '1',
-        title: 'Guernica by Pablo Picasso',
+        title: 'Guernica',
         description: 'The most famous anti-war painting in history, depicting the horrors of the bombing of Guernica.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -49,7 +49,7 @@ const museums: Museum[] = [
       },
       {
         id: '2',
-        title: 'The Spanish Republic by Joan Miró',
+        title: 'The Spanish Republic',
         description: 'A powerful abstract representation of Republican ideals during the Spanish Civil War.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -59,7 +59,7 @@ const museums: Museum[] = [
       },
       {
         id: '3',
-        title: 'Spanish Peasant by Alberto Sánchez',
+        title: 'Spanish Peasant',
         description: 'A sculpture representing the common people who suffered during the conflict.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -69,7 +69,7 @@ const museums: Museum[] = [
       },
       {
         id: '4',
-        title: 'War Series by Horacio Ferrer',
+        title: 'War Series',
         description: 'A collection of paintings documenting the daily reality of wartime Spain.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -79,7 +79,7 @@ const museums: Museum[] = [
       },
       {
         id: '5',
-        title: 'Maternal by Julio González',
+        title: 'Maternal',
         description: 'A moving sculpture depicting motherhood during times of conflict and loss.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -89,7 +89,7 @@ const museums: Museum[] = [
       },
       {
         id: '6',
-        title: 'Memory of the Civil War by Antoni Tàpies',
+        title: 'Memory of the Civil War',
         description: 'A contemporary reflection on the lasting impact of the Spanish Civil War.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -110,7 +110,7 @@ const museums: Museum[] = [
     stops: [
       {
         id: '1',
-        title: 'Las Meninas by Diego Velázquez',
+        title: 'Las Meninas',
         description: 'The most famous painting in the Prado, a masterpiece of perspective and royal portraiture.',
         image: '/images/artworks/las_meninas.jpg',
         artworkAudioUrl: '/audio/artworks/las_meninas_geographic_channel_style.mp3',
@@ -120,7 +120,7 @@ const museums: Museum[] = [
       },
       {
         id: '2',
-        title: 'The Third of May 1808 by Francisco Goya',
+        title: 'The Third of May 1808',
         description: 'A powerful depiction of the Spanish resistance against Napoleon\'s invasion.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -130,7 +130,7 @@ const museums: Museum[] = [
       },
       {
         id: '3',
-        title: 'The Garden of Earthly Delights by Hieronymus Bosch',
+        title: 'The Garden of Earthly Delights',
         description: 'A fantastical triptych exploring themes of paradise, temptation, and hell.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -140,7 +140,7 @@ const museums: Museum[] = [
       },
       {
         id: '4',
-        title: 'The Naked Maja by Francisco Goya',
+        title: 'The Naked Maja',
         description: 'One of the first nude paintings in Western art, controversial and revolutionary for its time.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
@@ -150,7 +150,7 @@ const museums: Museum[] = [
       },
       {
         id: '5',
-        title: 'The Surrender of Breda by Diego Velázquez',
+        title: 'The Surrender of Breda',
         description: 'A monumental history painting showcasing Velázquez\'s mastery of composition and diplomacy.',
         image: 'https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600',
         artworkAudioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
