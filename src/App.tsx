@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import IntroPage from './components/IntroPage';
+import Hero from './components/Hero';
 import MuseumSelectionPage from './components/MuseumSelectionPage';
 import TourPage from './components/TourPage';
 
@@ -216,22 +216,24 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50/50 to-orange-50/30">
-      <Header 
-        onBackClick={getBackHandler()}
-        title={getHeaderTitle()}
-      />
-      
-      <main className="pt-16 pb-20">
-        {currentView === 'intro' ? (
-          <IntroPage onExploreMuseums={handleExploreMuseums} />
-        ) : currentView === 'museums' ? (
-          <MuseumSelectionPage museums={museums} onSelectMuseum={handleSelectMuseum} />
-        ) : (
-          selectedMuseum && <TourPage museum={selectedMuseum} onBackToMuseums={handleBackToMuseums} />
-        )}
-      </main>
-      
-      <Footer />
+      {currentView === 'intro' ? (
+        <Hero onStartTour={handleExploreMuseums} />
+      ) : (
+        <>
+          <Header
+            onBackClick={getBackHandler()}
+            title={getHeaderTitle()}
+          />
+          <main className="pt-16 pb-20">
+            {currentView === 'museums' ? (
+              <MuseumSelectionPage museums={museums} onSelectMuseum={handleSelectMuseum} />
+            ) : (
+              selectedMuseum && <TourPage museum={selectedMuseum} onBackToMuseums={handleBackToMuseums} />
+            )}
+          </main>
+          <Footer />
+        </>
+      )}
     </div>
   );
 }

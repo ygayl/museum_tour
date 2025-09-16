@@ -19,14 +19,24 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const progressPercentage = Math.round((completedCount / totalStops) * 100);
 
   useEffect(() => {
+    let rafId: number;
+
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const shouldCollapse = scrollY > 50; // Collapse after 50px scroll
-      setIsCollapsed(shouldCollapse);
+      if (rafId) return; // Already scheduled
+
+      rafId = requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const shouldCollapse = scrollY > 100; // Updated: 100px threshold
+        setIsCollapsed(shouldCollapse);
+        rafId = 0; // Reset for next frame
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
