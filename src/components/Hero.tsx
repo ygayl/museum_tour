@@ -31,7 +31,7 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
             onClick={onStartTour}
             className="inline-flex items-center rounded-full bg-gradient-to-r from-amber-500 to-orange-600 px-8 py-4 text-lg font-semibold text-white shadow-2xl transition-all duration-300 hover:from-amber-400 hover:to-orange-500 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-500/50 sm:px-10 sm:py-5 sm:text-xl"
           >
-            Start My Tour
+            Explore
             <svg
               className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
               fill="none"

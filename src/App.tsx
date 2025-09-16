@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
+import CitiesPage, { City } from './components/CitiesPage';
 import MuseumSelectionPage from './components/MuseumSelectionPage';
 import TourPage from './components/TourPage';
 
@@ -13,6 +14,7 @@ export interface Museum {
   description: string;
   duration: string;
   introAudio: string;
+  cityId: string;
   stops: Stop[];
 }
 
@@ -27,6 +29,45 @@ export interface Stop {
   roomNumber: string;
 }
 
+const cities: City[] = [
+  {
+    id: 'amsterdam',
+    name: 'Amsterdam',
+    image: '/images/cities/amsterdam.jpg',
+    description: 'Dive into Dutch masters and European heritage'
+  },
+  {
+    id: 'london',
+    name: 'London',
+    image: '/images/cities/london.jpg',
+    description: 'Uncover centuries of art and culture in Britain\'s capital'
+  },    
+  {
+    id: 'madrid',
+    name: 'Madrid',
+    image: '/images/cities/madrid.jpg',
+    description: 'Discover the artistic treasures of Spain\'s capital'
+  },
+  {
+    id: 'new-york',
+    name: 'New York',
+    image: '/images/cities/new-york.jpg',
+    description: 'Experience the cultural melting pot of the Big Apple'
+  },
+  {
+    id: 'paris',
+    name: 'Paris',
+    image: '/images/cities/paris.jpg',
+    description: 'Explore the City of Light and its world-famous museums'
+  },
+  {
+    id: 'san-francisco',
+    name: 'San Francisco',
+    image: '/images/cities/san-francisco.jpg',
+    description: 'Discover contemporary and classic art by the Bay'
+  }
+];
+
 const museums: Museum[] = [
   {
     id: 'reina-sofia',
@@ -36,6 +77,7 @@ const museums: Museum[] = [
     description: 'Explore the artistic response to one of Spain\'s most turbulent periods through masterpieces of modern art.',
     duration: '60 minutes',
     introAudio: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+    cityId: 'madrid',
     stops: [
       {
         id: '1',
@@ -107,6 +149,7 @@ const museums: Museum[] = [
     description: 'Discover the greatest masterpieces of Spanish art from Velázquez, Goya, and other masters.',
     duration: '60 minutes',
     introAudio: '/audio/museums/prado_intro.mp3',
+    cityId: 'madrid',
     stops: [
       {
         id: '1',
@@ -163,7 +206,8 @@ const museums: Museum[] = [
 ];
 
 function App() {
-  const [currentView, setCurrentView] = useState<'intro' | 'museums' | 'tour'>('intro');
+  const [currentView, setCurrentView] = useState<'intro' | 'cities' | 'museums' | 'tour'>('intro');
+  const [selectedCity, setSelectedCity] = useState<City | null>(null);
   const [selectedMuseum, setSelectedMuseum] = useState<Museum | null>(null);
 
   // Scroll to top when view changes
@@ -171,7 +215,12 @@ function App() {
     window.scrollTo(0, 0);
   }, [currentView]);
 
-  const handleExploreMuseums = () => {
+  const handleExploreCities = () => {
+    setCurrentView('cities');
+  };
+
+  const handleSelectCity = (city: City) => {
+    setSelectedCity(city);
     setCurrentView('museums');
   };
 
@@ -185,8 +234,15 @@ function App() {
     setSelectedMuseum(null);
   };
 
+  const handleBackToCities = () => {
+    setCurrentView('cities');
+    setSelectedCity(null);
+    setSelectedMuseum(null);
+  };
+
   const handleBackToIntro = () => {
     setCurrentView('intro');
+    setSelectedCity(null);
     setSelectedMuseum(null);
   };
 
@@ -194,8 +250,10 @@ function App() {
     switch (currentView) {
       case 'intro':
         return '1-Hour Museum Tours';
+      case 'cities':
+        return 'Cities';
       case 'museums':
-        return 'Museums';
+        return selectedCity?.name || 'Museums';
       case 'tour':
         return selectedMuseum?.name || 'Museum Tour';
       default:
@@ -205,8 +263,10 @@ function App() {
 
   const getBackHandler = () => {
     switch (currentView) {
-      case 'museums':
+      case 'cities':
         return handleBackToIntro;
+      case 'museums':
+        return handleBackToCities;
       case 'tour':
         return handleBackToMuseums;
       default:
@@ -214,10 +274,16 @@ function App() {
     }
   };
 
+  // Filter museums by selected city
+  const getMuseumsForSelectedCity = () => {
+    if (!selectedCity) return museums;
+    return museums.filter(museum => museum.cityId === selectedCity.id);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50/50 to-orange-50/30">
       {currentView === 'intro' ? (
-        <Hero onStartTour={handleExploreMuseums} />
+        <Hero onStartTour={handleExploreCities} />
       ) : (
         <>
           <Header
@@ -225,8 +291,10 @@ function App() {
             title={getHeaderTitle()}
           />
           <main className="pt-16 pb-20">
-            {currentView === 'museums' ? (
-              <MuseumSelectionPage museums={museums} onSelectMuseum={handleSelectMuseum} />
+            {currentView === 'cities' ? (
+              <CitiesPage cities={cities} onSelectCity={handleSelectCity} />
+            ) : currentView === 'museums' ? (
+              <MuseumSelectionPage museums={getMuseumsForSelectedCity()} onSelectMuseum={handleSelectMuseum} />
             ) : (
               selectedMuseum && <TourPage museum={selectedMuseum} onBackToMuseums={handleBackToMuseums} />
             )}
