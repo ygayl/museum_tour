@@ -24,7 +24,7 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
 
           <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-amber-50/90 sm:text-xl md:text-2xl">
             Immerse yourself in curated museum experiences designed to bring history's greatest masterpieces to life<br />
-            <strong className="underline">in just one hour</strong>
+            <strong>in just one hour</strong>
           </p>
 
           <button
