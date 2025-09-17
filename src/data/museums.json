@@ -26,5 +26,26 @@
     "image": "/images/museums/van_gogh_museum.jpg",
     "description": "The world's largest collection of Van Gogh's paintings, drawings, and letters, telling the story of his life and artistic journey.",
     "cityId": "amsterdam"
+  },
+  {
+    "id": "british-museum",
+    "name": "The British Museum",
+    "image": "/images/museums/british_museum.jpg",
+    "description": "The world's first national public museum, housing a vast collection of world art and artifacts spanning 2 million years of history.",
+    "cityId": "london"
+  },
+  {
+    "id": "national-gallery",
+    "name": "The National Gallery",
+    "image": "/images/museums/national_gallery.jpg",
+    "description": "Home to one of the world's greatest collections of Western European paintings from the 13th to the 19th centuries.",
+    "cityId": "london"
+  },
+  {
+    "id": "tate-modern",
+    "name": "Tate Modern",
+    "image": "/images/museums/tate_modern.jpg",
+    "description": "The world's most visited modern art gallery, housed in a former power station and showcasing international contemporary art.",
+    "cityId": "london"
   }
 ]

@@ -598,5 +598,437 @@
         "roomNumber": "Floor 3"
       }
     ]
+  },
+  {
+    "id": "british-museum-ancient-civilizations",
+    "name": "Ancient Civilizations in 60 Minutes",
+    "theme": "Ancient Civilizations in 60 Minutes",
+    "image": "/images/museums/british_museum.jpg",
+    "description": "Journey through humanity's greatest ancient civilizations from Egypt to Greece and Rome.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/british_museum_intro.mp3",
+    "museumId": "british-museum",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Rosetta Stone",
+        "description": "The key to deciphering Egyptian hieroglyphs and one of the most important archaeological discoveries in history.",
+        "image": "/images/artworks/rosetta_stone.jpg",
+        "artworkAudioUrl": "/audio/artworks/rosetta_stone.mp3",
+        "artistAudioUrl": "/audio/artists/ancient_egypt.mp3",
+        "artistName": "Ancient Egypt",
+        "roomNumber": "Room 4"
+      },
+      {
+        "id": "2",
+        "title": "Elgin Marbles",
+        "description": "Classical Greek sculptures from the Parthenon, representing the pinnacle of ancient Greek art.",
+        "image": "/images/artworks/elgin_marbles.jpg",
+        "artworkAudioUrl": "/audio/artworks/elgin_marbles.mp3",
+        "artistAudioUrl": "/audio/artists/ancient_greece.mp3",
+        "artistName": "Ancient Greece",
+        "roomNumber": "Room 18"
+      },
+      {
+        "id": "3",
+        "title": "Egyptian Mummies",
+        "description": "Ancient Egyptian burial practices and the journey to the afterlife through preserved remains.",
+        "image": "/images/artworks/egyptian_mummies.jpg",
+        "artworkAudioUrl": "/audio/artworks/egyptian_mummies.mp3",
+        "artistAudioUrl": "/audio/artists/ancient_egypt.mp3",
+        "artistName": "Ancient Egypt",
+        "roomNumber": "Room 63"
+      },
+      {
+        "id": "4",
+        "title": "Lewis Chessmen",
+        "description": "Medieval chess pieces carved from walrus ivory, revealing Viking-age culture and craftsmanship.",
+        "image": "/images/artworks/lewis_chessmen.jpg",
+        "artworkAudioUrl": "/audio/artworks/lewis_chessmen.mp3",
+        "artistAudioUrl": "/audio/artists/medieval_norse.mp3",
+        "artistName": "Medieval Norse",
+        "roomNumber": "Room 40"
+      },
+      {
+        "id": "5",
+        "title": "Assyrian Lion Hunt",
+        "description": "Relief sculptures depicting the royal lion hunts of the Assyrian empire.",
+        "image": "/images/artworks/assyrian_lion_hunt.jpg",
+        "artworkAudioUrl": "/audio/artworks/assyrian_lion_hunt.mp3",
+        "artistAudioUrl": "/audio/artists/ancient_assyria.mp3",
+        "artistName": "Ancient Assyria",
+        "roomNumber": "Room 10"
+      },
+      {
+        "id": "6",
+        "title": "Roman Portland Vase",
+        "description": "A masterpiece of Roman glass-making showcasing mythological scenes in cameo glass.",
+        "image": "/images/artworks/portland_vase.jpg",
+        "artworkAudioUrl": "/audio/artworks/portland_vase.mp3",
+        "artistAudioUrl": "/audio/artists/ancient_rome.mp3",
+        "artistName": "Ancient Rome",
+        "roomNumber": "Room 70"
+      }
+    ]
+  },
+  {
+    "id": "british-museum-treasures-world",
+    "name": "Treasures of the World in 60 Minutes",
+    "theme": "Treasures of the World in 60 Minutes",
+    "image": "/images/museums/british_museum.jpg",
+    "description": "Explore extraordinary artifacts from cultures across the globe and throughout history.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/british_museum_treasures_intro.mp3",
+    "museumId": "british-museum",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Sutton Hoo Helmet",
+        "description": "Anglo-Saxon ceremonial helmet revealing the wealth and artistry of early medieval England.",
+        "image": "/images/artworks/sutton_hoo_helmet.jpg",
+        "artworkAudioUrl": "/audio/artworks/sutton_hoo_helmet.mp3",
+        "artistAudioUrl": "/audio/artists/anglo_saxon.mp3",
+        "artistName": "Anglo-Saxon",
+        "roomNumber": "Room 41"
+      },
+      {
+        "id": "2",
+        "title": "Benin Bronzes",
+        "description": "Intricate bronze plaques from the royal palace of the Kingdom of Benin in Nigeria.",
+        "image": "/images/artworks/benin_bronzes.jpg",
+        "artworkAudioUrl": "/audio/artworks/benin_bronzes.mp3",
+        "artistAudioUrl": "/audio/artists/benin_kingdom.mp3",
+        "artistName": "Benin Kingdom",
+        "roomNumber": "Room 25"
+      },
+      {
+        "id": "3",
+        "title": "Japanese Samurai Armor",
+        "description": "Complete suit of samurai armor showcasing the warrior culture of feudal Japan.",
+        "image": "/images/artworks/samurai_armor.jpg",
+        "artworkAudioUrl": "/audio/artworks/samurai_armor.mp3",
+        "artistAudioUrl": "/audio/artists/feudal_japan.mp3",
+        "artistName": "Feudal Japan",
+        "roomNumber": "Room 93"
+      },
+      {
+        "id": "4",
+        "title": "Aztec Turquoise Mosaic",
+        "description": "Ceremonial mask decorated with thousands of turquoise pieces from ancient Mexico.",
+        "image": "/images/artworks/aztec_turquoise_mosaic.jpg",
+        "artworkAudioUrl": "/audio/artworks/aztec_turquoise_mosaic.mp3",
+        "artistAudioUrl": "/audio/artists/aztec_empire.mp3",
+        "artistName": "Aztec Empire",
+        "roomNumber": "Room 27"
+      },
+      {
+        "id": "5",
+        "title": "Chinese Tang Dynasty Ceramics",
+        "description": "Elegant pottery from China's golden age, showcasing advanced ceramic techniques.",
+        "image": "/images/artworks/tang_ceramics.jpg",
+        "artworkAudioUrl": "/audio/artworks/tang_ceramics.mp3",
+        "artistAudioUrl": "/audio/artists/tang_dynasty.mp3",
+        "artistName": "Tang Dynasty",
+        "roomNumber": "Room 33"
+      },
+      {
+        "id": "6",
+        "title": "Islamic Astrolabe",
+        "description": "Sophisticated astronomical instrument demonstrating Islamic scientific achievements.",
+        "image": "/images/artworks/islamic_astrolabe.jpg",
+        "artworkAudioUrl": "/audio/artworks/islamic_astrolabe.mp3",
+        "artistAudioUrl": "/audio/artists/islamic_scholars.mp3",
+        "artistName": "Islamic Scholars",
+        "roomNumber": "Room 34"
+      }
+    ]
+  },
+  {
+    "id": "national-gallery-masters",
+    "name": "Old Masters in 60 Minutes",
+    "theme": "Old Masters in 60 Minutes",
+    "image": "/images/museums/national_gallery.jpg",
+    "description": "Discover the greatest masterpieces of European painting from Leonardo da Vinci to Van Gogh.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/national_gallery_intro.mp3",
+    "museumId": "national-gallery",
+    "stops": [
+      {
+        "id": "1",
+        "title": "The Virgin of the Rocks",
+        "description": "Leonardo da Vinci's mysterious and beautiful religious painting showcasing his mastery of sfumato.",
+        "image": "/images/artworks/virgin_of_rocks.jpg",
+        "artworkAudioUrl": "/audio/artworks/virgin_of_rocks.mp3",
+        "artistAudioUrl": "/audio/artists/leonardo_da_vinci.mp3",
+        "artistName": "Leonardo da Vinci",
+        "roomNumber": "Room 66"
+      },
+      {
+        "id": "2",
+        "title": "The Hay Wain",
+        "description": "John Constable's iconic English landscape painting celebrating the beauty of the countryside.",
+        "image": "/images/artworks/hay_wain.jpg",
+        "artworkAudioUrl": "/audio/artworks/hay_wain.mp3",
+        "artistAudioUrl": "/audio/artists/john_constable.mp3",
+        "artistName": "John Constable",
+        "roomNumber": "Room 34"
+      },
+      {
+        "id": "3",
+        "title": "The Fighting Temeraire",
+        "description": "Turner's poetic tribute to the end of the age of sail and the dawn of steam power.",
+        "image": "/images/artworks/fighting_temeraire.jpg",
+        "artworkAudioUrl": "/audio/artworks/fighting_temeraire.mp3",
+        "artistAudioUrl": "/audio/artists/jmw_turner.mp3",
+        "artistName": "J.M.W. Turner",
+        "roomNumber": "Room 34"
+      },
+      {
+        "id": "4",
+        "title": "Sunflowers",
+        "description": "Van Gogh's vibrant still life painting from his series of sunflower paintings.",
+        "image": "/images/artworks/sunflowers_national.jpg",
+        "artworkAudioUrl": "/audio/artworks/sunflowers_national.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Room 43"
+      },
+      {
+        "id": "5",
+        "title": "The Arnolfini Portrait",
+        "description": "Jan van Eyck's revolutionary portrait full of symbolic details and technical innovation.",
+        "image": "/images/artworks/arnolfini_portrait.jpg",
+        "artworkAudioUrl": "/audio/artworks/arnolfini_portrait.mp3",
+        "artistAudioUrl": "/audio/artists/jan_van_eyck.mp3",
+        "artistName": "Jan van Eyck",
+        "roomNumber": "Room 56"
+      },
+      {
+        "id": "6",
+        "title": "Venus and Mars",
+        "description": "Botticelli's mythological painting depicting the Roman gods of love and war.",
+        "image": "/images/artworks/venus_and_mars.jpg",
+        "artworkAudioUrl": "/audio/artworks/venus_and_mars.mp3",
+        "artistAudioUrl": "/audio/artists/botticelli.mp3",
+        "artistName": "Sandro Botticelli",
+        "roomNumber": "Room 58"
+      }
+    ]
+  },
+  {
+    "id": "national-gallery-impressionists",
+    "name": "Impressionists in 60 Minutes",
+    "theme": "Impressionists in 60 Minutes",
+    "image": "/images/museums/national_gallery.jpg",
+    "description": "Experience the revolutionary art movement that changed painting forever through light and color.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/national_gallery_impressionists_intro.mp3",
+    "museumId": "national-gallery",
+    "stops": [
+      {
+        "id": "1",
+        "title": "The Water-Lily Pond",
+        "description": "Monet's serene garden scene from his series of paintings at Giverny.",
+        "image": "/images/artworks/water_lily_pond.jpg",
+        "artworkAudioUrl": "/audio/artworks/water_lily_pond.mp3",
+        "artistAudioUrl": "/audio/artists/claude_monet.mp3",
+        "artistName": "Claude Monet",
+        "roomNumber": "Room 44"
+      },
+      {
+        "id": "2",
+        "title": "Bathers at Asnières",
+        "description": "Seurat's pointillist masterpiece showing working-class leisure on the banks of the Seine.",
+        "image": "/images/artworks/bathers_asnieres.jpg",
+        "artworkAudioUrl": "/audio/artworks/bathers_asnieres.mp3",
+        "artistAudioUrl": "/audio/artists/georges_seurat.mp3",
+        "artistName": "Georges Seurat",
+        "roomNumber": "Room 44"
+      },
+      {
+        "id": "3",
+        "title": "At the Theatre",
+        "description": "Renoir's vibrant scene of Parisian social life and entertainment.",
+        "image": "/images/artworks/at_the_theatre.jpg",
+        "artworkAudioUrl": "/audio/artworks/at_the_theatre.mp3",
+        "artistAudioUrl": "/audio/artists/pierre_auguste_renoir.mp3",
+        "artistName": "Pierre-Auguste Renoir",
+        "roomNumber": "Room 44"
+      },
+      {
+        "id": "4",
+        "title": "Wheatfield with Cypresses",
+        "description": "Van Gogh's swirling, energetic interpretation of the Provençal landscape.",
+        "image": "/images/artworks/wheatfield_cypresses.jpg",
+        "artworkAudioUrl": "/audio/artworks/wheatfield_cypresses.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Room 45"
+      },
+      {
+        "id": "5",
+        "title": "A Bar at the Folies-Bergère",
+        "description": "Manet's complex final masterpiece reflecting on modern life and illusion.",
+        "image": "/images/artworks/bar_folies_bergere.jpg",
+        "artworkAudioUrl": "/audio/artworks/bar_folies_bergere.mp3",
+        "artistAudioUrl": "/audio/artists/edouard_manet.mp3",
+        "artistName": "Édouard Manet",
+        "roomNumber": "Room 41"
+      },
+      {
+        "id": "6",
+        "title": "Miss La La at the Cirque Fernando",
+        "description": "Degas's dynamic portrayal of a circus performer from an unusual perspective.",
+        "image": "/images/artworks/miss_la_la.jpg",
+        "artworkAudioUrl": "/audio/artworks/miss_la_la.mp3",
+        "artistAudioUrl": "/audio/artists/edgar_degas.mp3",
+        "artistName": "Edgar Degas",
+        "roomNumber": "Room 44"
+      }
+    ]
+  },
+  {
+    "id": "tate-modern-contemporary",
+    "name": "Contemporary Art in 60 Minutes",
+    "theme": "Contemporary Art in 60 Minutes",
+    "image": "/images/museums/tate_modern.jpg",
+    "description": "Explore the cutting edge of modern artistic expression from the 20th and 21st centuries.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/tate_modern_intro.mp3",
+    "museumId": "tate-modern",
+    "stops": [
+      {
+        "id": "1",
+        "title": "The Physical Impossibility of Death",
+        "description": "Damien Hirst's preserved shark challenging our perceptions of life, death, and art.",
+        "image": "/images/artworks/hirst_shark.jpg",
+        "artworkAudioUrl": "/audio/artworks/hirst_shark.mp3",
+        "artistAudioUrl": "/audio/artists/damien_hirst.mp3",
+        "artistName": "Damien Hirst",
+        "roomNumber": "Level 4"
+      },
+      {
+        "id": "2",
+        "title": "Campbell's Soup Cans",
+        "description": "Warhol's iconic pop art work that transformed everyday objects into high art.",
+        "image": "/images/artworks/campbell_soup_cans.jpg",
+        "artworkAudioUrl": "/audio/artworks/campbell_soup_cans.mp3",
+        "artistAudioUrl": "/audio/artists/andy_warhol.mp3",
+        "artistName": "Andy Warhol",
+        "roomNumber": "Level 5"
+      },
+      {
+        "id": "3",
+        "title": "Shibboleth",
+        "description": "Doris Salcedo's crack in the Turbine Hall floor addressing themes of migration and division.",
+        "image": "/images/artworks/shibboleth.jpg",
+        "artworkAudioUrl": "/audio/artworks/shibboleth.mp3",
+        "artistAudioUrl": "/audio/artists/doris_salcedo.mp3",
+        "artistName": "Doris Salcedo",
+        "roomNumber": "Turbine Hall"
+      },
+      {
+        "id": "4",
+        "title": "Metamorphosis of Narcissus",
+        "description": "Dalí's surrealist interpretation of the classical myth exploring psychology and transformation.",
+        "image": "/images/artworks/metamorphosis_narcissus.jpg",
+        "artworkAudioUrl": "/audio/artworks/metamorphosis_narcissus.mp3",
+        "artistAudioUrl": "/audio/artists/salvador_dali.mp3",
+        "artistName": "Salvador Dalí",
+        "roomNumber": "Level 3"
+      },
+      {
+        "id": "5",
+        "title": "Fountain",
+        "description": "Duchamp's revolutionary readymade that questioned the very definition of art.",
+        "image": "/images/artworks/fountain_duchamp.jpg",
+        "artworkAudioUrl": "/audio/artworks/fountain_duchamp.mp3",
+        "artistAudioUrl": "/audio/artists/marcel_duchamp.mp3",
+        "artistName": "Marcel Duchamp",
+        "roomNumber": "Level 5"
+      },
+      {
+        "id": "6",
+        "title": "Black Square",
+        "description": "Malevich's radical abstract painting that marked the birth of suprematism.",
+        "image": "/images/artworks/black_square.jpg",
+        "artworkAudioUrl": "/audio/artworks/black_square.mp3",
+        "artistAudioUrl": "/audio/artists/kazimir_malevich.mp3",
+        "artistName": "Kazimir Malevich",
+        "roomNumber": "Level 3"
+      }
+    ]
+  },
+  {
+    "id": "tate-modern-british",
+    "name": "British Art in 60 Minutes",
+    "theme": "British Art in 60 Minutes",
+    "image": "/images/museums/tate_modern.jpg",
+    "description": "Discover the unique contribution of British artists to modern and contemporary art.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/tate_modern_british_intro.mp3",
+    "museumId": "tate-modern",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Three Studies for Figures at the Base of a Crucifixion",
+        "description": "Francis Bacon's disturbing triptych that established him as a major voice in postwar art.",
+        "image": "/images/artworks/bacon_three_studies.jpg",
+        "artworkAudioUrl": "/audio/artworks/bacon_three_studies.mp3",
+        "artistAudioUrl": "/audio/artists/francis_bacon.mp3",
+        "artistName": "Francis Bacon",
+        "roomNumber": "Level 2"
+      },
+      {
+        "id": "2",
+        "title": "Equivalent VIII",
+        "description": "Carl Andre's controversial minimalist sculpture made of firebricks.",
+        "image": "/images/artworks/equivalent_viii.jpg",
+        "artworkAudioUrl": "/audio/artworks/equivalent_viii.mp3",
+        "artistAudioUrl": "/audio/artists/carl_andre.mp3",
+        "artistName": "Carl Andre",
+        "roomNumber": "Level 3"
+      },
+      {
+        "id": "3",
+        "title": "Mother and Child Divided",
+        "description": "Damien Hirst's provocative installation exploring life, death, and family relationships.",
+        "image": "/images/artworks/mother_child_divided.jpg",
+        "artworkAudioUrl": "/audio/artworks/mother_child_divided.mp3",
+        "artistAudioUrl": "/audio/artists/damien_hirst.mp3",
+        "artistName": "Damien Hirst",
+        "roomNumber": "Level 4"
+      },
+      {
+        "id": "4",
+        "title": "Large Two Forms",
+        "description": "Henry Moore's monumental bronze sculpture celebrating the human form in abstract.",
+        "image": "/images/artworks/large_two_forms.jpg",
+        "artworkAudioUrl": "/audio/artworks/large_two_forms.mp3",
+        "artistAudioUrl": "/audio/artists/henry_moore.mp3",
+        "artistName": "Henry Moore",
+        "roomNumber": "Sculpture Terrace"
+      },
+      {
+        "id": "5",
+        "title": "My Bed",
+        "description": "Tracey Emin's controversial installation of her unmade bed as intimate self-portrait.",
+        "image": "/images/artworks/my_bed.jpg",
+        "artworkAudioUrl": "/audio/artworks/my_bed.mp3",
+        "artistAudioUrl": "/audio/artists/tracey_emin.mp3",
+        "artistName": "Tracey Emin",
+        "roomNumber": "Level 2"
+      },
+      {
+        "id": "6",
+        "title": "Angel of the North",
+        "description": "Antony Gormley's iconic public sculpture representing regeneration and hope.",
+        "image": "/images/artworks/angel_of_north.jpg",
+        "artworkAudioUrl": "/audio/artworks/angel_of_north.mp3",
+        "artistAudioUrl": "/audio/artists/antony_gormley.mp3",
+        "artistName": "Antony Gormley",
+        "roomNumber": "Level 4"
+      }
+    ]
   }
 ]
