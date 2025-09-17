@@ -1,0 +1,30 @@
+[
+  {
+    "id": "reina-sofia",
+    "name": "Museo Reina Sofía",
+    "image": "/images/museums/reina_sofia.jpg",
+    "description": "Spain's national museum of 20th-century and contemporary art, home to Picasso's Guernica and works by Dalí and Miró.",
+    "cityId": "madrid"
+  },
+  {
+    "id": "prado",
+    "name": "Museo del Prado",
+    "image": "/images/museums/prado.jpg",
+    "description": "One of the world's finest art galleries, featuring masterpieces by Velázquez, Goya, and other Spanish masters.",
+    "cityId": "madrid"
+  },
+  {
+    "id": "rijksmuseum",
+    "name": "Rijksmuseum",
+    "image": "/images/museums/rijksmuseum.jpg",
+    "description": "The Netherlands' national museum showcasing 800 years of Dutch art and history, including masterpieces by Rembrandt and Vermeer.",
+    "cityId": "amsterdam"
+  },
+  {
+    "id": "van-gogh-museum",
+    "name": "Van Gogh Museum",
+    "image": "/images/museums/van_gogh_museum.jpg",
+    "description": "The world's largest collection of Van Gogh's paintings, drawings, and letters, telling the story of his life and artistic journey.",
+    "cityId": "amsterdam"
+  }
+]

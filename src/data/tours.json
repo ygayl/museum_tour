@@ -1,0 +1,602 @@
+[
+  {
+    "id": "reina-sofia-civil-war",
+    "name": "Spanish Civil War in 60 Minutes",
+    "theme": "Spanish Civil War in 60 Minutes",
+    "image": "/images/museums/reina_sofia.jpg",
+    "description": "Explore the artistic response to one of Spain's most turbulent periods through masterpieces of modern art.",
+    "duration": "60 minutes",
+    "introAudio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+    "museumId": "reina-sofia",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Guernica",
+        "description": "The most famous anti-war painting in history, depicting the horrors of the bombing of Guernica.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Pablo Picasso",
+        "roomNumber": "Room 206"
+      },
+      {
+        "id": "2",
+        "title": "The Spanish Republic",
+        "description": "A powerful abstract representation of Republican ideals during the Spanish Civil War.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Joan Miró",
+        "roomNumber": "Room 210"
+      },
+      {
+        "id": "3",
+        "title": "Spanish Peasant",
+        "description": "A sculpture representing the common people who suffered during the conflict.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Alberto Sánchez",
+        "roomNumber": "Room 104"
+      },
+      {
+        "id": "4",
+        "title": "War Series",
+        "description": "A collection of paintings documenting the daily reality of wartime Spain.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Horacio Ferrer",
+        "roomNumber": "Room 205"
+      },
+      {
+        "id": "5",
+        "title": "Maternal",
+        "description": "A moving sculpture depicting motherhood during times of conflict and loss.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Julio González",
+        "roomNumber": "Room 102"
+      },
+      {
+        "id": "6",
+        "title": "Memory of the Civil War",
+        "description": "A contemporary reflection on the lasting impact of the Spanish Civil War.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Antoni Tàpies",
+        "roomNumber": "Room 419"
+      }
+    ]
+  },
+  {
+    "id": "prado-highlights",
+    "name": "Highlights in 60 Minutes",
+    "theme": "Highlights in 60 Minutes",
+    "image": "/images/museums/prado.jpg",
+    "description": "Discover the greatest masterpieces of Spanish art from Velázquez, Goya, and other masters.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/prado_intro.mp3",
+    "museumId": "prado",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Las Meninas",
+        "description": "The most famous painting in the Prado, a masterpiece of perspective and royal portraiture.",
+        "image": "/images/artworks/las_meninas.jpg",
+        "artworkAudioUrl": "/audio/artworks/las_meninas_geographic_channel_style.mp3",
+        "artistAudioUrl": "/audio/artists/velazquez.mp3",
+        "artistName": "Diego Velázquez",
+        "roomNumber": "Room 12"
+      },
+      {
+        "id": "2",
+        "title": "The Third of May 1808",
+        "description": "A powerful depiction of the Spanish resistance against Napoleon's invasion.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 64"
+      },
+      {
+        "id": "3",
+        "title": "The Garden of Earthly Delights",
+        "description": "A fantastical triptych exploring themes of paradise, temptation, and hell.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Hieronymus Bosch",
+        "roomNumber": "Room 56A"
+      },
+      {
+        "id": "4",
+        "title": "The Naked Maja",
+        "description": "One of the first nude paintings in Western art, controversial and revolutionary for its time.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 36"
+      },
+      {
+        "id": "5",
+        "title": "The Surrender of Breda",
+        "description": "A monumental history painting showcasing Velázquez's mastery of composition and diplomacy.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Diego Velázquez",
+        "roomNumber": "Room 9"
+      }
+    ]
+  },
+  {
+    "id": "reina-sofia-surrealism",
+    "name": "Surrealism & Dreams",
+    "theme": "Surrealism & Dreams",
+    "image": "/images/museums/reina_sofia.jpg",
+    "description": "Dive into the world of dreams and the unconscious through masterpieces of Spanish surrealism.",
+    "duration": "60 minutes",
+    "introAudio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+    "museumId": "reina-sofia",
+    "stops": [
+      {
+        "id": "1",
+        "title": "The Persistence of Memory",
+        "description": "Dalí's iconic melting clocks represent the fluidity of time and memory in dreams.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Salvador Dalí",
+        "roomNumber": "Room 301"
+      },
+      {
+        "id": "2",
+        "title": "Woman and Bird by Moonlight",
+        "description": "Miró's dreamlike composition blends reality and fantasy in vibrant colors.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Joan Miró",
+        "roomNumber": "Room 303"
+      },
+      {
+        "id": "3",
+        "title": "Metamorphosis of Narcissus",
+        "description": "A surrealist interpretation of the Greek myth exploring transformation and identity.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Salvador Dalí",
+        "roomNumber": "Room 305"
+      },
+      {
+        "id": "4",
+        "title": "The Great Masturbator",
+        "description": "Dalí's exploration of Freudian psychoanalysis and sexual symbolism.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Salvador Dalí",
+        "roomNumber": "Room 302"
+      },
+      {
+        "id": "5",
+        "title": "Blue II",
+        "description": "Miró's abstract masterpiece representing pure emotion through color and form.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Joan Miró",
+        "roomNumber": "Room 304"
+      }
+    ]
+  },
+  {
+    "id": "reina-sofia-modern-masters",
+    "name": "Modern Spanish Masters",
+    "theme": "Modern Spanish Masters",
+    "image": "/images/museums/reina_sofia.jpg",
+    "description": "Discover the revolutionary works of 20th-century Spanish artists who shaped modern art.",
+    "duration": "60 minutes",
+    "introAudio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+    "museumId": "reina-sofia",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Les Demoiselles d'Avignon",
+        "description": "Picasso's revolutionary painting that launched the Cubist movement and changed art forever.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Pablo Picasso",
+        "roomNumber": "Room 401"
+      },
+      {
+        "id": "2",
+        "title": "Woman in Blue",
+        "description": "Picasso's exploration of form and color during his Blue Period masterpiece.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Pablo Picasso",
+        "roomNumber": "Room 403"
+      },
+      {
+        "id": "3",
+        "title": "Painting (The Dog)",
+        "description": "Miró's playful yet profound exploration of primitive art and symbolism.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Joan Miró",
+        "roomNumber": "Room 405"
+      },
+      {
+        "id": "4",
+        "title": "Great Prophet",
+        "description": "González's innovative iron sculpture showing the evolution from traditional to modern forms.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Julio González",
+        "roomNumber": "Room 402"
+      }
+    ]
+  },
+  {
+    "id": "prado-royal-portraits",
+    "name": "Royal Portraits Through the Ages",
+    "theme": "Royal Portraits Through the Ages",
+    "image": "/images/museums/prado.jpg",
+    "description": "Journey through Spanish royal history via masterful portraits from different dynasties.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/prado_intro.mp3",
+    "museumId": "prado",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Charles V at Mühlberg",
+        "description": "Titian's powerful equestrian portrait of the Holy Roman Emperor in victory.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Titian",
+        "roomNumber": "Room 25"
+      },
+      {
+        "id": "2",
+        "title": "Philip II",
+        "description": "A formal portrait capturing the austere personality of Spain's most powerful king.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Alonso Sánchez Coello",
+        "roomNumber": "Room 28"
+      },
+      {
+        "id": "3",
+        "title": "The Family of Charles IV",
+        "description": "Goya's unflinchingly honest group portrait of the royal family.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 32"
+      },
+      {
+        "id": "4",
+        "title": "Queen Mariana of Austria",
+        "description": "Velázquez's elegant portrait of Philip IV's second wife in royal splendor.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Diego Velázquez",
+        "roomNumber": "Room 15"
+      },
+      {
+        "id": "5",
+        "title": "The Infanta Margarita Teresa",
+        "description": "A tender portrait of the young princess in her elaborate court dress.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Diego Velázquez",
+        "roomNumber": "Room 16"
+      }
+    ]
+  },
+  {
+    "id": "prado-dark-romanticism",
+    "name": "Dark Romanticism & Goya's Black Paintings",
+    "theme": "Dark Romanticism & Goya's Black Paintings",
+    "image": "/images/museums/prado.jpg",
+    "description": "Explore Goya's darkest works and the romantic movement's fascination with the macabre.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/prado_intro.mp3",
+    "museumId": "prado",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Saturn Devouring His Son",
+        "description": "The most haunting of Goya's Black Paintings, depicting mythological cannibalism.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 67"
+      },
+      {
+        "id": "2",
+        "title": "Witches' Sabbath",
+        "description": "A nightmarish scene of witchcraft and supernatural terror from Goya's dark period.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 67"
+      },
+      {
+        "id": "3",
+        "title": "The Dog",
+        "description": "One of Goya's most mysterious Black Paintings, showing a dog's head emerging from void.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 67"
+      },
+      {
+        "id": "4",
+        "title": "Two Old Men Eating Soup",
+        "description": "A disturbing depiction of aged decrepitude and human decay.",
+        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 67"
+      }
+    ]
+  },
+  {
+    "id": "rijksmuseum-dutch-masters",
+    "name": "Dutch Golden Age Masters",
+    "theme": "Dutch Golden Age Masters",
+    "image": "/images/museums/rijksmuseum.jpg",
+    "description": "Journey through the Dutch Golden Age with masterpieces by Rembrandt, Vermeer, and other legendary artists.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/rijksmuseum_intro.mp3",
+    "museumId": "rijksmuseum",
+    "stops": [
+      {
+        "id": "1",
+        "title": "The Night Watch",
+        "description": "Rembrandt's most famous painting, a dynamic group portrait that revolutionized the genre.",
+        "image": "/images/artworks/night_watch.jpg",
+        "artworkAudioUrl": "/audio/artworks/night_watch.mp3",
+        "artistAudioUrl": "/audio/artists/rembrandt.mp3",
+        "artistName": "Rembrandt van Rijn",
+        "roomNumber": "Gallery of Honour"
+      },
+      {
+        "id": "2",
+        "title": "Girl with a Pearl Earring",
+        "description": "Vermeer's enigmatic masterpiece showcasing his mastery of light and intimate portraiture.",
+        "image": "/images/artworks/girl_with_pearl_earring.jpg",
+        "artworkAudioUrl": "/audio/artworks/girl_with_pearl_earring.mp3",
+        "artistAudioUrl": "/audio/artists/vermeer.mp3",
+        "artistName": "Johannes Vermeer",
+        "roomNumber": "Room 2.8"
+      },
+      {
+        "id": "3",
+        "title": "The Milkmaid",
+        "description": "Vermeer's serene domestic scene capturing the beauty of everyday life in 17th-century Holland.",
+        "image": "/images/artworks/milkmaid.jpg",
+        "artworkAudioUrl": "/audio/artworks/milkmaid.mp3",
+        "artistAudioUrl": "/audio/artists/vermeer.mp3",
+        "artistName": "Johannes Vermeer",
+        "roomNumber": "Room 2.8"
+      },
+      {
+        "id": "4",
+        "title": "The Jewish Bride",
+        "description": "Rembrandt's tender portrait of a couple, showcasing his later, more expressive painting style.",
+        "image": "/images/artworks/jewish_bride.jpg",
+        "artworkAudioUrl": "/audio/artworks/jewish_bride.mp3",
+        "artistAudioUrl": "/audio/artists/rembrandt.mp3",
+        "artistName": "Rembrandt van Rijn",
+        "roomNumber": "Gallery of Honour"
+      },
+      {
+        "id": "5",
+        "title": "The Threatened Swan",
+        "description": "Jan Asselijn's dramatic painting symbolizing Dutch resistance against foreign threats.",
+        "image": "/images/artworks/threatened_swan.jpg",
+        "artworkAudioUrl": "/audio/artworks/threatened_swan.mp3",
+        "artistAudioUrl": "/audio/artists/asselijn.mp3",
+        "artistName": "Jan Asselijn",
+        "roomNumber": "Room 2.1"
+      }
+    ]
+  },
+  {
+    "id": "rijksmuseum-dutch-history",
+    "name": "800 Years of Dutch History",
+    "theme": "800 Years of Dutch History",
+    "image": "/images/museums/rijksmuseum.jpg",
+    "description": "Explore Dutch history from the Middle Ages to modern times through art, artifacts, and historical objects.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/rijksmuseum_intro.mp3",
+    "museumId": "rijksmuseum",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Medieval Netherlands",
+        "description": "Discover medieval Dutch art and religious artifacts from the early Christian period.",
+        "image": "/images/artworks/medieval_netherlands.jpg",
+        "artworkAudioUrl": "/audio/artworks/medieval_netherlands.mp3",
+        "artistAudioUrl": "/audio/artists/medieval_masters.mp3",
+        "artistName": "Medieval Masters",
+        "roomNumber": "Room 0.1"
+      },
+      {
+        "id": "2",
+        "title": "Dutch East India Company",
+        "description": "Artifacts and paintings showing the global reach of Dutch maritime trade.",
+        "image": "/images/artworks/dutch_east_india.jpg",
+        "artworkAudioUrl": "/audio/artworks/dutch_east_india.mp3",
+        "artistAudioUrl": "/audio/artists/maritime_artists.mp3",
+        "artistName": "Maritime Artists",
+        "roomNumber": "Room 1.6"
+      },
+      {
+        "id": "3",
+        "title": "Delftware Collection",
+        "description": "Exquisite blue and white ceramics that became synonymous with Dutch craftsmanship.",
+        "image": "/images/artworks/delftware.jpg",
+        "artworkAudioUrl": "/audio/artworks/delftware.mp3",
+        "artistAudioUrl": "/audio/artists/delft_potters.mp3",
+        "artistName": "Delft Potters",
+        "roomNumber": "Room 2.20"
+      },
+      {
+        "id": "4",
+        "title": "Dutch Revolt",
+        "description": "Art and artifacts from the 80 Years' War and the birth of the Dutch Republic.",
+        "image": "/images/artworks/dutch_revolt.jpg",
+        "artworkAudioUrl": "/audio/artworks/dutch_revolt.mp3",
+        "artistAudioUrl": "/audio/artists/historical_painters.mp3",
+        "artistName": "Historical Painters",
+        "roomNumber": "Room 1.3"
+      }
+    ]
+  },
+  {
+    "id": "van-gogh-museum-masterpieces",
+    "name": "Van Gogh's Greatest Masterpieces",
+    "theme": "Van Gogh's Greatest Masterpieces",
+    "image": "/images/museums/van_gogh_museum.jpg",
+    "description": "Experience Van Gogh's most iconic works and understand the evolution of his unique artistic vision.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/van_gogh_intro.mp3",
+    "museumId": "van-gogh-museum",
+    "stops": [
+      {
+        "id": "1",
+        "title": "The Potato Eaters",
+        "description": "Van Gogh's first major work depicting peasant life with raw honesty and dark, earthy tones.",
+        "image": "/images/artworks/potato_eaters.jpg",
+        "artworkAudioUrl": "/audio/artworks/potato_eaters.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 1"
+      },
+      {
+        "id": "2",
+        "title": "Sunflowers",
+        "description": "One of Van Gogh's most famous series, showcasing his bold use of yellow and expressive brushwork.",
+        "image": "/images/artworks/sunflowers.jpg",
+        "artworkAudioUrl": "/audio/artworks/sunflowers.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 2"
+      },
+      {
+        "id": "3",
+        "title": "The Bedroom",
+        "description": "Van Gogh's intimate portrayal of his simple room in Arles, painted in vivid, complementary colors.",
+        "image": "/images/artworks/van_gogh_bedroom.jpg",
+        "artworkAudioUrl": "/audio/artworks/van_gogh_bedroom.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 2"
+      },
+      {
+        "id": "4",
+        "title": "Self-Portrait with Grey Felt Hat",
+        "description": "One of many self-portraits revealing Van Gogh's psychological intensity and artistic evolution.",
+        "image": "/images/artworks/van_gogh_self_portrait.jpg",
+        "artworkAudioUrl": "/audio/artworks/van_gogh_self_portrait.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 1"
+      },
+      {
+        "id": "5",
+        "title": "Wheatfield with Crows",
+        "description": "Van Gogh's final painting, a dramatic landscape reflecting his troubled mental state.",
+        "image": "/images/artworks/wheatfield_with_crows.jpg",
+        "artworkAudioUrl": "/audio/artworks/wheatfield_with_crows.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 3"
+      }
+    ]
+  },
+  {
+    "id": "van-gogh-museum-life-story",
+    "name": "The Life and Letters of Vincent van Gogh",
+    "theme": "The Life and Letters of Vincent van Gogh",
+    "image": "/images/museums/van_gogh_museum.jpg",
+    "description": "Follow Van Gogh's personal journey through his letters, exploring his relationships and artistic development.",
+    "duration": "60 minutes",
+    "introAudio": "/audio/museums/van_gogh_intro.mp3",
+    "museumId": "van-gogh-museum",
+    "stops": [
+      {
+        "id": "1",
+        "title": "Early Years and Theo's Support",
+        "description": "Learn about Van Gogh's relationship with his brother Theo through their extensive correspondence.",
+        "image": "/images/artworks/van_gogh_theo_letters.jpg",
+        "artworkAudioUrl": "/audio/artworks/van_gogh_theo_letters.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 0"
+      },
+      {
+        "id": "2",
+        "title": "Paris Period",
+        "description": "Discover how Van Gogh's style transformed during his time in Paris, influenced by Impressionism.",
+        "image": "/images/artworks/van_gogh_paris.jpg",
+        "artworkAudioUrl": "/audio/artworks/van_gogh_paris.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 1"
+      },
+      {
+        "id": "3",
+        "title": "Arles: The Yellow House",
+        "description": "Explore Van Gogh's most productive period in southern France and his dream of an artists' colony.",
+        "image": "/images/artworks/yellow_house.jpg",
+        "artworkAudioUrl": "/audio/artworks/yellow_house.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 2"
+      },
+      {
+        "id": "4",
+        "title": "Mental Health Struggles",
+        "description": "Understanding Van Gogh's psychological challenges and how they influenced his art.",
+        "image": "/images/artworks/van_gogh_mental_health.jpg",
+        "artworkAudioUrl": "/audio/artworks/van_gogh_mental_health.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 2"
+      },
+      {
+        "id": "5",
+        "title": "Final Days in Auvers",
+        "description": "Van Gogh's last paintings and the tragic end of his brief but extraordinary artistic career.",
+        "image": "/images/artworks/van_gogh_auvers.jpg",
+        "artworkAudioUrl": "/audio/artworks/van_gogh_auvers.mp3",
+        "artistAudioUrl": "/audio/artists/van_gogh.mp3",
+        "artistName": "Vincent van Gogh",
+        "roomNumber": "Floor 3"
+      }
+    ]
+  }
+]
