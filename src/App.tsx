@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import CitiesPage, { City } from './components/CitiesPage';
+import MuseumsPage from './components/MuseumsPage';
 import TourSelectionPage from './components/TourSelectionPage';
 import TourPage from './components/TourPage';
 
@@ -47,8 +48,9 @@ const museums: Museum[] = museumsData;
 const tours: Tour[] = toursData;
 
 function App() {
-  const [currentView, setCurrentView] = useState<'intro' | 'cities' | 'tours' | 'tour'>('intro');
+  const [currentView, setCurrentView] = useState<'intro' | 'cities' | 'museums' | 'tours' | 'tour'>('intro');
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
+  const [selectedMuseum, setSelectedMuseum] = useState<Museum | null>(null);
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
 
   // Scroll to top when view changes
@@ -62,6 +64,11 @@ function App() {
 
   const handleSelectCity = (city: City) => {
     setSelectedCity(city);
+    setCurrentView('museums');
+  };
+
+  const handleSelectMuseum = (museum: Museum) => {
+    setSelectedMuseum(museum);
     setCurrentView('tours');
   };
 
@@ -75,15 +82,23 @@ function App() {
     setSelectedTour(null);
   };
 
+  const handleBackToMuseums = () => {
+    setCurrentView('museums');
+    setSelectedMuseum(null);
+    setSelectedTour(null);
+  };
+
   const handleBackToCities = () => {
     setCurrentView('cities');
     setSelectedCity(null);
+    setSelectedMuseum(null);
     setSelectedTour(null);
   };
 
   const handleBackToIntro = () => {
     setCurrentView('intro');
     setSelectedCity(null);
+    setSelectedMuseum(null);
     setSelectedTour(null);
   };
 
@@ -93,8 +108,10 @@ function App() {
         return '1-Hour Museum Tours';
       case 'cities':
         return 'Cities';
+      case 'museums':
+        return selectedCity?.name || 'Museums';
       case 'tours':
-        return selectedCity?.name || 'Tours';
+        return selectedMuseum?.name || 'Tours';
       case 'tour':
         return selectedTour?.name || 'Museum Tour';
       default:
@@ -106,8 +123,10 @@ function App() {
     switch (currentView) {
       case 'cities':
         return handleBackToIntro;
-      case 'tours':
+      case 'museums':
         return handleBackToCities;
+      case 'tours':
+        return handleBackToMuseums;
       case 'tour':
         return handleBackToTours;
       default:
@@ -115,12 +134,10 @@ function App() {
     }
   };
 
-  // Filter tours by selected city
-  const getToursForSelectedCity = () => {
-    if (!selectedCity) return tours;
-    const cityMuseums = museums.filter(museum => museum.cityId === selectedCity.id);
-    const museumIds = cityMuseums.map(museum => museum.id);
-    return tours.filter(tour => museumIds.includes(tour.museumId));
+  // Filter tours by selected museum
+  const getToursForSelectedMuseum = () => {
+    if (!selectedMuseum) return tours;
+    return tours.filter(tour => tour.museumId === selectedMuseum.id);
   };
 
   // Filter museums by selected city
@@ -142,8 +159,10 @@ function App() {
           <main className="pt-16 pb-20">
             {currentView === 'cities' ? (
               <CitiesPage cities={cities} onSelectCity={handleSelectCity} />
+            ) : currentView === 'museums' ? (
+              <MuseumsPage museums={getMuseumsForSelectedCity()} onSelectMuseum={handleSelectMuseum} />
             ) : currentView === 'tours' ? (
-              <TourSelectionPage tours={getToursForSelectedCity()} museums={getMuseumsForSelectedCity()} onSelectTour={handleSelectTour} />
+              <TourSelectionPage tours={getToursForSelectedMuseum()} onSelectTour={handleSelectTour} />
             ) : (
               selectedTour && <TourPage tour={selectedTour} onBackToTours={handleBackToTours} />
             )}
