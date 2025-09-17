@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Headphones, ChevronDown, Check } from 'lucide-react';
-import { Museum } from '../App';
+import { Tour } from '../App';
 import AudioPlayer from './AudioPlayer';
 import ProgressBar from './ProgressBar';
 import CompletionCelebration from './CompletionCelebration';
 import { useTourProgress } from '../hooks/useTourProgress';
 
 interface TourPageProps {
-  museum: Museum;
-  onBackToMuseums?: () => void;
+  tour: Tour;
+  onBackToTours?: () => void;
 }
 
-const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
+const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours }) => {
   const [openStopId, setOpenStopId] = useState<string | null>(null);
   const stopRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   
@@ -22,12 +22,12 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
     isStopCompleted,
     getCompletedCount,
     isAllCompleted,
-  } = useTourProgress(museum.id, museum.stops.length);
+  } = useTourProgress(tour.id, tour.stops.length);
 
   // Handle deep linking only (no state retention from navigation)
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
-    if (hash && museum.stops.find(stop => stop.id === hash)) {
+    if (hash && tour.stops.find(stop => stop.id === hash)) {
       setOpenStopId(hash);
       // Scroll to the stop after a brief delay to ensure rendering
       setTimeout(() => {
@@ -44,7 +44,7 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
         window.history.replaceState(null, '', window.location.pathname);
       }
     }
-  }, [museum.stops]);
+  }, [tour.stops]);
 
   // Update URL hash when stop opens/closes
   useEffect(() => {
@@ -65,21 +65,21 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
       toggleStop(stopId);
     } else if (e.key === 'ArrowDown') {
       e.preventDefault();
-      const nextIndex = (index + 1) % museum.stops.length;
-      const nextStopId = museum.stops[nextIndex].id;
+      const nextIndex = (index + 1) % tour.stops.length;
+      const nextStopId = tour.stops[nextIndex].id;
       const nextButton = document.querySelector(`[data-stop-id="${nextStopId}"]`) as HTMLButtonElement;
       nextButton?.focus();
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      const prevIndex = index === 0 ? museum.stops.length - 1 : index - 1;
-      const prevStopId = museum.stops[prevIndex].id;
+      const prevIndex = index === 0 ? tour.stops.length - 1 : index - 1;
+      const prevStopId = tour.stops[prevIndex].id;
       const prevButton = document.querySelector(`[data-stop-id="${prevStopId}"]`) as HTMLButtonElement;
       prevButton?.focus();
     }
   };
 
   const handleSegmentClick = (index: number) => {
-    const stopId = museum.stops[index].id;
+    const stopId = tour.stops[index].id;
     setOpenStopId(stopId);
     setTimeout(() => {
       stopRefs.current[stopId]?.scrollIntoView({ 
@@ -110,10 +110,10 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
     <div className="px-4 py-6 bg-gradient-to-br from-amber-50/30 to-orange-50/20 min-h-screen">
       {/* Progress Bar */}
       <ProgressBar
-        totalStops={museum.stops.length}
+        totalStops={tour.stops.length}
         completedCount={getCompletedCount()}
         onSegmentClick={handleSegmentClick}
-        stops={museum.stops}
+        stops={tour.stops}
         isStopCompleted={isStopCompleted}
       />
       
@@ -121,10 +121,10 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
       <div className="mb-6 mt-20">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            {museum.theme}
+            {tour.theme}
           </h2>
-          <p className="text-gray-600 mb-1">{museum.description}</p>
-          <p className="text-amber-600 font-medium">Duration: {museum.duration}</p>
+          <p className="text-gray-600 mb-1">{tour.description}</p>
+          <p className="text-amber-600 font-medium">Duration: {tour.duration}</p>
         </div>
         
         {/* Museum Introduction Audio */}
@@ -134,9 +134,9 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
             <span className="text-sm font-medium text-gray-900">Museum Introduction</span>
           </div>
           <p className="text-gray-600 text-sm mb-4">
-            Start your journey with an introduction to {museum.name} and this special tour.
+            Start your journey with an introduction to {tour.name} and this special tour.
           </p>
-          <AudioPlayer audioUrl={museum.introAudio} title={`${museum.name} Introduction`} />
+          <AudioPlayer audioUrl={tour.introAudio} title={`${tour.name} Introduction`} />
         </div>
       </div>
 
@@ -145,7 +145,7 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
         <h3 className="text-xl font-semibold text-gray-900 mb-3">Tour Stops</h3>
         
         <div className="space-y-4">
-          {museum.stops.map((stop, index) => {
+          {tour.stops.map((stop, index) => {
             const isOpen = openStopId === stop.id;
             const isCompleted = isStopCompleted(stop.id);
             
@@ -322,7 +322,7 @@ const TourPage: React.FC<TourPageProps> = ({ museum, onBackToMuseums }) => {
       {isAllCompleted() && (
         <div className="mt-6 mb-6">
           <CompletionCelebration
-            museumName={museum.name}
+            museumName={tour.name}
             onStartNewTour={onBackToMuseums}
             onGiveFeedback={scrollToFeedback}
           />
