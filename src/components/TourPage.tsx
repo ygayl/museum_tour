@@ -5,16 +5,18 @@ import AudioPlayer from './AudioPlayer';
 import ProgressBar from './ProgressBar';
 import CompletionCelebration from './CompletionCelebration';
 import { useTourProgress } from '../hooks/useTourProgress';
+import { useEngagementTracking, useAnalytics } from '../hooks/useAnalytics';
 
 interface TourPageProps {
   tour: Tour;
   onBackToTours?: () => void;
+  analyticsEnabled?: boolean;
 }
 
-const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours }) => {
+const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabled = false }) => {
   const [openStopId, setOpenStopId] = useState<string | null>(null);
   const stopRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-  
+
   const {
     markStopCompleted,
     updateAudioProgress,
@@ -22,7 +24,25 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours }) => {
     isStopCompleted,
     getCompletedCount,
     isAllCompleted,
-  } = useTourProgress(tour.id, tour.stops.length);
+  } = useTourProgress(tour.id, tour.stops.length, analyticsEnabled);
+
+  // Engagement tracking
+  const { trackTourCompletion } = useEngagementTracking(tour.id, tour.name);
+  const analytics = useAnalytics();
+
+  // Audio tracking callbacks
+  const createAudioCallbacks = (stopId: string, audioType: 'artwork' | 'artist') => ({
+    onPlay: () => {
+      if (analyticsEnabled) {
+        analytics.trackAudioPlay(tour.id, stopId, audioType);
+      }
+    },
+    onComplete: () => {
+      if (analyticsEnabled) {
+        analytics.trackAudioComplete(tour.id, stopId, audioType);
+      }
+    }
+  });
 
   // Handle deep linking only (no state retention from navigation)
   useEffect(() => {
@@ -54,6 +74,13 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours }) => {
       window.history.replaceState(null, '', window.location.pathname);
     }
   }, [openStopId]);
+
+  // Track tour completion
+  useEffect(() => {
+    if (isAllCompleted() && analyticsEnabled) {
+      trackTourCompletion(getCompletedCount(), tour.stops.length);
+    }
+  }, [isAllCompleted, analyticsEnabled, trackTourCompletion, getCompletedCount, tour.stops.length]);
 
   const toggleStop = (stopId: string) => {
     setOpenStopId(openStopId === stopId ? null : stopId);
@@ -267,11 +294,12 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours }) => {
                           <span className="text-lg">🎧</span>
                           <h5 className="text-sm font-medium text-amber-800">Artwork narration</h5>
                         </div>
-                        <AudioPlayer 
-                          audioUrl={stop.artworkAudioUrl} 
+                        <AudioPlayer
+                          audioUrl={stop.artworkAudioUrl}
                           title={`About: ${stop.title}`}
                           artist={stop.artistName}
                           onProgressUpdate={(progress) => handleAudioProgress(stop.id, progress)}
+                          {...createAudioCallbacks(stop.id, 'artwork')}
                         />
                       </div>
                       
@@ -281,11 +309,12 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours }) => {
                           <span className="text-lg">👨‍🎨</span>
                           <h5 className="text-sm font-medium text-amber-800">About the artist</h5>
                         </div>
-                        <AudioPlayer 
-                          audioUrl={stop.artistAudioUrl} 
+                        <AudioPlayer
+                          audioUrl={stop.artistAudioUrl}
                           title={`About: ${stop.artistName}`}
                           artist={stop.artistName}
                           onProgressUpdate={(progress) => handleArtistAudioProgress(stop.id, progress)}
+                          {...createAudioCallbacks(stop.id, 'artist')}
                         />
                       </div>
                     </div>

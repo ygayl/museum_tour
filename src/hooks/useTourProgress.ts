@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useAnalytics } from './useAnalytics';
 
 export interface TourProgress {
   [stopId: string]: {
@@ -9,9 +10,10 @@ export interface TourProgress {
   };
 }
 
-export const useTourProgress = (tourId: string, totalStops: number) => {
+export const useTourProgress = (tourId: string, totalStops: number, analyticsEnabled: boolean = false) => {
   const [progress, setProgress] = useState<TourProgress>({});
   const storageKey = `tour:${tourId}:progress`;
+  const analytics = useAnalytics();
 
   // Load progress from localStorage on mount
   useEffect(() => {
@@ -44,7 +46,12 @@ export const useTourProgress = (tourId: string, totalStops: number) => {
         completedAt: Date.now(),
       }
     }));
-    
+
+    // Track stop completion
+    if (analyticsEnabled && !wasCompleted) {
+      analytics.trackStopCompleted(tourId, stopId, manual ? 'manual' : 'auto');
+    }
+
     // Show micro-feedback for manual completions
     if (manual && !wasCompleted) {
       showProgressFeedback();

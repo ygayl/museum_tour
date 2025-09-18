@@ -9,6 +9,8 @@ import CitiesPage, { City } from './components/CitiesPage';
 import MuseumsPage from './components/MuseumsPage';
 import TourSelectionPage from './components/TourSelectionPage';
 import TourPage from './components/TourPage';
+import CookieConsent from './components/CookieConsent';
+import { useAnalytics } from './hooks/useAnalytics';
 
 export interface Museum {
   id: string;
@@ -52,11 +54,23 @@ function App() {
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
   const [selectedMuseum, setSelectedMuseum] = useState<Museum | null>(null);
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
+  const [analyticsEnabled, setAnalyticsEnabled] = useState<boolean>(false);
 
-  // Scroll to top when view changes
+  const analytics = useAnalytics();
+
+  // Scroll to top when view changes and track page views
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentView]);
+
+    if (analyticsEnabled) {
+      const context = {
+        cityName: selectedCity?.name,
+        museumName: selectedMuseum?.name,
+        tourName: selectedTour?.name,
+      };
+      analytics.trackPageView(currentView, context);
+    }
+  }, [currentView, analyticsEnabled, selectedCity?.name, selectedMuseum?.name, selectedTour?.name, analytics]);
 
   const handleExploreCities = () => {
     setCurrentView('cities');
@@ -65,30 +79,51 @@ function App() {
   const handleSelectCity = (city: City) => {
     setSelectedCity(city);
     setCurrentView('museums');
+
+    if (analyticsEnabled) {
+      analytics.trackCitySelected(city);
+    }
   };
 
   const handleSelectMuseum = (museum: Museum) => {
     setSelectedMuseum(museum);
     setCurrentView('tours');
+
+    if (analyticsEnabled && selectedCity) {
+      analytics.trackMuseumSelected(museum, selectedCity.id);
+    }
   };
 
   const handleSelectTour = (tour: Tour) => {
     setSelectedTour(tour);
     setCurrentView('tour');
+
+    if (analyticsEnabled && selectedMuseum) {
+      analytics.trackTourSelected(tour, selectedMuseum.id);
+    }
   };
 
   const handleBackToTours = () => {
+    if (analyticsEnabled) {
+      analytics.trackBackNavigation('tour', 'tours');
+    }
     setCurrentView('tours');
     setSelectedTour(null);
   };
 
   const handleBackToMuseums = () => {
+    if (analyticsEnabled) {
+      analytics.trackBackNavigation('tours', 'museums');
+    }
     setCurrentView('museums');
     setSelectedMuseum(null);
     setSelectedTour(null);
   };
 
   const handleBackToCities = () => {
+    if (analyticsEnabled) {
+      analytics.trackBackNavigation('museums', 'cities');
+    }
     setCurrentView('cities');
     setSelectedCity(null);
     setSelectedMuseum(null);
@@ -96,6 +131,9 @@ function App() {
   };
 
   const handleBackToIntro = () => {
+    if (analyticsEnabled) {
+      analytics.trackBackNavigation('cities', 'intro');
+    }
     setCurrentView('intro');
     setSelectedCity(null);
     setSelectedMuseum(null);
@@ -164,12 +202,19 @@ function App() {
             ) : currentView === 'tours' ? (
               <TourSelectionPage tours={getToursForSelectedMuseum()} onSelectTour={handleSelectTour} />
             ) : (
-              selectedTour && <TourPage tour={selectedTour} onBackToTours={handleBackToTours} />
+              selectedTour && <TourPage
+                tour={selectedTour}
+                onBackToTours={handleBackToTours}
+                analyticsEnabled={analyticsEnabled}
+              />
             )}
           </main>
           <Footer />
         </>
       )}
+
+      {/* Cookie Consent */}
+      <CookieConsent onConsentChange={setAnalyticsEnabled} />
     </div>
   );
 }

@@ -7,14 +7,18 @@ interface AudioPlayerProps {
   label?: string;
   artist?: string;
   onProgressUpdate?: (progressPercent: number) => void;
+  onPlay?: () => void;
+  onComplete?: () => void;
 }
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({ 
-  audioUrl, 
-  title, 
-  label = "Audio Guide", 
+const AudioPlayer: React.FC<AudioPlayerProps> = ({
+  audioUrl,
+  title,
+  label = "Audio Guide",
   artist,
-  onProgressUpdate 
+  onProgressUpdate,
+  onPlay,
+  onComplete
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
@@ -40,6 +44,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         audioRef.current.pause();
       } else {
         audioRef.current.play();
+        // Track audio play event
+        if (onPlay) {
+          onPlay();
+        }
       }
       setIsPlaying(!isPlaying);
     }
@@ -54,11 +62,16 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   const handleTimeUpdate = () => {
     if (audioRef.current) {
       setCurrentTime(audioRef.current.currentTime);
-      
+
       // Report progress percentage
       if (onProgressUpdate && duration > 0) {
         const progressPercent = (audioRef.current.currentTime / duration) * 100;
         onProgressUpdate(progressPercent);
+
+        // Track completion when audio reaches the end (95% to avoid timing issues)
+        if (progressPercent >= 95 && onComplete) {
+          onComplete();
+        }
       }
     }
   };
