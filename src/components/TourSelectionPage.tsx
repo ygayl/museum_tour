@@ -7,8 +7,19 @@ interface TourSelectionPageProps {
 }
 
 const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTour }) => {
-  // Sort tours alphabetically by name
-  const sortedTours = [...tours].sort((a, b) => a.name.localeCompare(b.name));
+  // Sort tours with highlighted tours first, then alphabetically
+  const sortedTours = [...tours].sort((a, b) => {
+    // Check if tour is highlighted (contains "Highlights" in name)
+    const aIsHighlighted = a.name.toLowerCase().includes('highlights');
+    const bIsHighlighted = b.name.toLowerCase().includes('highlights');
+
+    // If one is highlighted and the other isn't, prioritize the highlighted one
+    if (aIsHighlighted && !bIsHighlighted) return -1;
+    if (!aIsHighlighted && bIsHighlighted) return 1;
+
+    // If both are highlighted or neither is highlighted, sort alphabetically
+    return a.name.localeCompare(b.name);
+  });
 
   return (
     <div className="container mx-auto px-4 py-8">
