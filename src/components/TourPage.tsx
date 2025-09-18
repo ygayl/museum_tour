@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Headphones, ChevronDown, Check } from 'lucide-react';
+import { Headphones, ChevronDown, Check, Play } from 'lucide-react';
 import { Tour } from '../App';
 import AudioPlayer from './AudioPlayer';
 import ProgressBar from './ProgressBar';
@@ -15,6 +15,7 @@ interface TourPageProps {
 
 const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabled = false }) => {
   const [openStopId, setOpenStopId] = useState<string | null>(null);
+  const [showIntro, setShowIntro] = useState(false);
   const stopRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const {
@@ -134,44 +135,59 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
   };
 
   return (
-    <div className="px-4 py-6 bg-museum-gradient min-h-screen">
-      {/* Progress Bar */}
+    <div className="px-4 py-4 bg-museum-gradient min-h-screen">
+      {/* Thin Sticky Progress Bar */}
       <ProgressBar
+        variant="thin"
         totalStops={tour.stops.length}
         completedCount={getCompletedCount()}
         onSegmentClick={handleSegmentClick}
         stops={tour.stops}
         isStopCompleted={isStopCompleted}
       />
-      
-      {/* Tour Introduction */}
-      <div className="mb-6 mt-20">
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-museum-primary-900 font-serif mb-2">
-            {tour.theme}
-          </h2>
-          <p className="text-museum-neutral-600 mb-1 font-light">{tour.description}</p>
-          <p className="text-museum-gold-600 font-medium">Duration: {tour.duration}</p>
+
+      {/* Compact Meta Row */}
+      <div className="flex items-center justify-between mb-3 mt-2">
+        <div className="flex items-center space-x-2">
+          <span className="text-xs px-2.5 py-1 rounded-full border bg-white/70 text-museum-neutral-600 flex items-center space-x-1">
+            <span>🕑</span>
+            <span>{tour.duration}</span>
+          </span>
         </div>
-        
-        {/* Museum Introduction Audio */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 mb-4 border border-museum-neutral-200">
-          <div className="flex items-center space-x-3 mb-3">
-            <Headphones className="w-5 h-5 text-museum-gold-600" />
+        <button
+          onClick={() => setShowIntro(!showIntro)}
+          className="text-xs px-2.5 py-1 rounded-full border bg-white/70 text-museum-neutral-600 hover:bg-white/90 transition-colors flex items-center space-x-1"
+          aria-expanded={showIntro}
+        >
+          <Play className="w-3 h-3" />
+          <span>Play Intro</span>
+        </button>
+      </div>
+
+      {/* Collapsible Intro Card */}
+      {showIntro && (
+        <div className="bg-white/70 backdrop-blur rounded-xl p-3 border border-museum-neutral-200 mb-3">
+          <div className="flex items-center space-x-2 mb-2">
+            <Headphones className="w-4 h-4 text-museum-gold-600" />
             <span className="text-sm font-medium text-gray-900">Introduction</span>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
-            Start your journey with an introduction to {tour.name} and this special tour.
+          <p className="text-gray-600 text-sm mb-3">
+            Start your journey with an introduction to {tour.name}.
           </p>
           <AudioPlayer audioUrl={tour.introAudio} title={`${tour.name} Introduction`} />
         </div>
-      </div>
+      )}
+
+      {/* Short Description */}
+      <p className="text-sm text-museum-neutral-600 mb-4 line-clamp-2 font-light">
+        {tour.description}
+      </p>
 
       {/* Tour Stops Gallery */}
       <div className="space-y-1">
-        <h3 className="text-xl font-semibold text-museum-primary-900 font-serif mb-3">Tour Stops</h3>
-        
-        <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-museum-primary-900 font-serif mb-2">Tour Stops</h3>
+
+        <div className="space-y-3">
           {tour.stops.map((stop, index) => {
             const isOpen = openStopId === stop.id;
             const isCompleted = isStopCompleted(stop.id);
@@ -351,17 +367,17 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
 
       {/* Completion Celebration */}
       {isAllCompleted() && (
-        <div className="mt-6 mb-6">
+        <div className="mt-4 mb-4">
           <CompletionCelebration
             museumName={tour.name}
-            onStartNewTour={onBackToMuseums}
+            onStartNewTour={onBackToTours}
             onGiveFeedback={scrollToFeedback}
           />
         </div>
       )}
 
       {/* Feedback Section */}
-      <div id="feedback-section" className="mt-8 mb-6">
+      <div id="feedback-section" className="mt-6 mb-4">
         <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
           Give us feedback
         </h3>

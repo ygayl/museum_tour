@@ -6,19 +6,23 @@ interface ProgressBarProps {
   onSegmentClick?: (index: number) => void;
   stops: Array<{ id: string; title: string }>;
   isStopCompleted: (stopId: string) => boolean;
+  variant?: "default" | "thin";
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ 
-  totalStops, 
-  completedCount, 
-  onSegmentClick, 
+const ProgressBar: React.FC<ProgressBarProps> = ({
+  totalStops,
+  completedCount,
+  onSegmentClick,
   stops,
-  isStopCompleted 
+  isStopCompleted,
+  variant = "default"
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const progressPercentage = Math.round((completedCount / totalStops) * 100);
 
   useEffect(() => {
+    if (variant === "thin") return; // Skip scroll handling for thin variant
+
     let rafId: number;
 
     const handleScroll = () => {
@@ -37,8 +41,23 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       window.removeEventListener('scroll', handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [variant]);
 
+  // Thin variant - simple sticky progress bar
+  if (variant === "thin") {
+    return (
+      <div className="sticky top-[calc(env(safe-area-inset-top)+0px)] z-40 bg-transparent">
+        <div className="h-0.5 bg-museum-neutral-200">
+          <div
+            className="h-full bg-museum-gold-500 transition-all duration-500"
+            style={{ width: `${progressPercentage}%` }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Default variant - existing behavior
   return (
     <div className={`fixed top-16 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-museum-neutral-200 transition-all duration-300 ${
       isCollapsed ? 'h-1' : 'h-auto'
@@ -48,7 +67,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         isCollapsed ? 'opacity-100' : 'opacity-0'
       }`}>
         <div className="h-1 bg-museum-neutral-200">
-          <div 
+          <div
             className="h-full bg-museum-gold-500 transition-all duration-500"
             style={{ width: `${progressPercentage}%` }}
           />
@@ -67,17 +86,17 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             {completedCount} of {totalStops} stops
           </span>
         </div>
-        
+
         <div className="flex space-x-1 mb-2">
           {stops.map((stop, index) => {
             const isCompleted = isStopCompleted(stop.id);
-            
+
             return (
               <button
                 key={stop.id}
                 onClick={() => onSegmentClick?.(index)}
                 className={`flex-1 h-2 rounded-sm transition-all duration-200 ${
-                  isCompleted 
+                  isCompleted
                    ? 'bg-gradient-to-r from-museum-gold-500 to-museum-gold-600'
                    : 'bg-museum-neutral-200 hover:bg-museum-neutral-300'
                 }`}
@@ -87,7 +106,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             );
           })}
         </div>
-        
+
         <div className="text-center">
           <span className="text-xs text-gray-500">
             {progressPercentage}% Complete
