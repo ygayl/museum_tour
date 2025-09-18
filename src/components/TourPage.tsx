@@ -164,6 +164,11 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
         </button>
       </div>
 
+      {/* Short Description
+      <p className="text-sm text-museum-neutral-600 mb-4 line-clamp-2 font-light">
+        {tour.description}
+      </p> */}
+
       {/* Collapsible Intro Card */}
       {showIntro && (
         <div className="bg-white/70 backdrop-blur rounded-xl p-3 border border-museum-neutral-200 mb-3">
@@ -178,10 +183,6 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
         </div>
       )}
 
-      {/* Short Description */}
-      <p className="text-sm text-museum-neutral-600 mb-4 line-clamp-2 font-light">
-        {tour.description}
-      </p>
 
       {/* Tour Stops Gallery */}
       <div className="space-y-1">
