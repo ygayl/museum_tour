@@ -112,12 +112,16 @@ const getPageTitle = (view: string, context?: Record<string, any>): string => {
 // Hook for tracking user engagement patterns
 export const useEngagementTracking = (tourId: string, tourName: string) => {
   const startTime = useRef<number | null>(null);
+  const hasTrackedStart = useRef<boolean>(false);
   const analytics = useAnalytics();
 
   useEffect(() => {
-    // Track tour start
-    startTime.current = Date.now();
-    analytics.trackTourStarted({ id: tourId, name: tourName } as Tour);
+    // Only track tour start once per component lifecycle
+    if (!hasTrackedStart.current) {
+      startTime.current = Date.now();
+      hasTrackedStart.current = true;
+      analytics.trackTourStarted({ id: tourId, name: tourName } as Tour);
+    }
 
     return () => {
       // Track tour abandonment if not completed
