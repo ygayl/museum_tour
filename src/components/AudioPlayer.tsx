@@ -91,7 +91,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   };
 
   return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border border-amber-200/50">
+    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border border-museum-neutral-200">
       <audio
         ref={audioRef}
         src={audioUrl}
@@ -104,7 +104,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       <div className="flex items-center space-x-4">
         <button
           onClick={togglePlay}
-          className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full hover:from-amber-600 hover:to-orange-600 transition-all duration-200 border border-amber-400"
+          className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-museum-gold-500 to-museum-gold-600 text-white rounded-full hover:from-museum-gold-600 hover:to-museum-gold-700 transition-all duration-200 border border-museum-gold-400"
           aria-label={isPlaying ? 'Pause' : 'Play'}
         >
           {isPlaying ? (
@@ -121,7 +121,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
             max={duration || 0}
             value={currentTime}
             onChange={handleSeek}
-            className="w-full h-2 bg-amber-100 rounded-lg appearance-none cursor-pointer slider"
+            className="w-full h-2 bg-museum-neutral-200 rounded-lg appearance-none cursor-pointer slider"
           />
           <div className="flex justify-between text-xs text-gray-500 mt-1">
             <span>{formatTime(currentTime)}</span>

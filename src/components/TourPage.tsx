@@ -134,7 +134,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
   };
 
   return (
-    <div className="px-4 py-6 bg-gradient-to-br from-amber-50/30 to-orange-50/20 min-h-screen">
+    <div className="px-4 py-6 bg-museum-gradient min-h-screen">
       {/* Progress Bar */}
       <ProgressBar
         totalStops={tour.stops.length}
@@ -147,17 +147,17 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
       {/* Tour Introduction */}
       <div className="mb-6 mt-20">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-2xl font-bold text-museum-primary-900 font-serif mb-2">
             {tour.theme}
           </h2>
-          <p className="text-gray-600 mb-1">{tour.description}</p>
-          <p className="text-amber-600 font-medium">Duration: {tour.duration}</p>
+          <p className="text-museum-neutral-600 mb-1 font-light">{tour.description}</p>
+          <p className="text-museum-gold-600 font-medium">Duration: {tour.duration}</p>
         </div>
         
         {/* Museum Introduction Audio */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 mb-4 border border-amber-100">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 mb-4 border border-museum-neutral-200">
           <div className="flex items-center space-x-3 mb-3">
-            <Headphones className="w-5 h-5 text-amber-600" />
+            <Headphones className="w-5 h-5 text-museum-gold-600" />
             <span className="text-sm font-medium text-gray-900">Museum Introduction</span>
           </div>
           <p className="text-gray-600 text-sm mb-4">
@@ -169,7 +169,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
 
       {/* Tour Stops Gallery */}
       <div className="space-y-1">
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">Tour Stops</h3>
+        <h3 className="text-xl font-semibold text-museum-primary-900 font-serif mb-3">Tour Stops</h3>
         
         <div className="space-y-4">
           {tour.stops.map((stop, index) => {
@@ -189,14 +189,14 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                   data-stop-id={stop.id}
                   onClick={() => toggleStop(stop.id)}
                   onKeyDown={(e) => handleKeyDown(e, stop.id, index)}
-                  className="w-full text-left focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-inset relative"
+                  className="w-full text-left focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset relative"
                   aria-expanded={isOpen}
                   aria-controls={`stop-details-${stop.id}`}
                 >
                   {/* Mobile Gallery Layout (Default) */}
                   <div className="md:hidden">
                     {/* Full-width Image */}
-                    <div className="relative aspect-[4/3] bg-amber-50">
+                    <div className="relative aspect-[4/3] bg-museum-neutral-100">
                       <img
                         src={stop.image}
                         alt={`${stop.title}`}
@@ -237,7 +237,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                   </div>
 
                   {/* Desktop Compact Layout (md+) */}
-                  <div className="hidden md:flex items-center p-4 space-x-4 hover:bg-amber-50/50 transition-colors">
+                  <div className="hidden md:flex items-center p-4 space-x-4 hover:bg-museum-neutral-100/50 transition-colors">
                     {/* Small Thumbnail */}
                     <div className="flex-shrink-0 relative">
                       <img
@@ -249,7 +249,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                         className="w-16 h-16 object-cover rounded-lg"
                       />
                       {isCompleted && (
-                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-museum-gold-500 rounded-full flex items-center justify-center">
                           <Check className="w-3 h-3 text-white" />
                         </div>
                       )}
@@ -281,18 +281,18 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                   aria-labelledby={`stop-title-${stop.id}`}
                   className={`accordion-content ${isOpen ? 'accordion-open' : ''}`}
                 >
-                  <div className="p-4 pt-2 border-t border-amber-100">
+                  <div className="p-4 pt-2 border-t border-museum-neutral-200">
                     <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                       {stop.description}
                     </p>
                     
                     {/* Audio Players with Visual Grouping */}
-                    <div className="bg-amber-50/50 rounded-xl p-3 space-y-3 border border-amber-100">
+                    <div className="bg-museum-neutral-100/50 rounded-xl p-3 space-y-3 border border-museum-neutral-200">
                       {/* Artwork Audio Section */}
                       <div>
                         <div className="flex items-center space-x-2 mb-2">
                           <span className="text-lg">🎧</span>
-                          <h5 className="text-sm font-medium text-amber-800">Artwork narration</h5>
+                          <h5 className="text-sm font-medium text-museum-primary-800">Artwork narration</h5>
                         </div>
                         <AudioPlayer
                           audioUrl={stop.artworkAudioUrl}
@@ -307,7 +307,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                       <div>
                         <div className="flex items-center space-x-2 mb-2">
                           <span className="text-lg">👨‍🎨</span>
-                          <h5 className="text-sm font-medium text-amber-800">About the artist</h5>
+                          <h5 className="text-sm font-medium text-museum-primary-800">About the artist</h5>
                         </div>
                         <AudioPlayer
                           audioUrl={stop.artistAudioUrl}
@@ -326,7 +326,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                         className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 min-w-[140px] ${
                           isCompleted
                             ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200'
-                            : 'bg-white text-gray-700 border border-amber-300 hover:border-amber-400 hover:text-amber-600'
+                            : 'bg-white text-museum-neutral-700 border border-museum-neutral-300 hover:border-museum-gold-400 hover:text-museum-gold-600'
                         }`}
                       >
                         {isCompleted ? (
@@ -363,18 +363,18 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
         <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
           Give us feedback
         </h3>
-        <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-amber-100">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-museum-neutral-200">
           <p className="text-gray-600 text-center mb-4">
             Help us improve your museum experience by sharing your thoughts
           </p>
-          <div className="aspect-video bg-white/50 rounded-xl border border-amber-200 flex items-center justify-center">
+          <div className="aspect-video bg-white/50 rounded-xl border border-museum-neutral-200 flex items-center justify-center">
             <div className="text-center">
               <p className="text-gray-600 mb-2">Google Form Placeholder</p>
               <a 
                 href="https://forms.google.com/feedback-form-placeholder"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-full font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-200 inline-block border border-amber-400"
+                className="bg-museum-gold-500 text-museum-primary-900 px-6 py-3 rounded-full font-medium hover:bg-museum-gold-400 transition-all duration-200 inline-block"
               >
                 Open Feedback Form
               </a>

@@ -40,16 +40,16 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   }, []);
 
   return (
-    <div className={`fixed top-16 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-amber-200/50 transition-all duration-300 ${
+    <div className={`fixed top-16 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-museum-neutral-200 transition-all duration-300 ${
       isCollapsed ? 'h-1' : 'h-auto'
     }`}>
       {/* Collapsed State - Thin Progress Bar */}
       <div className={`transition-opacity duration-300 ${
         isCollapsed ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="h-1 bg-amber-100">
+        <div className="h-1 bg-museum-neutral-200">
           <div 
-            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-500"
+            className="h-full bg-museum-gold-500 transition-all duration-500"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
@@ -60,7 +60,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-900">
+          <span className="text-sm font-medium text-museum-primary-900 font-serif">
             Tour Progress
           </span>
           <span className="text-sm text-gray-600">
@@ -78,8 +78,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
                 onClick={() => onSegmentClick?.(index)}
                 className={`flex-1 h-2 rounded-sm transition-all duration-200 ${
                   isCompleted 
-                   ? 'bg-gradient-to-r from-amber-500 to-orange-500' 
-                   : 'bg-amber-100 hover:bg-amber-200'
+                   ? 'bg-gradient-to-r from-museum-gold-500 to-museum-gold-600'
+                   : 'bg-museum-neutral-200 hover:bg-museum-neutral-300'
                 }`}
                 title={`${stop.title} ${isCompleted ? '(Completed)' : '(Not completed)'}`}
                 aria-label={`Jump to stop ${index + 1}: ${stop.title}`}
