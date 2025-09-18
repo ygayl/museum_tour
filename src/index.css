@@ -114,7 +114,8 @@
 }
 
 .accordion-open {
-  max-height: 500px;
+  max-height: 1200px;
+  overflow-y: auto;
   transition: max-height 300ms ease-in;
 }
 

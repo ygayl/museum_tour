@@ -11,51 +11,47 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
   const sortedTours = [...tours].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <div className="px-4 py-6 bg-gradient-to-br from-amber-50/30 to-orange-50/20 min-h-screen">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-museum-primary-900 font-serif mb-2">
+    <div className="container mx-auto px-4 py-8">
+      <div className="mb-8 text-center">
+        <h1 className="mb-4 text-3xl font-bold text-museum-primary-900 font-serif md:text-4xl">
           Tours
-        </h2>
-        <p className="text-museum-neutral-600">
+        </h1>
+        <p className="mx-auto max-w-2xl text-lg text-museum-neutral-600 font-light md:text-xl">
           Choose your 1-hour cultural adventure
         </p>
       </div>
 
-      <div className="max-w-lg mx-auto">
-        <div className="space-y-6">
-          {sortedTours.map((tour) => (
-            <div
-              key={tour.id}
-              className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden cursor-pointer transform transition-all duration-200 hover:scale-102 hover:shadow-xl border border-amber-100"
-              onClick={() => onSelectTour(tour)}
-            >
-              <div className="relative h-48">
-                <img
-                  src={tour.image}
-                  alt={tour.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-                  <div className="p-4 text-white">
-                    <h4 className="text-xl font-bold mb-1">{tour.name}</h4>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4">
-                <p className="text-gray-600 text-sm mb-3">{tour.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-museum-primary-600 font-medium text-sm">
-                    Duration: {tour.duration}
-                  </span>
-                  <button className="bg-museum-gold-500 text-museum-primary-900 px-4 py-2 rounded-full text-sm font-medium hover:bg-museum-gold-400 transition-all duration-200">
-                    Start Tour
-                  </button>
-                </div>
-              </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {sortedTours.map((tour) => (
+          <div
+            key={tour.id}
+            onClick={() => onSelectTour(tour)}
+            className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer"
+          >
+            {/* Image Section */}
+            <div className="relative aspect-[4/3] bg-museum-neutral-100">
+              <img
+                src={tour.image}
+                alt={tour.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-museum-gold-500/0 transition-colors duration-300 group-hover:bg-museum-gold-500/10" />
             </div>
-          ))}
-        </div>
+
+            {/* Text Section */}
+            <div className="p-6">
+              <h3 className="text-xl font-bold font-serif text-museum-primary-900 mb-2">
+                {tour.name}
+              </h3>
+              <p className="text-museum-neutral-600 text-sm mb-3 leading-relaxed">
+                {tour.description}
+              </p>
+              <p className="text-museum-gold-600 font-medium text-sm">
+                Duration: {tour.duration}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

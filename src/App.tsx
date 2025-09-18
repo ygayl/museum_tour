@@ -41,6 +41,8 @@ export interface Stop {
   artistAudioUrl: string;
   artistName: string;
   roomNumber: string;
+  artworkTranscript?: string;
+  artistTranscript?: string;
 }
 
 const cities: City[] = citiesData;

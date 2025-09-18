@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2 } from 'lucide-react';
+import { Play, Pause, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface AudioPlayerProps {
   audioUrl: string;
   title: string;
   label?: string;
   artist?: string;
+  transcript?: string;
   onProgressUpdate?: (progressPercent: number) => void;
   onPlay?: () => void;
   onComplete?: () => void;
@@ -14,8 +15,9 @@ interface AudioPlayerProps {
 const AudioPlayer: React.FC<AudioPlayerProps> = ({
   audioUrl,
   title,
-  label = "Audio Guide",
+  label = "Audio Guide", // eslint-disable-line @typescript-eslint/no-unused-vars
   artist,
+  transcript,
   onProgressUpdate,
   onPlay,
   onComplete
@@ -23,6 +25,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const [showTranscript, setShowTranscript] = useState(false);
+  const [showFullTranscript, setShowFullTranscript] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // Media Session API for better mobile experience
@@ -90,6 +94,23 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
+  // Transcript management
+  const toggleTranscript = () => {
+    setShowTranscript(!showTranscript);
+    if (!showTranscript) {
+      setShowFullTranscript(false); // Reset full view when opening
+    }
+  };
+
+  const getTranscriptPreview = (text: string, maxLength: number = 150) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
+
+  const shouldShowReadMore = (text: string, maxLength: number = 150) => {
+    return text.length > maxLength;
+  };
+
   return (
     <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border border-museum-neutral-200">
       <audio
@@ -129,6 +150,62 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Transcript Section */}
+      {transcript && (
+        <div className="mt-3 border-t border-museum-neutral-200 pt-3">
+          <button
+            onClick={toggleTranscript}
+            className="flex items-center justify-between w-full text-left text-sm font-medium text-museum-primary-700 hover:text-museum-primary-800 transition-colors"
+            aria-expanded={showTranscript}
+          >
+            <span>
+              {showTranscript ? 'Hide Transcript' : 'Show Transcript'}
+            </span>
+            {showTranscript ? (
+              <ChevronUp className="w-4 h-4 ml-2" />
+            ) : (
+              <ChevronDown className="w-4 h-4 ml-2" />
+            )}
+          </button>
+
+          {showTranscript && (
+            <div className="mt-2 text-sm text-museum-neutral-700 leading-relaxed">
+              <div className="bg-museum-neutral-50/50 rounded-lg p-3">
+                <div>
+                  {showFullTranscript ? (
+                    <div>
+                      {transcript}
+                      {shouldShowReadMore(transcript) && (
+                        <button
+                          onClick={() => setShowFullTranscript(false)}
+                          className="inline-flex items-center mt-2 text-xs text-museum-primary-600 hover:text-museum-primary-700 font-medium"
+                        >
+                          Collapse
+                          <ChevronUp className="w-3 h-3 ml-1" />
+                        </button>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      {getTranscriptPreview(transcript)}
+                      {shouldShowReadMore(transcript) && (
+                        <button
+                          onClick={() => setShowFullTranscript(true)}
+                          className="inline-flex items-center mt-2 text-xs text-museum-primary-600 hover:text-museum-primary-700 font-medium"
+                        >
+                          Read More
+                          <ChevronDown className="w-3 h-3 ml-1" />
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

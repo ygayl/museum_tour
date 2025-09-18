@@ -158,7 +158,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
         <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 mb-4 border border-museum-neutral-200">
           <div className="flex items-center space-x-3 mb-3">
             <Headphones className="w-5 h-5 text-museum-gold-600" />
-            <span className="text-sm font-medium text-gray-900">Museum Introduction</span>
+            <span className="text-sm font-medium text-gray-900">Introduction</span>
           </div>
           <p className="text-gray-600 text-sm mb-4">
             Start your journey with an introduction to {tour.name} and this special tour.
@@ -282,9 +282,9 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                   className={`accordion-content ${isOpen ? 'accordion-open' : ''}`}
                 >
                   <div className="p-4 pt-2 border-t border-museum-neutral-200">
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                    {/* <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                       {stop.description}
-                    </p>
+                    </p> */}
                     
                     {/* Audio Players with Visual Grouping */}
                     <div className="bg-museum-neutral-100/50 rounded-xl p-3 space-y-3 border border-museum-neutral-200">
@@ -298,6 +298,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                           audioUrl={stop.artworkAudioUrl}
                           title={`About: ${stop.title}`}
                           artist={stop.artistName}
+                          transcript={stop.artworkTranscript}
                           onProgressUpdate={(progress) => handleAudioProgress(stop.id, progress)}
                           {...createAudioCallbacks(stop.id, 'artwork')}
                         />
@@ -313,6 +314,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                           audioUrl={stop.artistAudioUrl}
                           title={`About: ${stop.artistName}`}
                           artist={stop.artistName}
+                          transcript={stop.artistTranscript}
                           onProgressUpdate={(progress) => handleArtistAudioProgress(stop.id, progress)}
                           {...createAudioCallbacks(stop.id, 'artist')}
                         />
