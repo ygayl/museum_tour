@@ -16,12 +16,12 @@ const CitiesPage: React.FC<CitiesPageProps> = ({ cities, onSelectCity }) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8 text-center">
-        {/* <h1 className="mb-4 text-3xl font-bold text-museum-primary-900 font-serif md:text-4xl">
-          Choose your 1-hour cultural adventure
-        </h1> */}
-        <p className="text-center text-base italic text-museum-gold-600/80 mt-2 flex items-center justify-center gap-2 font-sans">
-          🌍 Where will your next cultural adventure begin?
-        </p>
+        <h1 className="mb-4 text-3xl font-bold text-museum-primary-900 font-serif md:text-4xl">
+          Pick Your City
+        </h1>
+        {/* <p className="mx-auto max-w-2xl text-lg text-museum-neutral-600 font-light md:text-xl">
+          Select your city to discover curated museum experiences
+        </p> */}
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
