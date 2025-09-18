@@ -185,7 +185,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50/50 to-orange-50/30">
+    <div className="min-h-screen bg-museum-gradient font-sans">
       {currentView === 'intro' ? (
         <Hero onStartTour={handleExploreCities} />
       ) : (

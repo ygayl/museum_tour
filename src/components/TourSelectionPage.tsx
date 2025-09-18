@@ -13,10 +13,10 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
   return (
     <div className="px-4 py-6 bg-gradient-to-br from-amber-50/30 to-orange-50/20 min-h-screen">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+        <h2 className="text-2xl font-bold text-museum-primary-900 font-serif mb-2">
           Tours
         </h2>
-        <p className="text-gray-600">
+        <p className="text-museum-neutral-600">
           Choose your 1-hour cultural adventure
         </p>
       </div>
@@ -45,10 +45,10 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
               <div className="p-4">
                 <p className="text-gray-600 text-sm mb-3">{tour.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-blue-600 font-medium text-sm">
+                  <span className="text-museum-primary-600 font-medium text-sm">
                     Duration: {tour.duration}
                   </span>
-                  <button className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-200 border border-amber-400">
+                  <button className="bg-museum-gold-500 text-museum-primary-900 px-4 py-2 rounded-full text-sm font-medium hover:bg-museum-gold-400 transition-all duration-200">
                     Start Tour
                   </button>
                 </div>

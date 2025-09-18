@@ -90,7 +90,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={handleAccept}
-                  className="flex-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-xl font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-200"
+                  className="flex-1 bg-museum-gold-500 text-museum-primary-900 px-6 py-3 rounded-xl font-medium hover:bg-museum-gold-400 transition-all duration-200"
                 >
                   Accept All Cookies
                 </button>
@@ -151,7 +151,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={handleAccept}
-                  className="flex-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-xl font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-200"
+                  className="flex-1 bg-museum-gold-500 text-museum-primary-900 px-6 py-3 rounded-xl font-medium hover:bg-museum-gold-400 transition-all duration-200"
                 >
                   Accept All
                 </button>
