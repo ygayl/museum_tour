@@ -3,14 +3,14 @@
     "id": "reina-sofia",
     "name": "Museo Reina Sofía",
     "image": "/images/museums/reina_sofia.jpg",
-    "description": "Spain’s 20th-century art museum, home to Picasso’s Guernica and works by Dalí and Miró.",
+    "description": "Spain’s 20th-century art museum",
     "cityId": "madrid"
   },
   {
     "id": "prado",
     "name": "Museo del Prado",
     "image": "/images/museums/prado.jpg",
-    "description": "One of the world’s finest galleries, with masterpieces by Velázquez, Goya, and other Spanish masters.",
+    "description": "One of the world’s finest galleries",
     "cityId": "madrid"
   },
   {
