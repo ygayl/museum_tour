@@ -8,9 +8,9 @@ interface MuseumsPageProps {
 
 const MuseumsPage: React.FC<MuseumsPageProps> = ({ museums, onSelectMuseum }) => {
   return (
-    <div className="container mx-auto px-4 py-4">
+    <div className="container mx-auto px-6 py-4">
       <div className="text-center">
-        <h1 className="mb-4 text-3xl font-bold text-museum-primary-900 font-serif md:text-4xl">
+        <h1 className="mb-4 text-2xl font-bold text-museum-primary-900 font-serif md:text-4xl">
           Choose A Museum
         </h1>
         {/* <p className="mx-auto max-w-2xl text-lg text-gray-600 md:text-xl">

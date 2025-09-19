@@ -134,7 +134,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
   };
 
   return (
-    <div className="px-4 py-4 bg-museum-gradient min-h-screen">
+    <div className="px-6 py-4 bg-museum-gradient min-h-screen">
       {/* Thin Sticky Progress Bar */}
       <ProgressBar
         variant="thin"
