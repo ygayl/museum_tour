@@ -272,17 +272,17 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                   aria-labelledby={`stop-title-${stop.id}`}
                   className={`accordion-content ${isOpen ? 'accordion-open' : ''}`}
                 >
-                  <div className="p-4 pt-2 border-t border-museum-neutral-200">
+                  <div className="p-1 pt-2 border-museum-neutral-200">
                     {/* <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                       {stop.description}
                     </p> */}
                     
-                    {/* Audio Players with Visual Grouping */}
-                    <div className="bg-museum-neutral-100/50 rounded-xl p-3 space-y-3 border border-museum-neutral-200">
+                    {/* Audio Players - Clean Design */}
+                    <div className="space-y-2">
                       {/* Artwork Audio Section */}
                       <div>
-                        <div className="flex items-center space-x-2 mb-2">
-                          <span className="text-lg">🎧</span>
+                        <div className="flex items-center space-x-1.5 mb-1">
+                          <span className="text-sm">🎧</span>
                           <h5 className="text-sm font-medium text-museum-primary-800">Artwork narration</h5>
                         </div>
                         <AudioPlayer
@@ -294,11 +294,11 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                           {...createAudioCallbacks(stop.id, 'artwork')}
                         />
                       </div>
-                      
+
                       {/* Artist Audio Section */}
                       <div>
-                        <div className="flex items-center space-x-2 mb-2">
-                          <span className="text-lg">👨‍🎨</span>
+                        <div className="flex items-center space-x-1.5 mb-1">
+                          <span className="text-sm">👨‍🎨</span>
                           <h5 className="text-sm font-medium text-museum-primary-800">About the artist</h5>
                         </div>
                         <AudioPlayer
@@ -313,17 +313,17 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                     </div>
                     
                     {/* Completion Control */}
-                    <div className="mt-4 mb-4 flex justify-center">
+                    <div className="mt-3 mb-2 flex justify-center">
                       <button
                         onClick={() => handleManualComplete(stop.id)}
-                        className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 min-w-[140px] ${
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-w-[110px] ${
                           isCompleted
                             ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200'
                             : 'bg-white text-museum-neutral-700 border border-museum-neutral-300 hover:border-museum-gold-400 hover:text-museum-gold-600'
                         }`}
                       >
                         {isCompleted ? (
-                          <span className="flex items-center justify-center space-x-2">
+                          <span className="flex items-center justify-center space-x-1.5">
                             <span>✅</span>
                             <span>Seen</span>
                           </span>

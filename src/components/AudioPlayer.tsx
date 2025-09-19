@@ -112,7 +112,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   };
 
   return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border border-museum-neutral-200">
+    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border-museum-neutral-200">
       <audio
         ref={audioRef}
         src={audioUrl}
@@ -153,7 +153,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 
       {/* Transcript Section */}
       {transcript && (
-        <div className="mt-3 border-t border-museum-neutral-200 pt-3">
+        <div className="mt-3 border-b border-museum-neutral-200 pt-3">
           <button
             onClick={toggleTranscript}
             className="flex items-center justify-between w-full text-left text-sm font-medium text-museum-primary-700 hover:text-museum-primary-800 transition-colors"
