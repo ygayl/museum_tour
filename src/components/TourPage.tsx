@@ -361,7 +361,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
           </p>
           <div className="aspect-video bg-white/50 rounded-xl border border-museum-neutral-200 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-gray-600 mb-2">Google Form Placeholder</p>
+              {/* <p className="text-gray-600 mb-2">Google Form Placeholder</p> */}
               <a 
                 href="https://forms.google.com/feedback-form-placeholder"
                 target="_blank"
