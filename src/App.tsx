@@ -11,6 +11,7 @@ import TourSelectionPage from './components/TourSelectionPage';
 import TourPage from './components/TourPage';
 import CookieConsent from './components/CookieConsent';
 import { useAnalytics } from './hooks/useAnalytics';
+import { useHistoryNavigation } from './hooks/useHistoryNavigation';
 
 export interface Museum {
   id: string;
@@ -60,6 +61,18 @@ function App() {
 
   const analytics = useAnalytics();
 
+  // History navigation integration
+  const { pushHistoryState } = useHistoryNavigation({
+    currentView,
+    selectedCity,
+    selectedMuseum,
+    selectedTour,
+    setCurrentView,
+    setSelectedCity,
+    setSelectedMuseum,
+    setSelectedTour,
+  });
+
   // Scroll to top when view changes and track page views
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,11 +89,13 @@ function App() {
 
   const handleExploreCities = () => {
     setCurrentView('cities');
+    pushHistoryState('cities');
   };
 
   const handleSelectCity = (city: City) => {
     setSelectedCity(city);
     setCurrentView('museums');
+    pushHistoryState('museums', city);
 
     if (analyticsEnabled) {
       analytics.trackCitySelected(city);
@@ -90,6 +105,7 @@ function App() {
   const handleSelectMuseum = (museum: Museum) => {
     setSelectedMuseum(museum);
     setCurrentView('tours');
+    pushHistoryState('tours', selectedCity, museum);
 
     if (analyticsEnabled && selectedCity) {
       analytics.trackMuseumSelected(museum, selectedCity.id);
@@ -99,48 +115,13 @@ function App() {
   const handleSelectTour = (tour: Tour) => {
     setSelectedTour(tour);
     setCurrentView('tour');
+    pushHistoryState('tour', selectedCity, selectedMuseum, tour);
 
     if (analyticsEnabled && selectedMuseum) {
       analytics.trackTourSelected(tour, selectedMuseum.id);
     }
   };
 
-  const handleBackToTours = () => {
-    if (analyticsEnabled) {
-      analytics.trackBackNavigation('tour', 'tours');
-    }
-    setCurrentView('tours');
-    setSelectedTour(null);
-  };
-
-  const handleBackToMuseums = () => {
-    if (analyticsEnabled) {
-      analytics.trackBackNavigation('tours', 'museums');
-    }
-    setCurrentView('museums');
-    setSelectedMuseum(null);
-    setSelectedTour(null);
-  };
-
-  const handleBackToCities = () => {
-    if (analyticsEnabled) {
-      analytics.trackBackNavigation('museums', 'cities');
-    }
-    setCurrentView('cities');
-    setSelectedCity(null);
-    setSelectedMuseum(null);
-    setSelectedTour(null);
-  };
-
-  const handleBackToIntro = () => {
-    if (analyticsEnabled) {
-      analytics.trackBackNavigation('cities', 'intro');
-    }
-    setCurrentView('intro');
-    setSelectedCity(null);
-    setSelectedMuseum(null);
-    setSelectedTour(null);
-  };
 
   const getHeaderTitle = () => {
     switch (currentView) {
@@ -160,18 +141,13 @@ function App() {
   };
 
   const getBackHandler = () => {
-    switch (currentView) {
-      case 'cities':
-        return handleBackToIntro;
-      case 'museums':
-        return handleBackToCities;
-      case 'tours':
-        return handleBackToMuseums;
-      case 'tour':
-        return handleBackToTours;
-      default:
-        return undefined;
+    // Use browser history navigation for consistent behavior
+    if (currentView !== 'intro') {
+      return () => {
+        window.history.back();
+      };
     }
+    return undefined;
   };
 
   // Filter tours by selected museum
@@ -206,7 +182,7 @@ function App() {
             ) : (
               selectedTour && <TourPage
                 tour={selectedTour}
-                onBackToTours={handleBackToTours}
+                onBackToTours={() => window.history.back()}
                 analyticsEnabled={analyticsEnabled}
               />
             )}
