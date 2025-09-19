@@ -17,35 +17,77 @@
     "id": "rijksmuseum",
     "name": "Rijksmuseum",
     "image": "/images/museums/rijksmuseum.jpg",
-    "description": "The Netherlands' national museum showcasing 800 years of Dutch art and history, including masterpieces by Rembrandt and Vermeer.",
+    "description": "Dutch art and history",
     "cityId": "amsterdam"
   },
   {
     "id": "van-gogh-museum",
     "name": "Van Gogh Museum",
     "image": "/images/museums/van_gogh_museum.jpg",
-    "description": "The world's largest collection of Van Gogh's paintings, drawings, and letters, telling the story of his life and artistic journey.",
+    "description": "The world’s largest Van Gogh collection",
     "cityId": "amsterdam"
   },
   {
     "id": "british-museum",
     "name": "The British Museum",
     "image": "/images/museums/british_museum.jpg",
-    "description": "The world's first national public museum, housing a vast collection of world art and artifacts spanning 2 million years of history.",
+    "description": "World art and artifacts",
     "cityId": "london"
   },
   {
     "id": "national-gallery",
     "name": "The National Gallery",
     "image": "/images/museums/national_gallery.jpg",
-    "description": "Home to one of the world's greatest collections of Western European paintings from the 13th to the 19th centuries.",
+    "description": "Western European paintings",
     "cityId": "london"
   },
   {
     "id": "tate-modern",
     "name": "Tate Modern",
     "image": "/images/museums/tate_modern.jpg",
-    "description": "The world's most visited modern art gallery, housed in a former power station and showcasing international contemporary art.",
+    "description": "Modern and contemporary art",
     "cityId": "london"
-  }
+  },
+  {
+    "id": "louvre",
+    "name": "Musée du Louvre",
+    "image": "/images/museums/louvre.jpg",
+    "description": "The world’s most visited museum",
+    "cityId": "paris"
+  },
+  {
+    "id": "orsay",
+    "name": "Musée d'Orsay",
+    "image": "/images/museums/orsay.jpg",
+    "description": "Impressionist and Post-Impressionist art",
+    "cityId": "paris"
+  },
+  {
+    "id": "pompidou",
+    "name": "Centre Pompidou",
+    "image": "/images/museums/pompidou.jpg",
+    "description": "Modern and contemporary art",
+    "cityId": "paris"
+  },
+  {
+    "id": "met",
+    "name": "The Metropolitan Museum of Art",
+    "image": "/images/museums/met.jpg",
+    "description": "5,000 years of world culture",
+    "cityId": "new-york"
+  },
+  {
+    "id": "moma",
+    "name": "The Museum of Modern Art (MoMA)",
+    "image": "/images/museums/moma.jpg",
+    "description": "Influential modern art museum",
+    "cityId": "new-york"
+  },
+  {
+    "id": "guggenheim",
+    "name": "Solomon R. Guggenheim Museum",
+    "image": "/images/museums/guggenheim.jpg",
+    "description": "Iconic modern art spiral museum",
+    "cityId": "new-york"
+  }    
 ]
