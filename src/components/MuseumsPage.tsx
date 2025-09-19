@@ -37,14 +37,16 @@ const MuseumsPage: React.FC<MuseumsPageProps> = ({ museums, onSelectMuseum }) =>
 
             <div className="absolute inset-0 flex items-end p-6">
               <div className="text-white">
-                <h3 className="text-2xl font-bold md:text-3xl">{museum.name}</h3>
-                <p className="mt-2 text-sm opacity-90 md:text-base">
-                  {museum.description}
-                </p>
+                <h3 className="text-2xl font-bold font-serif md:text-3xl">{museum.name}</h3>
+                {museum.description && (
+                  <p className="mt-2 text-sm opacity-90 md:text-base">
+                    {museum.description}
+                  </p>
+                )}
               </div>
             </div>
 
-            <div className="absolute inset-0 bg-amber-500/0 transition-colors duration-300 group-hover:bg-amber-500/10" />
+            <div className="absolute inset-0 bg-museum-gold-500/0 transition-colors duration-300 group-hover:bg-museum-gold-500/15" />
           </div>
         ))}
       </div>

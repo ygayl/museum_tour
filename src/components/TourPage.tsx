@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Headphones, ChevronDown, Check, Play } from 'lucide-react';
+import { Headphones, ChevronDown, Check } from 'lucide-react';
 import { Tour } from '../App';
 import AudioPlayer from './AudioPlayer';
 import ProgressBar from './ProgressBar';
@@ -15,7 +15,6 @@ interface TourPageProps {
 
 const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabled = false }) => {
   const [openStopId, setOpenStopId] = useState<string | null>(null);
-  const [showIntro, setShowIntro] = useState(false);
   const stopRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const {
@@ -146,42 +145,17 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
         isStopCompleted={isStopCompleted}
       />
 
-      {/* Compact Meta Row */}
-      <div className="flex items-center justify-between mb-3 mt-2">
-        <div className="flex items-center space-x-2">
-          <span className="text-xs px-2.5 py-1 rounded-full border bg-white/70 text-museum-neutral-600 flex items-center space-x-1">
-            <span>🕑</span>
-            <span>{tour.duration}</span>
-          </span>
+      {/* Introduction Card - Always Visible */}
+      <div className="bg-white/70 backdrop-blur rounded-xl p-3 border border-museum-neutral-200 mb-3 mt-2">
+        <div className="flex items-center space-x-2 mb-2">
+          <Headphones className="w-4 h-4 text-museum-gold-600" />
+          <span className="text-sm font-medium text-gray-900">Introduction</span>
         </div>
-        <button
-          onClick={() => setShowIntro(!showIntro)}
-          className="text-xs px-2.5 py-1 rounded-full border bg-white/70 text-museum-neutral-600 hover:bg-white/90 transition-colors flex items-center space-x-1"
-          aria-expanded={showIntro}
-        >
-          <Play className="w-3 h-3" />
-          <span>Play Intro</span>
-        </button>
+        <p className="text-gray-600 text-sm mb-3">
+          Start your journey with an introduction to {tour.name}.
+        </p>
+        <AudioPlayer audioUrl={tour.introAudio} title={`${tour.name} Introduction`} />
       </div>
-
-      {/* Short Description
-      <p className="text-sm text-museum-neutral-600 mb-4 line-clamp-2 font-light">
-        {tour.description}
-      </p> */}
-
-      {/* Collapsible Intro Card */}
-      {showIntro && (
-        <div className="bg-white/70 backdrop-blur rounded-xl p-3 border border-museum-neutral-200 mb-3">
-          <div className="flex items-center space-x-2 mb-2">
-            <Headphones className="w-4 h-4 text-museum-gold-600" />
-            <span className="text-sm font-medium text-gray-900">Introduction</span>
-          </div>
-          <p className="text-gray-600 text-sm mb-3">
-            Start your journey with an introduction to {tour.name}.
-          </p>
-          <AudioPlayer audioUrl={tour.introAudio} title={`${tour.name} Introduction`} />
-        </div>
-      )}
 
 
       {/* Tour Stops Gallery */}
