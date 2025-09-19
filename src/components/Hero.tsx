@@ -1,4 +1,5 @@
 import React from 'react';
+import BackgroundImage from './BackgroundImage';
 
 interface HeroProps {
   onStartTour: () => void;
@@ -6,14 +7,11 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/images/hero-museum.jpg)',
-        }}
-      />
-
+    <BackgroundImage
+      src="/images/hero/hero"
+      alt="Museum art gallery hero background"
+      className="relative h-screen w-full overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-museum-primary-900/70 via-museum-primary-800/60 to-museum-neutral-900/50" />
 
       <div className="relative z-10 flex h-full items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -43,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
           </button>
         </div>
       </div>
-    </section>
+    </BackgroundImage>
   );
 };
 

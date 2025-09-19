@@ -1,4 +1,5 @@
 import React from 'react';
+import ResponsiveImage from './ResponsiveImage';
 
 export interface City {
   id: string;
@@ -32,11 +33,12 @@ const CitiesPage: React.FC<CitiesPageProps> = ({ cities, onSelectCity }) => {
             className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer"
             style={{ aspectRatio: '4/3' }}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{
-                backgroundImage: `url(${city.image})`,
-              }}
+            <ResponsiveImage
+              src={city.image}
+              alt={city.name}
+              className="absolute inset-0"
+              priority={false}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />

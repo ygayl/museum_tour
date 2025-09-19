@@ -83,56 +83,104 @@
     "stops": [
       {
         "id": "1",
-        "title": "Las Meninas",
-        "description": "The most famous painting in the Prado, a masterpiece of perspective and royal portraiture.",
-        "image": "/images/artworks/las_meninas.jpg",
-        "artworkAudioUrl": "/audio/artworks/las_meninas_geographic_channel_style.mp3",
-        "artistAudioUrl": "/audio/artists/velazquez.mp3",
-        "artistName": "Diego Velázquez",
-        "roomNumber": "Room 12",
-        "artworkTranscript": "NARRATOR: We're looking at one of the most famous paintings in the world, Las Meninas, painted by Diego Velázquez in 1656. This extraordinary work measures over ten feet wide and nine feet tall, and it's often called the most important painting in the Prado Museum. What makes this painting so revolutionary is its complex play with perspective and reality. Velázquez has painted himself in the act of painting, standing at his easel on the left side of the composition. But what is he painting? The viewer becomes part of the mystery. In the center of the composition, we see the Infanta Margarita Teresa, daughter of King Philip IV of Spain, surrounded by her entourage of maids of honor, or 'meninas' in Spanish. The little princess is dressed in a magnificent white and silver gown that catches the light beautifully. To her right, we see María Agustina Sarmiento de Sotomayor, one of her meninas, curtsying and offering the princess a drink from a small clay vessel. The painting's genius lies in its multiple layers of reality - we're looking at a painting of people in a room, but Velázquez has also included a mirror in the background that reflects the images of the king and queen, suggesting they are standing where we, the viewers, are positioned.",
-        "artistTranscript": "NARRATOR: Diego Rodríguez de Silva y Velázquez was born in Seville in 1599 and became one of the most important painters of the Spanish Golden Age. He served as the leading artist in the court of King Philip IV, where he developed his distinctive style that would influence generations of artists to come. Velázquez was known for his incredible ability to capture light and atmosphere, as well as his psychological insight into his subjects. His technique was revolutionary - he used loose, confident brushstrokes that from a distance created incredibly realistic effects. This approach was far ahead of its time and wouldn't be fully appreciated until centuries later. During his career, Velázquez painted portraits of the Spanish royal family, religious scenes, and mythological subjects, but it's his court paintings that are considered his greatest achievements. He made two trips to Italy, where he studied the works of Italian masters like Titian and Tintoretto, which greatly influenced his style. Velázquez died in Madrid in 1660, leaving behind a relatively small but extraordinary body of work that includes some of the most celebrated paintings in Western art."
+        "title": "The Andrians",
+        "description": "One of Titian’s mythological masterpieces celebrating Bacchus and the pleasures of wine.",
+        "image": "/images/artworks/titian_andrians",
+        "artworkAudioUrl": "/audio/artworks/andrians.mp3",
+        "artistAudioUrl": "/audio/artists/titian.mp3",
+        "artistName": "Titian",
+        "roomNumber": "Room 42"
       },
       {
         "id": "2",
-        "title": "The Third of May 1808",
-        "description": "A powerful depiction of the Spanish resistance against Napoleon's invasion.",
-        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
-        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-        "artistName": "Francisco Goya",
-        "roomNumber": "Room 64"
+        "title": "David with the Head of Goliath",
+        "description": "Caravaggio’s dramatic take on the biblical story, with stark light and shadow.",
+        "image": "/images/artworks/caravaggio_david",
+        "artworkAudioUrl": "/audio/artworks/david_goliath.mp3",
+        "artistAudioUrl": "/audio/artists/caravaggio.mp3",
+        "artistName": "Caravaggio",
+        "roomNumber": "Room 7A"
       },
       {
         "id": "3",
-        "title": "The Garden of Earthly Delights",
-        "description": "A fantastical triptych exploring themes of paradise, temptation, and hell.",
-        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
-        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-        "artistName": "Hieronymus Bosch",
-        "roomNumber": "Room 56A"
+        "title": "Still Life with Vessels",
+        "description": "A serene, meticulous still life by Zurbarán, showcasing his mastery of light.",
+        "image": "/images/artworks/zurbaran_stilllife",
+        "artworkAudioUrl": "/audio/artworks/stilllife.mp3",
+        "artistAudioUrl": "/audio/artists/zurbaran.mp3",
+        "artistName": "Francisco de Zurbarán",
+        "roomNumber": "Room 10A"
       },
       {
         "id": "4",
-        "title": "The Naked Maja",
-        "description": "One of the first nude paintings in Western art, controversial and revolutionary for its time.",
-        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
-        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-        "artistName": "Francisco Goya",
-        "roomNumber": "Room 36"
+        "title": "Nobleman with his Hand on his Chest",
+        "description": "El Greco’s famous portrait, striking in its intensity and psychological depth.",
+        "image": "/images/artworks/elgreco_nobleman",
+        "artworkAudioUrl": "/audio/artworks/nobleman.mp3",
+        "artistAudioUrl": "/audio/artists/elgreco.mp3",
+        "artistName": "El Greco",
+        "roomNumber": "Room 9B"
       },
       {
         "id": "5",
-        "title": "The Surrender of Breda",
-        "description": "A monumental history painting showcasing Velázquez's mastery of composition and diplomacy.",
-        "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
-        "artworkAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
-        "artistAudioUrl": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+        "title": "Hippomenes and Atalanta",
+        "description": "Guido Reni’s mythological drama of speed, fate, and divine intervention.",
+        "image": "/images/artworks/reni_hippomenes",
+        "artworkAudioUrl": "/audio/artworks/hippomenes.mp3",
+        "artistAudioUrl": "/audio/artists/reni.mp3",
+        "artistName": "Guido Reni",
+        "roomNumber": "Room 26"
+      },
+      {
+        "id": "6",
+        "title": "Las Meninas",
+        "description": "The most famous painting in the Prado, Velázquez’s masterpiece of perspective and mystery.",
+        "image": "/images/artworks/las_meninas",
+        "artworkAudioUrl": "/audio/artworks/las_meninas.mp3",
+        "artistAudioUrl": "/audio/artists/velazquez.mp3",
         "artistName": "Diego Velázquez",
-        "roomNumber": "Room 9"
-      }
+        "roomNumber": "Room 12"
+      },
+      {
+        "id": "7",
+        "title": "The Immaculate Conception of Los Venerables",
+        "description": "Murillo’s luminous vision of the Virgin, painted with tenderness and grace.",
+        "image": "/images/artworks/murillo_immaculate",
+        "artworkAudioUrl": "/audio/artworks/immaculate.mp3",
+        "artistAudioUrl": "/audio/artists/murillo.mp3",
+        "artistName": "Bartolomé Esteban Murillo",
+        "roomNumber": "Room 16"
+      },
+      {
+        "id": "8",
+        "title": "The Three Graces",
+        "description": "Rubens’ celebration of beauty and sensuality, painted with vibrant color and energy.",
+        "image": "/images/artworks/rubens_threegraces",
+        "artworkAudioUrl": "/audio/artworks/threegraces.mp3",
+        "artistAudioUrl": "/audio/artists/rubens.mp3",
+        "artistName": "Peter Paul Rubens",
+        "roomNumber": "Room 29"
+      },
+      {
+        "id": "9",
+        "title": "The Family of Charles IV",
+        "description": "Goya’s unflinching royal portrait, blending grandeur with subtle critique.",
+        "image": "/images/artworks/goya_charlesiv",
+        "artworkAudioUrl": "/audio/artworks/charlesiv.mp3",
+        "artistAudioUrl": "/audio/artists/goya.mp3",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 32"
+      },
+      {
+        "id": "10",
+        "title": "The Naked Maja",
+        "description": "One of Goya’s most daring works, a frank and sensual portrait of a reclining woman.",
+        "image": "/images/artworks/goya_maja",
+        "artworkAudioUrl": "/audio/artworks/maja.mp3",
+        "artistAudioUrl": "/audio/artists/goya.mp3",
+        "artistName": "Francisco Goya",
+        "roomNumber": "Room 38"
+      }  
     ]
   },
   {

@@ -15,7 +15,6 @@ interface AudioPlayerProps {
 const AudioPlayer: React.FC<AudioPlayerProps> = ({
   audioUrl,
   title,
-  label = "Audio Guide", // eslint-disable-line @typescript-eslint/no-unused-vars
   artist,
   transcript,
   onProgressUpdate,

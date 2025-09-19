@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tour } from '../App';
+import ResponsiveImage from './ResponsiveImage';
 
 interface TourSelectionPageProps {
   tours: Tour[];
@@ -33,7 +34,7 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {sortedTours.map((tour) => (
+        {sortedTours.map((tour, index) => (
           <div
             key={tour.id}
             onClick={() => onSelectTour(tour)}
@@ -41,10 +42,12 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
           >
             {/* Image Section */}
             <div className="relative aspect-[4/3] bg-museum-neutral-100">
-              <img
+              <ResponsiveImage
                 src={tour.image}
                 alt={tour.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                priority={index < 2}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-museum-gold-500/0 transition-colors duration-300 group-hover:bg-museum-gold-500/10" />
             </div>

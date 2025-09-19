@@ -4,6 +4,7 @@ import { Tour } from '../App';
 import AudioPlayer from './AudioPlayer';
 import ProgressBar from './ProgressBar';
 import CompletionCelebration from './CompletionCelebration';
+import ResponsiveImage from './ResponsiveImage';
 import { useTourProgress } from '../hooks/useTourProgress';
 import { useEngagementTracking, useAnalytics } from '../hooks/useAnalytics';
 
@@ -188,13 +189,12 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                   <div className="md:hidden">
                     {/* Full-width Image */}
                     <div className="relative aspect-[4/3] bg-museum-neutral-100">
-                      <img
+                      <ResponsiveImage
                         src={stop.image}
                         alt={`${stop.title}`}
-                        loading="lazy"
-                        decoding="async"
-                        fetchPriority="low"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        priority={index < 2}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 720px, 1080px"
                       />
                       
                       
@@ -231,13 +231,12 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                   <div className="hidden md:flex items-center p-4 space-x-4 hover:bg-museum-neutral-100/50 transition-colors">
                     {/* Small Thumbnail */}
                     <div className="flex-shrink-0 relative">
-                      <img
+                      <ResponsiveImage
                         src={stop.image}
                         alt={`${stop.title}`}
-                        loading="lazy"
-                        decoding="async"
-                        fetchPriority="low"
-                        className="w-16 h-16 object-cover rounded-lg"
+                        className="w-16 h-16 rounded-lg"
+                        priority={index < 2}
+                        sizes="64px"
                       />
                       {isCompleted && (
                         <div className="absolute -top-1 -right-1 w-5 h-5 bg-museum-gold-500 rounded-full flex items-center justify-center">
