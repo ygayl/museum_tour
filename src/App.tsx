@@ -3,7 +3,6 @@ import citiesData from './data/cities.json';
 import museumsData from './data/museums.json';
 import toursData from './data/tours.json';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Hero from './components/Hero';
 import CitiesPage, { City } from './components/CitiesPage';
 import MuseumsPage from './components/MuseumsPage';
@@ -172,7 +171,7 @@ function App() {
             onBackClick={getBackHandler()}
             title={getHeaderTitle()}
           />
-          <main className="pt-16 pb-20">
+          <main className="pt-16 pb-8">
             {currentView === 'cities' ? (
               <CitiesPage cities={cities} onSelectCity={handleSelectCity} />
             ) : currentView === 'museums' ? (
@@ -187,7 +186,6 @@ function App() {
               />
             )}
           </main>
-          <Footer />
         </>
       )}
 
