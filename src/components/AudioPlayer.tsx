@@ -7,6 +7,7 @@ interface AudioPlayerProps {
   label?: string;
   artist?: string;
   transcript?: string;
+  shouldPause?: boolean;
   onProgressUpdate?: (progressPercent: number) => void;
   onPlay?: () => void;
   onComplete?: () => void;
@@ -17,6 +18,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   title,
   artist,
   transcript,
+  shouldPause,
   onProgressUpdate,
   onPlay,
   onComplete
@@ -27,6 +29,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   const [showTranscript, setShowTranscript] = useState(false);
   const [showFullTranscript, setShowFullTranscript] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Handle external pause signal
+  useEffect(() => {
+    if (shouldPause && isPlaying && audioRef.current) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  }, [shouldPause, isPlaying]);
 
   // Media Session API for better mobile experience
   useEffect(() => {

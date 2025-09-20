@@ -16,6 +16,7 @@ interface TourPageProps {
 
 const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabled = false }) => {
   const [openStopId, setOpenStopId] = useState<string | null>(null);
+  const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
   const stopRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const {
@@ -32,18 +33,25 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
   const analytics = useAnalytics();
 
   // Audio tracking callbacks
-  const createAudioCallbacks = (stopId: string, audioType: 'artwork' | 'artist') => ({
-    onPlay: () => {
-      if (analyticsEnabled) {
-        analytics.trackAudioPlay(tour.id, stopId, audioType);
+  const createAudioCallbacks = (stopId: string, audioType: 'artwork' | 'artist') => {
+    const playerId = `${stopId}-${audioType}`;
+    return {
+      onPlay: () => {
+        // Set this audio as currently playing (pauses others)
+        setCurrentlyPlaying(playerId);
+        if (analyticsEnabled) {
+          analytics.trackAudioPlay(tour.id, stopId, audioType);
+        }
+      },
+      onComplete: () => {
+        // Clear currently playing when audio completes
+        setCurrentlyPlaying(null);
+        if (analyticsEnabled) {
+          analytics.trackAudioComplete(tour.id, stopId, audioType);
+        }
       }
-    },
-    onComplete: () => {
-      if (analyticsEnabled) {
-        analytics.trackAudioComplete(tour.id, stopId, audioType);
-      }
-    }
-  });
+    };
+  };
 
   // Handle deep linking only (no state retention from navigation)
   useEffect(() => {
@@ -155,7 +163,23 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
         <p className="text-gray-600 text-sm mb-3">
           Start your journey with an introduction to {tour.name}.
         </p>
-        <AudioPlayer audioUrl={tour.introAudio} title={`${tour.name} Introduction`} />
+        <AudioPlayer
+          audioUrl={tour.introAudio}
+          title={`${tour.name} Introduction`}
+          shouldPause={currentlyPlaying !== null && currentlyPlaying !== 'intro'}
+          onPlay={() => {
+            setCurrentlyPlaying('intro');
+            if (analyticsEnabled) {
+              analytics.trackAudioPlay(tour.id, 'intro', 'artwork');
+            }
+          }}
+          onComplete={() => {
+            setCurrentlyPlaying(null);
+            if (analyticsEnabled) {
+              analytics.trackAudioComplete(tour.id, 'intro', 'artwork');
+            }
+          }}
+        />
       </div>
 
 
@@ -289,6 +313,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                           title={`About: ${stop.title}`}
                           artist={stop.artistName}
                           transcript={stop.artworkTranscript}
+                          shouldPause={currentlyPlaying !== null && currentlyPlaying !== `${stop.id}-artwork`}
                           onProgressUpdate={(progress) => handleAudioProgress(stop.id, progress)}
                           {...createAudioCallbacks(stop.id, 'artwork')}
                         />
@@ -305,6 +330,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, analyticsEnabl
                           title={`About: ${stop.artistName}`}
                           artist={stop.artistName}
                           transcript={stop.artistTranscript}
+                          shouldPause={currentlyPlaying !== null && currentlyPlaying !== `${stop.id}-artist`}
                           onProgressUpdate={(progress) => handleArtistAudioProgress(stop.id, progress)}
                           {...createAudioCallbacks(stop.id, 'artist')}
                         />
