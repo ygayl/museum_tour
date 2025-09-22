@@ -33,12 +33,12 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
         </p> */}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {sortedTours.map((tour, index) => (
           <div
             key={tour.id}
             onClick={() => onSelectTour(tour)}
-            className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer"
+            className="group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-museum-gold-400 hover:bg-gray-50 cursor-pointer"
           >
             {/* Image Section */}
             <div className="relative aspect-[4/3] bg-museum-neutral-100">
@@ -49,15 +49,14 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
                 priority={index < 2}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-museum-gold-500/0 transition-colors duration-300 group-hover:bg-museum-gold-500/10" />
             </div>
 
             {/* Text Section */}
-            <div className="p-6">
-              <h3 className="text-xl font-bold font-serif text-museum-primary-900 mb-2">
+            <div className="p-4">
+              <h3 className="text-lg font-bold font-serif text-museum-primary-900 mb-2">
                 {tour.name}
               </h3>
-              <p className="text-museum-neutral-600 text-sm mb-3 leading-relaxed">
+              <p className="text-museum-neutral-600 text-sm mb-2 leading-relaxed">
                 {tour.description}
               </p>
               <p className="text-museum-gold-600 font-medium text-sm">

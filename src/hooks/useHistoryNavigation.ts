@@ -1,14 +1,15 @@
 import { useEffect, useCallback } from 'react';
 import { City } from '../components/CitiesPage';
-import { Museum, Tour } from '../App';
+import { Museum, Tour, Stop } from '../App';
 
-export type ViewType = 'intro' | 'cities' | 'museums' | 'tours' | 'tour';
+export type ViewType = 'intro' | 'cities' | 'museums' | 'tours' | 'tour' | 'artpiece';
 
 export interface HistoryState {
   view: ViewType;
   selectedCity?: City | null;
   selectedMuseum?: Museum | null;
   selectedTour?: Tour | null;
+  selectedStop?: Stop | null;
   timestamp: number;
 }
 
@@ -17,10 +18,12 @@ export interface UseHistoryNavigationProps {
   selectedCity: City | null;
   selectedMuseum: Museum | null;
   selectedTour: Tour | null;
+  selectedStop: Stop | null;
   setCurrentView: (view: ViewType) => void;
   setSelectedCity: (city: City | null) => void;
   setSelectedMuseum: (museum: Museum | null) => void;
   setSelectedTour: (tour: Tour | null) => void;
+  setSelectedStop: (stop: Stop | null) => void;
 }
 
 export const useHistoryNavigation = ({
@@ -28,14 +31,16 @@ export const useHistoryNavigation = ({
   selectedCity,
   selectedMuseum,
   selectedTour,
+  selectedStop,
   setCurrentView,
   setSelectedCity,
   setSelectedMuseum,
   setSelectedTour,
+  setSelectedStop,
 }: UseHistoryNavigationProps) => {
 
   // Generate URL path based on current state
-  const generatePath = useCallback((view: ViewType, city?: City | null, museum?: Museum | null, tour?: Tour | null): string => {
+  const generatePath = useCallback((view: ViewType, city?: City | null, museum?: Museum | null, tour?: Tour | null, stop?: Stop | null): string => {
     switch (view) {
       case 'intro':
         return '/';
@@ -51,6 +56,10 @@ export const useHistoryNavigation = ({
         return tour && museum && city ?
           `/cities/${encodeURIComponent(city.id)}/museums/${encodeURIComponent(museum.id)}/tours/${encodeURIComponent(tour.id)}` :
           '/tour';
+      case 'artpiece':
+        return stop && tour && museum && city ?
+          `/cities/${encodeURIComponent(city.id)}/museums/${encodeURIComponent(museum.id)}/tours/${encodeURIComponent(tour.id)}/artpiece/${encodeURIComponent(stop.id)}` :
+          '/artpiece';
       default:
         return '/';
     }
@@ -61,17 +70,19 @@ export const useHistoryNavigation = ({
     view: ViewType,
     city?: City | null,
     museum?: Museum | null,
-    tour?: Tour | null
+    tour?: Tour | null,
+    stop?: Stop | null
   ) => {
     const state: HistoryState = {
       view,
       selectedCity: city,
       selectedMuseum: museum,
       selectedTour: tour,
+      selectedStop: stop,
       timestamp: Date.now(),
     };
 
-    const path = generatePath(view, city, museum, tour);
+    const path = generatePath(view, city, museum, tour, stop);
 
     // Only push if this is a new navigation (not initial page load)
     if (window.history.state?.timestamp !== state.timestamp) {
@@ -89,14 +100,16 @@ export const useHistoryNavigation = ({
       setSelectedCity(state.selectedCity || null);
       setSelectedMuseum(state.selectedMuseum || null);
       setSelectedTour(state.selectedTour || null);
+      setSelectedStop(state.selectedStop || null);
     } else {
       // No state means we're at the initial page load
       setCurrentView('intro');
       setSelectedCity(null);
       setSelectedMuseum(null);
       setSelectedTour(null);
+      setSelectedStop(null);
     }
-  }, [setCurrentView, setSelectedCity, setSelectedMuseum, setSelectedTour]);
+  }, [setCurrentView, setSelectedCity, setSelectedMuseum, setSelectedTour, setSelectedStop]);
 
   // Set up popstate listener
   useEffect(() => {
@@ -109,15 +122,16 @@ export const useHistoryNavigation = ({
         selectedCity,
         selectedMuseum,
         selectedTour,
+        selectedStop,
         timestamp: Date.now(),
       };
-      window.history.replaceState(initialState, '', generatePath(currentView, selectedCity, selectedMuseum, selectedTour));
+      window.history.replaceState(initialState, '', generatePath(currentView, selectedCity, selectedMuseum, selectedTour, selectedStop));
     }
 
     return () => {
       window.removeEventListener('popstate', handlePopState);
     };
-  }, [handlePopState, currentView, selectedCity, selectedMuseum, selectedTour, generatePath]);
+  }, [handlePopState, currentView, selectedCity, selectedMuseum, selectedTour, selectedStop, generatePath]);
 
   return {
     pushHistoryState,

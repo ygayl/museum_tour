@@ -8,6 +8,7 @@ import CitiesPage, { City } from './components/CitiesPage';
 import MuseumsPage from './components/MuseumsPage';
 import TourSelectionPage from './components/TourSelectionPage';
 import TourPage from './components/TourPage';
+import ArtPiecePage from './components/ArtPiecePage';
 import CookieConsent from './components/CookieConsent';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
@@ -52,10 +53,11 @@ const museums: Museum[] = museumsData;
 const tours: Tour[] = toursData;
 
 function App() {
-  const [currentView, setCurrentView] = useState<'intro' | 'cities' | 'museums' | 'tours' | 'tour'>('intro');
+  const [currentView, setCurrentView] = useState<'intro' | 'cities' | 'museums' | 'tours' | 'tour' | 'artpiece'>('intro');
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
   const [selectedMuseum, setSelectedMuseum] = useState<Museum | null>(null);
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
+  const [selectedStop, setSelectedStop] = useState<Stop | null>(null);
   const [analyticsEnabled, setAnalyticsEnabled] = useState<boolean>(false);
 
   const analytics = useAnalytics();
@@ -66,10 +68,12 @@ function App() {
     selectedCity,
     selectedMuseum,
     selectedTour,
+    selectedStop,
     setCurrentView,
     setSelectedCity,
     setSelectedMuseum,
     setSelectedTour,
+    setSelectedStop,
   });
 
   // Scroll to top when view changes and track page views
@@ -121,6 +125,16 @@ function App() {
     }
   };
 
+  const handleSelectStop = (stop: Stop) => {
+    setSelectedStop(stop);
+    setCurrentView('artpiece');
+    pushHistoryState('artpiece', selectedCity, selectedMuseum, selectedTour, stop);
+
+    if (analyticsEnabled && selectedTour) {
+      analytics.trackAudioPlay(selectedTour.id, stop.id, 'artwork');
+    }
+  };
+
 
   const getHeaderTitle = () => {
     switch (currentView) {
@@ -134,6 +148,8 @@ function App() {
         return selectedMuseum?.name || 'Tours';
       case 'tour':
         return selectedTour?.name || 'Museum Tour';
+      case 'artpiece':
+        return '';
       default:
         return '1-Hour Museum Tours';
     }
@@ -171,17 +187,25 @@ function App() {
             onBackClick={getBackHandler()}
             title={getHeaderTitle()}
           />
-          <main className="pt-16 pb-8">
+          <main className={currentView === 'artpiece' ? 'pt-16' : 'pt-16 pb-8'}>
             {currentView === 'cities' ? (
               <CitiesPage cities={cities} onSelectCity={handleSelectCity} />
             ) : currentView === 'museums' ? (
               <MuseumsPage museums={getMuseumsForSelectedCity()} onSelectMuseum={handleSelectMuseum} />
             ) : currentView === 'tours' ? (
               <TourSelectionPage tours={getToursForSelectedMuseum()} onSelectTour={handleSelectTour} />
-            ) : (
+            ) : currentView === 'tour' ? (
               selectedTour && <TourPage
                 tour={selectedTour}
                 onBackToTours={() => window.history.back()}
+                onSelectStop={handleSelectStop}
+                analyticsEnabled={analyticsEnabled}
+              />
+            ) : (
+              selectedStop && selectedTour && <ArtPiecePage
+                stop={selectedStop}
+                tour={selectedTour}
+                onBackToTour={() => window.history.back()}
                 analyticsEnabled={analyticsEnabled}
               />
             )}
