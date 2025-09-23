@@ -100,9 +100,11 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
               NARRATOR
             </h3>
             <div className="space-y-4 text-gray-800 leading-relaxed">
-              <p className="text-sm leading-relaxed">
-                {stop.artworkTranscript}
-              </p>
+              {stop.artworkTranscript.split('\n').filter(paragraph => paragraph.trim()).map((paragraph, index) => (
+                <p key={index} className="text-sm leading-relaxed">
+                  {paragraph.trim()}
+                </p>
+              ))}
             </div>
           </div>
         </div>
