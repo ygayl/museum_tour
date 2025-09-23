@@ -46,7 +46,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center space-x-2">
               <Shield className="w-6 h-6 text-amber-600" />
-              <h3 className="text-xl font-bold text-gray-900">Privacy & Cookies</h3>
+              <h3 className="text-xl font-normal text-gray-900">Privacy & Cookies</h3>
             </div>
             <button
               onClick={handleDecline}

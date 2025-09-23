@@ -17,7 +17,7 @@ const CitiesPage: React.FC<CitiesPageProps> = ({ cities, onSelectCity }) => {
   return (
     <div className="container mx-auto px-6 py-4">
       <div className="text-center">
-        <h1 className="mb-4 text-2xl font-bold text-museum-primary-900 font-serif md:text-4xl">
+        <h1 className="mb-4 text-2xl font-light tracking-wide text-museum-primary-900 font-serif md:text-4xl">
           Pick Your City
         </h1>
         {/* <p className="mx-auto max-w-2xl text-lg text-museum-neutral-600 font-light md:text-xl">
@@ -45,7 +45,7 @@ const CitiesPage: React.FC<CitiesPageProps> = ({ cities, onSelectCity }) => {
 
             {/* Text Section */}
             <div className="p-4">
-              <h3 className="text-lg font-bold font-serif text-museum-primary-900 mb-2">
+              <h3 className="text-lg font-normal font-serif text-museum-primary-900 mb-2">
                 {city.name}
               </h3>
               {city.description && (

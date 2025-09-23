@@ -25,7 +25,7 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
   return (
     <div className="container mx-auto px-6 py-4">
       <div className="text-center">
-        <h1 className="mb-4 text-2xl font-bold text-museum-primary-900 font-serif md:text-4xl">
+        <h1 className="mb-4 text-2xl font-light tracking-wide text-museum-primary-900 font-serif md:text-4xl">
           Choose A Tour
         </h1>
         {/* <p className="text-center text-base italic text-museum-gold-600/80 mt-2 flex items-center justify-center gap-2 font-sans">
@@ -53,13 +53,13 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
 
             {/* Text Section */}
             <div className="p-4">
-              <h3 className="text-lg font-bold font-serif text-museum-primary-900 mb-2">
+              <h3 className="text-lg font-normal font-serif text-museum-primary-900 mb-2">
                 {tour.name}
               </h3>
               <p className="text-museum-neutral-600 text-sm mb-2 leading-relaxed">
                 {tour.description}
               </p>
-              <p className="text-museum-gold-600 font-medium text-sm">
+              <p className="text-museum-gold-600 font-normal text-sm">
                 Duration: {tour.duration}
               </p>
             </div>

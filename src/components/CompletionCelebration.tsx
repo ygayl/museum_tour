@@ -19,7 +19,7 @@ const CompletionCelebration: React.FC<CompletionCelebrationProps> = ({
           <Trophy className="w-8 h-8 text-white" />
         </div>
         <div className="text-2xl mb-2">🎉</div>
-        <h3 className="text-xl font-bold text-text mb-2">
+        <h3 className="text-xl font-normal text-text mb-2">
           Tour Complete!
         </h3>
         <p className="text-muted">

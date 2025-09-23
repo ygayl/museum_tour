@@ -128,10 +128,10 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
 
         {/* Time Display - Top Row */}
         <div className="flex justify-between items-center mb-3 text-sm">
-          <span className="text-gray-900 font-medium">
+          <span className="text-gray-900 font-normal">
             {formatTime(currentTime)}
           </span>
-          <span className="text-gray-900 font-medium">
+          <span className="text-gray-900 font-normal">
             -{formatTime(remainingTime)}
           </span>
         </div>
@@ -156,7 +156,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
 
           {/* Title and Tour Context */}
           <div className="flex-1 min-w-0">
-            <h2 className="text-base font-medium text-gray-900 mb-0.5 truncate">
+            <h2 className="text-base font-normal text-gray-900 mb-0.5 truncate">
               {stopNumber === 0 ? title : `${stopNumber}: ${title}`}
             </h2>
             <p className="text-sm text-gray-600 truncate">

@@ -79,7 +79,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-museum-primary-900 font-serif">
+          <span className="text-sm font-normal text-museum-primary-900 font-serif">
             Tour Progress
           </span>
           <span className="text-sm text-gray-600">

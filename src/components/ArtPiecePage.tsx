@@ -131,7 +131,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
         {currentTrackData.transcript && (
           <div className="px-6 pb-8 bg-white">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-xs font-bold tracking-widest text-gray-600 uppercase mb-4">
+              <h3 className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase mb-4">
                 {currentTrack === 'artwork' ? 'NARRATOR' : 'ABOUT THE ARTIST'}
               </h3>
               <div className="space-y-4 text-gray-800 leading-relaxed">
@@ -154,7 +154,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
               onClick={() => setIsAdditionalContentExpanded(!isAdditionalContentExpanded)}
               className="w-full flex items-center justify-between py-4 text-left focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
             >
-              <h3 className="text-xs font-bold tracking-widest text-gray-600 uppercase">
+              <h3 className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">
                 ADDITIONAL CONTENT
               </h3>
               {isAdditionalContentExpanded ? (
@@ -181,7 +181,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-baseline space-x-2">
-                        <span className="text-sm font-medium text-gray-900">1</span>
+                        <span className="text-sm font-normal text-gray-900">1</span>
                         <span className="text-sm text-gray-900 truncate">
                           {stop.title}{stop.artistName && `, ${stop.artistName}`}
                         </span>
@@ -209,7 +209,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-baseline space-x-2">
-                          <span className="text-sm font-medium text-gray-900">2</span>
+                          <span className="text-sm font-normal text-gray-900">2</span>
                           <span className="text-sm text-gray-900 truncate">
                             Artist Info: {stop.artistName}
                           </span>
