@@ -64,13 +64,16 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
       {/* Hero Artwork Section */}
       <div className="bg-gray-50 px-6 py-0">
         <div className="max-w-4xl w-full mx-auto">
-          <ResponsiveImage
-            src={stop.image}
-            alt={stop.title}
-            className="w-full h-auto object-contain"
-            priority={true}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 800px, 1200px"
-          />
+          {/* Add minimum height container to prevent layout shift */}
+          <div className="relative min-h-[50vh] bg-museum-neutral-100 flex items-center justify-center">
+            <ResponsiveImage
+              src={stop.image}
+              alt={stop.title}
+              className="w-full h-auto object-contain max-h-[80vh]"
+              priority={true}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 800px, 1200px"
+            />
+          </div>
         </div>
       </div>
 
