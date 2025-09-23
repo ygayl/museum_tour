@@ -121,8 +121,8 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
 
                   {/* Content - Middle */}
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-museum-primary-900 truncate mb-1">
-                      {stop.title}
+                    <h4 className="text-museum-primary-900 truncate mb-1">
+                      {index + 1}: {stop.title}
                     </h4>
                     {stop.artistName && (
                       <p className="text-sm text-museum-neutral-600 truncate">
@@ -162,7 +162,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
       {/* Feedback Section */}
       <div id="feedback-section" className="mt-6 mb-4 px-6">
         <div className="bg-white p-4 border border-gray-200 text-center">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <h3 className="text-lg text-gray-900 mb-2">
             Give us feedback
           </h3>
           <p className="text-gray-600 text-sm mb-4">
