@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Check, ChevronRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Check, ChevronRight, Search } from 'lucide-react';
 import { Tour, Stop } from '../App';
 import CompletionCelebration from './CompletionCelebration';
 import ResponsiveImage from './ResponsiveImage';
@@ -14,6 +14,7 @@ interface TourPageProps {
 }
 
 const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, analyticsEnabled = false }) => {
+  const [searchQuery, setSearchQuery] = useState('');
 
   const {
     isStopCompleted,
@@ -60,6 +61,13 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
   // Combine introduction with regular stops
   const allStops = tour.introAudio ? [createIntroductionStop(), ...tour.stops] : tour.stops;
 
+  // Filter stops based on search query
+  const filteredStops = allStops.filter(stop =>
+    stop.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (stop.artistName && stop.artistName.toLowerCase().includes(searchQuery.toLowerCase())) ||
+    (stop.roomNumber && stop.roomNumber.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
   return (
     <div className="bg-museum-gradient min-h-screen">
       {/* Sticky Tour Title Bar */}
@@ -69,29 +77,40 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
         </h1>
       </div>
 
-      {/* Tour Stops List */}
-      <div className="py-4">
-        <h3 className="text-lg font-semibold text-museum-primary-900 font-serif mb-4 px-2">Tour Artworks</h3>
+      {/* Search Bar */}
+      <div className="px-2 py-4 bg-white">
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-12 pr-4 py-3 bg-gray-100 border-0 rounded-lg text-base placeholder-gray-500 focus:outline-none focus:bg-gray-50 focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+      </div>
 
-        <div className="bg-white border border-gray-200 divide-y divide-gray-200">
-          {allStops.map((stop, index) => {
+      {/* Tour Stops List */}
+      <div className="bg-white border-t border-gray-200 divide-y divide-gray-200">
+        {filteredStops.map((stop, index) => {
             const isCompleted = isStopCompleted(stop.id);
 
             return (
               <button
                 key={stop.id}
                 onClick={() => handleStopClick(stop)}
-                className="w-full p-2 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+                className="w-full p-4 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
               >
                 <div className="flex items-center space-x-4">
-                  {/* Small Thumbnail - Left */}
+                  {/* Larger Thumbnail - Left */}
                   <div className="flex-shrink-0 relative">
                     <ResponsiveImage
                       src={stop.image}
                       alt={stop.title}
-                      className="w-16 h-16 object-cover"
+                      className="w-20 h-20 object-cover rounded"
                       priority={index < 5}
-                      sizes="64px"
+                      sizes="80px"
                     />
                     {isCompleted && (
                       <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
@@ -127,7 +146,6 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
               </button>
             );
           })}
-        </div>
       </div>
 
       {/* Completion Celebration */}
@@ -142,26 +160,22 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
       )}
 
       {/* Feedback Section */}
-      <div id="feedback-section" className="mt-6 mb-4">
-        <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
-          Give us feedback
-        </h3>
-        <div className="bg-white p-4 border border-gray-200">
-          <p className="text-gray-600 text-center mb-4">
-            Help us improve your museum experience by sharing your thoughts
+      <div id="feedback-section" className="mt-6 mb-4 px-6">
+        <div className="bg-white p-4 border border-gray-200 text-center">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            Give us feedback
+          </h3>
+          <p className="text-gray-600 text-sm mb-4">
+            Help us improve your museum experience
           </p>
-          <div className="aspect-video bg-gray-50 border border-gray-200 flex items-center justify-center">
-            <div className="text-center">
-              <a
-                href="https://forms.google.com/feedback-form-placeholder"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-museum-gold-500 text-museum-primary-900 px-6 py-3 font-medium hover:bg-museum-gold-400 transition-all duration-200 inline-block"
-              >
-                Open Feedback Form
-              </a>
-            </div>
-          </div>
+          <a
+            href="https://forms.google.com/feedback-form-placeholder"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-medium hover:bg-museum-gold-400 transition-all duration-200 inline-block text-sm"
+          >
+            Open Feedback Form
+          </a>
         </div>
       </div>
     </div>
