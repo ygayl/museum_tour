@@ -65,7 +65,12 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
 
   const isCompleted = isStopCompleted(stop.id);
 
+  const isIntroductionStop = stop.id.startsWith('intro-');
+
   const getStopNumber = () => {
+    if (isIntroductionStop) {
+      return 0; // Introduction doesn't have a number
+    }
     const index = tour.stops.findIndex(s => s.id === stop.id);
     return index + 1;
   };
@@ -89,9 +94,9 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
       <div className="px-6 py-6 bg-white">
         <CompactAudioPlayer
           audioUrl={stop.artworkAudioUrl}
-          stopNumber={getStopNumber()}
-          title={stop.title}
-          artist={stop.artistName}
+          stopNumber={isIntroductionStop ? 0 : getStopNumber()}
+          title={isIntroductionStop ? stop.title : stop.title}
+          artist={stop.artistName || ''}
           tourName={tour.name}
           transcript={stop.artworkTranscript}
           shouldPause={currentlyPlaying !== null && currentlyPlaying !== `${stop.id}-artwork`}

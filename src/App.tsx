@@ -147,7 +147,7 @@ function App() {
       case 'tours':
         return selectedMuseum?.name || 'Tours';
       case 'tour':
-        return selectedTour?.name || 'Museum Tour';
+        return '';
       case 'artpiece':
         return '';
       default:

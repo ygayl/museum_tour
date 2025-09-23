@@ -157,7 +157,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
           {/* Title and Tour Context */}
           <div className="flex-1 min-w-0">
             <h2 className="text-base font-medium text-gray-900 mb-0.5 truncate">
-              {stopNumber}: {title}
+              {stopNumber === 0 ? title : `${stopNumber}: ${title}`}
             </h2>
             <p className="text-sm text-gray-600 truncate">
               {tourName}

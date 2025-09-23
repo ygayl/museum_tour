@@ -91,6 +91,7 @@
     "description": "Discover the greatest masterpieces of Spanish art from Velázquez, Goya, and other masters.",
     "duration": "60 minutes",
     "introAudio": "/audio/museums/prado_intro.mp3",
+    "introTranscript": "Hi there, and welcome to the Prado Museum. This is Madrid’s big treasure house of art — and honestly, one of the greatest collections anywhere in the world. It started out as a royal gallery back in the 1800s, and today it’s packed with everything from Spanish Golden Age masters to some of Europe’s most famous paintings.\n\nNow, museums like this can feel overwhelming — there are thousands of works spread over dozens of rooms. That’s why this little one-hour tour is here: to guide you straight to the pieces you really don’t want to miss. We’ll stop by Velázquez, Goya, Bosch, and a few others whose works shaped the way we see art today.\n\nThink of it as the highlights reel: just enough to get a real sense of the Prado, without needing to spend the whole day here. By the end, you’ll have met the stars of the collection — and hopefully leave wanting to come back for more.\n\nAlright, ready? Let’s head to our first stop.",
     "museumId": "prado",
     "stops": [
       {
