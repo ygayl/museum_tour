@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Check } from 'lucide-react';
 import { Tour, Stop } from '../App';
 import CompactAudioPlayer from './CompactAudioPlayer';
 import ResponsiveImage from './ResponsiveImage';
@@ -9,23 +8,18 @@ import { useAnalytics } from '../hooks/useAnalytics';
 interface ArtPiecePageProps {
   stop: Stop;
   tour: Tour;
-  onBackToTour?: () => void;
   analyticsEnabled?: boolean;
 }
 
 const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
   stop,
   tour,
-  onBackToTour,
   analyticsEnabled = false
 }) => {
   const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
 
   const {
-    markStopCompleted,
     updateAudioProgress,
-    updateArtistAudioProgress,
-    isStopCompleted,
   } = useTourProgress(tour.id, tour.stops.length, analyticsEnabled);
 
   const analytics = useAnalytics();
@@ -51,19 +45,9 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
     };
   };
 
-  const handleManualComplete = (stopId: string) => {
-    markStopCompleted(stopId, true);
-  };
-
   const handleAudioProgress = (stopId: string, progressPercent: number) => {
     updateAudioProgress(stopId, progressPercent);
   };
-
-  const handleArtistAudioProgress = (stopId: string, progressPercent: number) => {
-    updateArtistAudioProgress(stopId, progressPercent);
-  };
-
-  const isCompleted = isStopCompleted(stop.id);
 
   const isIntroductionStop = stop.id.startsWith('intro-');
 

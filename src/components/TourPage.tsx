@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { Headphones, Check, ChevronRight } from 'lucide-react';
+import { Check, ChevronRight } from 'lucide-react';
 import { Tour, Stop } from '../App';
-import ProgressBar from './ProgressBar';
 import CompletionCelebration from './CompletionCelebration';
 import ResponsiveImage from './ResponsiveImage';
 import { useTourProgress } from '../hooks/useTourProgress';
@@ -32,13 +31,6 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
       trackTourCompletion(getCompletedCount(), tour.stops.length);
     }
   }, [isAllCompleted, analyticsEnabled, trackTourCompletion, getCompletedCount, tour.stops.length]);
-
-  const handleSegmentClick = (index: number) => {
-    const stop = tour.stops[index];
-    if (onSelectStop) {
-      onSelectStop(stop);
-    }
-  };
 
   const handleStopClick = (stop: Stop) => {
     if (onSelectStop) {
@@ -160,7 +152,6 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
           </p>
           <div className="aspect-video bg-gray-50 border border-gray-200 flex items-center justify-center">
             <div className="text-center">
-              {/* <p className="text-gray-600 mb-2">Google Form Placeholder</p> */}
               <a
                 href="https://forms.google.com/feedback-form-placeholder"
                 target="_blank"
