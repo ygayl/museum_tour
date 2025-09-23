@@ -13,14 +13,37 @@ export interface TourProgress {
 export const useTourProgress = (tourId: string, totalStops: number, analyticsEnabled: boolean = false) => {
   const [progress, setProgress] = useState<TourProgress>({});
   const storageKey = `tour:${tourId}:progress`;
+  const sessionKey = 'museum_tour_session_id';
   const analytics = useAnalytics();
 
-  // Load progress from localStorage on mount
+  // Generate or get session ID
+  const getCurrentSessionId = () => {
+    let sessionId = sessionStorage.getItem(sessionKey);
+    if (!sessionId) {
+      sessionId = Date.now().toString();
+      sessionStorage.setItem(sessionKey, sessionId);
+    }
+    return sessionId;
+  };
+
+  // Load progress from localStorage on mount, but reset if new session
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(storageKey);
-      if (saved) {
-        setProgress(JSON.parse(saved));
+      const currentSession = getCurrentSessionId();
+      const lastSessionKey = `${storageKey}:session`;
+      const lastSession = localStorage.getItem(lastSessionKey);
+
+      // If this is a new session, clear all tour progress
+      if (lastSession !== currentSession) {
+        setProgress({});
+        localStorage.removeItem(storageKey);
+        localStorage.setItem(lastSessionKey, currentSession);
+      } else {
+        // Same session, load existing progress
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          setProgress(JSON.parse(saved));
+        }
       }
     } catch (error) {
       console.warn('Failed to load tour progress:', error);
