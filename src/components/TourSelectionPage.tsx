@@ -38,14 +38,14 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
           <div
             key={tour.id}
             onClick={() => onSelectTour(tour)}
-            className="group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-museum-gold-400 hover:bg-gray-50 cursor-pointer"
+            className="group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-gray-300 hover:bg-gray-50 cursor-pointer"
           >
             {/* Image Section */}
             <div className="relative aspect-[4/3] bg-museum-neutral-100">
               <ResponsiveImage
                 src={tour.image}
                 alt={tour.name}
-                className="w-full h-full"
+                className="w-full h-full object-cover"
                 priority={index < 2}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />

@@ -141,11 +141,11 @@ function App() {
       case 'intro':
         return '1-Hour Museum Tours';
       case 'cities':
-        return 'Cities';
+        return '';
       case 'museums':
-        return selectedCity?.name || 'Museums';
+        return '';
       case 'tours':
-        return selectedMuseum?.name || 'Tours';
+        return '';
       case 'tour':
         return '';
       case 'artpiece':

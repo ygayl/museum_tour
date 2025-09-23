@@ -19,36 +19,35 @@ const MuseumsPage: React.FC<MuseumsPageProps> = ({ museums, onSelectMuseum }) =>
         </p> */}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {museums.map((museum) => (
           <div
             key={museum.id}
             onClick={() => onSelectMuseum(museum)}
-            className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer"
-            style={{ aspectRatio: '4/3' }}
+            className="group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-gray-300 hover:bg-gray-50 cursor-pointer"
           >
-            <ResponsiveImage
-              src={museum.image}
-              alt={museum.name}
-              className="absolute inset-0"
-              priority={false}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-            <div className="absolute inset-0 flex items-end p-6">
-              <div className="text-white">
-                <h3 className="text-2xl font-bold font-serif md:text-3xl">{museum.name}</h3>
-                {museum.description && (
-                  <p className="mt-2 text-sm opacity-90 md:text-base">
-                    {museum.description}
-                  </p>
-                )}
-              </div>
+            {/* Image Section */}
+            <div className="relative aspect-[4/3] bg-museum-neutral-100">
+              <ResponsiveImage
+                src={museum.image}
+                alt={museum.name}
+                className="w-full h-full object-cover"
+                priority={false}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
             </div>
 
-            <div className="absolute inset-0 bg-museum-gold-500/0 transition-colors duration-300 group-hover:bg-museum-gold-500/15" />
+            {/* Text Section */}
+            <div className="p-4">
+              <h3 className="text-lg font-bold font-serif text-museum-primary-900 mb-2">
+                {museum.name}
+              </h3>
+              {museum.description && (
+                <p className="text-museum-neutral-600 text-sm leading-relaxed">
+                  {museum.description}
+                </p>
+              )}
+            </div>
           </div>
         ))}
       </div>
