@@ -95,12 +95,51 @@ export const useHistoryNavigation = ({
     const state = event.state as HistoryState | null;
 
     if (state) {
-      // Restore the previous state
-      setCurrentView(state.view);
-      setSelectedCity(state.selectedCity || null);
-      setSelectedMuseum(state.selectedMuseum || null);
-      setSelectedTour(state.selectedTour || null);
-      setSelectedStop(state.selectedStop || null);
+      try {
+        // Validate that referenced objects still exist before restoring state
+        const isValidState = (() => {
+          switch (state.view) {
+            case 'intro':
+            case 'cities':
+              return true;
+            case 'museums':
+              return state.selectedCity !== null;
+            case 'tours':
+              return state.selectedCity !== null && state.selectedMuseum !== null;
+            case 'tour':
+              return state.selectedCity !== null && state.selectedMuseum !== null && state.selectedTour !== null;
+            case 'artpiece':
+              return state.selectedCity !== null && state.selectedMuseum !== null && state.selectedTour !== null && state.selectedStop !== null;
+            default:
+              return false;
+          }
+        })();
+
+        if (isValidState) {
+          // Restore the previous state
+          setCurrentView(state.view);
+          setSelectedCity(state.selectedCity || null);
+          setSelectedMuseum(state.selectedMuseum || null);
+          setSelectedTour(state.selectedTour || null);
+          setSelectedStop(state.selectedStop || null);
+        } else {
+          // Invalid state, fallback to safe state
+          console.warn('Invalid navigation state detected, falling back to cities view');
+          setCurrentView('cities');
+          setSelectedCity(null);
+          setSelectedMuseum(null);
+          setSelectedTour(null);
+          setSelectedStop(null);
+        }
+      } catch (error) {
+        // Error during state restoration, fallback to safe state
+        console.error('Error restoring navigation state:', error);
+        setCurrentView('cities');
+        setSelectedCity(null);
+        setSelectedMuseum(null);
+        setSelectedTour(null);
+        setSelectedStop(null);
+      }
     } else {
       // No state means we're at the initial page load
       setCurrentView('intro');

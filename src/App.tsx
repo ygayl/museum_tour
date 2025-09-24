@@ -195,19 +195,43 @@ function App() {
             ) : currentView === 'tours' ? (
               <TourSelectionPage tours={getToursForSelectedMuseum()} onSelectTour={handleSelectTour} />
             ) : currentView === 'tour' ? (
-              selectedTour && <TourPage
+              selectedTour ? <TourPage
                 tour={selectedTour}
                 onBackToTours={() => window.history.back()}
                 onSelectStop={handleSelectStop}
                 analyticsEnabled={analyticsEnabled}
-              />
+              /> : (
+                <div className="flex items-center justify-center min-h-[50vh]">
+                  <div className="text-center">
+                    <p className="text-lg text-gray-600 mb-4">Tour not found</p>
+                    <button
+                      onClick={() => setCurrentView('cities')}
+                      className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-normal hover:bg-museum-gold-400 transition-colors"
+                    >
+                      Return to Cities
+                    </button>
+                  </div>
+                </div>
+              )
             ) : (
-              selectedStop && selectedTour && <ArtPiecePage
+              selectedStop && selectedTour ? <ArtPiecePage
                 stop={selectedStop}
                 tour={selectedTour}
                 onBackToTour={() => window.history.back()}
                 analyticsEnabled={analyticsEnabled}
-              />
+              /> : (
+                <div className="flex items-center justify-center min-h-[50vh]">
+                  <div className="text-center">
+                    <p className="text-lg text-gray-600 mb-4">Artwork not found</p>
+                    <button
+                      onClick={() => setCurrentView('cities')}
+                      className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-normal hover:bg-museum-gold-400 transition-colors"
+                    >
+                      Return to Cities
+                    </button>
+                  </div>
+                </div>
+              )
             )}
           </main>
         </>
