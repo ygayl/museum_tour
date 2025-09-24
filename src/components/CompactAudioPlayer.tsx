@@ -109,57 +109,60 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
     <div className="max-w-4xl mx-auto">
       <audio ref={audioRef} src={audioUrl} preload="metadata" />
 
-      {/* Sleek Flat Audio Player */}
-      <div className="bg-white py-4">
-        {/* Progress Bar - Top */}
-        <div className="mb-3">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={progressPercent}
-            onChange={handleSeek}
-            className="w-full h-1 bg-gray-200 appearance-none cursor-pointer"
-            style={{
-              background: `linear-gradient(to right, #3B82F6 0%, #3B82F6 ${progressPercent}%, #E5E7EB ${progressPercent}%, #E5E7EB 100%)`
-            }}
-          />
+      {/* Clean Museum-Style Audio Player */}
+      <div className="bg-white py-6">
+        {/* Progress Bar Section with Time Display */}
+        <div className="mb-6">
+          {/* Progress Bar */}
+          <div className="mb-2">
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={progressPercent}
+              onChange={handleSeek}
+              className="w-full h-0.5 bg-gray-300 appearance-none cursor-pointer"
+              style={{
+                background: `linear-gradient(to right, #8B7355 0%, #8B7355 ${progressPercent}%, #D1D5DB ${progressPercent}%, #D1D5DB 100%)`
+              }}
+            />
+          </div>
+
+          {/* Time Display */}
+          <div className="flex justify-between items-center text-sm">
+            <span className="text-gray-700 font-light">
+              {formatTime(currentTime)}
+            </span>
+            <span className="text-gray-700 font-light">
+              -{formatTime(remainingTime)}
+            </span>
+          </div>
         </div>
 
-        {/* Time Display - Top Row */}
-        <div className="flex justify-between items-center mb-3 text-sm">
-          <span className="text-gray-900 font-normal">
-            {formatTime(currentTime)}
-          </span>
-          <span className="text-gray-900 font-normal">
-            -{formatTime(remainingTime)}
-          </span>
-        </div>
-
-        {/* Main Content Row */}
-        <div className="flex items-center space-x-3">
-          {/* Play/Pause Button */}
+        {/* Player Controls and Info */}
+        <div className="flex items-center space-x-4">
+          {/* Flat Play/Pause Button */}
           <button
             onClick={togglePlay}
-            className="flex-shrink-0 w-12 h-12 bg-yellow-100 hover:bg-yellow-200 rounded-full flex items-center justify-center transition-colors"
+            className="flex-shrink-0 w-12 h-12 bg-transparent hover:bg-gray-50 rounded-full flex items-center justify-center transition-colors group border border-gray-800 group-hover:border-gray-900"
             aria-label={isPlaying ? 'Pause' : 'Play'}
           >
             {isPlaying ? (
-              <div className="flex space-x-0.5">
-                <div className="w-1 h-3 bg-amber-800"></div>
-                <div className="w-1 h-3 bg-amber-800"></div>
+              <div className="flex space-x-1">
+                <div className="w-1 h-4 bg-gray-800 group-hover:bg-gray-900"></div>
+                <div className="w-1 h-4 bg-gray-800 group-hover:bg-gray-900"></div>
               </div>
             ) : (
-              <div className="w-0 h-0 border-l-[5px] border-l-amber-800 border-y-[3px] border-y-transparent ml-0.5"></div>
+              <div className="w-0 h-0 border-l-[12px] border-l-gray-800 group-hover:border-l-gray-900 border-y-[8px] border-y-transparent ml-0.5"></div>
             )}
           </button>
 
-          {/* Title and Tour Context */}
+          {/* Track Information */}
           <div className="flex-1 min-w-0">
-            <h2 className="text-base font-normal text-gray-900 mb-0.5 truncate">
+            <h2 className="text-lg font-light text-gray-900 mb-1">
               {stopNumber === 0 ? title : `${stopNumber}: ${title}`}
             </h2>
-            <p className="text-sm text-gray-600 truncate">
+            <p className="text-sm font-light text-gray-600">
               {tourName}
             </p>
           </div>
