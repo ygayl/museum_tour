@@ -121,21 +121,17 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
 
                   {/* Content - Middle */}
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-museum-primary-900 truncate mb-1">
-                      {index + 1}: {stop.title}
+                    <h4 className="text-sm font-light text-museum-primary-900 mb-1">
+                      {index + 1}: <span className="italic">{stop.title}</span>
+                      {stop.artistName && <span>, {stop.artistName}</span>}
                     </h4>
-                    {stop.artistName && (
-                      <p className="text-sm text-museum-neutral-600 truncate">
-                        {stop.artistName}
-                      </p>
-                    )}
                   </div>
 
                   {/* Location - Right */}
                   <div className="flex-shrink-0 flex items-center space-x-3">
                     {stop.roomNumber && (
                       <div className="text-right">
-                        <p className="text-sm font-normal text-museum-neutral-700">
+                        <p className="text-sm font-light text-museum-neutral-700">
                           {stop.roomNumber}
                         </p>
                       </div>
