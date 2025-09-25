@@ -144,7 +144,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
               max="100"
               value={progressPercent}
               onChange={handleSeek}
-              className="w-full h-0.5 bg-gray-300 appearance-none cursor-pointer"
+              className="w-full h-0.5 bg-museum-neutral-300 appearance-none cursor-pointer"
               style={{
                 background: `linear-gradient(to right, #8B7355 0%, #8B7355 ${progressPercent}%, #D1D5DB ${progressPercent}%, #D1D5DB 100%)`
               }}
@@ -153,10 +153,10 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
 
           {/* Time Display */}
           <div className="flex justify-between items-center text-sm">
-            <span className="text-gray-700 font-light">
+            <span className="text-museum-neutral-700 font-light">
               {formatTime(currentTime)}
             </span>
-            <span className="text-gray-700 font-light">
+            <span className="text-museum-neutral-700 font-light">
               -{formatTime(remainingTime)}
             </span>
           </div>
@@ -167,25 +167,25 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
           {/* Flat Play/Pause Button */}
           <button
             onClick={togglePlay}
-            className="flex-shrink-0 w-12 h-12 bg-transparent hover:bg-gray-50 rounded-full flex items-center justify-center transition-colors group border border-gray-800 group-hover:border-gray-900"
+            className="flex-shrink-0 w-12 h-12 bg-transparent hover:bg-museum-neutral-50 rounded-full flex items-center justify-center transition-colors group border border-museum-neutral-800 hover:border-museum-primary-900 focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
             aria-label={isPlaying ? 'Pause' : 'Play'}
           >
             {isPlaying ? (
               <div className="flex space-x-1">
-                <div className="w-1 h-4 bg-gray-800 group-hover:bg-gray-900"></div>
-                <div className="w-1 h-4 bg-gray-800 group-hover:bg-gray-900"></div>
+                <div className="w-1 h-4 bg-museum-neutral-800 group-hover:bg-museum-primary-900"></div>
+                <div className="w-1 h-4 bg-museum-neutral-800 group-hover:bg-museum-primary-900"></div>
               </div>
             ) : (
-              <div className="w-0 h-0 border-l-[12px] border-l-gray-800 group-hover:border-l-gray-900 border-y-[8px] border-y-transparent ml-0.5"></div>
+              <div className="w-0 h-0 border-l-[12px] border-l-museum-neutral-800 group-hover:border-l-museum-primary-900 border-y-[8px] border-y-transparent ml-0.5"></div>
             )}
           </button>
 
           {/* Track Information */}
           <div className="flex-1 min-w-0">
-            <h2 className="text-lg font-light text-gray-900 mb-1">
+            <h2 className="text-lg font-light text-museum-primary-900 mb-1">
               {stopNumber === 0 ? title : `${stopNumber}: ${title}`}
             </h2>
-            <p className="text-sm font-light text-gray-600">
+            <p className="text-sm font-light text-museum-neutral-600">
               {tourName}
             </p>
           </div>

@@ -108,3 +108,5 @@ Thumbs.db
 
 # TypeScript cache
 *.tsbuildinfo
+
+.playwright-mcp/

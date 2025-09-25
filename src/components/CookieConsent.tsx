@@ -50,7 +50,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
             </div>
             <button
               onClick={handleDecline}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
             >
               <X className="w-5 h-5 text-gray-500" />
             </button>
@@ -104,7 +104,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
 
               <button
                 onClick={() => setShowDetails(true)}
-                className="w-full text-sm text-gray-500 hover:text-gray-700 mt-4 underline"
+                className="w-full text-sm text-gray-500 hover:text-gray-700 mt-4 underline focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
               >
                 View detailed cookie information
               </button>
@@ -165,7 +165,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
 
               <button
                 onClick={() => setShowDetails(false)}
-                className="w-full text-sm text-gray-500 hover:text-gray-700 mt-4 underline"
+                className="w-full text-sm text-gray-500 hover:text-gray-700 mt-4 underline focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
               >
                 Back to simple view
               </button>

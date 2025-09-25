@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ onBackClick, title }) => {
         {onBackClick ? (
           <button
             onClick={onBackClick}
-            className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-museum-neutral-100 transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-museum-neutral-100 transition-colors focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
             aria-label="Go back"
           >
             <ArrowLeft className="w-6 h-6 text-museum-neutral-600" />
@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ onBackClick, title }) => {
           <div className="w-10" />
         )}
         
-        <h1 className="text-lg font-semibold text-museum-primary-900 text-center flex-1 px-2 font-serif">
+        <h1 className="text-xl font-light text-museum-primary-900 text-center flex-1 px-2 font-serif">
           {title}
         </h1>
         

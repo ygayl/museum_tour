@@ -23,7 +23,8 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
   });
 
   return (
-    <div className="container mx-auto px-6 py-4">
+    <div className="bg-museum-gradient min-h-screen">
+      <div className="container mx-auto px-6 py-4">
       <div className="text-center">
         <h1 className="mb-4 text-2xl font-light tracking-wide text-museum-primary-900 font-serif md:text-4xl">
           Choose A Tour
@@ -35,10 +36,10 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {sortedTours.map((tour, index) => (
-          <div
+          <button
             key={tour.id}
             onClick={() => onSelectTour(tour)}
-            className="group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-gray-300 hover:bg-gray-50 cursor-pointer"
+            className="group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-gray-300 hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset text-left w-full"
           >
             {/* Image Section */}
             <div className="relative aspect-[4/3] bg-museum-neutral-100">
@@ -63,8 +64,9 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
                 Duration: {tour.duration}
               </p>
             </div>
-          </div>
+          </button>
         ))}
+      </div>
       </div>
     </div>
   );
