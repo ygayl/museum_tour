@@ -4,7 +4,7 @@ import { Tour, Stop } from '../App';
 import CompletionCelebration from './CompletionCelebration';
 import ResponsiveImage from './ResponsiveImage';
 import { useTourProgress } from '../hooks/useTourProgress';
-import { useEngagementTracking } from '../hooks/useAnalytics';
+import { useEngagementTracking, useAnalytics } from '../hooks/useAnalytics';
 
 interface TourPageProps {
   tour: Tour;
@@ -22,11 +22,18 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
     isAllCompleted,
   } = useTourProgress(tour.id, tour.stops.length, analyticsEnabled);
 
-  // Engagement tracking
+  // Analytics tracking
   const { trackTourCompletion } = useEngagementTracking(tour.id, tour.name);
+  const analytics = useAnalytics();
 
 
-  // Track tour completion
+  // Track tour start and completion
+  useEffect(() => {
+    if (analyticsEnabled) {
+      analytics.trackFunnelStep('tour_started', 5, { tour_name: tour.name });
+    }
+  }, [analyticsEnabled, analytics, tour.name]);
+
   useEffect(() => {
     if (isAllCompleted() && analyticsEnabled) {
       trackTourCompletion(getCompletedCount(), tour.stops.length);
@@ -54,7 +61,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
     artistAudioUrl: "",
     artistName: "",
     roomNumber: "",
-    artworkTranscript: (tour as any).introTranscript || "",
+    artworkTranscript: (tour as Tour & { introTranscript?: string }).introTranscript || "",
     artistTranscript: ""
   });
 
@@ -85,7 +92,21 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
             type="text"
             placeholder="Search"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              const query = e.target.value;
+              setSearchQuery(query);
+
+              // Track search analytics for meaningful queries
+              if (analyticsEnabled && query.length > 2) {
+                const results = allStops.filter(stop =>
+                  stop.title.toLowerCase().includes(query.toLowerCase()) ||
+                  (stop.artistName && stop.artistName.toLowerCase().includes(query.toLowerCase())) ||
+                  (stop.roomNumber && stop.roomNumber.toLowerCase().includes(query.toLowerCase()))
+                );
+
+                analytics.trackSearch(query, results.length, 'tour_stops');
+              }
+            }}
             className="w-full pl-12 pr-4 py-3 bg-gray-100 border-0 rounded-lg text-base placeholder-gray-500 focus:outline-none focus:bg-gray-50 focus:ring-2 focus:ring-blue-500"
           />
         </div>

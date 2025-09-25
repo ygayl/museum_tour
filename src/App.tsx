@@ -93,6 +93,10 @@ function App() {
   const handleExploreCities = () => {
     setCurrentView('cities');
     pushHistoryState('cities');
+
+    if (analyticsEnabled) {
+      analytics.trackFunnelStep('intro', 1);
+    }
   };
 
   const handleSelectCity = (city: City) => {
@@ -102,6 +106,8 @@ function App() {
 
     if (analyticsEnabled) {
       analytics.trackCitySelected(city);
+      analytics.trackContentEngagement('city', city.id, city.name, 'select');
+      analytics.trackFunnelStep('cities', 2, { city_name: city.name });
     }
   };
 
@@ -112,6 +118,11 @@ function App() {
 
     if (analyticsEnabled && selectedCity) {
       analytics.trackMuseumSelected(museum, selectedCity.id);
+      analytics.trackContentEngagement('museum', museum.id, museum.name, 'select');
+      analytics.trackFunnelStep('museums', 3, {
+        city_name: selectedCity.name,
+        museum_name: museum.name
+      });
     }
   };
 
@@ -120,8 +131,14 @@ function App() {
     setCurrentView('tour');
     pushHistoryState('tour', selectedCity, selectedMuseum, tour);
 
-    if (analyticsEnabled && selectedMuseum) {
+    if (analyticsEnabled && selectedMuseum && selectedCity) {
       analytics.trackTourSelected(tour, selectedMuseum.id);
+      analytics.trackContentEngagement('tour', tour.id, tour.name, 'select');
+      analytics.trackFunnelStep('tours', 4, {
+        city_name: selectedCity.name,
+        museum_name: selectedMuseum.name,
+        tour_name: tour.name
+      });
     }
   };
 

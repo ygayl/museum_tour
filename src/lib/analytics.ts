@@ -123,6 +123,70 @@ export const MuseumAnalytics = {
     });
   },
 
+  // Enhanced audio engagement tracking
+  trackAudioProgress: (
+    tourId: string,
+    stopId: string,
+    audioType: 'artwork' | 'artist',
+    progressPercent: number,
+    duration: number
+  ) => {
+    // Track at 25%, 50%, 75%, 100% milestones
+    const milestones = [25, 50, 75, 100];
+    const currentMilestone = milestones.find(m =>
+      progressPercent >= m && progressPercent < m + 2
+    );
+
+    if (currentMilestone) {
+      trackEvent('audio_milestone', 'audio_engagement', `${currentMilestone}%`, currentMilestone, {
+        tour_id: tourId,
+        stop_id: stopId,
+        audio_type: audioType,
+        duration_seconds: Math.round(duration),
+        milestone: currentMilestone
+      });
+    }
+  },
+
+  // Track audio seek behavior
+  trackAudioSeek: (
+    tourId: string,
+    stopId: string,
+    audioType: 'artwork' | 'artist',
+    fromTime: number,
+    toTime: number
+  ) => {
+    const seekDirection = toTime > fromTime ? 'forward' : 'backward';
+    const seekDistance = Math.abs(toTime - fromTime);
+
+    // Only track significant seeks (> 5 seconds)
+    if (seekDistance > 5) {
+      trackEvent('audio_seek', 'audio_interaction', seekDirection, Math.round(seekDistance), {
+        tour_id: tourId,
+        stop_id: stopId,
+        audio_type: audioType,
+        from_time: Math.round(fromTime),
+        to_time: Math.round(toTime),
+        seek_distance: Math.round(seekDistance)
+      });
+    }
+  },
+
+  // Track transcript interactions
+  trackTranscriptInteraction: (
+    tourId: string,
+    stopId: string,
+    audioType: 'artwork' | 'artist',
+    action: 'open' | 'close'
+  ) => {
+    trackEvent('transcript_interaction', 'content_engagement', action, undefined, {
+      tour_id: tourId,
+      stop_id: stopId,
+      audio_type: audioType,
+      interaction_type: action
+    });
+  },
+
   // Stop tracking
   trackStopCompleted: (tourId: string, stopId: string, completionType: 'auto' | 'manual') => {
     trackEvent('stop_completed', 'progress', stopId, undefined, {
@@ -142,6 +206,61 @@ export const MuseumAnalytics = {
   trackSessionEnd: (sessionDuration: number) => {
     trackEvent('session_end', 'session', undefined, sessionDuration, {
       timestamp: Date.now(),
+    });
+  },
+
+  // Content engagement tracking
+  trackContentEngagement: (
+    contentType: 'city' | 'museum' | 'tour' | 'stop',
+    contentId: string,
+    contentName: string,
+    engagementType: 'view' | 'select' | 'complete',
+    engagementValue?: number
+  ) => {
+    trackEvent('content_engagement', contentType, engagementType, engagementValue, {
+      content_type: contentType,
+      content_id: contentId,
+      content_name: contentName,
+      engagement_type: engagementType
+    });
+  },
+
+  // Track user journey funnel steps
+  trackFunnelStep: (
+    step: 'intro' | 'cities' | 'museums' | 'tours' | 'tour_started',
+    stepNumber: number,
+    context?: Record<string, any>
+  ) => {
+    trackEvent('funnel_step', 'conversion', step, stepNumber, {
+      step_name: step,
+      step_number: stepNumber,
+      ...context
+    });
+  },
+
+  // Track search behavior
+  trackSearch: (
+    query: string,
+    resultsCount: number,
+    context: 'tour_stops'
+  ) => {
+    trackEvent('search', 'user_interaction', context, resultsCount, {
+      search_query: query.toLowerCase(),
+      results_count: resultsCount,
+      search_context: context
+    });
+  },
+
+  // Track page duration for engagement analysis
+  trackPageDuration: (
+    page: string,
+    durationMs: number,
+    context?: Record<string, any>
+  ) => {
+    trackEvent('page_duration', 'user_behavior', page, Math.round(durationMs / 1000), {
+      duration_seconds: Math.round(durationMs / 1000),
+      page_name: page,
+      ...context
     });
   },
 

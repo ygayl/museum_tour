@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause } from 'lucide-react';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 interface CompactAudioPlayerProps {
   audioUrl: string;
@@ -12,23 +13,31 @@ interface CompactAudioPlayerProps {
   onProgressUpdate?: (progressPercent: number) => void;
   onPlay?: () => void;
   onComplete?: () => void;
+  tourId?: string;
+  stopId?: string;
+  audioType?: 'artwork' | 'artist';
+  analyticsEnabled?: boolean;
 }
 
 const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
   audioUrl,
   stopNumber,
   title,
-  artist,
   tourName,
   shouldPause,
   onProgressUpdate,
   onPlay,
-  onComplete
+  onComplete,
+  tourId,
+  stopId,
+  audioType,
+  analyticsEnabled = false
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const analytics = useAnalytics();
 
   // Handle external pause signal
   useEffect(() => {
@@ -49,8 +58,15 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
 
     const handleTimeUpdate = () => {
       setCurrentTime(audio.currentTime);
-      if (onProgressUpdate && duration > 0) {
-        onProgressUpdate((audio.currentTime / duration) * 100);
+      const progressPercent = duration > 0 ? (audio.currentTime / duration) * 100 : 0;
+
+      if (onProgressUpdate) {
+        onProgressUpdate(progressPercent);
+      }
+
+      // Track progress milestones
+      if (analyticsEnabled && tourId && stopId && audioType && duration > 0) {
+        analytics.trackAudioProgress(tourId, stopId, audioType, progressPercent, duration);
       }
     };
 
@@ -69,7 +85,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, [duration, onProgressUpdate, onComplete]);
+  }, [duration, onProgressUpdate, onComplete, analytics, analyticsEnabled, tourId, stopId, audioType]);
 
   const togglePlay = async () => {
     if (!audioRef.current) return;
@@ -91,7 +107,14 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!audioRef.current || !duration) return;
 
+    const oldTime = currentTime;
     const newTime = (parseFloat(e.target.value) / 100) * duration;
+
+    // Track seek behavior for significant seeks
+    if (analyticsEnabled && tourId && stopId && audioType && Math.abs(newTime - oldTime) > 5) {
+      analytics.trackAudioSeek(tourId, stopId, audioType, oldTime, newTime);
+    }
+
     audioRef.current.currentTime = newTime;
     setCurrentTime(newTime);
   };

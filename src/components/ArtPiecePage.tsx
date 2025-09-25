@@ -123,6 +123,10 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
             transcript={currentTrackData.transcript}
             shouldPause={currentlyPlaying !== null && currentlyPlaying !== `${stop.id}-${currentTrack}`}
             onProgressUpdate={(progress: number) => handleAudioProgress(stop.id, progress)}
+            tourId={tour.id}
+            stopId={stop.id}
+            audioType={currentTrack}
+            analyticsEnabled={analyticsEnabled}
             {...createAudioCallbacks(stop.id, currentTrack)}
           />
         </div>

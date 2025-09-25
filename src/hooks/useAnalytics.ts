@@ -77,6 +77,37 @@ export const useAnalytics = () => {
       MuseumAnalytics.trackAudioComplete(tourId, stopId, audioType);
     },
 
+    // Enhanced audio tracking
+    trackAudioProgress: (tourId: string, stopId: string, audioType: 'artwork' | 'artist', progressPercent: number, duration: number) => {
+      MuseumAnalytics.trackAudioProgress(tourId, stopId, audioType, progressPercent, duration);
+    },
+
+    trackAudioSeek: (tourId: string, stopId: string, audioType: 'artwork' | 'artist', fromTime: number, toTime: number) => {
+      MuseumAnalytics.trackAudioSeek(tourId, stopId, audioType, fromTime, toTime);
+    },
+
+    trackTranscriptInteraction: (tourId: string, stopId: string, audioType: 'artwork' | 'artist', action: 'open' | 'close') => {
+      MuseumAnalytics.trackTranscriptInteraction(tourId, stopId, audioType, action);
+    },
+
+    // Content engagement tracking
+    trackContentEngagement: (contentType: 'city' | 'museum' | 'tour' | 'stop', contentId: string, contentName: string, engagementType: 'view' | 'select' | 'complete') => {
+      MuseumAnalytics.trackContentEngagement(contentType, contentId, contentName, engagementType);
+    },
+
+    // User journey tracking
+    trackFunnelStep: (step: 'intro' | 'cities' | 'museums' | 'tours' | 'tour_started', stepNumber: number, context?: Record<string, any>) => {
+      MuseumAnalytics.trackFunnelStep(step, stepNumber, context);
+    },
+
+    trackSearch: (query: string, resultsCount: number, context: 'tour_stops') => {
+      MuseumAnalytics.trackSearch(query, resultsCount, context);
+    },
+
+    trackPageDuration: (page: string, durationMs: number, context?: Record<string, any>) => {
+      MuseumAnalytics.trackPageDuration(page, durationMs, context);
+    },
+
     // Progress tracking
     trackStopCompleted: (tourId: string, stopId: string, completionType: 'auto' | 'manual') => {
       MuseumAnalytics.trackStopCompleted(tourId, stopId, completionType);
@@ -85,6 +116,11 @@ export const useAnalytics = () => {
     // Back navigation tracking
     trackBackNavigation: (fromView: string, toView: string) => {
       MuseumAnalytics.trackEvent('back_navigation', 'navigation', `${fromView}_to_${toView}`);
+    },
+
+    // Generic event tracking
+    trackEvent: (action: string, category: string, label?: string, value?: number, customParameters?: Record<string, any>) => {
+      MuseumAnalytics.trackEvent(action, category, label, value, customParameters);
     },
   };
 
