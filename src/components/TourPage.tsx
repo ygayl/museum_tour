@@ -165,7 +165,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
             Help us improve your museum experience
           </p>
           <a
-            href="https://forms.google.com/feedback-form-placeholder"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScjsQEJIg1bW-jVbZidx8QEzGBxLFXFaC-Cs91fxKDREpthOA/viewform?usp=header"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-normal hover:bg-museum-gold-400 transition-all duration-200 inline-block text-sm"
