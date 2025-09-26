@@ -47,8 +47,8 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10 MB
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,mp3,wav,ogg}'],
+        maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 50 MB for audio files
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -78,9 +78,18 @@ export default defineConfig({
             options: {
               cacheName: 'audio-cache',
               expiration: {
-                maxEntries: 60,
-                maxAgeSeconds: 60 * 60 * 24 * 30
-              }
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24 * 90 // 90 days for audio files
+              },
+              plugins: [
+                {
+                  cacheKeyWillBeUsed: async ({ request }) => {
+                    // Ensure audio files are properly cached regardless of query params
+                    const url = new URL(request.url);
+                    return `${url.origin}${url.pathname}`;
+                  }
+                }
+              ]
             }
           },
           {

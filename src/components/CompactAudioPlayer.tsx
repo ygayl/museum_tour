@@ -92,11 +92,47 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
+      // Update media session
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.playbackState = 'paused';
+      }
     } else {
       try {
         await audioRef.current.play();
         setIsPlaying(true);
         onPlay?.();
+
+        // Update Media Session API for PWA
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: title,
+            artist: `Stop ${stopNumber} - ${tourName}`,
+            artwork: [
+              { src: '/icons/manifest-icon-192.maskable.png', sizes: '192x192', type: 'image/png' },
+              { src: '/icons/manifest-icon-512.maskable.png', sizes: '512x512', type: 'image/png' }
+            ]
+          });
+
+          navigator.mediaSession.playbackState = 'playing';
+
+          // Set up action handlers
+          navigator.mediaSession.setActionHandler('play', () => {
+            audioRef.current?.play();
+            setIsPlaying(true);
+          });
+
+          navigator.mediaSession.setActionHandler('pause', () => {
+            audioRef.current?.pause();
+            setIsPlaying(false);
+          });
+
+          navigator.mediaSession.setActionHandler('seekto', (details) => {
+            if (audioRef.current && details.seekTime !== undefined) {
+              audioRef.current.currentTime = details.seekTime;
+              setCurrentTime(details.seekTime);
+            }
+          });
+        }
       } catch (error) {
         console.error('Error playing audio:', error);
       }
@@ -129,7 +165,13 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
 
   return (
     <div className="max-w-4xl mx-auto">
-      <audio ref={audioRef} src={audioUrl} preload="metadata" />
+      <audio
+        ref={audioRef}
+        src={audioUrl}
+        preload="metadata"
+        crossOrigin="anonymous"
+        controls={false}
+      />
 
       {/* Clean Museum-Style Audio Player */}
       <div className="bg-white py-6">
