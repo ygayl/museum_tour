@@ -30,7 +30,7 @@ const PWADebugger: React.FC = () => {
 
   useEffect(() => {
     // Only show in production for debugging
-    if (process.env.NODE_ENV !== 'production') return;
+    if (import.meta.env.DEV) return;
 
     const errors: string[] = [];
 
