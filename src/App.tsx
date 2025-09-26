@@ -11,6 +11,7 @@ import TourPage from './components/TourPage';
 import ArtPiecePage from './components/ArtPiecePage';
 import CookieConsent from './components/CookieConsent';
 import PWAInstallPrompt from './components/PWAInstallPrompt';
+import PWADebugger from './components/PWADebugger';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
 
@@ -260,6 +261,9 @@ function App() {
 
       {/* PWA Install Prompt */}
       <PWAInstallPrompt />
+
+      {/* PWA Debugger (production only) */}
+      <PWADebugger />
     </div>
   );
 }

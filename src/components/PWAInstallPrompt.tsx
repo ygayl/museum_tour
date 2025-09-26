@@ -10,20 +10,39 @@ const PWAInstallPrompt: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
+  const [debugInfo, setDebugInfo] = useState<string>('');
 
   useEffect(() => {
+    // Debug information
+    const userAgent = navigator.userAgent;
+    const isSecure = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
+    const hasServiceWorker = 'serviceWorker' in navigator;
+
     // Check if app is already installed
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
     const isInWebAppiOS = (window.navigator as any).standalone === true;
     const isInWebAppChrome = window.matchMedia('(display-mode: standalone)').matches;
 
+    setDebugInfo(`
+      Browser: ${userAgent.includes('Chrome') ? 'Chrome' : userAgent.includes('Safari') ? 'Safari' : 'Other'}
+      Secure: ${isSecure}
+      Service Worker: ${hasServiceWorker}
+      Standalone: ${isStandalone}
+      iOS Webapp: ${isInWebAppiOS}
+      Chrome Webapp: ${isInWebAppChrome}
+    `);
+
     if (isStandalone || isInWebAppiOS || isInWebAppChrome) {
       setIsInstalled(true);
+      setDebugInfo(prev => prev + '\nApp already installed');
       return;
     }
 
     // Listen for the beforeinstallprompt event
     const handleBeforeInstallPrompt = (e: Event) => {
+      console.log('beforeinstallprompt event fired');
+      setDebugInfo(prev => prev + '\nbeforeinstallprompt event received');
+
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
 
@@ -32,10 +51,15 @@ const PWAInstallPrompt: React.FC = () => {
         const hasSeenPrompt = localStorage.getItem('pwa-install-prompt-seen');
         const hasDeclined = localStorage.getItem('pwa-install-declined');
 
+        setDebugInfo(prev => prev + `\nChecking localStorage: seen=${hasSeenPrompt}, declined=${hasDeclined}`);
+
         if (!hasSeenPrompt && !hasDeclined) {
           setShowInstallPrompt(true);
+          setDebugInfo(prev => prev + '\nShowing install prompt');
+        } else {
+          setDebugInfo(prev => prev + '\nNot showing prompt (already seen/declined)');
         }
-      }, 10000); // Show after 10 seconds
+      }, 3000); // Reduced to 3 seconds for debugging
     };
 
     // Listen for successful installation
@@ -79,8 +103,29 @@ const PWAInstallPrompt: React.FC = () => {
     localStorage.setItem('pwa-install-prompt-seen', 'true');
   };
 
-  if (isInstalled || !showInstallPrompt) {
+  // Add debug panel for production troubleshooting (remove this in final version)
+  const showDebugPanel = !isInstalled && !showInstallPrompt && process.env.NODE_ENV === 'production';
+
+  if (isInstalled || (!showInstallPrompt && !showDebugPanel)) {
     return null;
+  }
+
+  // Debug panel for production troubleshooting
+  if (showDebugPanel) {
+    return (
+      <div className="fixed bottom-4 left-4 right-4 z-50 max-w-md mx-auto">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-xs">
+          <h4 className="font-semibold text-red-800 mb-2">PWA Install Debug</h4>
+          <pre className="text-red-700 whitespace-pre-wrap">{debugInfo}</pre>
+          <button
+            onClick={() => localStorage.clear()}
+            className="mt-2 text-xs bg-red-100 px-2 py-1 rounded"
+          >
+            Clear localStorage
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
