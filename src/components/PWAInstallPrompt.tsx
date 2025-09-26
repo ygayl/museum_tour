@@ -24,7 +24,10 @@ const PWAInstallPrompt: React.FC = () => {
     const isInWebAppChrome = window.matchMedia('(display-mode: standalone)').matches;
 
     setDebugInfo(`
-      Browser: ${userAgent.includes('Chrome') ? 'Chrome' : userAgent.includes('Safari') ? 'Safari' : 'Other'}
+      Browser: ${userAgent.includes('Chrome') && !userAgent.includes('Edg') ? 'Chrome' :
+                 userAgent.includes('Edg') ? 'Edge' :
+                 userAgent.includes('Firefox') ? 'Firefox' :
+                 userAgent.includes('Safari') && !userAgent.includes('Chrome') ? 'Safari' : 'Other'}
       Secure: ${isSecure}
       Service Worker: ${hasServiceWorker}
       Standalone: ${isStandalone}
@@ -106,7 +109,11 @@ const PWAInstallPrompt: React.FC = () => {
   // Add debug panel for production troubleshooting (remove this in final version)
   const showDebugPanel = !isInstalled && !showInstallPrompt && process.env.NODE_ENV === 'production';
 
-  if (isInstalled || (!showInstallPrompt && !showDebugPanel)) {
+  // Safari-specific install prompt
+  const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+  const showSafariInstallPrompt = isSafari && !isInstalled && !localStorage.getItem('safari-install-dismissed');
+
+  if (isInstalled || (!showInstallPrompt && !showDebugPanel && !showSafariInstallPrompt)) {
     return null;
   }
 
@@ -123,6 +130,58 @@ const PWAInstallPrompt: React.FC = () => {
           >
             Clear localStorage
           </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Safari install instructions
+  if (showSafariInstallPrompt) {
+    return (
+      <div className="fixed bottom-4 left-4 right-4 z-50 max-w-md mx-auto">
+        <div className="bg-white rounded-xl shadow-2xl border border-gray-200 p-6 relative">
+          <button
+            onClick={() => localStorage.setItem('safari-install-dismissed', 'true')}
+            className="absolute top-3 right-3 p-1 hover:bg-gray-100 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+            aria-label="Dismiss install prompt"
+          >
+            <X className="w-5 h-5 text-gray-500" />
+          </button>
+
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0 w-12 h-12 bg-museum-gold-500 rounded-full flex items-center justify-center">
+              <Smartphone className="w-6 h-6 text-museum-primary-900" />
+            </div>
+
+            <div className="flex-1 min-w-0">
+              <h3 className="text-lg font-light text-museum-primary-900 font-serif mb-2">
+                Install Museum Tour
+              </h3>
+              <p className="text-sm text-museum-neutral-600 font-light leading-relaxed mb-4">
+                Add this app to your home screen for offline access and a better experience!
+              </p>
+
+              <div className="bg-blue-50 rounded-lg p-4 mb-4">
+                <h4 className="text-sm font-medium text-blue-900 mb-2">📱 How to install:</h4>
+                <ol className="text-sm text-blue-800 space-y-1">
+                  <li>1. Tap the <strong>Share button</strong> (↗️) in Safari</li>
+                  <li>2. Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+                  <li>3. Tap <strong>"Add"</strong> to confirm</li>
+                </ol>
+              </div>
+
+              <div className="flex items-center justify-center space-x-2 text-xs text-museum-neutral-500">
+                <div className="flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span>Works Offline</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span>Full Screen</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

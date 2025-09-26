@@ -22,6 +22,9 @@ const PWAInstallButton: React.FC<PWAInstallButtonProps> = ({
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [canInstall, setCanInstall] = useState(false);
 
+  // Safari detection
+  const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+
   useEffect(() => {
     // Check if app is already installed
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
@@ -42,8 +45,13 @@ const PWAInstallButton: React.FC<PWAInstallButtonProps> = ({
       setDeferredPrompt(null);
     };
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    window.addEventListener('appinstalled', handleAppInstalled);
+    // For Safari, always show install button since beforeinstallprompt doesn't fire
+    if (isSafari) {
+      setCanInstall(true);
+    } else {
+      window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.addEventListener('appinstalled', handleAppInstalled);
+    }
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -52,6 +60,13 @@ const PWAInstallButton: React.FC<PWAInstallButtonProps> = ({
   }, []);
 
   const handleInstall = async () => {
+    // Safari - show instructions
+    if (isSafari) {
+      alert('To install this app:\n\n1. Tap the Share button (↗️)\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add" to confirm');
+      return;
+    }
+
+    // Chrome/Edge - use normal install prompt
     if (!deferredPrompt) return;
 
     try {

@@ -165,10 +165,18 @@ const PWADebugger: React.FC = () => {
 
           <div className="mt-2 pt-2 border-t">
             <div className="text-gray-600 font-medium mb-1">Browser:</div>
-            <div className="text-gray-500 break-all">
-              {debugInfo.userAgent.includes('Chrome') ? 'Chrome' :
-               debugInfo.userAgent.includes('Safari') ? 'Safari' : 'Other'}
+            <div className="text-gray-500 break-all mb-2">
+              {debugInfo.userAgent.includes('Chrome') && !debugInfo.userAgent.includes('Edg') ? 'Chrome' :
+               debugInfo.userAgent.includes('Edg') ? 'Edge' :
+               debugInfo.userAgent.includes('Firefox') ? 'Firefox' :
+               debugInfo.userAgent.includes('Safari') && !debugInfo.userAgent.includes('Chrome') ? 'Safari' : 'Other'}
             </div>
+            <details className="text-xs">
+              <summary className="cursor-pointer text-gray-400 hover:text-gray-600">Show User Agent</summary>
+              <div className="mt-1 p-2 bg-gray-50 rounded text-gray-600 break-all">
+                {debugInfo.userAgent}
+              </div>
+            </details>
           </div>
 
           {debugInfo.errors.length > 0 && (
