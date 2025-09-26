@@ -4,6 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* PWA Viewport Support */
+:root {
+  /* Dynamic viewport height for PWA compatibility */
+  --app-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --app-height: 100dvh;
+  }
+}
+
+/* Safe area support for PWA */
+@supports (padding: max(0px)) {
+  :root {
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  }
+}
+
 /* Museum Design System */
 :root {
   /* Primary Colors - Deep Navy */

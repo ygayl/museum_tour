@@ -10,7 +10,11 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
     <BackgroundImage
       src="/images/hero/hero"
       alt="Museum art gallery hero background"
-      className="relative h-screen w-full overflow-hidden"
+      className="relative w-full overflow-hidden"
+      style={{
+        height: 'var(--app-height)',
+        minHeight: 'calc(var(--app-height) - var(--safe-area-inset-top, 0px) - var(--safe-area-inset-bottom, 0px))'
+      }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-museum-primary-900/70 via-museum-primary-800/60 to-museum-neutral-900/50" />
 

@@ -4,6 +4,7 @@ interface BackgroundImageProps {
   src: string; // Base path without extension (e.g., "/images/hero/hero")
   alt?: string; // For accessibility (used in aria-label)
   className?: string;
+  style?: React.CSSProperties; // Allow inline styles
   children?: React.ReactNode;
 }
 
@@ -11,6 +12,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
   src,
   alt,
   className = '',
+  style = {},
   children
 }) => {
   const [backgroundImage, setBackgroundImage] = useState<string>('');
@@ -87,7 +89,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
       className={`bg-cover bg-center bg-no-repeat transition-opacity duration-300 ${
         isLoaded ? 'opacity-100' : 'opacity-0'
       } ${className}`}
-      style={{ backgroundImage }}
+      style={{ backgroundImage, ...style }}
       aria-label={alt}
       role={alt ? 'img' : undefined}
     >
