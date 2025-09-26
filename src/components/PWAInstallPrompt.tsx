@@ -13,6 +13,15 @@ const PWAInstallPrompt: React.FC = () => {
   // const [debugInfo, setDebugInfo] = useState<string>('');
 
   useEffect(() => {
+    // Check if this is an iOS device
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const isIOSDevice = /iphone|ipad|ipod/.test(userAgent);
+
+    // If iOS, don't show this prompt (IOSInstallBanner handles iOS)
+    if (isIOSDevice) {
+      return;
+    }
+
     // Debug information (commented out for production)
     // const userAgent = navigator.userAgent;
     // const isSecure = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
@@ -109,9 +118,11 @@ const PWAInstallPrompt: React.FC = () => {
   // Debug panel commented out for production
   // const showDebugPanel = !isInstalled && !showInstallPrompt && import.meta.env.PROD;
 
-  // Safari-specific install prompt
+  // Safari-specific install prompt (desktop Safari only, not iOS)
   const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-  const showSafariInstallPrompt = isSafari && !isInstalled && !localStorage.getItem('safari-install-dismissed');
+  const userAgent = window.navigator.userAgent.toLowerCase();
+  const isIOSDevice = /iphone|ipad|ipod/.test(userAgent);
+  const showSafariInstallPrompt = isSafari && !isIOSDevice && !isInstalled && !localStorage.getItem('safari-install-dismissed');
 
   if (isInstalled || (!showInstallPrompt && !showSafariInstallPrompt)) {
     return null;
