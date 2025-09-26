@@ -1,5 +1,4 @@
 import React from 'react';
-import BackgroundImage from './BackgroundImage';
 
 interface HeroProps {
   onStartTour: () => void;
@@ -7,26 +6,58 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
   return (
-    <BackgroundImage
-      src="/images/hero/hero"
-      alt="Museum art gallery hero background"
+    <div
       className="relative w-full overflow-hidden"
       style={{
         height: 'var(--app-height)',
         minHeight: 'calc(var(--app-height) - var(--safe-area-inset-top, 0px) - var(--safe-area-inset-bottom, 0px))'
       }}
     >
+      {/* Optimized Hero Image with Modern Formats */}
+      <picture className="absolute inset-0">
+        <source
+          media="(max-width: 640px)"
+          srcSet="/images/hero/hero_720.webp"
+          sizes="100vw"
+          type="image/webp"
+        />
+        <source
+          media="(min-width: 641px)"
+          srcSet="/images/hero/hero_720.webp 720w, /images/hero/hero_1080.webp 1080w"
+          sizes="100vw"
+          type="image/webp"
+        />
+        <source
+          media="(max-width: 640px)"
+          srcSet="/images/hero/hero_720.jpg"
+          sizes="100vw"
+          type="image/jpeg"
+        />
+        <img
+          src="/images/hero/hero_720.jpg"
+          srcSet="/images/hero/hero_720.jpg 720w, /images/hero/hero_1080.jpg 1080w"
+          sizes="100vw"
+          alt="Museum art gallery hero background"
+          className="w-full h-full object-cover"
+          loading="eager"
+          {...({ fetchpriority: "high" } as any)}
+          decoding="async"
+        />
+      </picture>
+
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-museum-primary-900/70 via-museum-primary-800/60 to-museum-neutral-900/50" />
 
+      {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl text-center">
-          <h1 className="mb-6 text-4xl font-light tracking-wide text-white font-serif sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="hero-title mb-6 text-4xl font-light tracking-wide text-white font-serif sm:text-5xl md:text-6xl lg:text-7xl">
             Discover Art Like Never Before
           </h1>
 
-          <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-white/90 font-light sm:text-xl md:text-2xl">
+          <p className="hero-paragraph">
             Immerse yourself in curated museum experiences designed to bring history's greatest masterpieces to life<br />
-<em className="font-light italic">in just one hour</em>
+            <em className="font-light italic">in just one hour</em>
           </p>
 
           <button
@@ -45,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
           </button>
         </div>
       </div>
-    </BackgroundImage>
+    </div>
   );
 };
 

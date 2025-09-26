@@ -107,7 +107,26 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Separate vendor chunks for better caching
+          vendor: ['react', 'react-dom'],
+          icons: ['lucide-react'],
+        },
+      },
+    },
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
+  },
+  server: {
+    // Enable SPA routing - fallback to index.html for all routes
+    host: true,
+  },
+  preview: {
+    // Enable SPA routing for preview server too
+    host: true,
   },
 });

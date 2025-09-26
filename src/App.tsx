@@ -1,20 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import citiesData from './data/cities.json';
 import museumsData from './data/museums.json';
 import toursData from './data/tours.json';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import CitiesPage, { City } from './components/CitiesPage';
-import MuseumsPage from './components/MuseumsPage';
-import TourSelectionPage from './components/TourSelectionPage';
-import TourPage from './components/TourPage';
-import ArtPiecePage from './components/ArtPiecePage';
 import CookieConsent from './components/CookieConsent';
 import PWAInstallPrompt from './components/PWAInstallPrompt';
 import IOSInstallBanner from './components/IOSInstallBanner';
 // import PWADebugger from './components/PWADebugger';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
+
+// Import types that we need
+import type { City } from './components/CitiesPage';
+
+// Lazy load heavy components that are not needed for initial render
+const CitiesPage = lazy(() => import('./components/CitiesPage'));
+const MuseumsPage = lazy(() => import('./components/MuseumsPage'));
+const TourSelectionPage = lazy(() => import('./components/TourSelectionPage'));
+const TourPage = lazy(() => import('./components/TourPage'));
+const ArtPiecePage = lazy(() => import('./components/ArtPiecePage'));
+
+// Loading component for Suspense fallback
+const PageLoading = () => (
+  <div className="flex items-center justify-center min-h-[50vh]">
+    <div className="animate-pulse flex space-x-4">
+      <div className="rounded-full bg-museum-neutral-300 h-3 w-3"></div>
+      <div className="rounded-full bg-museum-neutral-300 h-3 w-3"></div>
+      <div className="rounded-full bg-museum-neutral-300 h-3 w-3"></div>
+    </div>
+  </div>
+);
 
 export interface Museum {
   id: string;
@@ -55,12 +71,35 @@ const museums: Museum[] = museumsData;
 
 const tours: Tour[] = toursData;
 
+// Parse URL to determine initial view
+const parseInitialUrl = (): {
+  view: 'intro' | 'cities' | 'museums' | 'tours' | 'tour' | 'artpiece',
+  city: City | null,
+  museum: Museum | null,
+  tour: Tour | null,
+  stop: Stop | null
+} => {
+  const path = window.location.pathname;
+
+  if (path === '/' || path === '') {
+    return { view: 'intro', city: null, museum: null, tour: null, stop: null };
+  }
+
+  if (path === '/cities') {
+    return { view: 'cities', city: null, museum: null, tour: null, stop: null };
+  }
+
+  // For other routes, fall back to cities for now (can extend later)
+  return { view: 'cities', city: null, museum: null, tour: null, stop: null };
+};
+
 function App() {
-  const [currentView, setCurrentView] = useState<'intro' | 'cities' | 'museums' | 'tours' | 'tour' | 'artpiece'>('intro');
-  const [selectedCity, setSelectedCity] = useState<City | null>(null);
-  const [selectedMuseum, setSelectedMuseum] = useState<Museum | null>(null);
-  const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
-  const [selectedStop, setSelectedStop] = useState<Stop | null>(null);
+  const initialState = parseInitialUrl();
+  const [currentView, setCurrentView] = useState<'intro' | 'cities' | 'museums' | 'tours' | 'tour' | 'artpiece'>(initialState.view);
+  const [selectedCity, setSelectedCity] = useState<City | null>(initialState.city);
+  const [selectedMuseum, setSelectedMuseum] = useState<Museum | null>(initialState.museum);
+  const [selectedTour, setSelectedTour] = useState<Tour | null>(initialState.tour);
+  const [selectedStop, setSelectedStop] = useState<Stop | null>(initialState.stop);
   const [analyticsEnabled, setAnalyticsEnabled] = useState<boolean>(false);
 
   const analytics = useAnalytics();
@@ -208,38 +247,39 @@ function App() {
             title={getHeaderTitle()}
           />
           <main className={currentView === 'artpiece' ? 'pt-16' : 'pt-16 pb-8'}>
-            {currentView === 'cities' ? (
-              <CitiesPage cities={cities} onSelectCity={handleSelectCity} />
-            ) : currentView === 'museums' ? (
-              <MuseumsPage museums={getMuseumsForSelectedCity()} onSelectMuseum={handleSelectMuseum} />
-            ) : currentView === 'tours' ? (
-              <TourSelectionPage tours={getToursForSelectedMuseum()} onSelectTour={handleSelectTour} />
-            ) : currentView === 'tour' ? (
-              selectedTour ? <TourPage
-                tour={selectedTour}
-                onBackToTours={() => window.history.back()}
-                onSelectStop={handleSelectStop}
-                analyticsEnabled={analyticsEnabled}
-              /> : (
-                <div className="flex items-center justify-center min-h-[50vh]">
-                  <div className="text-center">
-                    <p className="text-lg text-gray-600 mb-4">Tour not found</p>
-                    <button
-                      onClick={() => setCurrentView('cities')}
-                      className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-normal hover:bg-museum-gold-400 transition-colors"
-                    >
-                      Return to Cities
-                    </button>
+            <Suspense fallback={<PageLoading />}>
+              {currentView === 'cities' ? (
+                <CitiesPage cities={cities} onSelectCity={handleSelectCity} />
+              ) : currentView === 'museums' ? (
+                <MuseumsPage museums={getMuseumsForSelectedCity()} onSelectMuseum={handleSelectMuseum} />
+              ) : currentView === 'tours' ? (
+                <TourSelectionPage tours={getToursForSelectedMuseum()} onSelectTour={handleSelectTour} />
+              ) : currentView === 'tour' ? (
+                selectedTour ? <TourPage
+                  tour={selectedTour}
+                  onBackToTours={() => window.history.back()}
+                  onSelectStop={handleSelectStop}
+                  analyticsEnabled={analyticsEnabled}
+                /> : (
+                  <div className="flex items-center justify-center min-h-[50vh]">
+                    <div className="text-center">
+                      <p className="text-lg text-gray-600 mb-4">Tour not found</p>
+                      <button
+                        onClick={() => setCurrentView('cities')}
+                        className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-normal hover:bg-museum-gold-400 transition-colors"
+                      >
+                        Return to Cities
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )
-            ) : (
-              selectedStop && selectedTour ? <ArtPiecePage
-                stop={selectedStop}
-                tour={selectedTour}
-                onBackToTour={() => window.history.back()}
-                analyticsEnabled={analyticsEnabled}
-              /> : (
+                )
+              ) : (
+                selectedStop && selectedTour ? <ArtPiecePage
+                  stop={selectedStop}
+                  tour={selectedTour}
+                  onBackToTour={() => window.history.back()}
+                  analyticsEnabled={analyticsEnabled}
+                /> : (
                 <div className="flex items-center justify-center min-h-[50vh]">
                   <div className="text-center">
                     <p className="text-lg text-gray-600 mb-4">Artwork not found</p>
@@ -253,6 +293,7 @@ function App() {
                 </div>
               )
             )}
+            </Suspense>
           </main>
         </>
       )}

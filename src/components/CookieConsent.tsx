@@ -50,6 +50,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
             </div>
             <button
               onClick={handleDecline}
+              aria-label="Decline cookies and use essential cookies only"
               className="p-2 hover:bg-gray-100 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
             >
               <X className="w-5 h-5 text-gray-500" />
