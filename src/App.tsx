@@ -10,6 +10,7 @@ import TourSelectionPage from './components/TourSelectionPage';
 import TourPage from './components/TourPage';
 import ArtPiecePage from './components/ArtPiecePage';
 import CookieConsent from './components/CookieConsent';
+import PWAInstallPrompt from './components/PWAInstallPrompt';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
 
@@ -256,6 +257,9 @@ function App() {
 
       {/* Cookie Consent */}
       <CookieConsent onConsentChange={setAnalyticsEnabled} />
+
+      {/* PWA Install Prompt */}
+      <PWAInstallPrompt />
     </div>
   );
 }

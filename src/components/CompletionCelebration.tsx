@@ -1,5 +1,6 @@
 import React from 'react';
 import { Trophy, ArrowRight } from 'lucide-react';
+import PWAInstallButton from './PWAInstallButton';
 
 interface CompletionCelebrationProps {
   museumName: string;
@@ -36,6 +37,13 @@ const CompletionCelebration: React.FC<CompletionCelebrationProps> = ({
             Share Your Experience
           </button>
         )}
+
+        <PWAInstallButton
+          variant="secondary"
+          className="w-full"
+        >
+          <span>Install App for Offline Tours</span>
+        </PWAInstallButton>
 
         {onStartNewTour && (
           <button
