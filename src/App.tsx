@@ -11,6 +11,7 @@ import TourPage from './components/TourPage';
 import ArtPiecePage from './components/ArtPiecePage';
 import CookieConsent from './components/CookieConsent';
 import PWAInstallPrompt from './components/PWAInstallPrompt';
+import IOSInstallBanner from './components/IOSInstallBanner';
 // import PWADebugger from './components/PWADebugger';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
@@ -258,6 +259,9 @@ function App() {
 
       {/* Cookie Consent */}
       <CookieConsent onConsentChange={setAnalyticsEnabled} />
+
+      {/* iOS Install Banner */}
+      <IOSInstallBanner />
 
       {/* PWA Install Prompt */}
       <PWAInstallPrompt />
