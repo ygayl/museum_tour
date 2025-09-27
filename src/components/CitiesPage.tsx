@@ -1,5 +1,4 @@
 import React from 'react';
-import ResponsiveImage from './ResponsiveImage';
 
 export interface City {
   id: string;
@@ -31,17 +30,24 @@ const CitiesPage: React.FC<CitiesPageProps> = ({ cities, onSelectCity }) => {
           <button
             key={city.id}
             onClick={() => onSelectCity(city)}
-            className="city-card group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-gray-300 hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset text-left w-full"
+            className="city-card group bg-white border border-gray-200 overflow-hidden hover:border-gray-300 hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset text-left w-full"
           >
             {/* Image Section */}
             <div className="city-image-container relative aspect-[4/3] bg-museum-neutral-100">
-              <ResponsiveImage
-                src={city.image}
-                alt={city.name}
-                className="city-image w-full h-full object-cover"
-                priority={city.id === 'amsterdam' || city.id === 'london' || city.id === 'madrid'}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
+              <picture className="city-image w-full h-full">
+                <source
+                  srcSet={`/images/cities/${city.id}_720.webp`}
+                  type="image/webp"
+                />
+                <img
+                  src={`/images/cities/${city.id}_720.jpg`}
+                  alt={city.name}
+                  className="w-full h-full object-cover"
+                  loading={city.id === 'amsterdam' || city.id === 'london' || city.id === 'madrid' ? 'eager' : 'lazy'}
+                  {...(city.id === 'amsterdam' || city.id === 'london' || city.id === 'madrid' ? { fetchpriority: "high" } as any : {})}
+                  decoding="async"
+                />
+              </picture>
             </div>
 
             {/* Text Section */}

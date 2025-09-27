@@ -70,7 +70,6 @@
         border: 1px solid #e5e5e5 !important;
         overflow: hidden !important;
         cursor: pointer !important;
-        transition: all 0.2s ease !important;
         text-align: left !important;
         width: 100% !important;
       }
@@ -122,9 +121,12 @@
     <link rel="preload" as="image" href="/images/hero/hero_720.webp" type="image/webp" media="(max-width: 640px)">
     <link rel="preload" as="image" href="/images/hero/hero_720.jpg" type="image/jpeg" media="(max-width: 640px)">
 
-    <!-- Preload critical city images for /cities page performance -->
-    <link rel="preload" as="image" href="/images/cities/amsterdam_720.jpg" type="image/jpeg">
+    <!-- Preload critical city images for /cities page performance - WebP priority -->
+    <link rel="preload" as="image" href="/images/cities/amsterdam_720.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/cities/amsterdam_720.jpg" type="image/jpeg" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/cities/london_720.webp" type="image/webp">
     <link rel="preload" as="image" href="/images/cities/london_720.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="/images/cities/madrid_720.webp" type="image/webp">
     <link rel="preload" as="image" href="/images/cities/madrid_720.jpg" type="image/jpeg">
 
     <!-- Font Optimization - Critical fonts preloaded for faster text rendering -->

@@ -62,11 +62,11 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
 
           <button
             onClick={onStartTour}
-            className="inline-flex items-center rounded-full bg-museum-gold-500 px-8 py-4 text-lg font-normal text-museum-primary-900 shadow-2xl transition-all duration-300 hover:bg-museum-gold-400 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-museum-gold-500/50 sm:px-10 sm:py-5 sm:text-xl"
+            className="inline-flex items-center rounded-full bg-museum-gold-500 px-8 py-4 text-lg font-normal text-museum-primary-900 shadow-2xl hover:bg-museum-gold-400 focus:outline-none focus:ring-4 focus:ring-museum-gold-500/50 sm:px-10 sm:py-5 sm:text-xl"
           >
             Explore
             <svg
-              className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
+              className="ml-2 h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
