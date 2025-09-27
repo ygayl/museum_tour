@@ -34,27 +34,33 @@ const CitiesPage: React.FC<CitiesPageProps> = ({ cities, onSelectCity }) => {
           >
             {/* Image Section */}
             <div className="city-image-container relative aspect-[4/3] bg-museum-neutral-100">
-              <picture className="city-image w-full h-full">
+              <picture>
                 <source
                   srcSet={`/images/cities/${city.id}_720.webp`}
                   type="image/webp"
+                />
+                <source
+                  srcSet={`/images/cities/${city.id}_720.jpg`}
+                  type="image/jpeg"
                 />
                 <img
                   src={`/images/cities/${city.id}_720.jpg`}
                   alt={city.name}
                   className="w-full h-full object-cover"
+                  width="720"
+                  height="540"
                   loading={city.id === 'amsterdam' || city.id === 'london' || city.id === 'madrid' ? 'eager' : 'lazy'}
-                  {...(city.id === 'amsterdam' || city.id === 'london' || city.id === 'madrid' ? { fetchpriority: "high" } as any : {})}
-                  decoding="async"
+                  {...(city.id === 'amsterdam' || city.id === 'london' || city.id === 'madrid' ? { fetchpriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement> : {})}
+                  decoding={city.id === 'amsterdam' || city.id === 'london' || city.id === 'madrid' ? 'sync' : 'async'}
                 />
               </picture>
             </div>
 
             {/* Text Section */}
             <div className="city-info p-4">
-              <h3 className="city-name text-lg font-normal font-serif text-museum-primary-900 mb-2">
+              <h2 className="city-name text-lg font-normal font-serif text-museum-primary-900 mb-2">
                 {city.name}
-              </h3>
+              </h2>
               {city.description && (
                 <p className="city-description text-museum-neutral-600 text-sm leading-relaxed">
                   {city.description}

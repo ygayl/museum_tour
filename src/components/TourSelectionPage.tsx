@@ -1,6 +1,5 @@
 import React from 'react';
 import { Tour } from '../App';
-import ResponsiveImage from './ResponsiveImage';
 
 interface TourSelectionPageProps {
   tours: Tour[];
@@ -43,20 +42,33 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
           >
             {/* Image Section */}
             <div className="relative aspect-[4/3] bg-museum-neutral-100">
-              <ResponsiveImage
-                src={tour.image}
-                alt={tour.name}
-                className="w-full h-full object-cover"
-                priority={index < 2}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
+              <picture>
+                <source
+                  srcSet={`${tour.image.replace('.jpg', '')}_720.webp`}
+                  type="image/webp"
+                />
+                <source
+                  srcSet={`${tour.image.replace('.jpg', '')}_720.jpg`}
+                  type="image/jpeg"
+                />
+                <img
+                  src={`${tour.image.replace('.jpg', '')}_720.jpg`}
+                  alt={tour.name}
+                  className="w-full h-full object-cover"
+                  width="720"
+                  height="540"
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                  {...(index < 2 ? { fetchpriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement> : {})}
+                  decoding={index < 2 ? 'sync' : 'async'}
+                />
+              </picture>
             </div>
 
             {/* Text Section */}
             <div className="p-4">
-              <h3 className="text-lg font-normal font-serif text-museum-primary-900 mb-2">
+              <h2 className="text-lg font-normal font-serif text-museum-primary-900 mb-2">
                 {tour.name}
-              </h3>
+              </h2>
               <p className="text-museum-neutral-600 text-sm mb-2 leading-relaxed">
                 {tour.description}
               </p>

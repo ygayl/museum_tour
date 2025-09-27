@@ -26,9 +26,10 @@ This is a React + TypeScript museum tour application built with Vite, using Tail
 
 - **Hierarchical Navigation**: Cities → Museums → Tours → Individual Tour Experience
 - **State Management**: React hooks with localStorage persistence for tour progress
-- **Single-Page App**: State-based view switching with 5 main views
+- **Single-Page App**: State-based view switching with 6 main views (intro, cities, museums, tours, tour, artpiece)
 - **Audio System**: Dual audio players (artwork + artist) with transcript support
 - **Analytics**: Comprehensive user behavior tracking with privacy controls
+- **PWA Support**: Full Progressive Web App with service worker caching and offline support
 
 ### Key Data Models
 
@@ -77,14 +78,14 @@ interface Stop {
 
 ### Component Hierarchy
 
-- **App.tsx**: Main application with 5-view state management
+- **App.tsx**: Main application with 6-view state management and lazy loading
 - **Hero.tsx**: Landing page component
 - **CitiesPage.tsx**: City selection grid
 - **MuseumsPage.tsx**: Museum selection grid (filtered by city)
 - **TourSelectionPage.tsx**: Tour selection grid (filtered by museum)
-- **TourPage.tsx**: Individual tour experience with accordion stops
-- **AudioPlayer.tsx**: Custom audio player with transcript support
-- **ProgressBar.tsx**: Clickable progress visualization
+- **TourPage.tsx**: Individual tour experience with search functionality
+- **CompactAudioPlayer.tsx**: Custom audio player with progress callbacks
+- **ResponsiveImage.tsx**: Optimized image component with priority loading
 - **CompletionCelebration.tsx**: Tour completion experience
 
 ### Tour Progress System
@@ -92,6 +93,7 @@ interface Stop {
 The `useTourProgress` hook (src/hooks/useTourProgress.ts) manages sophisticated progress logic:
 - **Dual Audio Completion**: Stops auto-complete when BOTH artwork and artist audios reach 80%
 - **Manual Override**: Users can manually mark stops as complete with visual feedback
+- **Session Management**: Progress resets on new sessions using sessionStorage validation
 - **Persistent Storage**: localStorage with tour-specific keys and error handling
 - **Real-time Callbacks**: Progress updates trigger UI changes and analytics events
 
@@ -105,11 +107,11 @@ The `useTourProgress` hook (src/hooks/useTourProgress.ts) manages sophisticated 
 
 ### Tour Experience (TourPage.tsx)
 
-- **Accordion Interface**: Single-stop expansion with URL hash synchronization
+- **Search Functionality**: Real-time filtering of tour stops with analytics tracking
+- **Completion Tracking**: Visual progress indicators with checkmarks and opacity changes
+- **Responsive Design**: Mobile-optimized list interface with thumbnails and metadata
 - **Deep Linking**: Direct access to specific stops via URL fragments
-- **Responsive Design**: Mobile (full-width cards) vs Desktop (compact thumbnails)
-- **Keyboard Navigation**: Arrow keys, Enter, Space for accessibility
-- **Completion States**: Visual feedback with checkmarks and opacity changes
+- **Session-Based Progress**: Automatic progress reset on new sessions
 
 ### Analytics Integration
 
@@ -132,23 +134,24 @@ The analytics system (`src/hooks/useAnalytics.ts`, `src/lib/analytics.ts`) track
 
 1. **Static JSON Loading**: Cities, museums, tours loaded from `src/data/` directory
 2. **Hierarchical Filtering**: Data filtered by selected context (cityId → museumId)
-3. **State-Driven Navigation**: 5-view system with context preservation
-4. **Progress Persistence**: localStorage sync with error handling and cleanup
+3. **State-Driven Navigation**: 6-view system with context preservation and lazy loading
+4. **Progress Persistence**: localStorage sync with session validation and error handling
 5. **Analytics Pipeline**: Event-driven tracking with consent management
 
 ### URL Management
 
-- **Hash Routing**: Deep linking to specific tour stops (`#stop-id`)
-- **State Synchronization**: URL updates on accordion open/close
-- **Clean URLs**: Hash removal when returning to collapsed state
-- **Navigation History**: Proper browser back/forward support
+- **History Navigation Hook**: `useHistoryNavigation` manages browser history and URL generation
+- **Deep Linking**: SEO-friendly URLs with hierarchical structure (e.g., `/city/museum/tour`)
+- **State Synchronization**: URL updates reflect current navigation state
+- **Browser Integration**: Proper back/forward support with state restoration
 
 ### Key Architectural Patterns
 
 - **Container/Presentational**: App.tsx as smart container, pages as presentational components
-- **Custom Hooks**: `useTourProgress` and `useAnalytics` for complex state logic
+- **Custom Hooks**: `useTourProgress`, `useAnalytics`, and `useHistoryNavigation` for complex state logic
 - **Render Props Pattern**: Progress callbacks and analytics event handlers
-- **Progressive Enhancement**: Core functionality works without JavaScript, enhanced with React
+- **Concurrent Rendering**: React 18's `startTransition` for non-blocking renders
+- **Progressive Web App**: Service worker with strategic caching for offline support
 - **Mobile-First**: Responsive design optimized for mobile museum visitors
 
 ### Asset Organization
@@ -174,3 +177,11 @@ Tour data in `src/data/tours.json` follows this pattern:
 - Tours contain multiple stops with dual audio URLs
 - Transcripts are optional but enhance accessibility
 - Audio files should be optimized for web delivery (MP3 recommended)
+
+### PWA Configuration (vite.config.ts)
+
+- **Service Worker**: Auto-update registration with comprehensive caching strategy
+- **Audio Caching**: Specialized cache handling for large audio files (50MB limit)
+- **Offline Support**: Strategic caching of assets, images, and audio content
+- **Bundle Optimization**: Manual chunks for vendor libraries and audio functionality
+- **Performance**: Terser minification with console removal in production

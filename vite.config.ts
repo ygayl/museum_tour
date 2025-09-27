@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'script',
       includeAssets: ['favicon.ico', 'icons/apple-icon-180.png', 'icons/manifest-icon-192.maskable.png', 'icons/manifest-icon-512.maskable.png'],
       manifest: {
         name: 'Museum Tour - Audio Guided Tours',
@@ -114,7 +115,22 @@ export default defineConfig({
           // Separate vendor chunks for better caching
           vendor: ['react', 'react-dom'],
           icons: ['lucide-react'],
+          // Separate analytics functionality
+          analytics: ['src/hooks/useAnalytics.ts', 'src/lib/analytics.ts'],
+          // Separate heavy audio components that aren't needed initially
+          audio: ['src/components/CompactAudioPlayer.tsx'],
+          // Separate tour components
+          tour: ['src/components/TourPage.tsx', 'src/hooks/useTourProgress.ts'],
         },
+      },
+    },
+    // Optimize bundle for faster parsing
+    target: 'es2020',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
       },
     },
   },

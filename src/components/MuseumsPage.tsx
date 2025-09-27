@@ -1,6 +1,5 @@
 import React from 'react';
 import { Museum } from '../App';
-import ResponsiveImage from './ResponsiveImage';
 
 interface MuseumsPageProps {
   museums: Museum[];
@@ -21,7 +20,7 @@ const MuseumsPage: React.FC<MuseumsPageProps> = ({ museums, onSelectMuseum }) =>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {museums.map((museum) => (
+        {museums.map((museum, index) => (
           <button
             key={museum.id}
             onClick={() => onSelectMuseum(museum)}
@@ -29,20 +28,33 @@ const MuseumsPage: React.FC<MuseumsPageProps> = ({ museums, onSelectMuseum }) =>
           >
             {/* Image Section */}
             <div className="relative aspect-[4/3] bg-museum-neutral-100">
-              <ResponsiveImage
-                src={museum.image}
-                alt={museum.name}
-                className="w-full h-full object-cover"
-                priority={false}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
+              <picture>
+                <source
+                  srcSet={`${museum.image}_720.webp`}
+                  type="image/webp"
+                />
+                <source
+                  srcSet={`${museum.image}_720.jpg`}
+                  type="image/jpeg"
+                />
+                <img
+                  src={`${museum.image}_720.jpg`}
+                  alt={museum.name}
+                  className="w-full h-full object-cover"
+                  width="720"
+                  height="540"
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                  {...(index < 3 ? { fetchpriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement> : {})}
+                  decoding={index < 3 ? 'sync' : 'async'}
+                />
+              </picture>
             </div>
 
             {/* Text Section */}
             <div className="p-4">
-              <h3 className="text-lg font-normal font-serif text-museum-primary-900 mb-2">
+              <h2 className="text-lg font-normal font-serif text-museum-primary-900 mb-2">
                 {museum.name}
-              </h3>
+              </h2>
               {museum.description && (
                 <p className="text-museum-neutral-600 text-sm leading-relaxed">
                   {museum.description}

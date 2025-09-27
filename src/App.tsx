@@ -11,11 +11,10 @@ import IOSInstallBanner from './components/IOSInstallBanner';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
 
-// Import types that we need
-import type { City } from './components/CitiesPage';
+// Import CitiesPage directly for better LCP performance
+import CitiesPage, { type City } from './components/CitiesPage';
 
 // Lazy load heavy components that are not needed for initial render
-const CitiesPage = lazy(() => import('./components/CitiesPage'));
 const MuseumsPage = lazy(() => import('./components/MuseumsPage'));
 const TourSelectionPage = lazy(() => import('./components/TourSelectionPage'));
 const TourPage = lazy(() => import('./components/TourPage'));
@@ -89,7 +88,48 @@ const parseInitialUrl = (): {
     return { view: 'cities', city: null, museum: null, tour: null, stop: null };
   }
 
-  // For other routes, fall back to cities for now (can extend later)
+  // Parse deep links: /cities/:cityId/museums/:museumId/tours/:tourId/artpiece/:stopId
+  const segments = path.split('/').filter(s => s);
+
+  // Handle /cities/:cityId/museums
+  if (segments.length >= 3 && segments[0] === 'cities' && segments[2] === 'museums') {
+    const cityId = segments[1];
+    const city = cities.find(c => c.id === cityId) || null;
+
+    // Handle /cities/:cityId/museums/:museumId/tours
+    if (segments.length >= 5 && segments[4] === 'tours') {
+      const museumId = segments[3];
+      const museum = museums.find(m => m.id === museumId && m.cityId === cityId) || null;
+
+      // Handle /cities/:cityId/museums/:museumId/tours/:tourId
+      if (segments.length >= 6) {
+        const tourId = segments[5];
+        const tour = tours.find(t => t.id === tourId && t.museumId === museumId) || null;
+
+        // Handle /cities/:cityId/museums/:museumId/tours/:tourId/artpiece/:stopId
+        if (segments.length >= 8 && segments[6] === 'artpiece') {
+          const stopId = segments[7];
+          const stop = tour?.stops.find(s => s.id === stopId) || null;
+          return { view: 'artpiece', city, museum, tour, stop };
+        }
+
+        return { view: 'tour', city, museum, tour, stop: null };
+      }
+
+      return { view: 'tours', city, museum, tour: null, stop: null };
+    }
+
+    // Handle /cities/:cityId/museums/:museumId (specific museum)
+    if (segments.length === 4) {
+      const museumId = segments[3];
+      const museum = museums.find(m => m.id === museumId && m.cityId === cityId) || null;
+      return { view: 'tours', city, museum, tour: null, stop: null };
+    }
+
+    return { view: 'museums', city, museum: null, tour: null, stop: null };
+  }
+
+  // Default fallback
   return { view: 'cities', city: null, museum: null, tour: null, stop: null };
 };
 

@@ -15,7 +15,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   priority = false,
   sizes = '(max-width: 768px) 360px, (max-width: 1024px) 720px, 1080px'
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(priority);
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,8 +66,8 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
-      {/* Enhanced skeleton loading state */}
-      {!isLoaded && !hasError && (
+      {/* Enhanced skeleton loading state - skip for priority images */}
+      {!isLoaded && !hasError && !priority && (
         <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 animate-pulse">
           {/* Museum-themed placeholder content */}
           <div className="w-full h-full flex items-center justify-center bg-museum-neutral-100">
@@ -135,12 +135,14 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
               <img
                 src={getFallbackSrc()}
                 alt={alt}
-                className={`w-full h-full object-cover transition-opacity duration-500 ease-out ${
-                  isLoaded ? 'opacity-100' : 'opacity-0'
+                className={`w-full h-full object-cover ${
+                  priority ? '' : `transition-opacity duration-500 ease-out ${
+                    isLoaded ? 'opacity-100' : 'opacity-0'
+                  }`
                 }`}
                 loading={priority ? 'eager' : 'lazy'}
-                decoding="async"
-                fetchpriority={priority ? 'high' : 'low'}
+                decoding={priority ? 'sync' : 'async'}
+                {...(priority ? { fetchpriority: 'high' } : { fetchpriority: 'low' }) as React.ImgHTMLAttributes<HTMLImageElement>}
                 onLoad={() => setIsLoaded(true)}
                 onError={(e) => {
                   // Fallback to basic JPG if responsive images fail
@@ -159,12 +161,14 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
             <img
               src={src}
               alt={alt}
-              className={`w-full h-full object-cover transition-opacity duration-500 ease-out ${
-                isLoaded ? 'opacity-100' : 'opacity-0'
+              className={`w-full h-full object-cover ${
+                priority ? '' : `transition-opacity duration-500 ease-out ${
+                  isLoaded ? 'opacity-100' : 'opacity-0'
+                }`
               }`}
               loading={priority ? 'eager' : 'lazy'}
-              decoding="async"
-              fetchpriority={priority ? 'high' : 'low'}
+              decoding={priority ? 'sync' : 'async'}
+              {...(priority ? { fetchpriority: 'high' } : { fetchpriority: 'low' }) as React.ImgHTMLAttributes<HTMLImageElement>}
               onLoad={() => setIsLoaded(true)}
               onError={() => setHasError(true)}
             />

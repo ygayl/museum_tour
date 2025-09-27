@@ -1,0 +1,27 @@
+# Robots.txt for Museum Tour App
+# https://www.robotstxt.org/
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location (update when you have a sitemap)
+# Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl delay (optional, in seconds)
+# Crawl-delay: 1
+
+# Disallow access to sensitive or non-public areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: *.json$
+Disallow: *.map$
+
+# Allow specific paths
+Allow: /manifest.webmanifest
+Allow: /icons/
+Allow: /images/
+Allow: /audio/

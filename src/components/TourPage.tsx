@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Check, ChevronRight, Search } from 'lucide-react';
 import { Tour, Stop } from '../App';
 import CompletionCelebration from './CompletionCelebration';
-import ResponsiveImage from './ResponsiveImage';
 import { useTourProgress } from '../hooks/useTourProgress';
 import { useEngagementTracking, useAnalytics } from '../hooks/useAnalytics';
 
@@ -51,29 +50,39 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
     feedbackSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Create virtual introduction stop
-  const createIntroductionStop = (): Stop => ({
-    id: `intro-${tour.id}`,
-    title: "Introduction",
-    description: tour.description,
-    image: tour.image,
-    artworkAudioUrl: tour.introAudio,
-    artistAudioUrl: "",
-    artistName: "",
-    roomNumber: "",
-    artworkTranscript: (tour as Tour & { introTranscript?: string }).introTranscript || "",
-    artistTranscript: ""
-  });
+  // Memoize the introduction stop to prevent recreation on every render
+  const introductionStop = useMemo((): Stop | null => {
+    if (!tour.introAudio) return null;
+    return {
+      id: `intro-${tour.id}`,
+      title: "Introduction",
+      description: tour.description,
+      image: tour.image,
+      artworkAudioUrl: tour.introAudio,
+      artistAudioUrl: "",
+      artistName: "",
+      roomNumber: "",
+      artworkTranscript: (tour as Tour & { introTranscript?: string }).introTranscript || "",
+      artistTranscript: ""
+    };
+  }, [tour.id, tour.description, tour.image, tour.introAudio]);
 
-  // Combine introduction with regular stops
-  const allStops = tour.introAudio ? [createIntroductionStop(), ...tour.stops] : tour.stops;
+  // Memoize all stops to prevent array recreation on every render
+  const allStops = useMemo(() => {
+    return introductionStop ? [introductionStop, ...tour.stops] : tour.stops;
+  }, [introductionStop, tour.stops]);
 
-  // Filter stops based on search query
-  const filteredStops = allStops.filter(stop =>
-    stop.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    (stop.artistName && stop.artistName.toLowerCase().includes(searchQuery.toLowerCase())) ||
-    (stop.roomNumber && stop.roomNumber.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+  // Memoize filtered stops to prevent refiltering on every render
+  const filteredStops = useMemo(() => {
+    const query = searchQuery.toLowerCase();
+    if (!query) return allStops;
+
+    return allStops.filter(stop =>
+      stop.title.toLowerCase().includes(query) ||
+      (stop.artistName && stop.artistName.toLowerCase().includes(query)) ||
+      (stop.roomNumber && stop.roomNumber.toLowerCase().includes(query))
+    );
+  }, [allStops, searchQuery]);
 
   return (
     <div className="bg-museum-gradient min-h-screen">
@@ -93,19 +102,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
             placeholder="Search"
             value={searchQuery}
             onChange={(e) => {
-              const query = e.target.value;
-              setSearchQuery(query);
-
-              // Track search analytics for meaningful queries
-              if (analyticsEnabled && query.length > 2) {
-                const results = allStops.filter(stop =>
-                  stop.title.toLowerCase().includes(query.toLowerCase()) ||
-                  (stop.artistName && stop.artistName.toLowerCase().includes(query.toLowerCase())) ||
-                  (stop.roomNumber && stop.roomNumber.toLowerCase().includes(query.toLowerCase()))
-                );
-
-                analytics.trackSearch(query, results.length, 'tour_stops');
-              }
+              setSearchQuery(e.target.value);
             }}
             className="w-full pl-12 pr-4 py-3 bg-gray-100 border-0 rounded-lg text-base placeholder-gray-500 focus:outline-none focus:bg-gray-50 focus:ring-2 focus:ring-blue-500"
           />
@@ -126,13 +123,32 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
                 <div className="flex items-center space-x-4">
                   {/* Larger Thumbnail - Left */}
                   <div className="flex-shrink-0 relative">
-                    <ResponsiveImage
-                      src={stop.image}
-                      alt={stop.title}
-                      className="w-20 h-20 object-cover rounded"
-                      priority={index < 5}
-                      sizes="80px"
-                    />
+                    <picture className="block w-20 h-20">
+                      <source
+                        srcSet={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
+                          ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.webp`
+                          : `${stop.image}_360.webp`}
+                        type="image/webp"
+                      />
+                      <source
+                        srcSet={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
+                          ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.jpg`
+                          : `${stop.image}_360.jpg`}
+                        type="image/jpeg"
+                      />
+                      <img
+                        src={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
+                          ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.jpg`
+                          : `${stop.image}_360.jpg`}
+                        alt={stop.title}
+                        className="w-20 h-20 object-cover rounded"
+                        width="80"
+                        height="80"
+                        loading={index < 5 ? 'eager' : 'lazy'}
+                        {...(index < 5 ? { fetchpriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement> : {})}
+                        decoding={index < 5 ? 'sync' : 'async'}
+                      />
+                    </picture>
                     {isCompleted && (
                       <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
                         <Check className="w-3 h-3 text-white" />

@@ -135,9 +135,9 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
         {currentTrackData.transcript && (
           <div className="px-6 pb-8 bg-white">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase mb-4">
+              <h2 className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase mb-4">
                 {currentTrack === 'artwork' ? 'NARRATOR' : 'ABOUT THE ARTIST'}
-              </h3>
+              </h2>
               <div className="space-y-4 text-gray-800 leading-relaxed">
                 {currentTrackData.transcript.split('\n').filter(paragraph => paragraph.trim()).map((paragraph, index) => (
                   <p key={index} className="text-sm leading-relaxed">
@@ -158,9 +158,9 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
               onClick={() => setIsAdditionalContentExpanded(!isAdditionalContentExpanded)}
               className="w-full flex items-center justify-between py-4 text-left focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
             >
-              <h3 className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">
+              <h2 className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">
                 ADDITIONAL CONTENT
-              </h3>
+              </h2>
               {isAdditionalContentExpanded ? (
                 <ChevronUp className="w-4 h-4 text-gray-600" />
               ) : (

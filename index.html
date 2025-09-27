@@ -117,22 +117,27 @@
       }
     </style>
 
-    <!-- Critical Resource Preloads - Mobile-first PWA optimization -->
+    <!-- Critical Resource Preloads - Only WebP for modern browsers -->
     <link rel="preload" as="image" href="/images/hero/hero_720.webp" type="image/webp" media="(max-width: 640px)">
-    <link rel="preload" as="image" href="/images/hero/hero_720.jpg" type="image/jpeg" media="(max-width: 640px)">
 
-    <!-- Preload critical city images for /cities page performance - WebP priority -->
+    <!-- Preload critical city images - WebP only for better performance -->
     <link rel="preload" as="image" href="/images/cities/amsterdam_720.webp" type="image/webp" fetchpriority="high">
-    <link rel="preload" as="image" href="/images/cities/amsterdam_720.jpg" type="image/jpeg" fetchpriority="high">
-    <link rel="preload" as="image" href="/images/cities/london_720.webp" type="image/webp">
-    <link rel="preload" as="image" href="/images/cities/london_720.jpg" type="image/jpeg">
-    <link rel="preload" as="image" href="/images/cities/madrid_720.webp" type="image/webp">
-    <link rel="preload" as="image" href="/images/cities/madrid_720.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="/images/cities/london_720.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/cities/madrid_720.webp" type="image/webp" fetchpriority="high">
 
-    <!-- Font Optimization - Critical fonts preloaded for faster text rendering -->
+    <!-- Preload critical museum images for better LCP -->
+    <link rel="preload" as="image" href="/images/museums/prado_720.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/museums/reina_sofia_720.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/museums/rijksmuseum_720.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/museums/van_gogh_museum_720.webp" type="image/webp">
+
+    <!-- Font Optimization - Non-blocking font loading with preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Preload critical fonts used in hero text (from network analysis) -->
+    <!-- Load Google Fonts non-blocking with font-display: swap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+    <!-- Preload critical font files for immediate use -->
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" type="font/woff2" crossorigin>
 
