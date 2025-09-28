@@ -267,15 +267,20 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
               <h2 className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">
                 ADDITIONAL CONTENT
               </h2>
-              {isAdditionalContentExpanded ? (
-                <ChevronUp className="w-4 h-4 text-gray-600" />
-              ) : (
-                <ChevronDown className="w-4 h-4 text-gray-600" />
-              )}
+              <div className="flex items-center space-x-2">
+                <span className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">
+                  {isAdditionalContentExpanded ? 'LESS' : 'MORE'}
+                </span>
+                {isAdditionalContentExpanded ? (
+                  <ChevronUp className="w-4 h-4 text-gray-600" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-gray-600" />
+                )}
+              </div>
             </button>
 
             {isAdditionalContentExpanded && (
-              <div className="space-y-2 pb-4 max-h-48 overflow-y-auto">
+              <div className="space-y-2 pb-4 max-h-72 overflow-y-auto">
                 {/* Artwork Track */}
                 <button
                   onClick={() => handleTrackSwitch('artwork')}
@@ -291,8 +296,8 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-baseline space-x-2">
-                        <span className="text-sm font-normal text-gray-900">1</span>
-                        <span className="text-sm text-gray-900 truncate">
+                        <span className="text-sm font-semibold text-gray-900">1</span>
+                        <span className="text-sm font-medium text-gray-900 truncate">
                           {stop.title}{stop.artistName && `, ${stop.artistName}`}
                         </span>
                       </div>
@@ -319,8 +324,8 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-baseline space-x-2">
-                          <span className="text-sm font-normal text-gray-900">2</span>
-                          <span className="text-sm text-gray-900 truncate">
+                          <span className="text-sm font-semibold text-gray-900">2</span>
+                          <span className="text-sm font-medium text-gray-900 truncate">
                             Artist Info: {stop.artistName}
                           </span>
                         </div>
