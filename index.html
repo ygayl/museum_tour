@@ -6,8 +6,37 @@
 
     <!-- Critical CSS for hero text - HIGHEST PRIORITY - eliminate render blocking -->
     <style>
-      /* Critical hero text styles - immediate render without any blocking */
-      body { font-family: system-ui, -apple-system, sans-serif; }
+      /* Reset and base styles */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; }
+      #root { min-height: 100vh; width: 100%; }
+
+      /* Hero container critical styles */
+      .relative { position: relative !important; }
+      .w-full { width: 100% !important; }
+      .overflow-hidden { overflow: hidden !important; }
+      .absolute { position: absolute !important; }
+      .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+      .z-10 { z-index: 10 !important; }
+      .flex { display: flex !important; }
+      .h-full { height: 100% !important; }
+      .items-center { align-items: center !important; }
+      .justify-center { justify-content: center !important; }
+      .text-center { text-align: center !important; }
+      .max-w-4xl { max-width: 56rem !important; }
+      .px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+      .object-cover { object-fit: cover !important; }
+
+      /* Hero image styles */
+      picture { display: block; width: 100%; height: 100%; }
+      picture img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* Hero overlay gradient */
+      .bg-gradient-to-br {
+        background: linear-gradient(to bottom right, rgba(31, 41, 55, 0.7), rgba(31, 41, 55, 0.6), rgba(23, 23, 23, 0.5)) !important;
+      }
+
+      /* Hero text styles */
       .hero-title {
         font-family: Georgia, 'Times New Roman', serif !important;
         font-weight: 300 !important;
@@ -16,8 +45,6 @@
         margin-bottom: 1.5rem !important;
         font-size: 2.25rem !important;
         line-height: 1 !important;
-        visibility: visible !important;
-        opacity: 1 !important;
       }
       .hero-paragraph {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
@@ -27,24 +54,46 @@
         max-width: 42rem !important;
         margin: 0 auto 2rem !important;
         font-size: 1.125rem !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        will-change: auto !important;
       }
+
+      /* Hero button styles */
+      button {
+        cursor: pointer;
+        border: none;
+        font-family: inherit;
+      }
+      .inline-flex {
+        display: inline-flex !important;
+        align-items: center !important;
+      }
+      .rounded-full { border-radius: 9999px !important; }
+      .bg-museum-gold-500 { background-color: #d4a574 !important; }
+      .px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+      .py-4 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+      .text-lg { font-size: 1.125rem !important; }
+      .font-normal { font-weight: 400 !important; }
+      .text-museum-primary-900 { color: #1a365d !important; }
+      .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important; }
+
       @media (min-width: 640px) {
         .hero-title { font-size: 3rem !important; }
         .hero-paragraph { font-size: 1.25rem !important; }
+        .sm\:px-6 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        .sm\:text-5xl { font-size: 3rem !important; }
+        .sm\:px-10 { padding-left: 2.5rem !important; padding-right: 2.5rem !important; }
+        .sm\:py-5 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
+        .sm\:text-xl { font-size: 1.25rem !important; }
       }
       @media (min-width: 768px) {
         .hero-title { font-size: 3.75rem !important; }
         .hero-paragraph { font-size: 1.5rem !important; }
+        .md\:text-6xl { font-size: 3.75rem !important; }
       }
       @media (min-width: 1024px) {
         .hero-title { font-size: 4.5rem !important; }
+        .lg\:px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+        .lg\:text-7xl { font-size: 4.5rem !important; }
       }
-      /* Prevent any layout shift */
-      #root { min-height: 100vh; }
-      .hero-paragraph * { font-family: inherit !important; }
 
       /* Critical CSS for cities page - immediate rendering */
       .cities-page-container {
@@ -125,11 +174,9 @@
     <link rel="preload" as="image" href="/images/cities/london_720.webp" type="image/webp" fetchpriority="high">
     <link rel="preload" as="image" href="/images/cities/madrid_720.webp" type="image/webp" fetchpriority="high">
 
-    <!-- Preload critical museum images for better LCP -->
-    <link rel="preload" as="image" href="/images/museums/prado_720.webp" type="image/webp" fetchpriority="high">
-    <link rel="preload" as="image" href="/images/museums/reina_sofia_720.webp" type="image/webp" fetchpriority="high">
-    <link rel="preload" as="image" href="/images/museums/rijksmuseum_720.webp" type="image/webp">
-    <link rel="preload" as="image" href="/images/museums/van_gogh_museum_720.webp" type="image/webp">
+    <!-- Resource Hints for faster connections -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
     <!-- Font Optimization - Non-blocking font loading with preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

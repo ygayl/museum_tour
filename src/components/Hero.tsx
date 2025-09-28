@@ -55,10 +55,10 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
             Discover Art Like Never Before
           </h1>
 
-          <p className="hero-paragraph">
+          {/* <p className="hero-paragraph">
             Immerse yourself in curated museum experiences designed to bring history's greatest masterpieces to life<br />
             <em className="font-light italic">in just one hour</em>
-          </p>
+          </p> */}
 
           <button
             onClick={onStartTour}

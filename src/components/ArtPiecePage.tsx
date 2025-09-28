@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Play } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronDown, ChevronUp, Play, ChevronRight, CheckCircle } from 'lucide-react';
 import { Tour, Stop } from '../App';
 import CompactAudioPlayer from './CompactAudioPlayer';
-import ResponsiveImage from './ResponsiveImage';
 import { useTourProgress } from '../hooks/useTourProgress';
 import { useAnalytics } from '../hooks/useAnalytics';
 
@@ -10,12 +9,16 @@ interface ArtPiecePageProps {
   stop: Stop;
   tour: Tour;
   analyticsEnabled?: boolean;
+  onNextStop?: (stop: Stop) => void;
+  onCompleteTour?: () => void;
 }
 
 const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
   stop,
   tour,
-  analyticsEnabled = false
+  analyticsEnabled = false,
+  onNextStop,
+  onCompleteTour
 }) => {
   const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
   const [isAdditionalContentExpanded, setIsAdditionalContentExpanded] = useState(false);
@@ -90,10 +93,66 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
     return index + 1;
   };
 
+  // Determine next stop logic
+  const getNextStop = (): Stop | null => {
+    if (isIntroductionStop) {
+      // If on introduction, next is the first tour stop
+      return tour.stops[0] || null;
+    }
+    const currentIndex = tour.stops.findIndex(s => s.id === stop.id);
+    if (currentIndex >= 0 && currentIndex < tour.stops.length - 1) {
+      return tour.stops[currentIndex + 1];
+    }
+    return null; // No next stop (we're at the last stop)
+  };
+
+  const nextStop = getNextStop();
+  const isLastStop = !nextStop;
+
+  // Handle navigation
+  const handleNext = () => {
+    if (nextStop && onNextStop) {
+      onNextStop(nextStop);
+    } else if (isLastStop && onCompleteTour) {
+      onCompleteTour();
+    }
+  };
+
+  // Swipe gesture handling for mobile
+  useEffect(() => {
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    };
+
+    const handleSwipe = () => {
+      const swipeThreshold = 50;
+      if (touchStartX - touchEndX > swipeThreshold) {
+        // Swiped left - go to next
+        handleNext();
+      }
+    };
+
+    document.addEventListener('touchstart', handleTouchStart);
+    document.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [nextStop, onNextStop, onCompleteTour]);
+
   const currentTrackData = getCurrentTrackData();
 
   return (
-    <div className="bg-white min-h-screen pb-24">
+    <div className="bg-white min-h-screen pb-40">
       {/* Scrollable Content Area */}
       <div className="bg-white">
         {/* Hero Artwork Section */}
@@ -101,16 +160,48 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
           <div className="max-w-4xl w-full mx-auto">
             {/* Add minimum height container to prevent layout shift */}
             <div className="relative min-h-[50vh] bg-museum-neutral-100 flex items-center justify-center">
-              <ResponsiveImage
-                src={stop.image}
-                alt={stop.title}
-                className="w-full h-auto object-contain max-h-[80vh]"
-                priority={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 800px, 1200px"
-              />
+              <picture className="w-full h-auto">
+                <source
+                  srcSet={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
+                    ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.webp 360w, ${stop.image.replace(/\.(jpg|jpeg)$/, '')}_720.webp 720w, ${stop.image.replace(/\.(jpg|jpeg)$/, '')}_1080.webp 1080w`
+                    : `${stop.image}_360.webp 360w, ${stop.image}_720.webp 720w, ${stop.image}_1080.webp 1080w`}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 800px, 1200px"
+                  type="image/webp"
+                />
+                <source
+                  srcSet={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
+                    ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.jpg 360w, ${stop.image.replace(/\.(jpg|jpeg)$/, '')}_720.jpg 720w, ${stop.image.replace(/\.(jpg|jpeg)$/, '')}_1080.jpg 1080w`
+                    : `${stop.image}_360.jpg 360w, ${stop.image}_720.jpg 720w, ${stop.image}_1080.jpg 1080w`}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 800px, 1200px"
+                  type="image/jpeg"
+                />
+                <img
+                  src={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
+                    ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_720.jpg`
+                    : `${stop.image}_720.jpg`}
+                  alt={stop.title}
+                  className="w-full h-auto object-contain max-h-[80vh]"
+                  loading="eager"
+                  {...({ fetchpriority: "high" } as React.ImgHTMLAttributes<HTMLImageElement>)}
+                  decoding="sync"
+                  width="720"
+                  height="540"
+                />
+              </picture>
             </div>
           </div>
         </div>
+
+        {/* Room Number Display */}
+        {stop.roomNumber && !isIntroductionStop && (
+          <div className="px-6 py-3 bg-gray-50 border-t border-gray-100">
+            <div className="flex items-center justify-center">
+              <span className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">
+                Room {stop.roomNumber}
+              </span>
+            </div>
+          </div>
+        )}
 
         {/* Compact Audio Player */}
         <div className="px-6 py-6 bg-white">
@@ -131,6 +222,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
           />
         </div>
 
+
         {/* Transcript Section */}
         {currentTrackData.transcript && (
           <div className="px-6 pb-8 bg-white">
@@ -149,6 +241,20 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
           </div>
         )}
       </div>
+
+      {/* Subtle Navigation Button - Floating Action Button Style */}
+      {/* Always show the navigation button */}
+      <button
+        onClick={handleNext}
+        className="fixed bottom-20 right-4 bg-white/90 backdrop-blur-sm text-museum-primary-900 p-3 rounded-full shadow-lg border border-gray-200 hover:bg-white hover:scale-105 transition-all duration-200 z-[9997] group"
+        aria-label={isLastStop ? "Complete Tour" : `Next: ${nextStop?.title}`}
+      >
+        {isLastStop ? (
+          <CheckCircle className="w-6 h-6 text-museum-gold-600" />
+        ) : (
+          <ChevronRight className="w-6 h-6 text-museum-gold-600 group-hover:translate-x-0.5 transition-transform" />
+        )}
+      </button>
 
       {/* Fixed Additional Content Section */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-[9999]">

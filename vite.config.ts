@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'script',
+      injectRegister: 'script-defer',
       includeAssets: ['favicon.ico', 'icons/apple-icon-180.png', 'icons/manifest-icon-192.maskable.png', 'icons/manifest-icon-512.maskable.png'],
       manifest: {
         name: 'Museum Tour - Audio Guided Tours',
@@ -133,6 +133,10 @@ export default defineConfig({
         drop_debugger: true,
       },
     },
+    // Inline critical CSS
+    cssCodeSplit: true,
+    // Experimental: inline styles in JS for faster initial paint
+    assetsInlineLimit: 4096,
   },
   optimizeDeps: {
     exclude: ['lucide-react'],

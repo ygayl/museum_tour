@@ -11,13 +11,13 @@ import IOSInstallBanner from './components/IOSInstallBanner';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
 
-// Import CitiesPage directly for better LCP performance
+// Import CitiesPage and TourPage directly for better LCP performance
 import CitiesPage, { type City } from './components/CitiesPage';
+import TourPage from './components/TourPage';
 
 // Lazy load heavy components that are not needed for initial render
 const MuseumsPage = lazy(() => import('./components/MuseumsPage'));
 const TourSelectionPage = lazy(() => import('./components/TourSelectionPage'));
-const TourPage = lazy(() => import('./components/TourPage'));
 const ArtPiecePage = lazy(() => import('./components/ArtPiecePage'));
 
 // Loading component for Suspense fallback
@@ -317,8 +317,13 @@ function App() {
                 selectedStop && selectedTour ? <ArtPiecePage
                   stop={selectedStop}
                   tour={selectedTour}
-                  onBackToTour={() => window.history.back()}
                   analyticsEnabled={analyticsEnabled}
+                  onNextStop={handleSelectStop}
+                  onCompleteTour={() => {
+                    setCurrentView('tour');
+                    setSelectedStop(null);
+                    pushHistoryState('tour', selectedCity, selectedMuseum, selectedTour, null);
+                  }}
                 /> : (
                 <div className="flex items-center justify-center min-h-[50vh]">
                   <div className="text-center">

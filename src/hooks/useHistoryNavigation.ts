@@ -86,7 +86,16 @@ export const useHistoryNavigation = ({
 
     // Only push if this is a new navigation (not initial page load)
     if (window.history.state?.timestamp !== state.timestamp) {
-      window.history.pushState(state, '', path);
+      // When navigating between artpieces, replace the current state
+      // But when navigating from tour page to artpiece, push a new state
+      // This ensures back button always returns to the tour page
+      if (view === 'artpiece' && window.history.state?.view === 'artpiece') {
+        // Navigating from one artpiece to another - replace
+        window.history.replaceState(state, '', path);
+      } else {
+        // All other navigations - push
+        window.history.pushState(state, '', path);
+      }
     }
   }, [generatePath]);
 
