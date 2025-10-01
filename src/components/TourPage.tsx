@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Check, ChevronRight, Search } from 'lucide-react';
+import { Check, ChevronRight } from 'lucide-react';
 import { Tour, Stop } from '../App';
 import CompletionCelebration from './CompletionCelebration';
 import { useTourProgress } from '../hooks/useTourProgress';
@@ -13,7 +13,6 @@ interface TourPageProps {
 }
 
 const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, analyticsEnabled = false }) => {
-  const [searchQuery, setSearchQuery] = useState('');
 
   const {
     isStopCompleted,
@@ -72,17 +71,6 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
     return introductionStop ? [introductionStop, ...tour.stops] : tour.stops;
   }, [introductionStop, tour.stops]);
 
-  // Memoize filtered stops to prevent refiltering on every render
-  const filteredStops = useMemo(() => {
-    const query = searchQuery.toLowerCase();
-    if (!query) return allStops;
-
-    return allStops.filter(stop =>
-      stop.title.toLowerCase().includes(query) ||
-      (stop.artistName && stop.artistName.toLowerCase().includes(query)) ||
-      (stop.roomNumber && stop.roomNumber.toLowerCase().includes(query))
-    );
-  }, [allStops, searchQuery]);
 
   return (
     <div className="bg-museum-gradient min-h-screen">
@@ -93,25 +81,9 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
         </h1>
       </div>
 
-      {/* Search Bar */}
-      <div className="px-2 py-4 bg-white">
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-            }}
-            className="w-full pl-12 pr-4 py-3 bg-gray-100 border-0 rounded-lg text-base placeholder-gray-500 focus:outline-none focus:bg-gray-50 focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-      </div>
-
       {/* Tour Stops List */}
       <div className="bg-white border-t border-gray-200 divide-y divide-gray-200">
-        {filteredStops.map((stop, index) => {
+        {allStops.map((stop, index) => {
             const isCompleted = isStopCompleted(stop.id);
 
             return (
