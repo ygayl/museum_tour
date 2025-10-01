@@ -55,7 +55,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
     if (currentTrack === 'artwork') {
       updateAudioProgress(stopId, progressPercent);
     }
-    // Artist audio progress tracking will be added when progress feature is restored
+    // Artist audio progress tracking will be added when progress feature is restored. Might remove this later
   };
 
   // Get current track data
