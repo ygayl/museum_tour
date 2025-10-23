@@ -1,0 +1,62 @@
+{
+  "id": "reina-sofia-surrealism",
+  "name": "Surrealism & Dreams",
+  "museumId": "reina-sofia",
+  "description": "Dive into the world of dreams and the unconscious through masterpieces of Spanish surrealism.",
+  "duration": "60 minutes",
+  "theme": "Surrealism & Dreams",
+  "image": "/images/museums/reina_sofia.jpg",
+  "introAudio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "The Persistence of Memory",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Salvador Dalí",
+      "room": "301",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "Woman and Bird by Moonlight",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Joan Miró",
+      "room": "303",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "Metamorphosis of Narcissus",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Salvador Dalí",
+      "room": "305",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "The Great Masturbator",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Salvador Dalí",
+      "room": "302",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "5",
+      "order": 5,
+      "title": "Blue II",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Joan Miró",
+      "room": "304",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}

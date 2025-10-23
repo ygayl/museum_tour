@@ -69,25 +69,25 @@ export const useAnalytics = () => {
     },
 
     // Audio interaction tracking
-    trackAudioPlay: (tourId: string, stopId: string, audioType: 'artwork' | 'artist') => {
-      MuseumAnalytics.trackAudioPlay(tourId, stopId, audioType);
+    trackAudioPlay: (tourId: string, stopId: string) => {
+      MuseumAnalytics.trackAudioPlay(tourId, stopId);
     },
 
-    trackAudioComplete: (tourId: string, stopId: string, audioType: 'artwork' | 'artist') => {
-      MuseumAnalytics.trackAudioComplete(tourId, stopId, audioType);
+    trackAudioComplete: (tourId: string, stopId: string) => {
+      MuseumAnalytics.trackAudioComplete(tourId, stopId);
     },
 
     // Enhanced audio tracking
-    trackAudioProgress: (tourId: string, stopId: string, audioType: 'artwork' | 'artist', progressPercent: number, duration: number) => {
-      MuseumAnalytics.trackAudioProgress(tourId, stopId, audioType, progressPercent, duration);
+    trackAudioProgress: (tourId: string, stopId: string, progressPercent: number, duration: number) => {
+      MuseumAnalytics.trackAudioProgress(tourId, stopId, progressPercent, duration);
     },
 
-    trackAudioSeek: (tourId: string, stopId: string, audioType: 'artwork' | 'artist', fromTime: number, toTime: number) => {
-      MuseumAnalytics.trackAudioSeek(tourId, stopId, audioType, fromTime, toTime);
+    trackAudioSeek: (tourId: string, stopId: string, fromTime: number, toTime: number) => {
+      MuseumAnalytics.trackAudioSeek(tourId, stopId, fromTime, toTime);
     },
 
-    trackTranscriptInteraction: (tourId: string, stopId: string, audioType: 'artwork' | 'artist', action: 'open' | 'close') => {
-      MuseumAnalytics.trackTranscriptInteraction(tourId, stopId, audioType, action);
+    trackTranscriptInteraction: (tourId: string, stopId: string, action: 'open' | 'close') => {
+      MuseumAnalytics.trackTranscriptInteraction(tourId, stopId, action);
     },
 
     // Content engagement tracking

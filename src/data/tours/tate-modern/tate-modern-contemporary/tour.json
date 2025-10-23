@@ -1,0 +1,72 @@
+{
+  "id": "tate-modern-contemporary",
+  "name": "Contemporary Art in 60 Minutes",
+  "museumId": "tate-modern",
+  "description": "Explore the cutting edge of modern artistic expression from the 20th and 21st centuries.",
+  "duration": "60 minutes",
+  "theme": "Contemporary Art in 60 Minutes",
+  "image": "/images/museums/tate_modern.jpg",
+  "introAudio": "/audio/museums/tate_modern_intro.mp3",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "The Physical Impossibility of Death",
+      "image": "/images/artworks/hirst_shark.jpg",
+      "artist": "Damien Hirst",
+      "room": "Level 4",
+      "audio": "/audio/artworks/hirst_shark.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "Campbell's Soup Cans",
+      "image": "/images/artworks/campbell_soup_cans.jpg",
+      "artist": "Andy Warhol",
+      "room": "Level 5",
+      "audio": "/audio/artworks/campbell_soup_cans.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "Shibboleth",
+      "image": "/images/artworks/shibboleth.jpg",
+      "artist": "Doris Salcedo",
+      "room": "Turbine Hall",
+      "audio": "/audio/artworks/shibboleth.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "Metamorphosis of Narcissus",
+      "image": "/images/artworks/metamorphosis_narcissus.jpg",
+      "artist": "Salvador Dalí",
+      "room": "Level 3",
+      "audio": "/audio/artworks/metamorphosis_narcissus.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "5",
+      "order": 5,
+      "title": "Fountain",
+      "image": "/images/artworks/fountain_duchamp.jpg",
+      "artist": "Marcel Duchamp",
+      "room": "Level 5",
+      "audio": "/audio/artworks/fountain_duchamp.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "6",
+      "order": 6,
+      "title": "Black Square",
+      "image": "/images/artworks/black_square.jpg",
+      "artist": "Kazimir Malevich",
+      "room": "Level 3",
+      "audio": "/audio/artworks/black_square.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}

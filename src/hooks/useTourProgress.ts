@@ -5,8 +5,7 @@ export interface TourProgress {
   [stopId: string]: {
     completed: boolean;
     completedAt?: number;
-    artworkAudioProgress?: number;
-    artistAudioProgress?: number;
+    audioProgress?: number;  // Single audio progress
   };
 }
 
@@ -100,43 +99,24 @@ export const useTourProgress = (tourId: string, totalStops: number, analyticsEna
   const updateAudioProgress = (stopId: string, progressPercent: number) => {
     setProgress(prev => {
       const current = prev[stopId] || {};
-      const artistProgress = current.artistAudioProgress || 0;
-      
+
       const newProgress = {
         ...prev,
         [stopId]: {
           ...current,
-          artworkAudioProgress: progressPercent,
+          audioProgress: progressPercent,
         }
       };
 
-      // Auto-complete only if BOTH audios reach 80%
-      if (progressPercent >= 80 && artistProgress >= 80 && !current.completed) {
+      // Auto-complete when audio reaches 80%
+      if (progressPercent >= 80 && !current.completed) {
         newProgress[stopId].completed = true;
         newProgress[stopId].completedAt = Date.now();
-      }
 
-      return newProgress;
-    });
-  };
-
-  const updateArtistAudioProgress = (stopId: string, progressPercent: number) => {
-    setProgress(prev => {
-      const current = prev[stopId] || {};
-      const artworkProgress = current.artworkAudioProgress || 0;
-      
-      const newProgress = {
-        ...prev,
-        [stopId]: {
-          ...current,
-          artistAudioProgress: progressPercent,
+        // Track auto-completion
+        if (analyticsEnabled) {
+          analytics.trackStopCompleted(tourId, stopId, 'auto');
         }
-      };
-
-      // Auto-complete if both audios reach 80%
-      if (artworkProgress >= 80 && progressPercent >= 80 && !current.completed) {
-        newProgress[stopId].completed = true;
-        newProgress[stopId].completedAt = Date.now();
       }
 
       return newProgress;
@@ -168,7 +148,6 @@ export const useTourProgress = (tourId: string, totalStops: number, analyticsEna
     progress,
     markStopCompleted,
     updateAudioProgress,
-    updateArtistAudioProgress,
     isStopCompleted,
     getCompletedCount,
     getProgressPercentage,

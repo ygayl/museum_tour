@@ -1,7 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import citiesData from './data/cities.json';
 import museumsData from './data/museums.json';
-import toursData from './data/tours.json';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import CookieConsent from './components/CookieConsent';
@@ -10,6 +9,8 @@ import IOSInstallBanner from './components/IOSInstallBanner';
 // import PWADebugger from './components/PWADebugger';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
+import { loadTour, loadToursForMuseum } from './lib/tourLoader';
+import { Tour, Stop } from './types/tour';
 
 // Import CitiesPage and TourPage directly for better LCP performance
 import CitiesPage, { type City } from './components/CitiesPage';
@@ -39,53 +40,30 @@ export interface Museum {
   cityId: string;
 }
 
-export interface Tour {
-  id: string;
-  name: string;
-  theme: string;
-  image: string;
-  description: string;
-  duration: string;
-  introAudio: string;
-  museumId: string;
-  stops: Stop[];
-}
-
-export interface Stop {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  artworkAudioUrl: string;
-  artistAudioUrl: string;
-  artistName: string;
-  roomNumber: string;
-  artworkTranscript?: string;
-  artistTranscript?: string;
-}
+// Export unified Tour and Stop types for use by other components
+export type { Tour, Stop };
 
 const cities: City[] = citiesData;
 
 const museums: Museum[] = museumsData;
 
-const tours: Tour[] = toursData;
-
-// Parse URL to determine initial view
+// Parse URL to determine initial view (sync parsing, async tour loading happens later)
 const parseInitialUrl = (): {
   view: 'intro' | 'cities' | 'museums' | 'tours' | 'tour' | 'artpiece',
   city: City | null,
   museum: Museum | null,
-  tour: Tour | null,
-  stop: Stop | null
+  tourId: string | null,
+  museumId: string | null,
+  stopId: string | null
 } => {
   const path = window.location.pathname;
 
   if (path === '/' || path === '') {
-    return { view: 'intro', city: null, museum: null, tour: null, stop: null };
+    return { view: 'intro', city: null, museum: null, tourId: null, museumId: null, stopId: null };
   }
 
   if (path === '/cities') {
-    return { view: 'cities', city: null, museum: null, tour: null, stop: null };
+    return { view: 'cities', city: null, museum: null, tourId: null, museumId: null, stopId: null };
   }
 
   // Parse deep links: /cities/:cityId/museums/:museumId/tours/:tourId/artpiece/:stopId
@@ -104,33 +82,31 @@ const parseInitialUrl = (): {
       // Handle /cities/:cityId/museums/:museumId/tours/:tourId
       if (segments.length >= 6) {
         const tourId = segments[5];
-        const tour = tours.find(t => t.id === tourId && t.museumId === museumId) || null;
 
         // Handle /cities/:cityId/museums/:museumId/tours/:tourId/artpiece/:stopId
         if (segments.length >= 8 && segments[6] === 'artpiece') {
           const stopId = segments[7];
-          const stop = tour?.stops.find(s => s.id === stopId) || null;
-          return { view: 'artpiece', city, museum, tour, stop };
+          return { view: 'artpiece', city, museum, tourId, museumId, stopId };
         }
 
-        return { view: 'tour', city, museum, tour, stop: null };
+        return { view: 'tour', city, museum, tourId, museumId, stopId: null };
       }
 
-      return { view: 'tours', city, museum, tour: null, stop: null };
+      return { view: 'tours', city, museum, tourId: null, museumId, stopId: null };
     }
 
     // Handle /cities/:cityId/museums/:museumId (specific museum)
     if (segments.length === 4) {
       const museumId = segments[3];
       const museum = museums.find(m => m.id === museumId && m.cityId === cityId) || null;
-      return { view: 'tours', city, museum, tour: null, stop: null };
+      return { view: 'tours', city, museum, tourId: null, museumId, stopId: null };
     }
 
-    return { view: 'museums', city, museum: null, tour: null, stop: null };
+    return { view: 'museums', city, museum: null, tourId: null, museumId: null, stopId: null };
   }
 
   // Default fallback
-  return { view: 'cities', city: null, museum: null, tour: null, stop: null };
+  return { view: 'cities', city: null, museum: null, tourId: null, museumId: null, stopId: null };
 };
 
 function App() {
@@ -138,9 +114,11 @@ function App() {
   const [currentView, setCurrentView] = useState<'intro' | 'cities' | 'museums' | 'tours' | 'tour' | 'artpiece'>(initialState.view);
   const [selectedCity, setSelectedCity] = useState<City | null>(initialState.city);
   const [selectedMuseum, setSelectedMuseum] = useState<Museum | null>(initialState.museum);
-  const [selectedTour, setSelectedTour] = useState<Tour | null>(initialState.tour);
-  const [selectedStop, setSelectedStop] = useState<Stop | null>(initialState.stop);
+  const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
+  const [selectedStop, setSelectedStop] = useState<Stop | null>(null);
   const [analyticsEnabled, setAnalyticsEnabled] = useState<boolean>(false);
+  const [toursForMuseum, setToursForMuseum] = useState<Tour[]>([]);
+  const [loadingTours, setLoadingTours] = useState<boolean>(false);
 
   const analytics = useAnalytics();
 
@@ -157,6 +135,74 @@ function App() {
     setSelectedTour,
     setSelectedStop,
   });
+
+  // Load tours when museum is selected
+  useEffect(() => {
+    if (selectedMuseum) {
+      setLoadingTours(true);
+      loadToursForMuseum(selectedMuseum.id)
+        .then((tours) => {
+          // Add museum image to each tour for display
+          const toursWithImage = tours.map(tour => ({
+            ...tour,
+            image: tour.image || selectedMuseum.image
+          }));
+          setToursForMuseum(toursWithImage);
+        })
+        .catch((error) => {
+          console.error('Failed to load tours:', error);
+          setToursForMuseum([]);
+        })
+        .finally(() => {
+          setLoadingTours(false);
+        });
+    } else {
+      setToursForMuseum([]);
+    }
+  }, [selectedMuseum]);
+
+  // Load tour from URL on initial load
+  useEffect(() => {
+    if (initialState.tourId && initialState.museumId && selectedMuseum) {
+      loadTour(initialState.museumId, initialState.tourId)
+        .then((tour) => {
+          if (tour) {
+            // Add museum image if not present
+            const tourWithImage = {
+              ...tour,
+              image: tour.image || selectedMuseum.image
+            };
+            setSelectedTour(tourWithImage);
+
+            // If there's a stop ID, find and set it
+            if (initialState.stopId) {
+              // Check if it's an introduction stop
+              if (initialState.stopId.startsWith('intro-')) {
+                // Create the introduction stop dynamically
+                const introStop: Stop = {
+                  id: initialState.stopId,
+                  title: "Introduction",
+                  image: tourWithImage.image,
+                  audio: tourWithImage.introAudio,
+                  artist: "",
+                  room: "",
+                  narration: (tourWithImage as Tour & { introNarration?: string }).introNarration || "",
+                  order: 0
+                };
+                setSelectedStop(introStop);
+              } else {
+                // Regular artwork
+                const stop = tour.artworks.find(s => s.id === initialState.stopId);
+                setSelectedStop(stop || null);
+              }
+            }
+          }
+        })
+        .catch((error) => {
+          console.error('Failed to load initial tour:', error);
+        });
+    }
+  }, [initialState.tourId, initialState.museumId, initialState.stopId, selectedMuseum]);
 
   // Scroll to top when view changes and track page views
   useEffect(() => {
@@ -230,7 +276,7 @@ function App() {
     pushHistoryState('artpiece', selectedCity, selectedMuseum, selectedTour, stop);
 
     if (analyticsEnabled && selectedTour) {
-      analytics.trackAudioPlay(selectedTour.id, stop.id, 'artwork');
+      analytics.trackAudioPlay(selectedTour.id, stop.id, 'single');
     }
   };
 
@@ -264,12 +310,6 @@ function App() {
     return undefined;
   };
 
-  // Filter tours by selected museum
-  const getToursForSelectedMuseum = () => {
-    if (!selectedMuseum) return tours;
-    return tours.filter(tour => tour.museumId === selectedMuseum.id);
-  };
-
   // Filter museums by selected city
   const getMuseumsForSelectedCity = () => {
     if (!selectedCity) return museums;
@@ -293,7 +333,11 @@ function App() {
               ) : currentView === 'museums' ? (
                 <MuseumsPage museums={getMuseumsForSelectedCity()} onSelectMuseum={handleSelectMuseum} />
               ) : currentView === 'tours' ? (
-                <TourSelectionPage tours={getToursForSelectedMuseum()} onSelectTour={handleSelectTour} />
+                loadingTours ? (
+                  <PageLoading />
+                ) : (
+                  <TourSelectionPage tours={toursForMuseum} onSelectTour={handleSelectTour} />
+                )
               ) : currentView === 'tour' ? (
                 selectedTour ? <TourPage
                   tour={selectedTour}

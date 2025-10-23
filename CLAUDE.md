@@ -27,14 +27,14 @@ This is a React + TypeScript museum tour application built with Vite, using Tail
 - **Hierarchical Navigation**: Cities → Museums → Tours → Individual Tour Experience
 - **State Management**: React hooks with localStorage persistence for tour progress
 - **Single-Page App**: State-based view switching with 6 main views (intro, cities, museums, tours, tour, artpiece)
-- **Audio System**: Dual audio players (artwork + artist) with transcript support
+- **Audio System**: Single audio player with transcript support
 - **Analytics**: Comprehensive user behavior tracking with privacy controls
 - **PWA Support**: Full Progressive Web App with service worker caching and offline support
 
 ### Key Data Models
 
 ```typescript
-// Hierarchical data structure in src/App.tsx
+// Unified data structure used throughout the application (src/types/tour.ts)
 interface City {
   id: string;
   name: string;
@@ -50,29 +50,29 @@ interface Museum {
   cityId: string;
 }
 
+// Unified Tour Schema - used in JSON and components
 interface Tour {
-  id: string;
-  name: string;
-  theme: string;
-  image: string;
-  description: string;
-  duration: string;
-  introAudio: string;
-  museumId: string;
-  stops: Stop[];
+  id: string;              // Unique tour identifier
+  name: string;            // Tour display name
+  museumId: string;        // Parent museum identifier
+  description: string;     // Tour description
+  duration: string;        // e.g., "60 minutes"
+  theme: string;           // Tour theme/category
+  image: string;           // Tour cover image URL
+  introAudio: string;      // Introduction audio URL
+  artworks: Stop[];        // Array of artworks in the tour
 }
 
+// Stop - represents a single artwork in the tour
 interface Stop {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  artworkAudioUrl: string;
-  artistAudioUrl: string;
-  artistName: string;
-  roomNumber: string;
-  artworkTranscript?: string;  // Added for transcript feature
-  artistTranscript?: string;   // Added for transcript feature
+  id: string;              // Unique artwork identifier
+  order: number;           // Artwork sequence number
+  title: string;           // Artwork title
+  artist: string;          // Artist name
+  image: string;           // Artwork image URL
+  audio: string;           // Narration audio URL
+  narration: string;       // Audio transcript/narration text
+  room: string;            // Museum room number
 }
 ```
 
@@ -91,7 +91,7 @@ interface Stop {
 ### Tour Progress System
 
 The `useTourProgress` hook (src/hooks/useTourProgress.ts) manages sophisticated progress logic:
-- **Dual Audio Completion**: Stops auto-complete when BOTH artwork and artist audios reach 80%
+- **Audio Completion**: Stops auto-complete when audio reaches 80%
 - **Manual Override**: Users can manually mark stops as complete with visual feedback
 - **Session Management**: Progress resets on new sessions using sessionStorage validation
 - **Persistent Storage**: localStorage with tour-specific keys and error handling
@@ -99,9 +99,9 @@ The `useTourProgress` hook (src/hooks/useTourProgress.ts) manages sophisticated 
 
 ### Audio System Architecture
 
-- **Dual Audio Strategy**: Separate artwork narration and artist biography per stop
-- **Transcript Feature**: Collapsible transcripts with preview/expand functionality
-- **Progress Tracking**: Real-time progress callbacks for auto-completion logic
+- **Single Audio Strategy**: One narration per stop combining artwork description and artist information
+- **Transcript Feature**: Full narration displayed with collapsible sections
+- **Progress Tracking**: Real-time progress callbacks with auto-completion at 80%
 - **Media Session API**: Enhanced mobile audio controls and notifications
 - **Custom Controls**: Play/pause, seek bar, time display with museum-themed styling
 
@@ -132,11 +132,12 @@ The analytics system (`src/hooks/useAnalytics.ts`, `src/lib/analytics.ts`) track
 
 ### Data Flow Architecture
 
-1. **Static JSON Loading**: Cities, museums, tours loaded from `src/data/` directory
-2. **Hierarchical Filtering**: Data filtered by selected context (cityId → museumId)
-3. **State-Driven Navigation**: 6-view system with context preservation and lazy loading
-4. **Progress Persistence**: localStorage sync with session validation and error handling
-5. **Analytics Pipeline**: Event-driven tracking with consent management
+1. **Static JSON Loading**: Cities and museums loaded from `src/data/` directory
+2. **Dynamic Tour Loading**: Tours loaded on-demand via `import.meta.glob()` from hierarchical structure
+3. **Hierarchical Filtering**: Data filtered by selected context (cityId → museumId)
+4. **State-Driven Navigation**: 6-view system with context preservation and lazy loading
+5. **Progress Persistence**: localStorage sync with session validation and error handling
+6. **Analytics Pipeline**: Event-driven tracking with consent management
 
 ### URL Management
 
@@ -151,6 +152,8 @@ The analytics system (`src/hooks/useAnalytics.ts`, `src/lib/analytics.ts`) track
 - **Custom Hooks**: `useTourProgress`, `useAnalytics`, and `useHistoryNavigation` for complex state logic
 - **Render Props Pattern**: Progress callbacks and analytics event handlers
 - **Concurrent Rendering**: React 18's `startTransition` for non-blocking renders
+- **Dynamic Imports**: Tours loaded on-demand via `import.meta.glob()` for optimal bundle splitting
+- **Unified Schema**: Single tour data schema used throughout JSON files and components
 - **Progressive Web App**: Service worker with strategic caching for offline support
 - **Mobile-First**: Responsive design optimized for mobile museum visitors
 
@@ -164,19 +167,33 @@ public/
 └── audio/           # Audio files (referenced in tour data)
 
 src/
-├── data/           # Static JSON data files
-├── components/     # React components
-├── hooks/         # Custom React hooks
-└── lib/           # Utility libraries (analytics)
+├── data/
+│   ├── cities.json          # City metadata
+│   ├── museums.json         # Museum metadata
+│   └── tours/               # Hierarchical tour data
+│       ├── {museumId}/      # Museum-specific tours
+│       │   └── {tourId}/    # Individual tour directory
+│       │       └── tour.json # Tour data with artworks
+├── components/              # React components
+├── hooks/                   # Custom React hooks
+├── lib/                     # Utility libraries
+│   ├── analytics.ts         # Analytics implementation
+│   └── tourLoader.ts        # Dynamic tour loading
+└── types/
+    └── tour.ts              # TypeScript tour type definitions
 ```
 
 ### Tour Data Structure
 
-Tour data in `src/data/tours.json` follows this pattern:
-- Each tour belongs to a specific museum (`museumId`)
-- Tours contain multiple stops with dual audio URLs
-- Transcripts are optional but enhance accessibility
-- Audio files should be optimized for web delivery (MP3 recommended)
+Tour data is organized hierarchically in `src/data/tours/{museumId}/{tourId}/tour.json`:
+- **Dynamic Loading**: Tours are loaded on-demand using Vite's `import.meta.glob()`
+- **Hierarchical Structure**: Each museum has its own directory containing tour subdirectories
+- **Unified Schema**: Tours use component-friendly field names (id, name, artworks, etc.) throughout
+- **Component-Friendly**: Direct property access without conversion layers
+- **Artworks Array**: Tours contain `artworks` array with essential artwork information
+- **Extended Metadata**: Optional rich metadata preserved for future enhancements
+- **Audio References**: Single audio file per artwork referenced via `audio` field
+- **Migration Script**: Use `scripts/migrate-tours.js` to convert legacy tour data
 
 ### PWA Configuration (vite.config.ts)
 

@@ -107,19 +107,17 @@ export const MuseumAnalytics = {
   },
 
   // Audio tracking
-  trackAudioPlay: (tourId: string, stopId: string, audioType: 'artwork' | 'artist') => {
-    trackEvent('audio_play', 'audio', `${audioType}_audio`, undefined, {
+  trackAudioPlay: (tourId: string, stopId: string) => {
+    trackEvent('audio_play', 'audio', 'audio', undefined, {
       tour_id: tourId,
       stop_id: stopId,
-      audio_type: audioType,
     });
   },
 
-  trackAudioComplete: (tourId: string, stopId: string, audioType: 'artwork' | 'artist') => {
-    trackEvent('audio_complete', 'audio', `${audioType}_audio`, undefined, {
+  trackAudioComplete: (tourId: string, stopId: string) => {
+    trackEvent('audio_complete', 'audio', 'audio', undefined, {
       tour_id: tourId,
       stop_id: stopId,
-      audio_type: audioType,
     });
   },
 
@@ -127,7 +125,6 @@ export const MuseumAnalytics = {
   trackAudioProgress: (
     tourId: string,
     stopId: string,
-    audioType: 'artwork' | 'artist',
     progressPercent: number,
     duration: number
   ) => {
@@ -141,7 +138,6 @@ export const MuseumAnalytics = {
       trackEvent('audio_milestone', 'audio_engagement', `${currentMilestone}%`, currentMilestone, {
         tour_id: tourId,
         stop_id: stopId,
-        audio_type: audioType,
         duration_seconds: Math.round(duration),
         milestone: currentMilestone
       });
@@ -152,7 +148,6 @@ export const MuseumAnalytics = {
   trackAudioSeek: (
     tourId: string,
     stopId: string,
-    audioType: 'artwork' | 'artist',
     fromTime: number,
     toTime: number
   ) => {
@@ -164,7 +159,6 @@ export const MuseumAnalytics = {
       trackEvent('audio_seek', 'audio_interaction', seekDirection, Math.round(seekDistance), {
         tour_id: tourId,
         stop_id: stopId,
-        audio_type: audioType,
         from_time: Math.round(fromTime),
         to_time: Math.round(toTime),
         seek_distance: Math.round(seekDistance)
@@ -176,13 +170,11 @@ export const MuseumAnalytics = {
   trackTranscriptInteraction: (
     tourId: string,
     stopId: string,
-    audioType: 'artwork' | 'artist',
     action: 'open' | 'close'
   ) => {
     trackEvent('transcript_interaction', 'content_engagement', action, undefined, {
       tour_id: tourId,
       stop_id: stopId,
-      audio_type: audioType,
       interaction_type: action
     });
   },

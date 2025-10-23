@@ -14,7 +14,6 @@ interface CompactAudioPlayerProps {
   onComplete?: () => void;
   tourId?: string;
   stopId?: string;
-  audioType?: 'artwork' | 'artist';
   analyticsEnabled?: boolean;
 }
 
@@ -29,7 +28,6 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
   onComplete,
   tourId,
   stopId,
-  audioType,
   analyticsEnabled = false
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -64,8 +62,8 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
       }
 
       // Track progress milestones
-      if (analyticsEnabled && tourId && stopId && audioType && duration > 0) {
-        analytics.trackAudioProgress(tourId, stopId, audioType, progressPercent, duration);
+      if (analyticsEnabled && tourId && stopId && duration > 0) {
+        analytics.trackAudioProgress(tourId, stopId, progressPercent, duration);
       }
     };
 
@@ -84,7 +82,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, [duration, onProgressUpdate, onComplete, analytics, analyticsEnabled, tourId, stopId, audioType]);
+  }, [duration, onProgressUpdate, onComplete, analytics, analyticsEnabled, tourId, stopId]);
 
   const togglePlay = async () => {
     if (!audioRef.current) return;
@@ -146,8 +144,8 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
     const newTime = (parseFloat(e.target.value) / 100) * duration;
 
     // Track seek behavior for significant seeks
-    if (analyticsEnabled && tourId && stopId && audioType && Math.abs(newTime - oldTime) > 5) {
-      analytics.trackAudioSeek(tourId, stopId, audioType, oldTime, newTime);
+    if (analyticsEnabled && tourId && stopId && Math.abs(newTime - oldTime) > 5) {
+      analytics.trackAudioSeek(tourId, stopId, oldTime, newTime);
     }
 
     audioRef.current.currentTime = newTime;

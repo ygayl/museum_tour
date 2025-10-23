@@ -1,0 +1,72 @@
+{
+  "id": "british-museum-ancient-civilizations",
+  "name": "Ancient Civilizations in 60 Minutes",
+  "museumId": "british-museum",
+  "description": "Journey through humanity's greatest ancient civilizations from Egypt to Greece and Rome.",
+  "duration": "60 minutes",
+  "theme": "Ancient Civilizations in 60 Minutes",
+  "image": "/images/museums/british_museum.jpg",
+  "introAudio": "/audio/museums/british_museum_intro.mp3",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "Rosetta Stone",
+      "image": "/images/artworks/rosetta_stone.jpg",
+      "artist": "Ancient Egypt",
+      "room": "4",
+      "audio": "/audio/artworks/rosetta_stone.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "Elgin Marbles",
+      "image": "/images/artworks/elgin_marbles.jpg",
+      "artist": "Ancient Greece",
+      "room": "18",
+      "audio": "/audio/artworks/elgin_marbles.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "Egyptian Mummies",
+      "image": "/images/artworks/egyptian_mummies.jpg",
+      "artist": "Ancient Egypt",
+      "room": "63",
+      "audio": "/audio/artworks/egyptian_mummies.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "Lewis Chessmen",
+      "image": "/images/artworks/lewis_chessmen.jpg",
+      "artist": "Medieval Norse",
+      "room": "40",
+      "audio": "/audio/artworks/lewis_chessmen.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "5",
+      "order": 5,
+      "title": "Assyrian Lion Hunt",
+      "image": "/images/artworks/assyrian_lion_hunt.jpg",
+      "artist": "Ancient Assyria",
+      "room": "10",
+      "audio": "/audio/artworks/assyrian_lion_hunt.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "6",
+      "order": 6,
+      "title": "Roman Portland Vase",
+      "image": "/images/artworks/portland_vase.jpg",
+      "artist": "Ancient Rome",
+      "room": "70",
+      "audio": "/audio/artworks/portland_vase.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}

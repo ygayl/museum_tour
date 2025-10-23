@@ -1,0 +1,62 @@
+{
+  "id": "prado-royal-portraits",
+  "name": "Royal Portraits Through the Ages",
+  "museumId": "prado",
+  "description": "Journey through Spanish royal history via masterful portraits from different dynasties.",
+  "duration": "60 minutes",
+  "theme": "Royal Portraits Through the Ages",
+  "image": "/images/museums/prado.jpg",
+  "introAudio": "/audio/museums/prado_intro.mp3",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "Charles V at Mühlberg",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Titian",
+      "room": "25",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "Philip II",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Alonso Sánchez Coello",
+      "room": "28",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "The Family of Charles IV",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Francisco Goya",
+      "room": "32",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "Queen Mariana of Austria",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Diego Velázquez",
+      "room": "15",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "5",
+      "order": 5,
+      "title": "The Infanta Margarita Teresa",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Diego Velázquez",
+      "room": "16",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}

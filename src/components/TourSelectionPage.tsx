@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tour } from '../App';
+import { Tour } from '../types/tour';
 
 interface TourSelectionPageProps {
   tours: Tour[];

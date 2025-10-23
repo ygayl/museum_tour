@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Check, ChevronRight } from 'lucide-react';
-import { Tour, Stop } from '../App';
+import { Tour, Stop } from '../types/tour';
 import CompletionCelebration from './CompletionCelebration';
 import { useTourProgress } from '../hooks/useTourProgress';
 import { useEngagementTracking, useAnalytics } from '../hooks/useAnalytics';
@@ -18,7 +18,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
     isStopCompleted,
     getCompletedCount,
     isAllCompleted,
-  } = useTourProgress(tour.id, tour.stops.length, analyticsEnabled);
+  } = useTourProgress(tour.id, tour.artworks.length, analyticsEnabled);
 
   // Analytics tracking
   const { trackTourCompletion } = useEngagementTracking(tour.id, tour.name);
@@ -34,9 +34,9 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
 
   useEffect(() => {
     if (isAllCompleted() && analyticsEnabled) {
-      trackTourCompletion(getCompletedCount(), tour.stops.length);
+      trackTourCompletion(getCompletedCount(), tour.artworks.length);
     }
-  }, [isAllCompleted, analyticsEnabled, trackTourCompletion, getCompletedCount, tour.stops.length]);
+  }, [isAllCompleted, analyticsEnabled, trackTourCompletion, getCompletedCount, tour.artworks.length]);
 
   const handleStopClick = (stop: Stop) => {
     if (onSelectStop) {
@@ -55,21 +55,19 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
     return {
       id: `intro-${tour.id}`,
       title: "Introduction",
-      description: tour.description,
       image: tour.image,
-      artworkAudioUrl: tour.introAudio,
-      artistAudioUrl: "",
-      artistName: "",
-      roomNumber: "",
-      artworkTranscript: (tour as Tour & { introTranscript?: string }).introTranscript || "",
-      artistTranscript: ""
+      audio: tour.introAudio,
+      artist: "",
+      room: "",
+      narration: (tour as Tour & { introNarration?: string }).introNarration || "",
+      order: 0
     };
-  }, [tour.id, tour.description, tour.image, tour.introAudio]);
+  }, [tour.id, tour.image, tour.introAudio]);
 
   // Memoize all stops to prevent array recreation on every render
   const allStops = useMemo(() => {
-    return introductionStop ? [introductionStop, ...tour.stops] : tour.stops;
-  }, [introductionStop, tour.stops]);
+    return introductionStop ? [introductionStop, ...tour.artworks] : tour.artworks;
+  }, [introductionStop, tour.artworks]);
 
 
   return (
@@ -132,16 +130,16 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
                   <div className="flex-1 min-w-0">
                     <h4 className="text-sm font-light text-museum-primary-900 mb-1">
                       {index + 1}: <span className="italic">{stop.title}</span>
-                      {stop.artistName && <span>, {stop.artistName}</span>}
+                      {stop.artist && <span>, {stop.artist}</span>}
                     </h4>
                   </div>
 
                   {/* Location - Right */}
                   <div className="flex-shrink-0 flex items-center space-x-3">
-                    {stop.roomNumber && (
+                    {stop.room && (
                       <div className="text-right">
                         <p className="text-sm font-light text-museum-neutral-700">
-                          {stop.roomNumber}
+                          {stop.room}
                         </p>
                       </div>
                     )}

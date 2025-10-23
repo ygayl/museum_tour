@@ -1,0 +1,52 @@
+{
+  "id": "reina-sofia-modern-masters",
+  "name": "Modern Spanish Masters",
+  "museumId": "reina-sofia",
+  "description": "Discover the revolutionary works of 20th-century Spanish artists who shaped modern art.",
+  "duration": "60 minutes",
+  "theme": "Modern Spanish Masters",
+  "image": "/images/museums/reina_sofia.jpg",
+  "introAudio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "Les Demoiselles d'Avignon",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Pablo Picasso",
+      "room": "401",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "Woman in Blue",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Pablo Picasso",
+      "room": "403",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "Painting (The Dog)",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Joan Miró",
+      "room": "405",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "Great Prophet",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Julio González",
+      "room": "402",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}

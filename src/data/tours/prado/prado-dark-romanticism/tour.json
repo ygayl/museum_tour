@@ -1,0 +1,52 @@
+{
+  "id": "prado-dark-romanticism",
+  "name": "Dark Romanticism & Goya's Black Paintings",
+  "museumId": "prado",
+  "description": "Explore Goya's darkest works and the romantic movement's fascination with the macabre.",
+  "duration": "60 minutes",
+  "theme": "Dark Romanticism & Goya's Black Paintings",
+  "image": "/images/museums/prado.jpg",
+  "introAudio": "/audio/museums/prado_intro.mp3",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "Saturn Devouring His Son",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Francisco Goya",
+      "room": "67",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "Witches' Sabbath",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Francisco Goya",
+      "room": "67",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "The Dog",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Francisco Goya",
+      "room": "67",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "Two Old Men Eating Soup",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Francisco Goya",
+      "room": "67",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}
