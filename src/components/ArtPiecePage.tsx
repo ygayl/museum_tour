@@ -160,12 +160,12 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
           </div>
         </div>
 
-        {/* Room Number Display */}
+        {/* Floor and Room Number Display */}
         {stop.room && !isIntroductionStop && (
           <div className="px-6 py-3 bg-gray-50 border-t border-gray-100">
             <div className="flex items-center justify-center">
               <span className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">
-                Room {stop.room}
+                {stop.floor !== undefined && `Floor ${stop.floor} - `}Room {stop.room}
               </span>
             </div>
           </div>

@@ -31,6 +31,7 @@ export interface Stop {
   audio: string;           // Narration audio URL
   narration: string;       // Audio transcript/narration text
   room: string;            // Museum room number
+  floor?: number;          // Museum floor number (optional)
 }
 
 /**
