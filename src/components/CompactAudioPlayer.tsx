@@ -166,7 +166,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
       <audio
         ref={audioRef}
         src={audioUrl}
-        preload="metadata"
+        preload="none"
         crossOrigin="anonymous"
         controls={false}
       />

@@ -32,7 +32,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
           observer.disconnect();
         }
       },
-      { rootMargin: '50px' }
+      { rootMargin: '200px' }
     );
 
     if (containerRef.current) {
