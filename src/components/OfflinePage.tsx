@@ -33,11 +33,6 @@ const OfflinePage: React.FC = () => {
             <span>Try Again</span>
           </button>
 
-          <div className="text-sm text-museum-neutral-500 space-y-2">
-            <p className="font-light">
-              <strong className="font-normal">Tip:</strong> Install our app for better offline access to your tours.
-            </p>
-          </div>
         </div>
 
         <div className="mt-8 p-4 bg-white/50 backdrop-blur-sm border border-gray-200 rounded-lg">

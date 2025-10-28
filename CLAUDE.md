@@ -25,11 +25,10 @@ This is a React + TypeScript museum tour application built with Vite, using Tail
 ### Core Application Structure
 
 - **Hierarchical Navigation**: Cities → Museums → Tours → Individual Tour Experience
-- **State Management**: React hooks with localStorage persistence for tour progress
+- **State Management**: React hooks for application state
 - **Single-Page App**: State-based view switching with 6 main views (intro, cities, museums, tours, tour, artpiece)
 - **Audio System**: Single audio player with transcript support
 - **Analytics**: Comprehensive user behavior tracking with privacy controls
-- **PWA Support**: Full Progressive Web App with service worker caching and offline support
 
 ### Key Data Models
 
@@ -149,12 +148,11 @@ The analytics system (`src/hooks/useAnalytics.ts`, `src/lib/analytics.ts`) track
 ### Key Architectural Patterns
 
 - **Container/Presentational**: App.tsx as smart container, pages as presentational components
-- **Custom Hooks**: `useTourProgress`, `useAnalytics`, and `useHistoryNavigation` for complex state logic
-- **Render Props Pattern**: Progress callbacks and analytics event handlers
+- **Custom Hooks**: `useAnalytics` and `useHistoryNavigation` for complex state logic
+- **Render Props Pattern**: Analytics event handlers
 - **Concurrent Rendering**: React 18's `startTransition` for non-blocking renders
 - **Dynamic Imports**: Tours loaded on-demand via `import.meta.glob()` for optimal bundle splitting
 - **Unified Schema**: Single tour data schema used throughout JSON files and components
-- **Progressive Web App**: Service worker with strategic caching for offline support
 - **Mobile-First**: Responsive design optimized for mobile museum visitors
 
 ### Asset Organization
@@ -195,10 +193,7 @@ Tour data is organized hierarchically in `src/data/tours/{museumId}/{tourId}/tou
 - **Audio References**: Single audio file per artwork referenced via `audio` field
 - **Migration Script**: Use `scripts/migrate-tours.js` to convert legacy tour data
 
-### PWA Configuration (vite.config.ts)
+### Build Configuration (vite.config.ts)
 
-- **Service Worker**: Auto-update registration with comprehensive caching strategy
-- **Audio Caching**: Specialized cache handling for large audio files (50MB limit)
-- **Offline Support**: Strategic caching of assets, images, and audio content
 - **Bundle Optimization**: Manual chunks for vendor libraries and audio functionality
-- **Performance**: Terser minification with console removal in production
+- **Performance**: Terser minification (keeps console.error/warn for debugging, drops console.log)
