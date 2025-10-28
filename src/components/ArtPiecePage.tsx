@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ChevronRight, CheckCircle } from 'lucide-react';
 import { Tour, Stop } from '../types/tour';
 import CompactAudioPlayer from './CompactAudioPlayer';
-import { useTourProgress } from '../hooks/useTourProgress';
 import { useAnalytics } from '../hooks/useAnalytics';
 
 interface ArtPiecePageProps {
@@ -21,10 +20,6 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
   onCompleteTour
 }) => {
   const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
-
-  const {
-    updateAudioProgress,
-  } = useTourProgress(tour.id, tour.artworks.length, analyticsEnabled);
 
   const analytics = useAnalytics();
 
@@ -49,8 +44,9 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
     };
   };
 
-  const handleAudioProgress = (stopId: string, progressPercent: number) => {
-    updateAudioProgress(stopId, progressPercent);
+  // Audio progress handler - no-op since we removed tour progress tracking
+  const handleAudioProgress = (_stopId: string, _progressPercent: number) => {
+    // Progress tracking removed
   };
 
   const isIntroductionStop = stop.id.startsWith('intro-');

@@ -1,9 +1,7 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { Check, ChevronRight } from 'lucide-react';
+import React, { useEffect, useMemo } from 'react';
+import { ChevronRight } from 'lucide-react';
 import { Tour, Stop } from '../types/tour';
-import CompletionCelebration from './CompletionCelebration';
-import { useTourProgress } from '../hooks/useTourProgress';
-import { useEngagementTracking, useAnalytics } from '../hooks/useAnalytics';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 interface TourPageProps {
   tour: Tour;
@@ -14,39 +12,19 @@ interface TourPageProps {
 
 const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, analyticsEnabled = false }) => {
 
-  const {
-    isStopCompleted,
-    getCompletedCount,
-    isAllCompleted,
-  } = useTourProgress(tour.id, tour.artworks.length, analyticsEnabled);
-
-  // Analytics tracking
-  const { trackTourCompletion } = useEngagementTracking(tour.id, tour.name);
   const analytics = useAnalytics();
 
-
-  // Track tour start and completion
+  // Track tour start
   useEffect(() => {
     if (analyticsEnabled) {
       analytics.trackFunnelStep('tour_started', 5, { tour_name: tour.name });
     }
   }, [analyticsEnabled, analytics, tour.name]);
 
-  useEffect(() => {
-    if (isAllCompleted() && analyticsEnabled) {
-      trackTourCompletion(getCompletedCount(), tour.artworks.length);
-    }
-  }, [isAllCompleted, analyticsEnabled, trackTourCompletion, getCompletedCount, tour.artworks.length]);
-
   const handleStopClick = (stop: Stop) => {
     if (onSelectStop) {
       onSelectStop(stop);
     }
-  };
-
-  const scrollToFeedback = () => {
-    const feedbackSection = document.getElementById('feedback-section');
-    feedbackSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Memoize the introduction stop to prevent recreation on every render
@@ -82,8 +60,6 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
       {/* Tour Stops List */}
       <div className="bg-white border-t border-gray-200 divide-y divide-gray-200">
         {allStops.map((stop, index) => {
-            const isCompleted = isStopCompleted(stop.id);
-
             return (
               <button
                 key={stop.id}
@@ -119,11 +95,6 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
                         decoding={index < 5 ? 'sync' : 'async'}
                       />
                     </picture>
-                    {isCompleted && (
-                      <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
-                        <Check className="w-3 h-3 text-white" />
-                      </div>
-                    )}
                   </div>
 
                   {/* Content - Middle */}
@@ -151,19 +122,8 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
           })}
       </div>
 
-      {/* Completion Celebration */}
-      {isAllCompleted() && (
-        <div className="mt-4 mb-4">
-          <CompletionCelebration
-            museumName={tour.name}
-            onStartNewTour={onBackToTours}
-            onGiveFeedback={scrollToFeedback}
-          />
-        </div>
-      )}
-
       {/* Feedback Section */}
-      <div id="feedback-section" className="mt-6 mb-4 px-6">
+      <div className="mt-6 mb-4 px-6">
         <div className="bg-white p-4 border border-gray-200 text-center">
           <h3 className="text-lg text-gray-900 mb-2">
             Give us feedback
