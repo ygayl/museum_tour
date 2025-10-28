@@ -100,15 +100,11 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
         setIsPlaying(true);
         onPlay?.();
 
-        // Update Media Session API for PWA
+        // Update Media Session API for audio controls
         if ('mediaSession' in navigator) {
           navigator.mediaSession.metadata = new MediaMetadata({
             title: title,
             artist: `Stop ${stopNumber} - ${tourName}`,
-            artwork: [
-              { src: '/icons/manifest-icon-192.maskable.png', sizes: '192x192', type: 'image/png' },
-              { src: '/icons/manifest-icon-512.maskable.png', sizes: '512x512', type: 'image/png' }
-            ]
           });
 
           navigator.mediaSession.playbackState = 'playing';
