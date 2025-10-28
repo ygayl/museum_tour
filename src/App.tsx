@@ -4,9 +4,6 @@ import museumsData from './data/museums.json';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import CookieConsent from './components/CookieConsent';
-import PWAInstallPrompt from './components/PWAInstallPrompt';
-import IOSInstallBanner from './components/IOSInstallBanner';
-// import PWADebugger from './components/PWADebugger';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
 import { loadTour, loadToursForMuseum } from './lib/tourLoader';
@@ -390,14 +387,6 @@ function App() {
       {/* Cookie Consent */}
       <CookieConsent onConsentChange={setAnalyticsEnabled} />
 
-      {/* iOS Install Banner */}
-      <IOSInstallBanner />
-
-      {/* PWA Install Prompt */}
-      <PWAInstallPrompt />
-
-      {/* PWA Debugger (production only) */}
-      {/* <PWADebugger /> */}
     </div>
   );
 }

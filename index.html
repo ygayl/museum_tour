@@ -188,32 +188,16 @@
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" type="font/woff2" crossorigin>
 
-    <!-- PWA and App Meta Tags -->
+    <!-- App Meta Tags -->
     <title>Museum Tour - Audio Guided Tours</title>
     <meta name="description" content="Immersive audio-guided museum tours designed to bring history's greatest masterpieces to life in just one hour" />
     <meta name="theme-color" content="#8b7355" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Museum Tour" />
-    <meta name="application-name" content="Museum Tour" />
-    <meta name="msapplication-TileColor" content="#1e293b" />
-    <meta name="msapplication-config" content="/browserconfig.xml" />
 
-    <!-- Icons -->
+    <!-- Content Security Policy - Allow Google Analytics -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/icons/manifest-icon-192.maskable.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/icons/manifest-icon-512.maskable.png" />
-
-    <!-- Apple Splash Screens -->
-    <link rel="apple-touch-startup-image" href="/icons/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
-    <link rel="apple-touch-startup-image" href="/icons/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
-    <link rel="apple-touch-startup-image" href="/icons/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
-    <link rel="apple-touch-startup-image" href="/icons/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
-    <link rel="apple-touch-startup-image" href="/icons/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
-
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
     <div id="root"></div>

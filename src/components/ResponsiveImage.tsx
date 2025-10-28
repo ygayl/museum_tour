@@ -19,6 +19,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const containerRef = useRef<HTMLDivElement>(null);
+  const hasTriedFallback = useRef(false);
 
   // Intersection Observer for lazy loading - Fixed to observe container
   useEffect(() => {
@@ -40,6 +41,13 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
 
     return () => observer.disconnect();
   }, [priority, isInView]);
+
+  // Reset fallback flag when src changes
+  useEffect(() => {
+    hasTriedFallback.current = false;
+    setHasError(false);
+    setIsLoaded(priority);
+  }, [src, priority]);
 
   // Check if this is a WebP-optimized path (no .jpg in base src)
   const hasWebPVersions = !src.includes('.jpg');
@@ -145,9 +153,16 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
                 {...(priority ? { fetchpriority: 'high' } : { fetchpriority: 'low' }) as React.ImgHTMLAttributes<HTMLImageElement>}
                 onLoad={() => setIsLoaded(true)}
                 onError={(e) => {
+                  // Prevent infinite error loop by only trying fallback once
+                  if (hasTriedFallback.current) {
+                    setHasError(true);
+                    return;
+                  }
+
                   // Fallback to basic JPG if responsive images fail
                   const target = e.target as HTMLImageElement;
                   if (!target.src.includes('_720.jpg')) {
+                    hasTriedFallback.current = true;
                     target.src = getFallbackSrc();
                   } else {
                     // If even the fallback fails, show error state
@@ -170,7 +185,10 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
               decoding={priority ? 'sync' : 'async'}
               {...(priority ? { fetchpriority: 'high' } : { fetchpriority: 'low' }) as React.ImgHTMLAttributes<HTMLImageElement>}
               onLoad={() => setIsLoaded(true)}
-              onError={() => setHasError(true)}
+              onError={() => {
+                hasTriedFallback.current = true;
+                setHasError(true);
+              }}
             />
           )}
         </>
