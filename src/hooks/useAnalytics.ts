@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { MuseumAnalytics, trackPageView, initGA } from '../lib/analytics';
 import { City } from '../components/CitiesPage';
 import { Museum, Tour } from '../App';
@@ -33,8 +33,9 @@ export const useAnalytics = () => {
     }
   }, []);
 
-  // Analytics tracking functions
-  const analytics = {
+  // Memoize analytics tracking functions to prevent infinite render loops
+  // These functions are stable and don't depend on component state
+  const analytics = useMemo(() => ({
     // Page view tracking
     trackPageView: (view: string, context?: Record<string, any>) => {
       const pageTitle = getPageTitle(view, context);
@@ -122,7 +123,7 @@ export const useAnalytics = () => {
     trackEvent: (action: string, category: string, label?: string, value?: number, customParameters?: Record<string, any>) => {
       MuseumAnalytics.trackEvent(action, category, label, value, customParameters);
     },
-  };
+  }), []); // Empty deps - these functions are stable
 
   return analytics;
 };

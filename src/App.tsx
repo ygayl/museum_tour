@@ -213,7 +213,9 @@ function App() {
       };
       analytics.trackPageView(currentView, context);
     }
-  }, [currentView, analyticsEnabled, selectedCity?.name, selectedMuseum?.name, selectedTour?.name, analytics]);
+    // analytics is memoized and stable, so it's safe to omit from deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentView, analyticsEnabled, selectedCity?.name, selectedMuseum?.name, selectedTour?.name]);
 
   const handleExploreCities = () => {
     setCurrentView('cities');

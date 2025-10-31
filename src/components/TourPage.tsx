@@ -19,7 +19,9 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
     if (analyticsEnabled) {
       analytics.trackFunnelStep('tour_started', 5, { tour_name: tour.name });
     }
-  }, [analyticsEnabled, analytics, tour.name]);
+    // analytics is memoized and stable, so it's safe to omit from deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [analyticsEnabled, tour.name]);
 
   const handleStopClick = (stop: Stop) => {
     if (onSelectStop) {

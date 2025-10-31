@@ -173,9 +173,8 @@
     <!-- Font Optimization - Non-blocking font loading with preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Load Google Fonts non-blocking with font-display: swap -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+    <!-- Load Google Fonts with font-display: swap for async loading -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap">
     <!-- Preload critical font files for immediate use -->
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" type="font/woff2" crossorigin>
@@ -185,14 +184,34 @@
     <meta name="description" content="Immersive audio-guided museum tours designed to bring history's greatest masterpieces to life in just one hour" />
     <meta name="theme-color" content="#8b7355" />
 
-    <!-- Content Security Policy - Allow Google Analytics -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;">
+    <!-- Content Security Policy - Allow Google Analytics and inline service worker cleanup -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Emergency service worker cleanup - runs before SW can intercept -->
+    <script>
+      // This inline script runs synchronously before any service worker can intercept requests
+      // It ensures users with old service workers from the previous PWA version get the fresh code
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          registrations.forEach(function(registration) {
+            registration.unregister();
+          });
+        });
+
+        // If a service worker is currently controlling this page, force reload to bypass cache
+        // This only happens once - after reload, no SW exists, so no infinite loop
+        if (navigator.serviceWorker.controller) {
+          window.location.reload();
+        }
+      }
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

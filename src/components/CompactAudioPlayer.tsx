@@ -82,7 +82,9 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, [duration, onProgressUpdate, onComplete, analytics, analyticsEnabled, tourId, stopId]);
+    // analytics is memoized and stable, so it's safe to omit from deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [duration, onProgressUpdate, onComplete, analyticsEnabled, tourId, stopId]);
 
   const togglePlay = async () => {
     if (!audioRef.current) return;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronRight, CheckCircle } from 'lucide-react';
 import { Tour, Stop } from '../types/tour';
 import CompactAudioPlayer from './CompactAudioPlayer';
@@ -75,14 +75,14 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
   const nextStop = getNextStop();
   const isLastStop = !nextStop;
 
-  // Handle navigation
-  const handleNext = () => {
+  // Handle navigation - memoized to prevent unnecessary re-renders
+  const handleNext = useCallback(() => {
     if (nextStop && onNextStop) {
       onNextStop(nextStop);
     } else if (isLastStop && onCompleteTour) {
       onCompleteTour();
     }
-  };
+  }, [nextStop, onNextStop, isLastStop, onCompleteTour]);
 
   // Swipe gesture handling for mobile
   useEffect(() => {
@@ -113,7 +113,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
       document.removeEventListener('touchstart', handleTouchStart);
       document.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [nextStop, onNextStop, onCompleteTour]);
+  }, [handleNext]); // Now properly includes handleNext
 
   return (
     <div className="bg-white min-h-screen pb-20">
