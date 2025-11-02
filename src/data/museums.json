@@ -89,5 +89,12 @@
     "image": "/images/museums/guggenheim",
     "description": "Iconic modern art spiral museum",
     "cityId": "new-york"
-  }    
+  },
+  {
+    "id": "asian_art_sf",
+    "name": "Asian Art Museum",
+    "image": "/images/museums/asian_art_sf",
+    "description": "One of the most comprehensive Asian art collections in the world",
+    "cityId": "san-francisco"
+  }
 ]
