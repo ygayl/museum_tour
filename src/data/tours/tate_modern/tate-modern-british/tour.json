@@ -1,0 +1,72 @@
+{
+  "id": "tate-modern-british",
+  "name": "British Art in 60 Minutes",
+  "museumId": "tate_modern",
+  "description": "Discover the unique contribution of British artists to modern and contemporary art.",
+  "duration": "60 minutes",
+  "theme": "British Art in 60 Minutes",
+  "image": "/images/museums/tate_modern.jpg",
+  "introAudio": "/audio/museums/tate_modern_british_intro.mp3",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "Three Studies for Figures at the Base of a Crucifixion",
+      "image": "/images/artworks/bacon_three_studies.jpg",
+      "artist": "Francis Bacon",
+      "room": "Level 2",
+      "audio": "/audio/artworks/bacon_three_studies.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "Equivalent VIII",
+      "image": "/images/artworks/equivalent_viii.jpg",
+      "artist": "Carl Andre",
+      "room": "Level 3",
+      "audio": "/audio/artworks/equivalent_viii.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "Mother and Child Divided",
+      "image": "/images/artworks/mother_child_divided.jpg",
+      "artist": "Damien Hirst",
+      "room": "Level 4",
+      "audio": "/audio/artworks/mother_child_divided.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "Large Two Forms",
+      "image": "/images/artworks/large_two_forms.jpg",
+      "artist": "Henry Moore",
+      "room": "Sculpture Terrace",
+      "audio": "/audio/artworks/large_two_forms.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "5",
+      "order": 5,
+      "title": "My Bed",
+      "image": "/images/artworks/my_bed.jpg",
+      "artist": "Tracey Emin",
+      "room": "Level 2",
+      "audio": "/audio/artworks/my_bed.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "6",
+      "order": 6,
+      "title": "Angel of the North",
+      "image": "/images/artworks/angel_of_north.jpg",
+      "artist": "Antony Gormley",
+      "room": "Level 4",
+      "audio": "/audio/artworks/angel_of_north.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}

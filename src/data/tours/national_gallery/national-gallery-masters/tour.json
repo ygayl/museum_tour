@@ -1,0 +1,72 @@
+{
+  "id": "national-gallery-masters",
+  "name": "Old Masters in 60 Minutes",
+  "museumId": "national_gallery",
+  "description": "Discover the greatest masterpieces of European painting from Leonardo da Vinci to Van Gogh.",
+  "duration": "60 minutes",
+  "theme": "Old Masters in 60 Minutes",
+  "image": "/images/museums/national_gallery.jpg",
+  "introAudio": "/audio/museums/national_gallery_intro.mp3",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "The Virgin of the Rocks",
+      "image": "/images/artworks/virgin_of_rocks.jpg",
+      "artist": "Leonardo da Vinci",
+      "room": "66",
+      "audio": "/audio/artworks/virgin_of_rocks.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "The Hay Wain",
+      "image": "/images/artworks/hay_wain.jpg",
+      "artist": "John Constable",
+      "room": "34",
+      "audio": "/audio/artworks/hay_wain.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "The Fighting Temeraire",
+      "image": "/images/artworks/fighting_temeraire.jpg",
+      "artist": "J.M.W. Turner",
+      "room": "34",
+      "audio": "/audio/artworks/fighting_temeraire.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "Sunflowers",
+      "image": "/images/artworks/sunflowers_national.jpg",
+      "artist": "Vincent van Gogh",
+      "room": "43",
+      "audio": "/audio/artworks/sunflowers_national.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "5",
+      "order": 5,
+      "title": "The Arnolfini Portrait",
+      "image": "/images/artworks/arnolfini_portrait.jpg",
+      "artist": "Jan van Eyck",
+      "room": "56",
+      "audio": "/audio/artworks/arnolfini_portrait.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "6",
+      "order": 6,
+      "title": "Venus and Mars",
+      "image": "/images/artworks/venus_and_mars.jpg",
+      "artist": "Sandro Botticelli",
+      "room": "58",
+      "audio": "/audio/artworks/venus_and_mars.mp3",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}

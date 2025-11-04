@@ -1,0 +1,72 @@
+{
+  "id": "reina-sofia-civil-war",
+  "name": "Spanish Civil War in 60 Minutes",
+  "museumId": "reina_sofia",
+  "description": "Explore the artistic response to one of Spain's most turbulent periods through masterpieces of modern art.",
+  "duration": "60 minutes",
+  "theme": "Spanish Civil War in 60 Minutes",
+  "image": "/images/museums/reina_sofia.jpg",
+  "introAudio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+  "stops": [
+    {
+      "id": "1",
+      "order": 1,
+      "title": "Guernica",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Pablo Picasso",
+      "room": "206",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This powerful masterpiece captures the horror and tragedy of war through fragmented forms and stark imagery. The painting's monochromatic palette and distorted figures create an emotional impact that resonates across generations, making it one of the most significant anti-war statements in art history."
+    },
+    {
+      "id": "2",
+      "order": 2,
+      "title": "The Spanish Republic",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Joan Miró",
+      "room": "210",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "3",
+      "order": 3,
+      "title": "Spanish Peasant",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Alberto Sánchez",
+      "room": "104",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "4",
+      "order": 4,
+      "title": "War Series",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Horacio Ferrer",
+      "room": "205",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "5",
+      "order": 5,
+      "title": "Maternal",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Julio González",
+      "room": "102",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    },
+    {
+      "id": "6",
+      "order": 6,
+      "title": "Memory of the Civil War",
+      "image": "https://images.pexels.com/photos/1572386/pexels-photo-1572386.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "artist": "Antoni Tàpies",
+      "room": "419",
+      "audio": "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      "narration": "This remarkable artwork showcases the artist's masterful technique and unique vision, capturing both the spirit of its time and timeless artistic excellence. The composition, color palette, and brushwork combine to create a powerful visual narrative that continues to inspire viewers and artists alike."
+    }
+  ]
+}

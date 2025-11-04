@@ -7,10 +7,10 @@
     "cityId": "madrid"
   },
   {
-    "id": "reina-sofia",
+    "id": "reina_sofia",
     "name": "Museo Reina Sofía",
     "image": "/images/museums/reina_sofia",
-    "description": "Spain’s 20th-century art museum",
+    "description": "Spain's 20th-century art museum",
     "cityId": "madrid"
   },
   {
@@ -21,28 +21,28 @@
     "cityId": "amsterdam"
   },
   {
-    "id": "van-gogh-museum",
+    "id": "van_gogh_museum",
     "name": "Van Gogh Museum",
     "image": "/images/museums/van_gogh_museum",
-    "description": "The world’s largest Van Gogh collection",
+    "description": "The world's largest Van Gogh collection",
     "cityId": "amsterdam"
   },
   {
-    "id": "british-museum",
+    "id": "british_museum",
     "name": "The British Museum",
     "image": "/images/museums/british_museum",
     "description": "World art and artifacts",
     "cityId": "london"
   },
   {
-    "id": "national-gallery",
+    "id": "national_gallery",
     "name": "The National Gallery",
     "image": "/images/museums/national_gallery",
     "description": "Western European paintings",
     "cityId": "london"
   },
   {
-    "id": "tate-modern",
+    "id": "tate_modern",
     "name": "Tate Modern",
     "image": "/images/museums/tate_modern",
     "description": "Modern and contemporary art",
