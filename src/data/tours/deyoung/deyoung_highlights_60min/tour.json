@@ -2,7 +2,7 @@
   "id": "deyoung_highlights_60min",
   "name": "de Young Highlights – 60 Minutes",
   "museumId": "deyoung",
-  "description": "",
+  "description": "60-minute highlights from American classics to contemporary art.",
   "duration": "60 minutes",
   "theme": "American Art to Contemporary",
   "language": "en",
@@ -13,7 +13,7 @@
     {
       "id": "portrait_of_dorothy_spreckels_munn",
       "title": "Portrait of Dorothy Spreckels Munn",
-      "artist": "Salvador Dalí (famsf.org)",
+      "artist": "Salvador Dalí",
       "order": 1,
       "room": "Gallery 1",
       "floor": 1,
@@ -24,7 +24,7 @@
     {
       "id": "stela_with_ix_mutal_ahaw",
       "title": "Stela with Ix Mutal Ahaw",
-      "artist": "Maya culture (Mesoamerica)",
+      "artist": "Maya culture",
       "order": 2,
       "room": "Gallery 2",
       "floor": 1,
@@ -35,7 +35,7 @@
     {
       "id": "rovers_garden_grows",
       "title": "Rover’s Garden Grows",
-      "artist": "Dale Chihuly & Italo Scanga (famsf.org)",
+      "artist": "Dale Chihuly & Italo Scanga",
       "order": 3,
       "room": "Gallery 5",
       "floor": 1,
@@ -56,7 +56,7 @@
     },
     {
       "id": "superman_detail",
-      "title": "Superman (detail)",
+      "title": "Superman",
       "artist": "Mel Ramos",
       "order": 5,
       "room": "Gallery 14",
@@ -90,7 +90,7 @@
     {
       "id": "house_facade_figure",
       "title": "House façade figure",
-      "artist": "Toraja (Sulawesi, Indonesia)",
+      "artist": "Toraja",
       "order": 8,
       "room": "Gallery 31",
       "floor": 2,
