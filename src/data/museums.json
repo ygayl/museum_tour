@@ -96,5 +96,12 @@
     "image": "/images/museums/asian_art_sf",
     "description": "One of the most comprehensive Asian art collections in the world",
     "cityId": "san-francisco"
-  }
+  },
+  {
+    "id": "deyoung",
+    "name": "De Young Museum",
+    "image": "/images/museums/deyoung",
+    "description": "San Francisco museum of American and contemporary art",
+    "cityId": "san-francisco"
+  }  
 ]
