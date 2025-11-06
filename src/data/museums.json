@@ -103,5 +103,12 @@
     "image": "/images/museums/deyoung",
     "description": "San Francisco museum of American and contemporary art",
     "cityId": "san-francisco"
-  }  
+  },
+  {
+    "id": "sfmoma",
+    "name": "San Francisco Museum of Modern Art",
+    "image": "/images/museums/sfmoma",
+    "description": "Modern and contemporary art in an iconic building",
+    "cityId": "san-francisco"
+  }
 ]
