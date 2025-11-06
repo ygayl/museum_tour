@@ -21,6 +21,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
   audioUrl,
   stopNumber,
   title,
+  artist,
   tourName,
   shouldPause,
   onProgressUpdate,
@@ -106,7 +107,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
         if ('mediaSession' in navigator) {
           navigator.mediaSession.metadata = new MediaMetadata({
             title: title,
-            artist: `Stop ${stopNumber} - ${tourName}`,
+            artist: artist,
           });
 
           navigator.mediaSession.playbackState = 'playing';
@@ -223,7 +224,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
               {stopNumber === 0 ? title : `${stopNumber}: ${title}`}
             </h2>
             <p className="text-sm font-light text-museum-neutral-600">
-              {tourName}
+              {artist}
             </p>
           </div>
         </div>
