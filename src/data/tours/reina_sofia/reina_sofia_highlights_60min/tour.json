@@ -2,7 +2,7 @@
   "id": "reina_sofia_highlights_60min",
   "name": "Reina Sofía Highlights – 60 Minutes",
   "museumId": "reina_sofia",
-  "description": "",
+  "description": "A journey through modern Spanish art where creativity, politics, and emotion reshape how we see and feel.",
   "duration": "60 minutes",
   "theme": "Modern and Contemporary Spanish Art",
   "language": "en",
@@ -12,7 +12,7 @@
   "artworks": [
     {
       "id": "mujer_en_azul_woman_in_blue",
-      "title": "Mujer en azul (Woman in Blue)",
+      "title": "Mujer en azul",
       "artist": "Pablo Picasso",
       "order": 1,
       "room": "201.02",
@@ -23,7 +23,7 @@
     },
     {
       "id": "tertulia_the_gathering",
-      "title": "Tertulia (The Gathering)",
+      "title": "Tertulia",
       "artist": "Ángeles Santos",
       "order": 2,
       "room": "203.02",
@@ -34,7 +34,7 @@
     },
     {
       "id": "la_bouteille_danis_the_anis_bottle",
-      "title": "La bouteille d’anis (The Anis Bottle)",
+      "title": "La bouteille d’anis",
       "artist": "Juan Gris",
       "order": 3,
       "room": "204.01",
@@ -45,7 +45,7 @@
     },
     {
       "id": "cartes_et_des_cards_and_dice",
-      "title": "Cartes et dés (Cards and Dice)",
+      "title": "Cartes et dés",
       "artist": "Georges Braque",
       "order": 4,
       "room": "204.01",
@@ -56,7 +56,7 @@
     },
     {
       "id": "un_mundo_a_world",
-      "title": "Un mundo (A World)",
+      "title": "Un mundo",
       "artist": "Ángeles Santos",
       "order": 5,
       "room": "205.06",
@@ -67,7 +67,7 @@
     },
     {
       "id": "mujer_con_abanico_woman_with_a_fan",
-      "title": "Mujer con abanico (Woman with a Fan)",
+      "title": "Mujer con abanico",
       "artist": "María Blanchard",
       "order": 6,
       "room": "205.11",
@@ -78,7 +78,7 @@
     },
     {
       "id": "visage_du_grand_masturbateur_face_of_the_great_masturbator",
-      "title": "Visage du Grand Masturbateur (Face of the Great Masturbator)",
+      "title": "Visage du Grand Masturbateur",
       "artist": "Salvador Dalí",
       "order": 7,
       "room": "205.13",
@@ -89,7 +89,7 @@
     },
     {
       "id": "femme_et_chien_devant_la_lune_woman_and_dog_in_front_of_the_moon",
-      "title": "Femme et chien devant la lune (Woman and Dog in Front of the Moon)",
+      "title": "Femme et chien devant la lune",
       "artist": "Joan Miró",
       "order": 8,
       "room": "205.14",
