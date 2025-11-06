@@ -50,10 +50,11 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
   };
 
   const isIntroductionStop = stop.id.startsWith('intro-');
+  const isConclusionStop = stop.id.startsWith('conclusion-');
 
   const getStopNumber = () => {
-    if (isIntroductionStop) {
-      return 0; // Introduction doesn't have a number
+    if (isIntroductionStop || isConclusionStop) {
+      return 0; // Introduction and conclusion don't have numbers
     }
     const index = tour.artworks.findIndex(s => s.id === stop.id);
     return index + 1;
@@ -65,11 +66,32 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
       // If on introduction, next is the first artwork
       return tour.artworks[0] || null;
     }
+
+    if (isConclusionStop) {
+      // Conclusion is always the last stop
+      return null;
+    }
+
     const currentIndex = tour.artworks.findIndex(s => s.id === stop.id);
     if (currentIndex >= 0 && currentIndex < tour.artworks.length - 1) {
       return tour.artworks[currentIndex + 1];
     }
-    return null; // No next stop (we're at the last artwork)
+
+    // We're at the last artwork - check if there's a conclusion
+    if (currentIndex === tour.artworks.length - 1 && tour.outroAudio) {
+      return {
+        id: `conclusion-${tour.id}`,
+        title: "Conclusion",
+        image: tour.image,
+        audio: tour.outroAudio,
+        artist: "",
+        room: "",
+        narration: tour.outroNarration || "",
+        order: tour.artworks.length + 1
+      };
+    }
+
+    return null; // No next stop
   };
 
   const nextStop = getNextStop();
@@ -157,7 +179,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
         </div>
 
         {/* Floor and Room Number Display */}
-        {stop.room && !isIntroductionStop && (
+        {stop.room && !isIntroductionStop && !isConclusionStop && (
           <div className="px-6 py-3 bg-gray-50 border-t border-gray-100">
             <div className="flex items-center justify-center">
               <span className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">

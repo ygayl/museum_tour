@@ -39,15 +39,34 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
       audio: tour.introAudio,
       artist: "",
       room: "",
-      narration: (tour as Tour & { introNarration?: string }).introNarration || "",
+      narration: tour.introNarration || "",
       order: 0
     };
-  }, [tour.id, tour.image, tour.introAudio]);
+  }, [tour.id, tour.image, tour.introAudio, tour.introNarration]);
+
+  // Memoize the conclusion stop to prevent recreation on every render
+  const conclusionStop = useMemo((): Stop | null => {
+    if (!tour.outroAudio) return null;
+    return {
+      id: `conclusion-${tour.id}`,
+      title: "Conclusion",
+      image: tour.image,
+      audio: tour.outroAudio,
+      artist: "",
+      room: "",
+      narration: tour.outroNarration || "",
+      order: tour.artworks.length + 1
+    };
+  }, [tour.id, tour.image, tour.outroAudio, tour.outroNarration, tour.artworks.length]);
 
   // Memoize all stops to prevent array recreation on every render
   const allStops = useMemo(() => {
-    return introductionStop ? [introductionStop, ...tour.artworks] : tour.artworks;
-  }, [introductionStop, tour.artworks]);
+    const stops = [];
+    if (introductionStop) stops.push(introductionStop);
+    stops.push(...tour.artworks);
+    if (conclusionStop) stops.push(conclusionStop);
+    return stops;
+  }, [introductionStop, tour.artworks, conclusionStop]);
 
 
   return (

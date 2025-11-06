@@ -15,6 +15,9 @@ export interface Tour {
   theme: string;           // Tour theme/category
   image: string;           // Tour cover image URL
   introAudio: string;      // Introduction audio URL
+  introNarration?: string; // Introduction narration text (optional)
+  outroAudio?: string;     // Outro audio URL (optional)
+  outroNarration?: string; // Outro narration text (optional)
   artworks: Stop[];        // Array of artworks in the tour
 }
 

@@ -183,10 +183,23 @@ function App() {
                   audio: tourWithImage.introAudio,
                   artist: "",
                   room: "",
-                  narration: (tourWithImage as Tour & { introNarration?: string }).introNarration || "",
+                  narration: tourWithImage.introNarration || "",
                   order: 0
                 };
                 setSelectedStop(introStop);
+              } else if (initialState.stopId.startsWith('conclusion-')) {
+                // Create the conclusion stop dynamically
+                const conclusionStop: Stop = {
+                  id: initialState.stopId,
+                  title: "Conclusion",
+                  image: tourWithImage.image,
+                  audio: tourWithImage.outroAudio || '',
+                  artist: "",
+                  room: "",
+                  narration: tourWithImage.outroNarration || "",
+                  order: tour.artworks.length + 1
+                };
+                setSelectedStop(conclusionStop);
               } else {
                 // Regular artwork
                 const stop = tour.artworks.find(s => s.id === initialState.stopId);
