@@ -165,7 +165,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
       <audio
         ref={audioRef}
         src={audioUrl}
-        preload="none"
+        preload="metadata"
         crossOrigin="anonymous"
         controls={false}
       />
@@ -205,7 +205,7 @@ const CompactAudioPlayer: React.FC<CompactAudioPlayerProps> = ({
           {/* Flat Play/Pause Button */}
           <button
             onClick={togglePlay}
-            className="flex-shrink-0 w-12 h-12 bg-transparent hover:bg-museum-neutral-50 rounded-full flex items-center justify-center transition-colors group border border-museum-neutral-800 hover:border-museum-primary-900 focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+            className="flex-shrink-0 w-12 h-12 bg-transparent hover:bg-museum-neutral-50 rounded-full flex items-center justify-center transition-colors group border-2 border-museum-gold-600 hover:border-museum-primary-900 focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
             aria-label={isPlaying ? 'Pause' : 'Play'}
           >
             {isPlaying ? (
