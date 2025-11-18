@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from './ui/button';
 
 interface HeroProps {
   onStartTour: () => void;
@@ -60,9 +61,10 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
             <em className="font-light italic">in just one hour</em>
           </p> */}
 
-          <button
+          <Button
             onClick={onStartTour}
-            className="inline-flex items-center rounded-full bg-museum-gold-500 px-8 py-4 text-lg font-normal text-museum-primary-900 shadow-2xl hover:bg-museum-gold-400 focus:outline-none focus:ring-4 focus:ring-museum-gold-500/50 sm:px-10 sm:py-5 sm:text-xl"
+            size="lg"
+            className="rounded-full shadow-2xl sm:px-10 sm:py-5 sm:text-xl"
           >
             Explore
             <svg
@@ -73,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onStartTour }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </Button>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Trophy, ArrowRight } from 'lucide-react';
+import { Button } from './ui/button';
 
 interface CompletionCelebrationProps {
   museumName: string;
@@ -15,8 +16,8 @@ const CompletionCelebration: React.FC<CompletionCelebrationProps> = ({
   return (
     <div className="bg-white border border-gray-200 p-6 text-center">
       <div className="mb-6">
-        <div className="w-16 h-16 bg-museum-gold-500 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Trophy className="w-8 h-8 text-museum-primary-900" />
+        <div className="w-16 h-16 bg-museum-terracotta-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Trophy className="w-8 h-8 text-white" />
         </div>
         <div className="text-2xl mb-2">🎉</div>
         <h3 className="text-2xl font-light text-museum-primary-900 font-serif mb-2">
@@ -29,22 +30,23 @@ const CompletionCelebration: React.FC<CompletionCelebrationProps> = ({
 
       <div className="space-y-3">
         {onGiveFeedback && (
-          <button
+          <Button
             onClick={onGiveFeedback}
-            className="w-full bg-museum-gold-500 text-museum-primary-900 px-6 py-3 font-normal hover:bg-museum-gold-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+            className="w-full"
           >
             Share Your Experience
-          </button>
+          </Button>
         )}
 
         {onStartNewTour && (
-          <button
+          <Button
             onClick={onStartNewTour}
-            className="w-full bg-white text-museum-primary-900 px-6 py-3 font-normal hover:bg-gray-50 transition-all duration-200 flex items-center justify-center space-x-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+            variant="outline"
+            className="w-full space-x-2 border-gray-200"
           >
             <span>Explore Another Museum</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Button>
         )}
       </div>
     </div>

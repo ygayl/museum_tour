@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Shield } from 'lucide-react';
+import { Button } from './ui/button';
 
 interface CookieConsentProps {
   onConsentChange: (hasConsent: boolean) => void;
@@ -45,13 +46,13 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center space-x-2">
-              <Shield className="w-6 h-6 text-amber-600" />
+              <Shield className="w-6 h-6 text-museum-terracotta-500" />
               <h3 className="text-xl font-normal text-gray-900">Privacy & Cookies</h3>
             </div>
             <button
               onClick={handleDecline}
               aria-label="Decline cookies and use essential cookies only"
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset"
             >
               <X className="w-5 h-5 text-gray-500" />
             </button>
@@ -89,23 +90,24 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <button
+                <Button
                   onClick={handleAccept}
-                  className="flex-1 bg-museum-gold-500 text-museum-primary-900 px-6 py-3 rounded-xl font-medium hover:bg-museum-gold-400 transition-all duration-200"
+                  className="flex-1 rounded-xl"
                 >
                   Accept All Cookies
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={handleAcceptEssential}
-                  className="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors"
+                  variant="outline"
+                  className="flex-1 rounded-xl border-gray-300 text-gray-700 hover:bg-gray-50"
                 >
                   Essential Only
-                </button>
+                </Button>
               </div>
 
               <button
                 onClick={() => setShowDetails(true)}
-                className="w-full text-sm text-gray-500 hover:text-gray-700 mt-4 underline focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+                className="w-full text-sm text-gray-500 hover:text-gray-700 mt-4 underline focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset"
               >
                 View detailed cookie information
               </button>
@@ -150,23 +152,24 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <button
+                <Button
                   onClick={handleAccept}
-                  className="flex-1 bg-museum-gold-500 text-museum-primary-900 px-6 py-3 rounded-xl font-medium hover:bg-museum-gold-400 transition-all duration-200"
+                  className="flex-1 rounded-xl"
                 >
                   Accept All
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={handleAcceptEssential}
-                  className="flex-1 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors"
+                  variant="outline"
+                  className="flex-1 rounded-xl border-gray-300 text-gray-700 hover:bg-gray-50"
                 >
                   Essential Only
-                </button>
+                </Button>
               </div>
 
               <button
                 onClick={() => setShowDetails(false)}
-                className="w-full text-sm text-gray-500 hover:text-gray-700 mt-4 underline focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+                className="w-full text-sm text-gray-500 hover:text-gray-700 mt-4 underline focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset"
               >
                 Back to simple view
               </button>

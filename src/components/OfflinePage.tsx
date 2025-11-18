@@ -1,5 +1,6 @@
 import React from 'react';
 import { WifiOff, RefreshCw } from 'lucide-react';
+import { Button } from './ui/button';
 
 const OfflinePage: React.FC = () => {
   const handleRetry = () => {
@@ -7,7 +8,7 @@ const OfflinePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-museum-gradient min-h-screen flex items-center justify-center px-6">
+    <div className="bg-cream-gradient min-h-screen flex items-center justify-center px-6">
       <div className="max-w-md w-full text-center">
         <div className="mb-8">
           <div className="w-24 h-24 bg-museum-neutral-200 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -25,13 +26,13 @@ const OfflinePage: React.FC = () => {
         </div>
 
         <div className="space-y-4">
-          <button
+          <Button
             onClick={handleRetry}
-            className="w-full bg-museum-gold-500 text-museum-primary-900 px-6 py-3 font-normal hover:bg-museum-gold-400 transition-all duration-200 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+            className="w-full space-x-2"
           >
             <RefreshCw className="w-4 h-4" />
             <span>Try Again</span>
-          </button>
+          </Button>
 
         </div>
 

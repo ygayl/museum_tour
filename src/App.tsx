@@ -4,6 +4,7 @@ import museumsData from './data/museums.json';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import CookieConsent from './components/CookieConsent';
+import { Button } from './components/ui/button';
 import { useAnalytics } from './hooks/useAnalytics';
 import { useHistoryNavigation } from './hooks/useHistoryNavigation';
 import { loadTour, loadToursForMuseum } from './lib/tourLoader';
@@ -329,7 +330,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-museum-gradient font-sans">
+    <div className="min-h-screen bg-cream-gradient font-sans">
       {currentView === 'intro' ? (
         <Hero onStartTour={handleExploreCities} />
       ) : (
@@ -360,12 +361,11 @@ function App() {
                   <div className="flex items-center justify-center min-h-[50vh]">
                     <div className="text-center">
                       <p className="text-lg text-gray-600 mb-4">Tour not found</p>
-                      <button
+                      <Button
                         onClick={() => setCurrentView('cities')}
-                        className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-normal hover:bg-museum-gold-400 transition-colors"
                       >
                         Return to Cities
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 )
@@ -384,12 +384,11 @@ function App() {
                 <div className="flex items-center justify-center min-h-[50vh]">
                   <div className="text-center">
                     <p className="text-lg text-gray-600 mb-4">Artwork not found</p>
-                    <button
+                    <Button
                       onClick={() => setCurrentView('cities')}
-                      className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-normal hover:bg-museum-gold-400 transition-colors"
                     >
                       Return to Cities
-                    </button>
+                    </Button>
                   </div>
                 </div>
               )

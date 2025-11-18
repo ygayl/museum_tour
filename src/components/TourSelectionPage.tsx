@@ -22,13 +22,13 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
   });
 
   return (
-    <div className="bg-museum-gradient min-h-screen">
+    <div className="bg-cream-gradient min-h-screen">
       <div className="container mx-auto px-6 py-4">
       <div className="text-center">
         <h1 className="mb-4 text-2xl font-light tracking-wide text-museum-primary-900 font-serif md:text-4xl">
           Choose A Tour
         </h1>
-        {/* <p className="text-center text-base italic text-museum-gold-600/80 mt-2 flex items-center justify-center gap-2 font-sans">
+        {/* <p className="text-center text-base italic text-museum-terracotta-600/80 mt-2 flex items-center justify-center gap-2 font-sans">
           🎧 Choose a tour and dive into the stories behind the art
         </p> */}
       </div>
@@ -38,7 +38,7 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
           <button
             key={tour.id}
             onClick={() => onSelectTour(tour)}
-            className="group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-gray-300 hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset text-left w-full"
+            className="group bg-white border border-gray-200 overflow-hidden transition-colors duration-200 hover:border-gray-300 hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset text-left w-full"
           >
             {/* Image Section */}
             <div className="relative aspect-[4/3] bg-museum-neutral-100">
@@ -72,7 +72,7 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
               <p className="text-museum-neutral-600 text-sm mb-2 leading-relaxed">
                 {tour.description}
               </p>
-              <p className="text-museum-gold-600 font-normal text-sm">
+              <p className="text-museum-terracotta-600 font-normal text-sm">
                 Duration: {tour.duration}
               </p>
             </div>

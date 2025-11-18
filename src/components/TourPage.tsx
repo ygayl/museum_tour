@@ -70,7 +70,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
 
 
   return (
-    <div className="bg-museum-gradient min-h-screen">
+    <div className="bg-cream-gradient min-h-screen">
       {/* Sticky Tour Title Bar */}
       <div className="sticky top-16 z-10 bg-museum-neutral-50 border-b border-gray-200 px-6 py-4">
         <h1 className="text-xl text-museum-primary-900 font-serif">
@@ -85,7 +85,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
               <button
                 key={stop.id}
                 onClick={() => handleStopClick(stop)}
-                className="w-full p-4 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-museum-gold-500 focus:ring-inset"
+                className="w-full p-4 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset"
               >
                 <div className="flex items-center space-x-4">
                   {/* Larger Thumbnail - Left */}
@@ -156,7 +156,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
             href="https://docs.google.com/forms/d/e/1FAIpQLScjsQEJIg1bW-jVbZidx8QEzGBxLFXFaC-Cs91fxKDREpthOA/viewform?usp=header"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-museum-gold-500 text-museum-primary-900 px-6 py-2 font-normal hover:bg-museum-gold-400 transition-all duration-200 inline-block text-sm"
+            className="bg-museum-terracotta-500 text-white px-6 py-2 font-normal hover:bg-museum-terracotta-600 transition-all duration-200 inline-block text-sm rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-offset-2"
           >
             Open Feedback Form
           </a>

@@ -49,7 +49,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       <div className="sticky top-[calc(env(safe-area-inset-top)+0px)] z-40 bg-transparent">
         <div className="h-0.5 bg-museum-neutral-200">
           <div
-            className="h-full bg-museum-gold-500 transition-all duration-500"
+            className="h-full bg-museum-terracotta-500 transition-all duration-500"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
@@ -68,7 +68,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       }`}>
         <div className="h-1 bg-museum-neutral-200">
           <div
-            className="h-full bg-museum-gold-500 transition-all duration-500"
+            className="h-full bg-museum-terracotta-500 transition-all duration-500"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
@@ -97,7 +97,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
                 onClick={() => onSegmentClick?.(index)}
                 className={`flex-1 h-2 rounded-sm transition-all duration-200 ${
                   isCompleted
-                   ? 'bg-gradient-to-r from-museum-gold-500 to-museum-gold-600'
+                   ? 'bg-gradient-to-r from-museum-terracotta-500 to-museum-terracotta-600'
                    : 'bg-museum-neutral-200 hover:bg-museum-neutral-300'
                 }`}
                 title={`${stop.title} ${isCompleted ? '(Completed)' : '(Not completed)'}`}

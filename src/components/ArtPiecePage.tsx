@@ -235,9 +235,9 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
         aria-label={isLastStop ? "Complete Tour" : `Next: ${nextStop?.title}`}
       >
         {isLastStop ? (
-          <CheckCircle className="w-6 h-6 text-museum-gold-600" />
+          <CheckCircle className="w-6 h-6 text-museum-terracotta-600" />
         ) : (
-          <ChevronRight className="w-6 h-6 text-museum-gold-600 group-hover:translate-x-0.5 transition-transform" />
+          <ChevronRight className="w-6 h-6 text-museum-terracotta-600 group-hover:translate-x-0.5 transition-transform" />
         )}
       </button>
     </div>
