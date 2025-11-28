@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { ChevronRight, CheckCircle } from 'lucide-react';
 import { Tour, Stop } from '../types/tour';
 import CompactAudioPlayer from './CompactAudioPlayer';
@@ -20,8 +20,19 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
   onCompleteTour
 }) => {
   const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
+  const isNavigating = useRef(false);
+  const prevStopId = useRef(stop.id);
 
   const analytics = useAnalytics();
+
+  // Scroll to top when navigating to next/prev artwork (not on initial load)
+  useEffect(() => {
+    if (isNavigating.current && stop.id !== prevStopId.current) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      isNavigating.current = false;
+    }
+    prevStopId.current = stop.id;
+  }, [stop.id]);
 
   // Audio tracking callbacks
   const createAudioCallbacks = (stopId: string) => {
@@ -100,6 +111,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
   // Handle navigation - memoized to prevent unnecessary re-renders
   const handleNext = useCallback(() => {
     if (nextStop && onNextStop) {
+      isNavigating.current = true;
       onNextStop(nextStop);
     } else if (isLastStop && onCompleteTour) {
       onCompleteTour();
