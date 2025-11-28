@@ -1,12 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tour } from '../types/tour';
+import { CheckCircle } from 'lucide-react';
 
 interface TourSelectionPageProps {
   tours: Tour[];
   onSelectTour: (tour: Tour) => void;
+  museumId: string;
+  museumName: string;
+  cityId: string;
+  cityName: string;
 }
 
-const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTour }) => {
+interface NotificationSignup {
+  email: string;
+  museumId: string;
+  museumName: string;
+  cityId: string;
+  cityName: string;
+  timestamp: string;
+}
+
+const TourSelectionPage: React.FC<TourSelectionPageProps> = ({
+  tours,
+  onSelectTour,
+  museumId,
+  museumName,
+  cityId,
+  cityName
+}) => {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+
+    if (!email.trim()) {
+      setError('Please enter your email address');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    // Create signup record
+    const signup: NotificationSignup = {
+      email: email.trim(),
+      museumId,
+      museumName,
+      cityId,
+      cityName,
+      timestamp: new Date().toISOString()
+    };
+
+    // Store in localStorage
+    try {
+      const existingSignups = JSON.parse(localStorage.getItem('museum-tour-notifications') || '[]');
+      existingSignups.push(signup);
+      localStorage.setItem('museum-tour-notifications', JSON.stringify(existingSignups));
+      console.log('Notification signup saved:', signup);
+    } catch (err) {
+      console.error('Failed to save notification signup:', err);
+    }
+
+    setIsSubmitted(true);
+    setEmail('');
+  };
   // Sort tours with highlighted tours first, then alphabetically
   const sortedTours = [...tours].sort((a, b) => {
     // Check if tour is highlighted (contains "Highlights" in name)
@@ -78,6 +145,43 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({ tours, onSelectTo
             </div>
           </button>
         ))}
+      </div>
+
+      {/* Coming Soon Section */}
+      <div className="mt-8 border border-gray-200 bg-white rounded-xl p-6">
+        <div className="text-center max-w-md mx-auto">
+          <p className="text-sm text-museum-neutral-600 mb-4">
+            More tours coming soon. Get notified
+          </p>
+
+          {isSubmitted ? (
+            <div className="flex items-center justify-center gap-2 text-museum-terracotta-600 py-2">
+              <CheckCircle className="w-5 h-5" />
+              <span className="text-sm font-medium">You're on the list!</span>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:border-transparent"
+                />
+                <button
+                  type="submit"
+                  className="bg-museum-terracotta-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-museum-terracotta-700 transition-colors focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-offset-2"
+                >
+                  Notify Me
+                </button>
+              </div>
+              {error && (
+                <p className="text-red-600 text-sm">{error}</p>
+              )}
+            </form>
+          )}
+        </div>
       </div>
       </div>
     </div>

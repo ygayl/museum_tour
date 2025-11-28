@@ -349,7 +349,14 @@ function App() {
                 loadingTours ? (
                   <PageLoading />
                 ) : (
-                  <TourSelectionPage tours={toursForMuseum} onSelectTour={handleSelectTour} />
+                  <TourSelectionPage
+                    tours={toursForMuseum}
+                    onSelectTour={handleSelectTour}
+                    museumId={selectedMuseum?.id || ''}
+                    museumName={selectedMuseum?.name || ''}
+                    cityId={selectedCity?.id || ''}
+                    cityName={selectedCity?.name || ''}
+                  />
                 )
               ) : currentView === 'tour' ? (
                 selectedTour ? <TourPage
