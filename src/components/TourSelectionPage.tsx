@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Bell } from 'lucide-react';
 import { Tour } from '../types/tour';
 import ComingSoonModal from './ComingSoonModal';
 
@@ -100,7 +101,7 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({
                   {/* Coming Soon Badge */}
                   {isComingSoon && (
                     <div className="absolute top-3 right-3">
-                      <span className="bg-museum-terracotta-500 text-white text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">
+                      <span className="bg-white/90 text-museum-neutral-600 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">
                         Coming Soon
                       </span>
                     </div>
@@ -108,18 +109,25 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({
                 </div>
 
                 {/* Text Section */}
-                <div className={`p-4 ${isComingSoon ? 'opacity-60' : ''}`}>
-                  <h2 className="text-lg font-normal font-serif text-museum-primary-900 mb-2">
+                <div className="p-4">
+                  <h2 className={`text-lg font-normal font-serif text-museum-primary-900 mb-2 ${isComingSoon ? 'opacity-60' : ''}`}>
                     {tour.name}
                   </h2>
-                  <p className="text-museum-neutral-600 text-sm mb-2 leading-relaxed">
+                  <p className={`text-museum-neutral-600 text-sm mb-2 leading-relaxed ${isComingSoon ? 'opacity-60' : ''}`}>
                     {tour.description}
                   </p>
-                  <p className={`font-normal text-sm ${
-                    isComingSoon ? 'text-museum-terracotta-500' : 'text-museum-terracotta-600'
-                  }`}>
-                    {isComingSoon ? 'Get notified when available' : `Duration: ${tour.duration}`}
-                  </p>
+                  <div className={isComingSoon ? 'flex justify-end' : ''}>
+                    {isComingSoon ? (
+                      <span className="inline-flex items-center gap-1.5 bg-museum-terracotta-500 text-white text-sm font-medium px-3 py-1.5 rounded-lg hover:bg-museum-terracotta-600 transition-colors">
+                        <Bell className="w-4 h-4" />
+                        Get Notified
+                      </span>
+                    ) : (
+                      <p className="text-museum-terracotta-600 font-normal text-sm">
+                        Duration: {tour.duration}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </button>
             );
