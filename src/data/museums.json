@@ -63,13 +63,6 @@
     "cityId": "paris"
   },
   {
-    "id": "pompidou",
-    "name": "Centre Pompidou",
-    "image": "/images/museums/pompidou",
-    "description": "Modern and contemporary art",
-    "cityId": "paris"
-  },
-  {
     "id": "met",
     "name": "The Metropolitan Museum of Art",
     "image": "/images/museums/met",
@@ -91,17 +84,17 @@
     "cityId": "new-york"
   },
   {
-    "id": "asian_art_sf",
-    "name": "Asian Art Museum",
-    "image": "/images/museums/asian_art_sf",
-    "description": "One of the most comprehensive Asian art collections in the world",
-    "cityId": "san-francisco"
+    "id": "uffizi",
+    "name": "Uffizi Gallery",
+    "image": "/images/museums/uffizi",
+    "description": "Renaissance masterpieces in Florence",
+    "cityId": "florence"
   },
   {
-    "id": "deyoung",
-    "name": "De Young Museum",
-    "image": "/images/museums/deyoung",
-    "description": "San Francisco museum of American and contemporary art",
-    "cityId": "san-francisco"
+    "id": "vatican_museums",
+    "name": "Vatican Museums",
+    "image": "/images/museums/vatican_museums",
+    "description": "Papal art collections and the Sistine Chapel",
+    "cityId": "vatican-city"
   }
 ]

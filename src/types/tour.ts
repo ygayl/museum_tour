@@ -19,6 +19,7 @@ export interface Tour {
   outroAudio?: string;     // Outro audio URL (optional)
   outroNarration?: string; // Outro narration text (optional)
   artworks: Stop[];        // Array of artworks in the tour
+  status?: 'active' | 'coming_soon'; // Tour availability status (defaults to 'active')
 }
 
 /**

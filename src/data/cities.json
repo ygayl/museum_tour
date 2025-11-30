@@ -1,9 +1,9 @@
 [
   {
-    "id": "amsterdam",
-    "name": "Amsterdam",
-    "image": "/images/cities/amsterdam.jpg",
-    "description": "Dive into Dutch masters and European heritage"
+    "id": "paris",
+    "name": "Paris",
+    "image": "/images/cities/paris.jpg",
+    "description": "Explore the City of Light and its world-famous museums"
   },
   {
     "id": "london",
@@ -12,27 +12,33 @@
     "description": "Uncover centuries of art and culture in Britain's capital"
   },
   {
-    "id": "madrid",
-    "name": "Madrid",
-    "image": "/images/cities/madrid.jpg",
-    "description": "Discover the artistic treasures of Spain's capital"
-  },
-  {
     "id": "new-york",
     "name": "New York",
     "image": "/images/cities/new-york.jpg",
     "description": "Experience the cultural melting pot of the Big Apple"
   },
   {
-    "id": "paris",
-    "name": "Paris",
-    "image": "/images/cities/paris.jpg",
-    "description": "Explore the City of Light and its world-famous museums"
+    "id": "vatican-city",
+    "name": "Vatican City",
+    "image": "/images/cities/vatican-city.jpg",
+    "description": "Marvel at the artistic treasures of the world's smallest state"
   },
   {
-    "id": "san-francisco",
-    "name": "San Francisco",
-    "image": "/images/cities/san-francisco.jpg",
-    "description": "Discover contemporary and classic art by the Bay"
+    "id": "madrid",
+    "name": "Madrid",
+    "image": "/images/cities/madrid.jpg",
+    "description": "Discover the artistic treasures of Spain's capital"
+  },
+  {
+    "id": "amsterdam",
+    "name": "Amsterdam",
+    "image": "/images/cities/amsterdam.jpg",
+    "description": "Dive into Dutch masters and European heritage"
+  },
+  {
+    "id": "florence",
+    "name": "Florence",
+    "image": "/images/cities/florence.jpg",
+    "description": "Discover the birthplace of the Renaissance"
   }
 ]
