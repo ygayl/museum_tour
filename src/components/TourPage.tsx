@@ -121,7 +121,11 @@ const TourPage: React.FC<TourPageProps> = ({ tour, onBackToTours, onSelectStop, 
                   {/* Content - Middle */}
                   <div className="flex-1 min-w-0">
                     <h4 className="text-sm font-light text-museum-primary-900 mb-1">
-                      {index + 1}: <span className="italic">{stop.title}</span>
+                      {stop.id.startsWith('intro-') || stop.id.startsWith('conclusion-') ? (
+                        <span className="italic">{stop.title}</span>
+                      ) : (
+                        <>{stop.order}: <span className="italic">{stop.title}</span></>
+                      )}
                       {stop.artist && <span>, {stop.artist}</span>}
                     </h4>
                   </div>

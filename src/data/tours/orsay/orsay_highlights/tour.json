@@ -1,0 +1,124 @@
+{
+  "id": "orsay_highlights",
+  "name": "Orsay Impressionism Highlights – 60 Minutes",
+  "museumId": "orsay",
+  "description": "Discover the revolutionary Impressionist masterpieces that changed art forever.",
+  "duration": "60 minutes",
+  "theme": "impressionism",
+  "language": "en",
+  "image": "/images/museums/orsay.jpg",
+  "introAudio": "/audio/tours/orsay_highlights/introduction.mp3",
+  "introNarration": "Welcome. You're standing in one of the world's most remarkable museums, a place where centuries of human creativity come alive on the walls around you. What makes this museum extraordinary isn't just the masterpieces it holds, but the way it invites you into conversation with them. Today, you're not just observing art. You're stepping into a revolution.\n\nThe works you're about to see didn't arrive here by accident. They came through generations of passionate collectors who recognized something radical, something that would change how we see the world forever. Century after century, curators and connoisseurs gathered these pieces, preserving a movement that was once dismissed, even mocked. They understood that these paintings held something precious: a new way of capturing light, emotion, and the fleeting beauty of everyday life.\n\nToday's tour takes you into the heart of Impressionism, a moment when artists dared to break every rule. You'll discover how painters stepped out of dark studios and into brilliant sunlight, how they captured not what they knew, but what they saw in a single, shimmering instant. This isn't a journey through techniques and dates. It's about feeling the warmth of afternoon sun on a poppy field, understanding why a brushstroke left loose and wild can move you more than perfect precision ever could.\n\nTo begin, make your way to Level 5 and find Room 29. There, you'll meet Claude Monet's \"Poppies,\" a painting that distills everything Impressionism means into one perfect moment. A woman, a child, a field ablaze with red blooms beneath an endless sky. It's where your journey into light begins.\n\nLet's start walking.",
+  "artworks": [
+    {
+      "id": "poppies",
+      "title": "Poppies",
+      "artist": "Claude Monet",
+      "order": 1,
+      "room": "29",
+      "floor": 5,
+      "narration": "Our journey begins with one of the most celebrated paintings from the movement that revolutionized modern art.\n\nA field blazes red with wild poppies, somewhere near the French village of Argenteuil. The year is 1873, and Claude Monet is painting not a grand historical scene or a classical landscape—but this: an ordinary summer day.\n\nLook at how he's built this scene. Two pairs of figures—likely his wife Camille and son Jean, painted twice to create rhythm across the canvas. Notice the loose, rapid brushstrokes. Those poppies aren't carefully detailed flowers—they're dabs of vermillion red, dots of paint that somehow convince your eye they're blooms swaying in the breeze. The sky is suggested, not rendered. The grass dissolves into strokes of green and gold.\n\nMonet is working outdoors, directly from nature—what the French called \"plein air.\" He's racing against changing light, capturing not the permanent features of this field, but a single fleeting moment: the quality of afternoon sunshine, the shimmer of heat, the feeling of a walk through summer grass.\n\nWithin a year, this painting would hang in the first Impressionist exhibition of 1874—the show that launched a revolution. Critics were scandalized by these \"unfinished\" works, these ordinary subjects. But Monet wasn't interested in finish. He was after something no artist had quite captured before: the actual experience of seeing, the way light transforms everything it touches, the shimmering, ever-changing present moment.\n\nThat poppy field is long gone. But stand here, and Monet gives you back that afternoon—the warmth, the color, the simple pleasure of a summer walk. That's not memory. That's time, held still in paint.",
+      "image": "/images/artworks/poppies/poppies",
+      "audio": "/audio/tours/orsay_highlights/poppies.mp3"
+    },
+    {
+      "id": "bal_du_moulin_de_la_galette",
+      "title": "Bal du moulin de la Galette",
+      "artist": "Pierre-Auguste Renoir",
+      "order": 2,
+      "room": "30",
+      "floor": 5,
+      "narration": "Paris, 1876. Every Sunday afternoon, working-class Parisians climbed the hill of Montmartre to dance under the trees at the Moulin de la Galette—a sprawling outdoor dance garden where a glass of wine cost less than a franc and the music played until dark.\n\nRenoir hauled this massive canvas up that hill himself, determined to paint the scene exactly where it happened. Look at what he captured: dozens of figures crowded together, dancing, drinking, talking. Notice the woman in the pink dress at the center, frozen mid-conversation. The men in straw boaters. The striped fabric of that bench in the foreground. These aren't anonymous types—they're Renoir's friends and models, people he knew, painted life-size.\n\nNow look at the light. See how it breaks through the acacia trees above, scattering across faces, shoulders, the ground itself? Those patches of gold and violet aren't just decoration—they're Renoir's revolutionary technique. Instead of smooth, blended tones, he's catching the actual flicker of sunlight through leaves, the way your eye really experiences a sunny afternoon. The blue shadows, the pink reflections on skin—this is what outdoor light actually does.\n\nArt historians recognize this as one of Impressionism's defining achievements: not a posed studio scene, but modern life caught in motion, painted in the open air with brushstrokes you can see.\n\nWhat Renoir understood—what this painting proves—is that ordinary joy deserves the same monumental treatment as kings and gods. A Sunday afternoon. A working woman in her best dress. Sunlight through trees. He made it immortal.\n\nThe everyday world, painted as if it mattered. Because it does.",
+      "image": "/images/artworks/bal_du_moulin_de_la_galette/bal_du_moulin_de_la_galette",
+      "audio": "/audio/tours/orsay_highlights/bal_du_moulin_de_la_galette.mp3"
+    },
+    {
+      "id": "the_saint_lazare_station",
+      "title": "The Saint-Lazare Station",
+      "artist": "Claude Monet",
+      "order": 3,
+      "room": "31",
+      "floor": 5,
+      "narration": "Iron, glass, and clouds of white steam—this is what Monet chose to paint in 1877. Not a garden. Not a sunrise over water. A railway station, humming with locomotives and the pulse of industrial Paris.\n\nLook at how the steam dominates this canvas. Those billowing clouds aren't obstacles to Monet's vision—they *are* his vision. Notice how they catch the light filtering through the glass roof, how they soften the hard edges of the metal architecture, how they blur the distinction between solid and air. The station becomes almost cathedral-like, its iron framework creating Gothic arches filled not with stained glass but with atmospheric haze.\n\nSee the dark locomotives emerging from the mist, the tiny figures of passengers moving along the platforms, the geometric patterns of the metal shed stretching into the distance. Every element vibrates with movement and modern life.\n\nHere's what makes this remarkable: Monet painted not just one view of the Gare Saint-Lazare, but twelve—an entire series captured in 1877. He was fascinated by this very new station, by the challenge of depicting steam and smoke, those most transient and unpaintable of subjects. While other artists still believed beauty belonged to mythology or the countryside, Monet found it in locomotives and industrial architecture.\n\nHe showed these paintings at the Third Impressionist Exhibition that same year, declaring that the modern world—with all its steam and iron and movement—deserved the same serious artistic attention as any classical temple.\n\nThe station still stands today. But Monet taught us how to see its beauty.",
+      "image": "/images/artworks/the_saint_lazare_station/the_saint_lazare_station",
+      "audio": "/audio/tours/orsay_highlights/the_saint_lazare_station.mp3"
+    },
+    {
+      "id": "the_floor_scrapers",
+      "title": "The Floor Scrapers",
+      "artist": "Gustave Caillebotte",
+      "order": 4,
+      "room": "31",
+      "floor": 5,
+      "narration": "In 1875, the Paris Salon rejected this painting. Not because it was poorly executed—but because its subject was considered too vulgar for public display.\n\nThree men, stripped to the waist, scrape a parquet floor. Notice their bodies—Caillebotte studied anatomy with the precision of an academic painter. See how the light from the window catches the sweat on their backs, the concentration in their postures. Look at that floor itself: each plank of wood rendered with almost photographic detail, the curls of shavings scattered across the surface. This is extraordinary technical skill—the kind usually reserved for mythological heroes or society portraits.\n\nBut Caillebotte gave that skill to ordinary workers.\n\nHere's what made this revolutionary: Gustave Caillebotte was born into wealth. His family made their fortune in textiles and real estate. He never had to scrape a floor in his life. Yet he chose to paint laborers with the same dignity, the same monumental treatment that the Salon gave to generals and saints.\n\nThe jury called it inappropriate. Working-class men, nearly nude, depicted life-size in a bourgeois apartment? This wasn't what art was supposed to show.\n\nBut Caillebotte understood something essential: that labor has its own nobility, that these bent backs and strong hands were as worthy of attention as any marble god. He painted the reality of who actually built and maintained the Paris his class lived in—and he refused to look away.",
+      "image": "/images/artworks/the_floor_scrapers/the_floor_scrapers",
+      "audio": "/audio/tours/orsay_highlights/the_floor_scrapers.mp3"
+    },
+    {
+      "id": "self_portrait",
+      "title": "Self-Portrait",
+      "artist": "Vincent van Gogh",
+      "order": 5,
+      "room": "36",
+      "floor": 5,
+      "narration": "This face appears again and again in Vincent van Gogh's work—more than thirty-five times in just four years, between 1886 and 1889. Not because he was particularly vain, but because he was desperately poor. Models cost money. His own reflection cost nothing.\n\nLook closely at how he's built this image. Notice those short, directional brushstrokes—visible, almost sculptural. They don't blend smoothly into skin. Instead, they sit on the canvas in ridges of paint, creating texture you could almost feel. Van Gogh is using his own face as a laboratory, testing theories about color and light he'd encountered in Paris, where he'd recently moved from the Netherlands.\n\nSee the background? Those swirling strokes of blue and green aren't random. He's applying ideas from Japanese prints and the new color theories circulating among avant-garde painters—complementary colors placed side by side to make each more vibrant, more alive.\n\nThese self-portraits served another purpose: he sent them to fellow artists, including Paul Gauguin and Émile Bernard, as a kind of calling card, a way to introduce himself and his developing technique when he couldn't afford to travel or entertain.\n\nWhat you're seeing is not just a likeness. It's a record of transformation—a Dutch painter absorbing the radical new approaches of Paris, teaching himself through the most available subject he had. Every self-portrait is an experiment, each one pushing further into color, into visible brushwork, into what paint itself could do.\n\nVan Gogh turned necessity into innovation, his own face the canvas for revolution.",
+      "image": "/images/artworks/self_portrait/self_portrait",
+      "audio": "/audio/tours/orsay_highlights/self_portrait.mp3"
+    },
+    {
+      "id": "starry_night_over_the_rhone",
+      "title": "Starry Night over the Rhône",
+      "artist": "Vincent van Gogh",
+      "order": 6,
+      "room": "36",
+      "floor": 5,
+      "narration": "September 1888, and Vincent van Gogh is doing something most painters won't attempt—working outside, in the dark, along the Rhône river in Arles. He's placed candles around the brim of his straw hat to light his palette.\n\nLook at what he captured: the night sky above the river, alive with stars. Gas lamps from the town glow golden-yellow along the shore, their light stretching across the water in shimmering vertical strokes of orange and gold. Notice how the reflections break and scatter on the river's surface—he's not painting still water, but movement, the gentle ripple of current catching light.\n\nAnd those stars—blues and whites against the deep cobalt sky. Van Gogh is building the night with color, not darkness. Where other artists might use black, he uses ultramarine, cobalt, prussian blue. In his letters to his brother Theo, he wrote obsessively about this challenge: how to paint the night without losing color, how to show darkness that still vibrates with life.\n\nSee the couple in the foreground, walking along the shore? Two small figures, almost silhouettes, but they ground us here, remind us we're looking at a real place, a specific September evening.\n\nThis painting comes from van Gogh's most productive period—those intense months in Arles before his mental health unraveled. Van Gogh pushed Impressionism's innovations with light and color into radical new territory. A year later, he'd paint another starry night from memory, the famous one with swirling skies. But this one? This is direct observation. A painter standing in the dark, candles flickering on his hat, trying to catch the exact way starlight meets water. Night, seen as no one had painted it before.",
+      "image": "/images/artworks/starry_night_over_the_rhone/starry_night_over_the_rhone",
+      "audio": "/audio/tours/orsay_highlights/starry_night_over_the_rhone.mp3"
+    },
+    {
+      "id": "luncheon_on_the_grass",
+      "title": "Luncheon on the Grass",
+      "artist": "Édouard Manet",
+      "order": 7,
+      "room": "29",
+      "floor": 5,
+      "narration": "She's naked. The men beside her are fully dressed in the fashions of 1863—one wears a flat cap, the other a tasseled fez. No one seems concerned. This is what shocked Paris when Édouard Manet submitted this painting to the official Salon that year.\n\nThey rejected it. Along with thousands of other works. The outcry was so loud that Napoleon III himself organized an alternative exhibition—the Salon des Refusés, the \"exhibition of rejects.\" When the emperor visited, reports suggest he was genuinely offended by what he saw here.\n\nBut what, exactly, was the scandal? Paris had seen plenty of nudes. The Louvre was full of them—goddesses, nymphs, mythological women whose nakedness came with the safety of ancient stories. Manet's woman—likely his frequent model, Victorine Meurent—sits in a contemporary French park, in the company of modern Parisian men. She looks directly at us. No allegory, no excuse.\n\nLook at how Manet paints her. The light is almost flat. There's little modeling or soft blending—the technique academic painters spent years perfecting. Her body feels bold, immediate, painted with an honesty that strips away the polished fantasy most nudes offered.\n\nAnd here's where Manet shows his sophistication: he based this composition on a respected Renaissance engraving after Raphael—a detail of river gods from \"The Judgment of Paris.\" Art historians have documented this connection clearly. Manet wasn't ignorant of tradition. He was challenging it deliberately, taking a classical arrangement and relocating it to a modern picnic.\n\nThis painting didn't destroy academic art on its own. But it opened a door. It asked: why can't contemporary life be worthy of serious art? Why does truth need the costume of mythology? Within two decades, the Impressionists would walk through that door. And modern art—raw, direct, unflinching—would follow.",
+      "image": "/images/artworks/luncheon_on_the_grass/luncheon_on_the_grass",
+      "audio": "/audio/tours/orsay_highlights/luncheon_on_the_grass.mp3"
+    },
+    {
+      "id": "olympia",
+      "title": "Olympia",
+      "artist": "Édouard Manet",
+      "order": 8,
+      "room": "14",
+      "floor": 0,
+      "narration": "1865, the Paris Salon. Guards had to stand before this painting. Not to honor it—to protect it from furious visitors who threatened to slash the canvas with umbrellas and canes. The jury hung it near the ceiling, as high as possible, hoping distance might calm the outrage.\n\nWhat provoked such fury? Look at her. She's lying on a bed, completely nude, and she's staring straight back at you. Notice everything about this scene—it's contemporary, modern. That orchid in her hair. The bracelet. Those dainty slippers, one still on, one falling off. Behind her, a Black servant holds out a bouquet—flowers from a client, most likely. And at her feet, a black cat, back arched.\n\nNothing here suggests mythology. No Venus. No goddess. The bracelet, the ribbon, the flowers—these are signs nineteenth-century viewers would have recognized immediately. This is a courtesan. A sex worker. A real woman named Victorine Meurent, who Manet painted exactly as she was.\n\nHere's what made it unforgivable: wealthy Parisian men could admire countless paintings of nude women at the Salon—as long as those women were disguised as goddesses or nymphs from mythology. Safe. Distant. Imaginary. Manet stripped away that comfortable fiction. He painted a real woman in a real profession, and worse—he made her look back. That direct gaze turns the viewer from an invisible observer into a client. Into a participant.\n\nManet was deliberately referencing Titian's Venus of Urbino from 1538—same pose, same composition. But where Titian painted an idealized goddess, Manet painted the truth.\n\nThis painting didn't just shock Paris. It cracked open the hypocrisy of an entire system—one that celebrated the female nude only when draped in mythology. Manet showed modern life without the disguise, and art would never be the same.",
+      "image": "/images/artworks/olympia/olympia",
+      "audio": "/audio/tours/orsay_highlights/olympia.mp3"
+    },
+    {
+      "id": "a_burial_at_ornans",
+      "title": "A Burial at Ornans",
+      "artist": "Gustave Courbet",
+      "order": 9,
+      "room": "7",
+      "floor": 0,
+      "narration": "Twenty-two feet wide. Nearly the length of a small house. Gustave Courbet painted this canvas in 1849 to show a funeral—but not just any funeral. This is a burial in his hometown of Ornans, a small provincial town in eastern France, and these figures are real people: the mayor, the priest, local farmers, townspeople. About fifty of them, life-sized, dressed in black.\n\nLook at their faces. No idealization. No classical beauty. Some are distracted. Some look bored. The gravedigger on the left kneels casually. Notice the dog in the foreground—just there, part of the scene. And that hole in the ground, dark and matter-of-fact, waiting for the coffin.\n\nNow here's what made this painting revolutionary: its size. Before Courbet, canvases this monumental were reserved for history paintings—mythological gods, biblical scenes, kings, battles. The academic rules were clear: grand scale for grand subjects. Common people got small paintings, genre scenes you'd glance at in passing.\n\nCourbet shattered that hierarchy. He took the scale of a coronation or a martyrdom and used it for an ordinary provincial burial. When this appeared at the Paris Salon of 1850, critics were scandalized. They called it vulgar, ugly, an assault on taste. Because Courbet was making a radical claim: everyday life—these unremarkable people, this common ritual—deserves the same monumental treatment as emperors and saints.\n\nHe wasn't just painting what he saw. He was declaring that ordinary human experience is worthy of our sustained attention, our respect, our largest canvases. Stand back and take in the full width of it. This is democracy on canvas—the insistence that all lives, not just the powerful or beautiful, matter enough to be remembered at this scale. That idea changed art forever.",
+      "image": "/images/artworks/a_burial_at_ornans/a_burial_at_ornans",
+      "audio": "/audio/tours/orsay_highlights/a_burial_at_ornans.mp3"
+    },
+    {
+      "id": "whistlers_mother",
+      "title": "Whistler’s Mother",
+      "artist": "James McNeill Whistler",
+      "order": 10,
+      "room": "Galerie Seine",
+      "floor": 0,
+      "narration": "The artist called it \"Arrangement in Grey and Black No. 1.\" The world calls it \"Whistler's Mother.\"\n\nThis tension—between what James McNeill Whistler intended and what his painting became—tells us everything about this quiet, revolutionary work. Look at her: Anna McNeill Whistler, sixty-seven years old, seated in profile against a grey wall in her son's London studio in 1871. She was supposed to stand. But standing was too uncomfortable, so she sat, and that practical decision gave us one of art history's most iconic poses.\n\nNotice how Whistler composed this. The blacks and greys echo each other—her dress, the curtain, the wall, the floor. The white of her cap and handkerchief provide sharp, deliberate contrast. That framed print on the wall? It's positioned with mathematical precision. Whistler wasn't painting a sentimental portrait of his mother. He was painting an arrangement, a study in form and tone, influenced by Japanese prints he admired.\n\nThe title wasn't pretentious—it was a statement. Whistler championed \"art for art's sake,\" the idea that painting should be about color, composition, and harmony, not storytelling or moral lessons. When the Royal Academy nearly rejected this in 1872—it was accepted by a single vote—they saw a cold, strange portrait. Whistler saw beauty in restraint.\n\nBut here's what happened: the painting transcended his intentions. It became an American icon of motherhood, dignity, and devotion. In 1891, France purchased it for 4,000 francs, the first Whistler acquired by a public collection. During World War II, it toured America and became a symbol of home.\n\nWhistler wanted an arrangement. He created something greater—a painting that means one thing to art history and another to the human heart. Both readings are true, and both remind us why these revolutionary works still move us today.",
+      "image": "/images/artworks/whistlers_mother/whistlers_mother",
+      "audio": "/audio/tours/orsay_highlights/whistlers_mother.mp3"
+    }
+  ]
+}

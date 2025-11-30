@@ -1,0 +1,126 @@
+{
+  "id": "prado_highlights",
+  "name": "Prado Highlights",
+  "museumId": "prado",
+  "description": "Explore the Prado's masterpieces in just 60 minutes, from Bosch's surreal visions to Goya's iconic figures. Experience art's timeless beauty with our expert guide!",
+  "duration": "60 minutes",
+  "theme": "masterpieces",
+  "language": "en",
+  "image": "/images/museums/prado.jpg",
+  "introAudio": "/audio/tours/prado_highlights/introduction.mp3",
+  "introNarration": "Welcome to the Museo del Prado. You're standing in one of the world's great treasure houses—a place shaped not by chance, but by devotion. What you're about to see wasn't assembled by committees or bought at auction. Every painting here tells a story of passion, of kings and queens who loved art enough to change the world for it.\n\nFor nearly four centuries, Spain's royal families—first the Habsburgs, then the Bourbons—collected with fierce enthusiasm. These weren't museum pieces then. They were intimate pictures for palace walls and private chapels, chosen because they moved someone, challenged someone, delighted someone powerful enough to claim them. Then, in 1819, something extraordinary happened. Those doors opened to everyone. This building, originally designed as a home for science, became Spain's first great public art museum. Suddenly, what had been whispered about in royal corridors could be seen by anyone who walked through these halls.\n\nThe Prado isn't a sampler of everything. It's something rarer—the depth that comes from centuries of focused taste. And in the next hour, you'll experience that concentrated power. We're moving through time and vision itself, from surreal gardens where pleasure and peril intertwine, to portraits where faces seem to breathe, to moments of darkness and transcendence that still shake us today. You'll see why these works haven't just survived—they've insisted on being seen, generation after generation.\n\nNow, let's begin. Make your way to the Villanueva Building, Level 0, Room 056A. There, waiting for you, is one of the strangest, most magnificent paintings ever made: Hieronymus Bosch's \"Garden of Earthly Delights.\" Three panels. A world of wonder and warning. \n\nLet's step inside.",
+  "outroAudio": "/audio/tours/prado_highlights/conclusion.mp3",
+  "outroNarration": "We've just walked through some remarkable pieces—from Bosch's wild Garden to Velázquez's brilliant Las Meninas, which never quite reveals all its secrets no matter how many times you see it. The Prado has this way of holding centuries of conversation between artists, and you've just heard some of the best exchanges.\n\nThanks for spending the hour with us. If you're curious about where Spanish art went after Goya, the Reina Sofía is worth the visit—Picasso's Guernica alone makes the trip across town worthwhile. Museum Made Easy has tours there and across Madrid whenever you're ready.\n\nThe Prado's one of those places that rewards coming back. Different light, different mood, different paintings catch your attention. You're always welcome here.",
+  "artworks": [
+    {
+      "id": "the_garden_of_earthly_delights",
+      "title": "The Garden of Earthly Delights",
+      "artist": "Hieronymus Bosch",
+      "order": 1,
+      "room": "056A",
+      "floor": 0,
+      "narration": "Our journey through the Prado's greatest masterpieces begins with a painting that has captivated and confounded viewers for over five centuries.\n\nStanding before you is one of the most perplexing paintings ever made. The Garden of Earthly Delights by Hieronymus Bosch, painted around fifteen hundred, spans nearly thirteen feet across three oak panels. And trust me, every inch is packed with the bizarre.\n\nStart with the left panel. That's the Garden of Eden, recognizable enough, with Adam and Eve and exotic animals. Now shift to the center. Hundreds of pale, nude figures cavort in an impossible garden. They climb into giant strawberries. They ride camels and unicorns. They lounge inside transparent bubbles and oversized mussel shells. Birds are enormous. Fruit towers overhead. It's paradise, maybe, or something stranger.\n\nThen the right panel hits you. Hell. Bodies impaled on musical instruments. A bird-headed demon devouring sinners. Structures burning in the distance. The contrast is deliberate and unsettling.\n\nHere's what we know for certain. By fifteen ninety-three, this triptych belonged to Spain's King Philip the Second, who kept it in his private palace at El Escorial. The king, known for his religious severity, was fascinated by Bosch's work. Museum records show he owned several.\n\nWhat did Bosch actually mean? Scholars have debated this for centuries. Some read it as a moral warning against earthly pleasures. Others see references to alchemy, astrology, or heretical beliefs. The truth is, Bosch left no explanation, and the painting's original title is lost to history.\n\nLook closely at his technique. The details are microscopic, painted with brushes of just a few hairs. Technical analysis shows he worked in translucent glazes, building up luminous, strange colors.\n\nStep back. Take it all in. Five centuries later, this garden still refuses to give up all its secrets. And maybe that's exactly what Bosch intended.",
+      "image": "/images/artworks/the_garden_of_earthly_delights/the_garden_of_earthly_delights",
+      "audio": "/audio/tours/prado_highlights/the_garden_of_earthly_delights.mp3"
+    },
+    {
+      "id": "the_descent_from_the_cross",
+      "title": "The Descent from the Cross",
+      "artist": "Rogier van der Weyden",
+      "order": 2,
+      "room": "052C",
+      "floor": 0,
+      "narration": "Ten figures, frozen in grief, pressed into a space barely deeper than a carved frame. This is one of the most emotionally powerful paintings of the fifteenth century, and it achieves something revolutionary by making paint look like sculpture.\n\nRogier van der Weyden completed this around 1435 for the Chapel of the Crossbowmen's Guild in Leuven. Notice those tiny crossbows painted in the corner traceries—they're the signature of his patrons. But look at how he's arranged these life-sized figures. They're compressed into a shallow, golden space, their bodies forming an intricate pattern across the surface. Van der Weyden is deliberately imitating a carved wooden altarpiece, making flesh and fabric appear as polychromed sculpture. It was a bold choice that made the sacred story feel both monumental and intimately tactile.\n\nNow focus on two bodies in particular: Christ being lowered from the cross, and Mary collapsing at the right. See how their poses mirror each other? Christ's descending body curves downward, and Mary's fainting form echoes that same arc. Her grief literally takes the shape of his death. This visual rhyme—mother and son united in one falling gesture—transforms the entire composition into a meditation on shared suffering. Art historians recognize this as one of the most poignant expressions of empathy in Western art.\n\nThe painting caused a sensation. Mary of Hungary acquired it in the sixteenth century, and it eventually entered the Spanish royal collection. Artists across Europe copied this composition for generations, trying to capture van der Weyden's fusion of Northern realism with profound emotional depth. What you're seeing isn't just a religious scene. It's the moment painting learned to make visible the invisible weight of sorrow, body answering body across the space of love and loss.",
+      "image": "/images/artworks/the_descent_from_the_cross/the_descent_from_the_cross",
+      "audio": "/audio/tours/prado_highlights/the_descent_from_the_cross.mp3"
+    },
+    {
+      "id": "the_annunciation",
+      "title": "The Annunciation",
+      "artist": "Fra Angelico",
+      "order": 3,
+      "room": "056B",
+      "floor": 0,
+      "narration": "In the stillness of a portico, time holds its breath. Before you, Fra Angelico has captured not a moment but the threshold between all that was and all that will be. Look at the light here, how it falls soft as prayer across the columns, across the garden enclosed behind them. The architecture itself becomes sacred geometry, each line of perspective drawing you inward, toward this encounter.\n\nSee the angel, Gabriel, with wings that shimmer through rose and emerald and sapphire, colors borrowed from paradise itself. His body bends in reverence, hands crossed at his breast. And Mary, on the right, mirrors his humility. She does not recoil. She leans forward, arms crossed too, in a gesture of acceptance that will change everything. Between them, the space glows with an almost unbearable tenderness.\n\nFra Angelico painted this as a Dominican friar, a man who spent his life in contemplation. Every detail here breathes the patience of one who has gazed long at mystery. Notice the garden visible through the arcade, that hortus conclusus, the enclosed garden of medieval symbolism, speaking of Mary's purity. In the upper left corner, barely visible, Adam and Eve leave Eden. One exile ends as another story begins.\n\nThe gold still catches light after six centuries, delicate as the halos that crown these figures. There is no drama here, no theatrical gesture. What Fra Angelico understood, what he offers you now, is that the most profound transformations happen in quietness. In a portico. In a moment of yes.\n\nStand here a while longer. Let your eye travel those perspective lines, that impossible recession into sacred space. This is how the infinite enters the finite. Through an open door. Through light on stone. Through a word spoken and received in stillness.",
+      "image": "/images/artworks/the_annunciation/the_annunciation",
+      "audio": "/audio/tours/prado_highlights/the_annunciation.mp3"
+    },
+    {
+      "id": "the_naked_maja",
+      "title": "The Naked Maja",
+      "artist": "Francisco de Goya",
+      "order": 4,
+      "room": "038",
+      "floor": 1,
+      "narration": "In 1815, the Spanish Inquisition summoned Francisco de Goya to explain why he had painted this woman. Not a goddess. Not Venus. Just a woman, naked, looking straight back at you.\n\nShe reclines on green silk cushions and white sheets, her body pale against the darkness behind her. Her right arm is raised behind her head, her left hand rests near her hip. Nothing covers her. And here's what made this painting truly shocking: she shows pubic hair, something virtually unseen in Western art at this scale. But more revolutionary than what she shows is how she looks at us. There's no shame in her eyes, no coy glance away. She knows you're looking, and she doesn't care.\n\nGoya painted her twice. In the companion piece hanging nearby, the same woman wears a white jacket and yellow skirt, her pose identical. Scholars believe a mechanism allowed the clothed version to slide away, revealing this one underneath—a private unveiling for whoever commissioned them, likely Manuel de Godoy, Spain's Prime Minister.\n\nWe still don't know who she was. For two centuries, people have guessed—was she the Duchess of Alba, Godoy's mistress, someone else entirely? Goya never told. The painting was seized from Godoy's collection after his fall from power in 1808. Years later, when the Inquisition investigated Goya for obscene works, he survived. The Spanish crown kept it locked up for decades, too scandalous to display.\n\nWhat the Inquisition understood, and what we still feel standing here, is that Goya painted more than a nude body. He painted agency. She isn't posed for our pleasure or positioned as mythology. She's a specific person, modern and real, who meets our gaze as an equal. Two hundred years later, that directness still has power.",
+      "image": "/images/artworks/the_naked_maja/the_naked_maja",
+      "audio": "/audio/tours/prado_highlights/the_naked_maja.mp3"
+    },
+    {
+      "id": "the_three_graces",
+      "title": "The Three Graces",
+      "artist": "Peter Paul Rubens",
+      "order": 5,
+      "room": "029",
+      "floor": 1,
+      "narration": "Three women, arms intertwined, bodies pressed together in an eternal dance. These are the Three Graces, daughters of Zeus in ancient myth, goddesses of beauty, charm, and creativity. But Peter Paul Rubens didn't paint goddesses from imagination. He painted from life.\n\nLook at their flesh. Notice how it seems to glow with warmth, how the pale skin catches light and shadow in soft gradations. Rubens built these figures with extraordinary care, layering translucent glazes over underpaint to create the illusion of real, breathing skin. This wasn't idealized marble. This was living bodies.\n\nThe woman on the left, turned away from us, scholars believe was modeled on Rubens' second wife, Helene Fourment. He married her when he was fifty-three and she was sixteen. She appears throughout his late work, and this painting remained in his personal collection until his death. It was never meant to be sold. This was intimate, kept in his own home.\n\nWhat Rubens did here was radical. While Italian Renaissance masters had painted the Graces as slender, idealized forms, Rubens painted real Flemish women, with bellies and dimpled thighs and flesh that folds. He transformed an ancient theme into something immediate and human.\n\nThis painting eventually entered the Spanish royal collection, and it influenced Spanish artists for generations. When you look at Velázquez's nudes, at Goya's maja, you're seeing echoes of what Rubens established here: that beauty doesn't require idealization, that the real human body, painted with love and honesty, carries its own divinity.",
+      "image": "/images/artworks/the_three_graces/the_three_graces",
+      "audio": "/audio/tours/prado_highlights/the_three_graces.mp3"
+    },
+    {
+      "id": "las_meninas",
+      "title": "Las Meninas",
+      "artist": "Diego Velázquez",
+      "order": 6,
+      "room": "012",
+      "floor": 1,
+      "narration": "You're standing in front of one of the most analyzed paintings in Western art. Las Meninas, painted by Diego Velázquez in 1656, has puzzled and mesmerized viewers for over three centuries. It's enormous, nearly eleven feet tall, and it does something almost no painting had done before: it makes you part of the scene.\n\nLook at the center. That's five-year-old Infanta Margarita Teresa, daughter of King Philip the Fourth of Spain. She's surrounded by her maids of honor, the meninas, who give the painting its name. But here's where it gets strange. See the man on the left, holding a palette? That's Velázquez himself, staring right at you. And look at the back wall, that mirror. The faces reflected there are the King and Queen of Spain. Where are they standing? Where you're standing now.\n\nThis wasn't just a portrait. Velázquez was the royal court painter, and he used this commission to make a bold statement about his profession. At the time, painters were considered craftsmen, not intellectuals. By placing himself in the royal presence, by showing the act of painting itself, Velázquez elevated his art. The red cross on his chest was added later, marking his induction into the Order of Santiago, a knighthood he fought years to achieve.\n\nNotice how the light falls. Museum conservation studies show Velázquez used incredibly loose, quick brushstrokes. Up close, the Infanta's dress looks like chaotic dabs of paint. Step back, and it shimmers like actual silk. He's showing you his mastery.\n\nThe painting's influence is documented and enormous. Picasso created fifty-eight interpretations of it in 1957. Manet studied it. Foucault wrote philosophy about it.\n\nIf the masterpieces we've seen so far have impressed you, this one will challenge everything you thought you knew about painting.\n\nStand here long enough, and you realize Velázquez painted a question with no answer: who is watching whom?",
+      "image": "/images/artworks/las_meninas/las_meninas",
+      "audio": "/audio/tours/prado_highlights/las_meninas.mp3"
+    },
+    {
+      "id": "the_nobleman_with_his_hand_on_his_chest",
+      "title": "The Nobleman with his Hand on his Chest",
+      "artist": "El Greco",
+      "order": 7,
+      "room": "008B",
+      "floor": 1,
+      "narration": "A hand pressed to the heart, fingers splayed over black silk, as if caught mid-oath. This is how El Greco chose to capture a Spanish gentleman around 1580, in what would become one of the most distinctive portraits of the Golden Age.\n\nWe don't know his name. Centuries of scholarship haven't definitively identified him, though the sword at his hip and the expensive lace ruff tell us he belonged to Toledo's elite. What matters isn't who he was, but how El Greco saw him.\n\nLook at that hand. It's impossibly elegant, elongated beyond naturalism, the fingers tapering like flames. This wasn't incompetence. The Cretan-born artist, trained in the Byzantine tradition before studying Venice's rich color and absorbing Titian's mastery, had developed a vision entirely his own. He stretched the human form, not to distort it, but to elevate it, to suggest something beyond mere flesh.\n\nNotice how the black doublet seems to absorb light, making that white ruff and pale hand almost luminous. Spanish nobility wore black as a mark of dignity and restraint, and El Greco understood this perfectly. The austerity becomes a kind of drama.\n\nThat gesture, hand on heart, is the distinctive signature of this particular portrait. Many scholars connect it to Spanish customs of oath-taking, a physical sign of honor, sincerity, and truth. Whether this man was making a vow or simply asserting his integrity, El Greco has frozen him in a moment of profound personal declaration.\n\nFour centuries later, we still feel the weight of that gesture. Whatever promise he made, the painting keeps it.",
+      "image": "/images/artworks/the_nobleman_with_his_hand_on_his_chest/the_nobleman_with_his_hand_on_his_chest",
+      "audio": "/audio/tours/prado_highlights/the_nobleman_with_his_hand_on_his_chest.mp3"
+    },
+    {
+      "id": "still_life_with_vessels",
+      "title": "Still Life with Vessels",
+      "artist": "Francisco de Zurbarán",
+      "order": 8,
+      "room": "010A",
+      "floor": 1,
+      "narration": "Here, in the silence of a Spanish painter's vision, time holds its breath. Against darkness absolute, vessels emerge—not thrust into light, but discovered there, as if they had always existed in this precise arrangement, waiting. The background offers no landscape, no window, no world beyond. Only black. Only presence.\n\nEach object stands with the weight of something more than clay and metal. These earthenware storage jars—their humble purposes transformed by attention so complete it becomes a kind of prayer. Zurbarán, who spent his life painting saints and monks, brings that same reverent gaze to these simple forms. The light falls as it does in monastery cells, catching the curve of earthenware, the glint of a lid, revealing texture and volume with almost unbearable precision.\n\nThere is no drama here, no narrative. A cup does not tip. Flowers do not wilt. Nothing happens, and that is the point. In his later years, as Zurbarán's career waned and commissions grew scarce, he turned increasingly to these still arrangements—a practice from later in his life, a new focus as sacred commissions diminished. One might sense in them not sadness, but a deepening—a distillation of what he had always sought. The sacred made visible in the everyday. The eternal caught in the temporary.\n\nStand here long enough and you begin to understand. These are not just vessels. They are exercises in seeing, invitations to slow down, to notice weight and shadow and the way light can make even the most ordinary object luminous. The painter offers no explanation, no story. Only this: the profound mystery of things, simply being.",
+      "image": "/images/artworks/still_life_with_vessels/still_life_with_vessels",
+      "audio": "/audio/tours/prado_highlights/still_life_with_vessels.mp3"
+    },
+    {
+      "id": "david_with_the_head_of_goliath",
+      "title": "David with the Head of Goliath",
+      "artist": "Caravaggio",
+      "order": 9,
+      "room": "007A",
+      "floor": 1,
+      "narration": "A teenage boy holds a severed head by its hair, the giant's eyes half-open, blood fresh on the blade. Caravaggio painted two major versions of this subject: one around 1600-1601, now in Vienna, and the more famous version from 1609-1610, now in Rome's Galleria Borghese, when he was transforming how violence could look on canvas.\n\nNotice the boy's face, young David, barely out of childhood. His expression is hard to read, somewhere between concentration and something darker. The light catches his shoulder, his forearm, the furrowed brow, while everything else dissolves into shadow. This is what made Caravaggio revolutionary: darkness isn't just background, it's a presence, and light doesn't illuminate everything, it reveals only what matters.\n\nLook at Goliath's head. Caravaggio painted death without softening it. The slack jaw, the dull eyes, the weight of it hanging from David's grip. Art before this moment often made biblical heroes noble and distant. Caravaggio made them real. He pulled models from the streets of Rome, painted them exactly as they were, dirt and beauty together.\n\nThe sword catches light like a slash across the darkness. David's other hand grips the sword, the very weapon that felled the giant. Every detail is observed, not idealized. Caravaggio had seen violence firsthand. He lived it, carried a sword himself, would eventually kill a man in a brawl and flee Rome as a fugitive.\n\nThis painting asks something uncomfortable: what does it cost to be a hero? David hasn't struck a triumphant pose. He's a boy doing brutal work, and Caravaggio won't let us look away from what that really means.",
+      "image": "/images/artworks/david_with_the_head_of_goliath/david_with_the_head_of_goliath",
+      "audio": "/audio/tours/prado_highlights/david_with_the_head_of_goliath.mp3"
+    },
+    {
+      "id": "the_bacchanal_of_the_andrians",
+      "title": "The Bacchanal of the Andrians",
+      "artist": "Titian",
+      "order": 10,
+      "room": "042",
+      "floor": 1,
+      "narration": "A river of wine flows through the center of this painting—not metaphor, but myth made visible. Titian depicts the island of Andros, where the god Bacchus supposedly gifted the inhabitants an actual stream of red wine flowing eternally through their land.\n\nLook at the figures scattered across this landscape in various stages of abandon. To the right, men tip jugs directly to their mouths. In the center, notice the white sheet of paper on the ground. Those aren't decorative marks—that's real musical notation, an actual four-part song with legible words: \"Who drinks and does not drink again, knows not what drinking is.\" Scholars have transcribed and performed this Renaissance composition.\n\nFollow the revelry to the right foreground. There, a woman sleeps, draped in white and blue, her body echoing the poses of classical sculpture Titian studied. The warm flesh tones, the play of fabric against skin, the way late afternoon light seems to glow from within the bodies themselves—this is Titian demonstrating why Venice became legendary for color.\n\nThis painting began as words. Around 1518, Duke Alfonso d'Este of Ferrara commissioned Titian to transform an ancient Greek text—Philostratus the Elder's written description of a lost painting—back into visual form. Titian created not just an image, but a fusion: ancient poetry, Renaissance music, mythological narrative, and painterly innovation merged into a single scene.\n\nIt's one of the earliest examples of painting aspiring to be multimedia—literature and music and visual art speaking simultaneously, two thousand years of culture meeting on a single canvas. And with that ambition—merging every art form into one vision—we complete our journey through the Prado's masterpieces.",
+      "image": "/images/artworks/the_bacchanal_of_the_andrians/the_bacchanal_of_the_andrians",
+      "audio": "/audio/tours/prado_highlights/the_bacchanal_of_the_andrians.mp3"
+    }
+  ]
+}
