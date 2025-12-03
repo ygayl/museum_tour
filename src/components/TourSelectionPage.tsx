@@ -74,7 +74,7 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({
                 <div className="relative aspect-[4/3] bg-museum-neutral-100">
                   <picture>
                     <img
-                      src={`${tour.image}`}
+                      src={tour.image}
                       alt={tour.name}
                       className={`w-full h-full object-cover ${isComingSoon ? 'opacity-70' : ''}`}
                       width="720"
