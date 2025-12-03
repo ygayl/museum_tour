@@ -16,21 +16,12 @@ const CitiesPage: React.FC<CitiesPageProps> = ({ cities, onSelectCity }) => {
   return (
     <div className="cities-page-container bg-cream-gradient min-h-screen">
       <div className="container mx-auto px-6 py-4">
-      <div className="text-center">
-        <h1 className="cities-page-title mb-4 text-2xl font-light tracking-wide text-museum-primary-900 font-serif md:text-4xl">
-          Pick Your City
-        </h1>
-        {/* <p className="mx-auto max-w-2xl text-lg text-museum-neutral-600 font-light md:text-xl">
-          Select your city to discover curated museum experiences
-        </p> */}
-      </div>
-
-      <div className="cities-grid grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="cities-grid grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {cities.map((city) => (
           <button
             key={city.id}
             onClick={() => onSelectCity(city)}
-            className="city-card group bg-white border border-gray-200 overflow-hidden hover:border-gray-300 hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset text-left w-full"
+            className="city-card rounded-xl group bg-white border border-gray-200 overflow-hidden hover:border-gray-300 hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset text-left w-full"
           >
             {/* Image Section */}
             <div className="city-image-container relative aspect-[4/3] bg-museum-neutral-100">

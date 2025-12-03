@@ -156,12 +156,7 @@
 }
 
 /* Ensure mobile-first responsive behavior */
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    margin: 0 auto;
-  }
-}
+
 
 /* Custom scrollbar for better mobile experience */
 ::-webkit-scrollbar {

@@ -162,7 +162,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
         {/* Floor and Room Number Display */}
         {stop.room && !isIntroductionStop && !isConclusionStop && (
           <div className="px-6 py-3 bg-gray-50 border-t border-gray-100">
-            <div className="flex items-center justify-center">
+            <div className="max-w-4xl mx-auto flex items-center justify-center">
               <span className="text-xs font-normal tracking-[0.25em] text-gray-600 uppercase">
                 {stop.floor !== undefined && `Floor ${stop.floor} - `}Room {stop.room}
               </span>
@@ -172,20 +172,22 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
 
         {/* Compact Audio Player */}
         <div className="px-6 py-6 bg-white">
-          <CompactAudioPlayer
-            audioUrl={stop.audio}
-            stopNumber={isIntroductionStop ? 0 : getStopNumber()}
-            title={stop.title}
-            artist={stop.artist || ''}
-            tourName={tour.name}
-            transcript={stop.narration}
-            shouldPause={currentlyPlaying !== null && currentlyPlaying !== `${stop.id}-audio`}
-            onProgressUpdate={(progress: number) => handleAudioProgress(stop.id, progress)}
-            tourId={tour.id}
-            stopId={stop.id}
-            analyticsEnabled={analyticsEnabled}
-            {...createAudioCallbacks(stop.id)}
-          />
+          <div className="max-w-4xl mx-auto">
+            <CompactAudioPlayer
+              audioUrl={stop.audio}
+              stopNumber={isIntroductionStop ? 0 : getStopNumber()}
+              title={stop.title}
+              artist={stop.artist || ''}
+              tourName={tour.name}
+              transcript={stop.narration}
+              shouldPause={currentlyPlaying !== null && currentlyPlaying !== `${stop.id}-audio`}
+              onProgressUpdate={(progress: number) => handleAudioProgress(stop.id, progress)}
+              tourId={tour.id}
+              stopId={stop.id}
+              analyticsEnabled={analyticsEnabled}
+              {...createAudioCallbacks(stop.id)}
+            />
+          </div>
         </div>
 
 
@@ -212,7 +214,7 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
       {/* Always show the navigation button */}
       <button
         onClick={handleNext}
-        className="fixed bottom-4 right-4 bg-white/90 backdrop-blur-sm text-museum-primary-900 p-3 rounded-full shadow-lg border border-gray-200 hover:bg-white hover:scale-105 transition-all duration-200 z-[9997] group"
+        className="fixed bottom-8 right-6 bg-white/90 backdrop-blur-sm text-museum-primary-900 p-4 rounded-full shadow-xl border border-gray-200 hover:bg-white hover:scale-105 transition-all duration-200 z-[9999] group"
         aria-label={isLastStop ? "Complete Tour" : `Next: ${nextStop?.title}`}
       >
         {isLastStop ? (

@@ -289,7 +289,7 @@ function App() {
     pushHistoryState('artpiece', selectedCity, selectedMuseum, selectedTour, stop);
 
     if (analyticsEnabled && selectedTour) {
-      analytics.trackAudioPlay(selectedTour.id, stop.id, 'single');
+      analytics.trackAudioPlay(selectedTour.id, stop.id);
     }
   };
 
@@ -299,17 +299,17 @@ function App() {
       case 'intro':
         return '1-Hour Museum Tours';
       case 'cities':
-        return '';
+        return 'Pick Your City';
       case 'museums':
-        return '';
+        return 'Pick Your Museum';
       case 'tours':
-        return '';
+        return 'Pick Your Tour';
       case 'tour':
-        return '';
+        return selectedTour?.name || 'Tour Details';
       case 'artpiece':
-        return '';
+        return selectedStop?.title || 'Art Piece';
       default:
-        return '1-Hour Museum Tours';
+        return '';
     }
   };
 
