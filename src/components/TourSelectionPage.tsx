@@ -64,25 +64,17 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({
               <button
                 key={tour.id}
                 onClick={() => handleTourClick(tour)}
-                className={`group bg-white overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset text-left w-full ${
+                className={`group bg-white rounded-xl overflow-hidden transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-museum-terracotta-500 focus:ring-inset text-left w-full ${
                   isComingSoon
-                    ? 'border-2 border-dashed border-museum-terracotta-300 hover:border-museum-terracotta-500'
+                    ? 'border-2 border-dashed order-museum-terracotta-300 hover:border-museum-terracotta-500'
                     : 'border border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                 }`}
               >
                 {/* Image Section */}
                 <div className="relative aspect-[4/3] bg-museum-neutral-100">
                   <picture>
-                    <source
-                      srcSet={`${tour.image.replace('.jpg', '')}_720.webp`}
-                      type="image/webp"
-                    />
-                    <source
-                      srcSet={`${tour.image.replace('.jpg', '')}_720.jpg`}
-                      type="image/jpeg"
-                    />
                     <img
-                      src={`${tour.image.replace('.jpg', '')}_720.jpg`}
+                      src={`${tour.image}`}
                       alt={tour.name}
                       className={`w-full h-full object-cover ${isComingSoon ? 'opacity-70' : ''}`}
                       width="720"
