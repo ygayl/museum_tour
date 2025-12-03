@@ -19,16 +19,22 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({
 }) => {
   const [selectedComingSoonTour, setSelectedComingSoonTour] = useState<Tour | null>(null);
 
-  // Sort tours: active highlighted first, then active alphabetically, then coming soon
+  // Sort tours: active first (highlighted, then alphabetically, then kids), then coming soon (same order)
   const sortedTours = [...tours].sort((a, b) => {
     const aIsComingSoon = a.status === 'coming_soon';
     const bIsComingSoon = b.status === 'coming_soon';
+    const aIsKids = a.theme === 'Family';
+    const bIsKids = b.theme === 'Family';
 
     // Active tours come before coming soon
     if (!aIsComingSoon && bIsComingSoon) return -1;
     if (aIsComingSoon && !bIsComingSoon) return 1;
 
-    // Within active tours, highlighted ones come first
+    // Within each group (active or coming soon), kids tours go last
+    if (!aIsKids && bIsKids) return -1;
+    if (aIsKids && !bIsKids) return 1;
+
+    // Within non-kids tours, highlighted ones come first
     const aIsHighlighted = a.name.toLowerCase().includes('highlights');
     const bIsHighlighted = b.name.toLowerCase().includes('highlights');
 
