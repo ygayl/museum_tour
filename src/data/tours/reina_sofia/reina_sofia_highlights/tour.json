@@ -1,0 +1,115 @@
+{
+  "id": "reina_sofia_highlights",
+  "name": "Reina Sofía Highlights – 60 Minutes",
+  "museumId": "reina_sofia",
+  "description": "A journey through modern Spanish art where creativity, politics, and emotion reshape how we see and feel.",
+  "duration": "60 minutes",
+  "theme": "Modern and Contemporary Spanish Art",
+  "language": "en",
+  "image": "/images/museums/reina_sofia.jpg",
+  "introAudio": "/audio/tours/reina_sofia_highlights/introduction.mp3",
+  "introNarration": "Welcome to the Museo Reina Sofía, Spain’s home for modern and contemporary art. You’re in a place where artistic revolution meets political awakening, where bold ideas left the studio and entered public life—and forever changed how a country sees itself.\n\nThis collection was born with Spain’s new democracy. A former hospital became a promise: modern art deserves a national stage. Temporary shows grew into a permanent home, officially opened in 1992 and named for Queen Sofía, to safeguard the avant‑garde and its restless future.\n\nIn the next 60 minutes, we’ll follow a living conversation between creativity, power, and feeling. You’ll sense rupture and reinvention—cubist breaks, surreal openings, and contemporary echoes of war, memory, and hope. We’ll look closely, listen for courage and tenderness, and let these works reshape how we see.\n\nFrom the Sabatini Building’s main entrance, pass security and head to the glass elevators. Ride to Level 2. Follow signs for Collection 1, Room 201, then 201.02. Our first stop is Picasso’s Mujer en azul—poised, enigmatic, electric with possibility. Ready? Let’s begin.",
+  "outroAudio": "/audio/tours/reina_sofia_highlights/conclusion.mp3",
+  "outroNarration": "We've just walked through some of the most defining moments in Spanish modern art—from Picasso's early experiments to the raw power of Guernica, with some brilliant detours through Surrealism and the undersung voices like Ángeles Santos along the way. Not a bad hour's work.\n\nThanks for spending this time with us. If you're curious to see where some of these artists drew their inspiration, the Prado is just down the road—Museum Made Easy has a tour there too that traces the Spanish masters who shaped what Picasso and his generation were reacting against. Worth the visit while you're in Madrid.\n\nThe Reina Sofía has plenty more to discover beyond what we've covered today, so feel free to wander. And if you're looking for more tours here or elsewhere, Museum Made Easy has you sorted. Enjoy the rest of your time in Madrid—this city has a way of keeping you curious.",
+  "artworks": [
+    {
+      "id": "mujer_en_azul_woman_in_blue",
+      "title": "Mujer en azul",
+      "artist": "Pablo Picasso",
+      "order": 1,
+      "room": "201.02",
+      "floor": 2,
+      "narration": "Our journey begins with an early Picasso—a portrait painted at just nineteen that would reshape his entire artistic voice.\n\nIn 1901, a very young Picasso set this woman into a world of blue. Her figure rises from a subdued interior, the background kept spare so the dress can speak: deep cobalt laid over cooler indigos, light skimming the folds where thicker strokes catch and shine. This belongs to the dawn of his Blue Period, when color itself becomes subject; the mood is restrained, the palette cool, and the brushwork—visible, directional—builds the fabric as much as it describes it.\n\nThat year was a hinge in his life. He moved between Barcelona and Paris for his first major Paris exhibition with Ambroise Vollard, and he had just lost his close friend Carlos Casagemas. Picasso later linked his turn to blue with that death, and here, in this painting—one among several so titled—, you can feel how blue begins to carry feeling without theatrics. The woman's presence is self-contained, her gaze turned slightly away; the quiet around her isn't an invented silence but the effect of limited color and simplified space.\n\nWhat makes this matter in art history is the way it marks Picasso's first signature language. In the months that follow, blue will become an atmosphere for empathy in modern art, a proof that a chromatic choice can hold a world of experience. The figure's elegance is real, but it's the color that does the talking.\n\nLook closely at the dress: see how lighter strokes ride atop darker blues to shape each fold, and how the edges soften where the blue meets the murky ground. Those deliberate, layered brushstrokes are the technique to watch—paint as cloth, color as emotion, the Blue Period arriving one measured stroke at a time.",
+      "image": "/images/artworks/mujer_en_azul_woman_in_blue/mujer_en_azul_woman_in_blue",
+      "audio": "/audio/tours/reina_sofia_highlights/mujer_en_azul_woman_in_blue.mp3"
+    },
+    {
+      "id": "tertulia_the_gathering",
+      "title": "Tertulia",
+      "artist": "Ángeles Santos",
+      "order": 2,
+      "room": "203.02",
+      "floor": 2,
+      "narration": "Picture this: a teenager, barely eighteen years old, paints a room full of towering, mysterious figures that look like they've stepped out of a fever dream. That's Ángeles Santos in 1929, creating works like Tertulia (The Gathering) when most of us are still figuring out what to do with our lives. She wasn't just talented for her age. She was shaking up the entire Spanish art world.\n\nLook at these figures gathered around the table. They're elongated, almost architectural, with those blank, mask-like faces. It's a gathering, sure, but something feels off. The bodies seem to float and stretch in impossible ways. Santos was tapping into surrealism, but with her own eerily elegant twist. These aren't the melting clocks or ants-on-hands you might expect. This is more subtle, more haunting.\n\nWhat makes this even more remarkable is the context. In 1929, Santos had her first solo exhibition in Barcelona. Critics were stunned. Here was this young woman creating bold, avant-garde work that held its own alongside the era's most experimental artists. She was part of a brief, brilliant moment in Spanish modern art, right before everything changed.\n\nAnd here's the heartbreaking part: In the years around the Spanish Civil War, amid personal struggles and upheaval, Santos largely moved away from this surrealist style. Those circumstances shifted her work dramatically. She lived until 2013, but these early paintings, including Tertulia, remain her most celebrated. They capture a young artist at the height of her powers, creating dreamscapes that still unsettle us nearly a century later. That teenage vision? Turns out it was timeless.",
+      "image": "/images/artworks/tertulia_the_gathering/tertulia_the_gathering",
+      "audio": "/audio/tours/reina_sofia_highlights/tertulia_the_gathering.mp3"
+    },
+    {
+      "id": "la_bouteille_danis_the_anis_bottle",
+      "title": "La bouteille d’anis",
+      "artist": "Juan Gris",
+      "order": 3,
+      "room": "204.01",
+      "floor": 2,
+      "narration": "Okay, so imagine you're trying to explain what a bottle looks like to someone over the phone. You'd describe the label from the front, the curve from the side, maybe how it looks from above, right? That's basically what Juan Gris is doing here, except he's showing you all those views at once, laid out like pieces of a puzzle on the canvas.\n\nGris was the organized, methodical one in the Cubist crew. While Picasso was breaking things apart with wild energy, Gris was more like an architect, carefully building images back up using geometric shapes and bright, clear colors. He often described his approach as flat, colored architecture, and you can really see that here. Notice how everything feels structured, almost decorative, with those clean planes of color.\n\nThat bottle he's painted? It's often read as Anís del Mono, a Spanish liqueur that was everywhere in the cafés of early 1900s Paris. For Gris and other Spanish artists living in Paris, it was a little taste of home. But it's also just the perfect subject for Cubism because everyday objects like bottles, newspapers, and glasses have recognizable features. You can fragment them, rearrange them, show the front and back simultaneously, and we still know exactly what we're looking at.\n\nWhat's clever is that Gris isn't trying to confuse you. He's actually giving you more information than a traditional painting would. You're seeing this bottle from multiple angles in a single moment, like your brain is assembling everything it knows about this object all at once.\n\nThis approach, called Synthetic Cubism, ended up influencing everything from advertising to graphic design. We're still using this idea today, showing multiple perspectives to tell a fuller story.",
+      "image": "/images/artworks/la_bouteille_danis_the_anis_bottle/la_bouteille_danis_the_anis_bottle",
+      "audio": "/audio/tours/reina_sofia_highlights/la_bouteille_danis_the_anis_bottle.mp3"
+    },
+    {
+      "id": "cartes_et_des_cards_and_dice",
+      "title": "Cartes et dés",
+      "artist": "Georges Braque",
+      "order": 4,
+      "room": "204.01",
+      "floor": 2,
+      "narration": "Imagine trying to paint a game of cards, but instead of capturing one frozen moment, you want to show every angle at once, like flipping through all the cards in the deck simultaneously. That's exactly the puzzle Braque's working on here.\n\nLook at how nothing sits still in this painting. Those playing cards aren't just scattered, they're shattered into geometric pieces. You can spot fragments of suits, maybe a diamond here, an edge of a card there. The dice feel both flat and dimensional at the same time, which is kind of the whole point. Braque and his partner-in-crime Picasso were obsessed with this idea in the early nineteen hundreds: why should a painting only show you what one eye sees from one spot? They wanted to give you the experience of walking around an object, picking it up, turning it over, all compressed into a single image.\n\nCards and dice weren't random choices. These were the props of Parisian café life, the world Braque actually inhabited. But here's what makes it brilliant: games of chance are about uncertainty, about multiple possible outcomes, and that's exactly what Cubism does to reality. It refuses to give you one solid answer about what you're looking at.\n\nNotice how flat everything feels, almost like cut paper layered on top of each other? Braque developed techniques that blurred the line between painting and collage, between illusion and actual texture. He's not asking you to believe you're looking at real cards on a real table. He's inviting you into a new way of seeing where multiple truths can exist in the same space. In our world of split screens and multiple browser tabs, maybe Braque was just ahead of his time.",
+      "image": "/images/artworks/cartes_et_des_cards_and_dice/cartes_et_des_cards_and_dice",
+      "audio": "/audio/tours/reina_sofia_highlights/cartes_et_des_cards_and_dice.mp3"
+    },
+    {
+      "id": "un_mundo_a_world",
+      "title": "Un mundo",
+      "artist": "Ángeles Santos",
+      "order": 5,
+      "room": "205.06",
+      "floor": 2,
+      "narration": "In 1929, an eighteen-year-old girl shocked the Madrid art world with this painting. Ángeles Santos was barely out of school when she created this monumental surrealist vision—and nothing in Spanish art looked quite like it.\n\nTake in the scale first. This is a world unto itself: towering architecture, strange mannequin figures, a dreamlike city stretching across nearly ten feet of canvas. Notice how Santos builds her landscape in layers—classical colonnades beside modern buildings, vast plazas opening onto impossible perspectives. The palette is muted, almost ghostly: grays, pale ochres, washed-out blues. It feels both ancient and eerily futuristic.\n\nLook closely at the figures. They're not quite human—smooth, featureless forms frozen mid-gesture. Some scholars see echoes of Giorgio de Chirico's metaphysical paintings here, that same sense of mysterious emptiness in grand architectural spaces. But Santos makes it entirely her own. This isn't Italy's sun-drenched piazzas—it's something more cerebral, more introspective.\n\nHere's what makes this astonishing: Santos painted Un mundo before Spanish Surrealism truly took hold, working largely in isolation in Valladolid. When it debuted at Madrid's Salón de Otoño in 1929, critics couldn't believe someone so young—and a woman, in conservative 1920s Spain—had produced something so ambitious and psychologically complex.\n\nThe painting captures that threshold moment between adolescence and adulthood, between dream and waking life. Santos called it \"a world,\" not \"the world.\" Her world. A private universe of symbols and spaces that she dared to make monumentally, unapologetically public. At eighteen, she wasn't waiting for permission to create her masterpiece. She simply did.",
+      "image": "/images/artworks/un_mundo_a_world/un_mundo_a_world",
+      "audio": "/audio/tours/reina_sofia_highlights/un_mundo_a_world.mp3"
+    },
+    {
+      "id": "mujer_con_abanico_woman_with_a_fan",
+      "title": "Mujer con abanico",
+      "artist": "María Blanchard",
+      "order": 6,
+      "room": "205.11",
+      "floor": 2,
+      "narration": "Muted planes and measured light meet you here. In the mid-1910s, within Synthetic Cubism—the later phase of Cubism that assembles form from flat, interlocking shapes—María Blanchard painted this Woman with a Fan. Greys and ochres settle like stone and shadow; the arc of the fan rises as a quiet crescent among angled facets. The light is exact rather than theatrical, tilting evenly across the planes so that shoulder, cheek, and background seem to share one continuous surface.\n\nIn 1916 she returned to Paris, rejoining the Cubist circle around Juan Gris after the war had briefly sent her back to Spain. You can feel that discipline in the way the figure is built, not described: facets dovetail with firm contours; curves are measured, geometry held close. Yet a person remains. An inclined face, the sheltering fan, a posture that closes and opens at once—signs that Blanchard turned Cubism toward the human presence, balancing rigor with tenderness. She modulates tone more than volume, letting surfaces read as facets rather than flesh, and the space stays shallow, keeping figure and ground in the same breath.\n\nThis matters because it shows how Cubism could carry feeling without abandoning structure. Blanchard extends Synthetic Cubism decisively into portraiture, confirming her as one of the movement’s key Spanish voices and one of the few women working at its core.\n\nLet your eye rest on the fan. Trace the ribs—those radiating lines that interrupt the angular rhythm and hinge the whole composition. Notice how each plane is edged with a deliberate line, a seam that keeps forms distinct while stitching them together. Perhaps that quiet fit is what you sense: order built gently enough to hold a life.",
+      "image": "/images/artworks/mujer_con_abanico_woman_with_a_fan/mujer_con_abanico_woman_with_a_fan",
+      "audio": "/audio/tours/reina_sofia_highlights/mujer_con_abanico_woman_with_a_fan.mp3"
+    },
+    {
+      "id": "visage_du_grand_masturbateur_face_of_the_great_masturbator",
+      "title": "Visage du Grand Masturbateur",
+      "artist": "Salvador Dalí",
+      "order": 7,
+      "room": "205.13",
+      "floor": 2,
+      "narration": "Here's a painting with one of the most provocative titles in modern art, and Dalí chose it deliberately. The Great Masturbator, from 1929, marks the moment when a young Spanish artist fully embraced Surrealism and his own deepest anxieties.\n\nLook at that massive distorted face in profile, eyes closed, almost melting into the rocks. It dominates the canvas. Near the center, you'll see a grasshopper with ants crawling on its abdomen. Dalí wrote in his autobiography about his terror of grasshoppers since childhood. Below the face, a female figure appears, and across the composition are geological forms from the cliffs of Cadaqués, where Dalí painted this.\n\nHe created this work during the summer of 1929, the same season he met Gala Éluard, who would become his lifelong partner and muse. That meeting, in that place, transformed his work. The painting pulls together currents in Surrealist circles at the time: the Surrealists’ interests in Freudian psychoanalysis and dream imagery. Dalí was twenty-five and creating his own visual language of desire and fear.\n\nThe technique shows his academic training at work. Despite the bizarre imagery, the rendering is precise. Those rocky forms come directly from the Costa Brava coastline he knew intimately.\n\nThis painting announces an artist willing to expose psychological territory most people keep hidden. The title isn't meant to shock for shock's sake. It's Dalí claiming his anxieties and obsessions as legitimate subjects for serious art.",
+      "image": "/images/artworks/visage_du_grand_masturbateur_face_of_the_great_masturbator/visage_du_grand_masturbateur_face_of_the_great_masturbator",
+      "audio": "/audio/tours/reina_sofia_highlights/visage_du_grand_masturbateur_face_of_the_great_masturbator.mp3"
+    },
+    {
+      "id": "femme_et_chien_devant_la_lune_woman_and_dog_in_front_of_the_moon",
+      "title": "Femme et chien devant la lune",
+      "artist": "Joan Miró",
+      "order": 8,
+      "room": "205.14",
+      "floor": 2,
+      "narration": "Against a blue that holds the depth of midnight, Joan Miró conjures a creature of dream logic—a golden form that is woman, that is animal, that is something neither and both. This is Surrealism at its most playful, where the moon watches and a dog exists not as anatomy but as essence, reduced to a pale shape in the corner, witness to this metamorphosis.\n\nNotice how Miró works through elimination rather than addition. The woman's body becomes a flowing yellow arabesque. Red limbs reach and gesture with the freedom of thought itself. Black and white curve like horns or arms or the calligraphy of some forgotten alphabet. There are no details here—no fingernails or fur or facial features that would anchor us to the waking world. Instead, Miró offers us the vocabulary of symbols he spent decades refining: circles for eyes, curves for longing, colors for states of being.\n\nThis was his gift to twentieth-century art—a visual poetry that bypassed the rational mind entirely. While other Surrealists painted nightmares with photographic precision, Miró painted the feeling of dreaming itself, that fluid state where a woman can have the grace of a giraffe, where a dog might be a cloud, where the moon observes it all with cosmic patience.\n\nLook at the way the yellow form twists upward, how the red hand reaches toward the white crescent flower or bird or moon-fragment near the dog. Everything connects through suggestion, through the invisible threads of association. This is how we think when we're not trying to think—in leaps and transformations, in colors that feel like emotions, in shapes that remember what they used to be.\n\nMiró trusted that language. He believed in it completely.",
+      "image": "/images/artworks/femme_et_chien_devant_la_lune_woman_and_dog_in_front_of_the_moon/femme_et_chien_devant_la_lune_woman_and_dog_in_front_of_the_moon",
+      "audio": "/audio/tours/reina_sofia_highlights/femme_et_chien_devant_la_lune_woman_and_dog_in_front_of_the_moon.mp3"
+    },
+    {
+      "id": "guernica",
+      "title": "Guernica",
+      "artist": "Pablo Picasso",
+      "order": 9,
+      "room": "205.10",
+      "floor": 2,
+      "narration": "This is one of the most powerful anti-war statements ever painted. This massive canvas, over twenty-five feet wide, stopped the world in its tracks in 1937. It still does today.\n\nLook at the chaos Picasso created here. A horse screams in the center, its body pierced. A bull stands to the left. Bodies fragment across the canvas. A woman wails, holding her dead child. Another figure burns, arms raised. See that stark lightbulb at the top, glaring like an evil eye. Everything rendered in blacks, whites, and grays. No color. No mercy.\n\nOn April twenty-sixth, 1937, German and Italian warplanes bombed the Basque town of Guernica during the Spanish Civil War. It was market day. The attack lasted over three hours. Picasso, living in Paris, read the news and began this painting within days. The Spanish Republic had commissioned him for a mural for their pavilion at the Paris World's Fair. He'd been stuck, unsure what to paint. The bombing gave him his answer. He finished it in just over a month, working in his studio on Rue des Grands Augustins. Photographs document his process, showing how the composition evolved.\n\nPicasso chose the visual language of his Cubist experiments but weaponized it for this moment. The fractured forms aren't just style. They mirror the violence itself. Bodies break apart like the technique breaks apart space.\n\nAfter the fair, this painting traveled the world raising funds for Spanish war relief. Picasso declared it shouldn't return to Spain until democracy was restored. It spent decades at New York's Museum of Modern Art. Only after Franco's death did it finally come home, in 1981.\n\nYou're not just seeing a masterpiece. You're standing before a painting that changed what art could do, proving that images could bear witness as powerfully as any words. And with that, we conclude our journey through Spanish art's most transformative moments.",
+      "image": "/images/artworks/guernica/guernica",
+      "audio": "/audio/tours/reina_sofia_highlights/guernica.mp3"
+    }
+  ]
+}
