@@ -1,0 +1,11 @@
+{
+  "id": "tate_modern_kids",
+  "status": "coming_soon",
+  "name": "Can I Make That Too?",
+  "museumId": "tate_modern",
+  "description": "Kids see modern art differently (better, actually). A tour where their perspective leads.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/tate_modern.jpg",
+  "artworks": []
+}

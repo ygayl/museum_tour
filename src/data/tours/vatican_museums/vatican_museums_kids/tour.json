@@ -1,0 +1,11 @@
+{
+  "id": "vatican_museums_kids",
+  "status": "coming_soon",
+  "name": "Ceiling to Floor: A Vatican Adventure",
+  "museumId": "vatican_museums",
+  "description": "Michelangelo painted lying on his back for 4 years. Kids love that. This tour is for them.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/vatican_museums.jpg",
+  "artworks": []
+}

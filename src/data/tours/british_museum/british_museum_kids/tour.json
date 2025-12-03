@@ -1,0 +1,11 @@
+{
+  "id": "british_museum_kids",
+  "status": "coming_soon",
+  "name": "Time Travelers: Ancient Adventures",
+  "museumId": "british_museum",
+  "description": "Mummies and pharaohs and treasures—a tour built for young explorers. Adults are welcome to tag along.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/british_museum.jpg",
+  "artworks": []
+}

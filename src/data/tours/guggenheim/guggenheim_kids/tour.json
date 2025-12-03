@@ -1,0 +1,11 @@
+{
+  "id": "guggenheim_kids",
+  "status": "coming_soon",
+  "name": "Spiral Into Art",
+  "museumId": "guggenheim",
+  "description": "The swirly building meets swirly art. Kids lead the climb—parents keep up.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/guggenheim.jpg",
+  "artworks": []
+}

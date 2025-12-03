@@ -1,0 +1,11 @@
+{
+  "id": "met_kids",
+  "status": "coming_soon",
+  "name": "Around the World in 60 Minutes",
+  "museumId": "met",
+  "description": "Knights, mummies, and treasures from everywhere—a world tour for young adventurers. Parents welcome.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/met.jpg",
+  "artworks": []
+}

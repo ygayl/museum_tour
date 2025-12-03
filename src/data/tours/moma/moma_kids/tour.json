@@ -1,0 +1,11 @@
+{
+  "id": "moma_kids",
+  "status": "coming_soon",
+  "name": "What Do YOU See?",
+  "museumId": "moma",
+  "description": "No wrong answers, just imagination. A tour where kids' ideas matter most.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/moma.jpg",
+  "artworks": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "rijksmuseum_kids",
+  "status": "coming_soon",
+  "name": "Rijksmuseum Treasure Hunt",
+  "museumId": "rijksmuseum",
+  "description": "Kids search for hidden symbols and secret messages. Parents carry the bags.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/rijksmuseum.jpg",
+  "artworks": []
+}

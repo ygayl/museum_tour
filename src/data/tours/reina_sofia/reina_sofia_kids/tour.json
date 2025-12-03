@@ -1,0 +1,11 @@
+{
+  "id": "reina_sofia_kids",
+  "status": "coming_soon",
+  "name": "Art Detectives: Modern Art Edition",
+  "museumId": "reina_sofia",
+  "description": "Weird shapes and wild colors make perfect sense to kids. A tour where young minds lead and grown-ups follow.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/reina_sofia.jpg",
+  "artworks": []
+}

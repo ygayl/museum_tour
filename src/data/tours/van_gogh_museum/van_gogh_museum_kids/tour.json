@@ -1,0 +1,11 @@
+{
+  "id": "van_gogh_museum_kids",
+  "status": "coming_soon",
+  "name": "Vincent's Colorful World",
+  "museumId": "van_gogh_museum",
+  "description": "Swirly skies and sunny flowers through a child's eyes. Kids get Vincent—this tour lets them prove it.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/van_gogh_museum.jpg",
+  "artworks": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "uffizi_kids",
+  "status": "coming_soon",
+  "name": "Florence's Fairy Tales",
+  "museumId": "uffizi",
+  "description": "Goddesses and angels and powerful families—Renaissance stories told for young dreamers.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/uffizi.jpg",
+  "artworks": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "prado_kids",
+  "status": "coming_soon",
+  "name": "Prado for Young Explorers",
+  "museumId": "prado",
+  "description": "A tour made for kids who love dragons, princesses, and mysterious monsters. Parents? You're just along for the ride.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/prado.jpg",
+  "artworks": []
+}

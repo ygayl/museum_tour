@@ -13,7 +13,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   alt,
   className = '',
   priority = false,
-  sizes = '(max-width: 768px) 360px, (max-width: 1024px) 720px, 1080px'
+  sizes = '(max-width: 480px) 360px, 100vw'
 }) => {
   const [isLoaded, setIsLoaded] = useState(priority);
   const [hasError, setHasError] = useState(false);
@@ -52,16 +52,14 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   // Check if this is a WebP-optimized path (no .jpg in base src)
   const hasWebPVersions = !src.includes('.jpg');
 
-  // Generate WebP and JPG srcsets
+  // Generate WebP and JPG srcsets (360 for mobile, base for larger screens)
   const generateSrcSet = (format: 'webp' | 'jpg') => {
     if (!hasWebPVersions) {
       // For traditional images, just return the original path
       return src;
     }
-    const sizes = [360, 720, 1080];
-    return sizes
-      .map(size => `${src}_${size}.${format} ${size}w`)
-      .join(', ');
+    // Mobile-first: 360px for small screens, base image for larger
+    return `${src}_360.${format} 360w, ${src}.${format}`;
   };
 
   // Fallback single image path (for when srcset fails)
@@ -69,7 +67,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
     if (!hasWebPVersions) {
       return src; // Return original JPG path
     }
-    return `${src}_720.jpg`;
+    return `${src}.jpg`;
   };
 
   return (
@@ -161,13 +159,8 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
 
                   // Fallback to basic JPG if responsive images fail
                   const target = e.target as HTMLImageElement;
-                  if (!target.src.includes('_720.jpg')) {
-                    hasTriedFallback.current = true;
-                    target.src = getFallbackSrc();
-                  } else {
-                    // If even the fallback fails, show error state
-                    setHasError(true);
-                  }
+                  hasTriedFallback.current = true;
+                  target.src = getFallbackSrc();
                 }}
               />
             </picture>

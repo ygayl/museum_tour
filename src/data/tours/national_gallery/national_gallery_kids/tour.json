@@ -1,0 +1,11 @@
+{
+  "id": "national_gallery_kids",
+  "status": "coming_soon",
+  "name": "Storytime in the Gallery",
+  "museumId": "national_gallery",
+  "description": "Every painting hides a story. Kids find them—parents just listen.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/national_gallery.jpg",
+  "artworks": []
+}

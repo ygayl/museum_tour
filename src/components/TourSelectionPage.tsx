@@ -98,6 +98,15 @@ const TourSelectionPage: React.FC<TourSelectionPageProps> = ({
                       </span>
                     </div>
                   )}
+
+                  {/* For Kids Badge */}
+                  {tour.theme === 'Family' && (
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-amber-400 text-amber-900 text-xs font-bold px-2.5 py-1 rounded-full shadow-sm">
+                        For Kids
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Text Section */}

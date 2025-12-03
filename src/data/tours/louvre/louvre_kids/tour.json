@@ -1,0 +1,11 @@
+{
+  "id": "louvre_kids",
+  "status": "coming_soon",
+  "name": "Louvre Quest: Secrets & Surprises",
+  "museumId": "louvre",
+  "description": "A museum adventure designed for curious kids. Parents can help with the hard words.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/louvre.jpg",
+  "artworks": []
+}

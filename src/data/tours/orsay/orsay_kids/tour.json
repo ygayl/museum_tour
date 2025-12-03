@@ -1,0 +1,11 @@
+{
+  "id": "orsay_kids",
+  "status": "coming_soon",
+  "name": "The Artists Who Colored Outside the Lines",
+  "museumId": "orsay",
+  "description": "Artists who broke the rules, explained for kids who get it. Grown-ups might learn something too.",
+  "duration": "30 minutes",
+  "theme": "Family",
+  "image": "/images/museums/orsay.jpg",
+  "artworks": []
+}
