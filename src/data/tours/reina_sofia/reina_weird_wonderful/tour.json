@@ -1,0 +1,11 @@
+{
+  "id": "reina_weird_wonderful",
+  "status": "coming_soon",
+  "name": "Weird & Wonderful",
+  "museumId": "reina_sofia",
+  "description": "Melting clocks, floating eyes, and dream logic. Welcome to Surrealism—it's a wild ride.",
+  "duration": "45 minutes",
+  "theme": "Surrealism",
+  "image": "/images/museums/reina_sofia.jpg",
+  "artworks": []
+}

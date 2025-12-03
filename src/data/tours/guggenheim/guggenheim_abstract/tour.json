@@ -1,0 +1,11 @@
+{
+  "id": "guggenheim_abstract",
+  "status": "coming_soon",
+  "name": "Abstract Art for Beginners",
+  "museumId": "guggenheim",
+  "description": "No, your kid couldn't paint this. Let us show you why these shapes and colors are genius.",
+  "duration": "45 minutes",
+  "theme": "Abstract Art",
+  "image": "/images/museums/guggenheim.jpg",
+  "artworks": []
+}

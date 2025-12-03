@@ -1,0 +1,11 @@
+{
+  "id": "uffizi_mafia_bomb",
+  "status": "coming_soon",
+  "name": "The Night the Mafia Bombed the Uffizi",
+  "museumId": "uffizi",
+  "description": "1993: a car bomb destroyed priceless art. The shocking true story of art under attack.",
+  "duration": "45 minutes",
+  "theme": "True Crime",
+  "image": "/images/museums/uffizi.jpg",
+  "artworks": []
+}

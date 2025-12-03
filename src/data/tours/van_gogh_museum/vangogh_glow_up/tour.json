@@ -1,0 +1,11 @@
+{
+  "id": "vangogh_glow_up",
+  "status": "coming_soon",
+  "name": "Vincent's Glow-Up",
+  "museumId": "van_gogh_museum",
+  "description": "From muddy brown paintings to Starry Night—watch an artist completely reinvent himself.",
+  "duration": "45 minutes",
+  "theme": "Artistic Evolution",
+  "image": "/images/museums/van_gogh_museum.jpg",
+  "artworks": []
+}

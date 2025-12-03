@@ -1,0 +1,11 @@
+{
+  "id": "vatican_museums_highlights",
+  "status": "coming_soon",
+  "name": "Vatican Museums Highlights",
+  "museumId": "vatican_museums",
+  "description": "From the Sistine Chapel to the Raphael Rooms—two millennia of sacred art in one transformative tour.",
+  "duration": "60 minutes",
+  "theme": "Highlights",
+  "image": "/images/museums/vatican_museums.jpg",
+  "artworks": []
+}

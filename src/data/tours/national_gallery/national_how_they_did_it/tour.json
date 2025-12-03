@@ -1,0 +1,11 @@
+{
+  "id": "national_how_they_did_it",
+  "status": "coming_soon",
+  "name": "How Did They Do That?",
+  "museumId": "national_gallery",
+  "description": "No filters, no Photoshop—discover the mind-blowing tricks artists used 500 years ago.",
+  "duration": "45 minutes",
+  "theme": "Technique",
+  "image": "/images/museums/national_gallery.jpg",
+  "artworks": []
+}

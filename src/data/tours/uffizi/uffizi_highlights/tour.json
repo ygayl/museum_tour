@@ -1,0 +1,11 @@
+{
+  "id": "uffizi_highlights",
+  "status": "coming_soon",
+  "name": "Uffizi Highlights",
+  "museumId": "uffizi",
+  "description": "Birth of Venus, Primavera, and more—experience the Renaissance masterpieces that changed art forever.",
+  "duration": "60 minutes",
+  "theme": "Highlights",
+  "image": "/images/museums/uffizi.jpg",
+  "artworks": []
+}

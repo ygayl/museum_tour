@@ -1,0 +1,11 @@
+{
+  "id": "national_art_heists",
+  "status": "coming_soon",
+  "name": "Stolen! Art Heists & Close Calls",
+  "museumId": "national_gallery",
+  "description": "Slashed, stolen, and soup-attacked. These paintings have been through A LOT.",
+  "duration": "45 minutes",
+  "theme": "Art Crime",
+  "image": "/images/museums/national_gallery.jpg",
+  "artworks": []
+}

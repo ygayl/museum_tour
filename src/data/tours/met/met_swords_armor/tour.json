@@ -1,0 +1,11 @@
+{
+  "id": "met_swords_armor",
+  "status": "coming_soon",
+  "name": "Swords, Knights & Samurai",
+  "museumId": "met",
+  "description": "Shiny armor, legendary weapons, and the warriors who used them. Yes, it's as cool as it sounds.",
+  "duration": "45 minutes",
+  "theme": "Arms & Armor",
+  "image": "/images/museums/met.jpg",
+  "artworks": []
+}

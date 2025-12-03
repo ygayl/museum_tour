@@ -1,0 +1,11 @@
+{
+  "id": "british_stolen",
+  "status": "coming_soon",
+  "name": "Stolen or Saved?",
+  "museumId": "british_museum",
+  "description": "Greece wants the Marbles back. Nigeria wants the Bronzes. Should Britain return them?",
+  "duration": "45 minutes",
+  "theme": "Controversy",
+  "image": "/images/museums/british_museum.jpg",
+  "artworks": []
+}

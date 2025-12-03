@@ -1,0 +1,11 @@
+{
+  "id": "louvre_mona_lisa_theft",
+  "status": "coming_soon",
+  "name": "Who Stole the Mona Lisa?",
+  "museumId": "louvre",
+  "description": "In 1911, someone walked out with her under his coat. The heist that made her famous.",
+  "duration": "45 minutes",
+  "theme": "Art Crime",
+  "image": "/images/museums/louvre.jpg",
+  "artworks": []
+}

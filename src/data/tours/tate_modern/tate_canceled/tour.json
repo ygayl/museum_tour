@@ -1,0 +1,11 @@
+{
+  "id": "tate_canceled",
+  "status": "coming_soon",
+  "name": "Banned, Burned & Controversial",
+  "museumId": "tate_modern",
+  "description": "The artworks that caused protests, walkouts, and very angry newspaper headlines.",
+  "duration": "45 minutes",
+  "theme": "Controversy",
+  "image": "/images/museums/tate_modern.jpg",
+  "artworks": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "rijks_nazi_loot",
+  "status": "coming_soon",
+  "name": "The Art the Nazis Stole",
+  "museumId": "rijksmuseum",
+  "description": "Hidden in salt mines, smuggled across borders. How Dutch masterpieces survived WWII.",
+  "duration": "45 minutes",
+  "theme": "WWII History",
+  "image": "/images/museums/rijksmuseum.jpg",
+  "artworks": []
+}

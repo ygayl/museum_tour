@@ -1,0 +1,11 @@
+{
+  "id": "vangogh_truth",
+  "status": "coming_soon",
+  "name": "The Truth About Vincent",
+  "museumId": "van_gogh_museum",
+  "description": "Forget the myths. What really happened with the ear? Did he actually kill himself?",
+  "duration": "45 minutes",
+  "theme": "Biography",
+  "image": "/images/museums/van_gogh_museum.jpg",
+  "artworks": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "tate_modern_highlights",
+  "status": "coming_soon",
+  "name": "Tate Modern Highlights",
+  "museumId": "tate_modern",
+  "description": "From Picasso to Rothko—discover the revolutionary works that redefined what art could be.",
+  "duration": "60 minutes",
+  "theme": "Highlights",
+  "image": "/images/museums/tate_modern.jpg",
+  "artworks": []
+}

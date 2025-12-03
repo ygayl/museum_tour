@@ -1,0 +1,11 @@
+{
+  "id": "uffizi_medici_crimes",
+  "status": "coming_soon",
+  "name": "The Medici Crime Family",
+  "museumId": "uffizi",
+  "description": "Murder, poison, and power. The ruthless family who bought and bullied their way to greatness.",
+  "duration": "45 minutes",
+  "theme": "History",
+  "image": "/images/museums/uffizi.jpg",
+  "artworks": []
+}

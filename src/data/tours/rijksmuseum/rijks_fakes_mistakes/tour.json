@@ -1,0 +1,11 @@
+{
+  "id": "rijks_fakes_mistakes",
+  "status": "coming_soon",
+  "name": "Fakes, Frauds & Masterpieces",
+  "museumId": "rijksmuseum",
+  "description": "Some 'Rembrandts' aren't Rembrandts. The detective story of real vs. fake Dutch Masters.",
+  "duration": "45 minutes",
+  "theme": "Art Authentication",
+  "image": "/images/museums/rijksmuseum.jpg",
+  "artworks": []
+}

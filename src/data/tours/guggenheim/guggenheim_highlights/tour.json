@@ -1,0 +1,11 @@
+{
+  "id": "guggenheim_highlights",
+  "status": "coming_soon",
+  "name": "Guggenheim Highlights",
+  "museumId": "guggenheim",
+  "description": "Spiral through modern art history in Frank Lloyd Wright's architectural masterpiece.",
+  "duration": "60 minutes",
+  "theme": "Highlights",
+  "image": "/images/museums/guggenheim.jpg",
+  "artworks": []
+}

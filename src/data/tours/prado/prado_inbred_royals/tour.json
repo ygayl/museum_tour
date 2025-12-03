@@ -1,0 +1,11 @@
+{
+  "id": "prado_inbred_royals",
+  "status": "coming_soon",
+  "name": "The Inbred Royals",
+  "museumId": "prado",
+  "description": "These royal portraits hide a dark secret: centuries of marrying cousins. It didn't end well.",
+  "duration": "45 minutes",
+  "theme": "Royal History",
+  "image": "/images/museums/prado.jpg",
+  "artworks": []
+}

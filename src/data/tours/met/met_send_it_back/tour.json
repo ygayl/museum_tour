@@ -1,0 +1,11 @@
+{
+  "id": "met_send_it_back",
+  "status": "coming_soon",
+  "name": "Send It Back?",
+  "museumId": "met",
+  "description": "Looted tombs, smuggled statues, and awkward questions. The Met's repatriation controversies.",
+  "duration": "45 minutes",
+  "theme": "Ethics",
+  "image": "/images/museums/met.jpg",
+  "artworks": []
+}

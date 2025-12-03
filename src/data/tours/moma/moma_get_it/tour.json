@@ -1,0 +1,11 @@
+{
+  "id": "moma_get_it",
+  "status": "coming_soon",
+  "name": "I Don't Get It (Yet)",
+  "museumId": "moma",
+  "description": "Modern art can be confusing. This tour will change that—no pretentious jargon, we promise.",
+  "duration": "45 minutes",
+  "theme": "Modern Art 101",
+  "image": "/images/museums/moma.jpg",
+  "artworks": []
+}

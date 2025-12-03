@@ -1,0 +1,11 @@
+{
+  "id": "national_gallery_highlights",
+  "status": "coming_soon",
+  "name": "National Gallery Highlights",
+  "museumId": "national_gallery",
+  "description": "From Van Eyck to Van Gogh—experience 700 years of Western painting in one unforgettable hour.",
+  "duration": "60 minutes",
+  "theme": "Highlights",
+  "image": "/images/museums/national_gallery.jpg",
+  "artworks": []
+}

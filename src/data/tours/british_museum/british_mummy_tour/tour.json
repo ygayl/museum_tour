@@ -1,0 +1,11 @@
+{
+  "id": "british_mummy_tour",
+  "status": "coming_soon",
+  "name": "All About Mummies",
+  "museumId": "british_museum",
+  "description": "How did they make them? What's inside? Finally get answers to everything you've always wondered.",
+  "duration": "45 minutes",
+  "theme": "Ancient Egypt",
+  "image": "/images/museums/british_museum.jpg",
+  "artworks": []
+}

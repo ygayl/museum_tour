@@ -1,0 +1,11 @@
+{
+  "id": "louvre_napoleon_heist",
+  "status": "coming_soon",
+  "name": "Napoleon's Greatest Heist",
+  "museumId": "louvre",
+  "description": "He conquered Europe and took all the best art. History's most ambitious collector—or thief?",
+  "duration": "45 minutes",
+  "theme": "History",
+  "image": "/images/museums/louvre.jpg",
+  "artworks": []
+}

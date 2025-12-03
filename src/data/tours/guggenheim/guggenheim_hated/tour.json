@@ -1,0 +1,11 @@
+{
+  "id": "guggenheim_hated",
+  "status": "coming_soon",
+  "name": "The Building Everyone Hated",
+  "museumId": "guggenheim",
+  "description": "Critics trashed it. Artists refused to show in it. Now it's an icon. What changed?",
+  "duration": "45 minutes",
+  "theme": "Architecture",
+  "image": "/images/museums/guggenheim.jpg",
+  "artworks": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "vatican_artist_beef",
+  "status": "coming_soon",
+  "name": "Renaissance Rivalry",
+  "museumId": "vatican_museums",
+  "description": "Michelangelo and Raphael worked in the same building and hated each other. This is their story.",
+  "duration": "45 minutes",
+  "theme": "Art History",
+  "image": "/images/museums/vatican_museums.jpg",
+  "artworks": []
+}

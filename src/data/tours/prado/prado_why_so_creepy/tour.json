@@ -1,0 +1,11 @@
+{
+  "id": "prado_why_so_creepy",
+  "status": "coming_soon",
+  "name": "Why Is This So Creepy?",
+  "museumId": "prado",
+  "description": "Goya painted some seriously disturbing stuff. Let's find out what was going on in his head.",
+  "duration": "45 minutes",
+  "theme": "Dark Art",
+  "image": "/images/museums/prado.jpg",
+  "artworks": []
+}

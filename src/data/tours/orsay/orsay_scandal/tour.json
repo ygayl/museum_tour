@@ -1,0 +1,11 @@
+{
+  "id": "orsay_scandal",
+  "status": "coming_soon",
+  "name": "Too Scandalous for Paris",
+  "museumId": "orsay",
+  "description": "Nude picnics, provocative stares, 'indecent' dancers. The paintings that shocked 1800s France.",
+  "duration": "45 minutes",
+  "theme": "Scandal",
+  "image": "/images/museums/orsay.jpg",
+  "artworks": []
+}

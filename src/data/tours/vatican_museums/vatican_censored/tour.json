@@ -1,0 +1,11 @@
+{
+  "id": "vatican_censored",
+  "status": "coming_soon",
+  "name": "Censored by the Pope",
+  "museumId": "vatican_museums",
+  "description": "The Vatican covered up Michelangelo's nudes. The battle between art and modesty.",
+  "duration": "45 minutes",
+  "theme": "Controversy",
+  "image": "/images/museums/vatican_museums.jpg",
+  "artworks": []
+}

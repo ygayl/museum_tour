@@ -1,0 +1,11 @@
+{
+  "id": "met_highlights",
+  "status": "coming_soon",
+  "name": "Met Highlights",
+  "museumId": "met",
+  "description": "5,000 years of human creativity in one epic tour—from Egyptian temples to American masterpieces.",
+  "duration": "60 minutes",
+  "theme": "Highlights",
+  "image": "/images/museums/met.jpg",
+  "artworks": []
+}

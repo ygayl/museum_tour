@@ -1,0 +1,11 @@
+{
+  "id": "orsay_rejected",
+  "status": "coming_soon",
+  "name": "The Rejected Artists Who Won",
+  "museumId": "orsay",
+  "description": "Critics laughed at them. Galleries refused them. Now their paintings are worth millions.",
+  "duration": "45 minutes",
+  "theme": "Impressionism",
+  "image": "/images/museums/orsay.jpg",
+  "artworks": []
+}

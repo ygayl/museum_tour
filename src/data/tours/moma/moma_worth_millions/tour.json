@@ -1,0 +1,11 @@
+{
+  "id": "moma_worth_millions",
+  "status": "coming_soon",
+  "name": "Why Is This Worth $200 Million?",
+  "museumId": "moma",
+  "description": "A black square. A blue canvas. Let's talk about art, money, and whether any of it makes sense.",
+  "duration": "45 minutes",
+  "theme": "Art Market",
+  "image": "/images/museums/moma.jpg",
+  "artworks": []
+}

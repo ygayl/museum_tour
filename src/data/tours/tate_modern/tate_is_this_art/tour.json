@@ -1,0 +1,11 @@
+{
+  "id": "tate_is_this_art",
+  "status": "coming_soon",
+  "name": "Wait, This Is Art?",
+  "museumId": "tate_modern",
+  "description": "Unmade beds, blank canvases, and a urinal. Let's figure out modern art together.",
+  "duration": "45 minutes",
+  "theme": "Conceptual Art",
+  "image": "/images/museums/tate_modern.jpg",
+  "artworks": []
+}

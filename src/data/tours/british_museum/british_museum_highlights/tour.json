@@ -1,0 +1,11 @@
+{
+  "id": "british_museum_highlights",
+  "status": "coming_soon",
+  "name": "British Museum Highlights",
+  "museumId": "british_museum",
+  "description": "Journey through human history with the world's most iconic artifacts—from the Rosetta Stone to the Parthenon sculptures.",
+  "duration": "60 minutes",
+  "theme": "Highlights",
+  "image": "/images/museums/british_museum.jpg",
+  "artworks": []
+}
