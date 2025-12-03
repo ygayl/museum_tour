@@ -130,22 +130,22 @@ const ArtPiecePage: React.FC<ArtPiecePageProps> = ({
               <picture className="w-full h-auto">
                 <source
                   srcSet={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
-                    ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.webp 360w, ${stop.image}.webp`
-                    : `${stop.image}_360.webp 360w, ${stop.image}.webp`}
-                  sizes="(max-width: 480px) 360px, 100vw"
+                    ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.webp 360w, ${stop.image.replace(/\.(jpg|jpeg)$/, '')}_720.webp 720w`
+                    : `${stop.image}_360.webp 360w, ${stop.image}_720.webp 720w`}
+                  sizes="(max-width: 480px) 360px, 720px"
                   type="image/webp"
                 />
                 <source
                   srcSet={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
-                    ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.jpg 360w, ${stop.image}`
-                    : `${stop.image}_360.jpg 360w, ${stop.image}.jpg`}
-                  sizes="(max-width: 480px) 360px, 100vw"
+                    ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_360.jpg 360w, ${stop.image.replace(/\.(jpg|jpeg)$/, '')}_720.jpg 720w`
+                    : `${stop.image}_360.jpg 360w, ${stop.image}_720.jpg 720w`}
+                  sizes="(max-width: 480px) 360px, 720px"
                   type="image/jpeg"
                 />
                 <img
                   src={stop.image.includes('.jpg') || stop.image.includes('.jpeg')
-                    ? stop.image
-                    : `${stop.image}.jpg`}
+                    ? `${stop.image.replace(/\.(jpg|jpeg)$/, '')}_720.jpg`
+                    : `${stop.image}_720.jpg`}
                   alt={stop.title}
                   className="w-full h-auto object-contain max-h-[80vh]"
                   loading="eager"

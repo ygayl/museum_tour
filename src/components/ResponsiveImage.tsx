@@ -13,7 +13,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   alt,
   className = '',
   priority = false,
-  sizes = '(max-width: 480px) 360px, 100vw'
+  sizes = '(max-width: 480px) 360px, 720px'
 }) => {
   const [isLoaded, setIsLoaded] = useState(priority);
   const [hasError, setHasError] = useState(false);
@@ -52,14 +52,14 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   // Check if this is a WebP-optimized path (no .jpg in base src)
   const hasWebPVersions = !src.includes('.jpg');
 
-  // Generate WebP and JPG srcsets (360 for mobile, base for larger screens)
+  // Generate WebP and JPG srcsets (360 for mobile, 720 for larger screens)
   const generateSrcSet = (format: 'webp' | 'jpg') => {
     if (!hasWebPVersions) {
       // For traditional images, just return the original path
       return src;
     }
-    // Mobile-first: 360px for small screens, base image for larger
-    return `${src}_360.${format} 360w, ${src}.${format}`;
+    // Mobile-first: 360px for small screens, 720px for larger
+    return `${src}_360.${format} 360w, ${src}_720.${format} 720w`;
   };
 
   // Fallback single image path (for when srcset fails)
@@ -67,7 +67,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
     if (!hasWebPVersions) {
       return src; // Return original JPG path
     }
-    return `${src}.jpg`;
+    return `${src}_720.jpg`;
   };
 
   return (
